@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fiches 6e — Géographie & Histoire</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#153F38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F0E6; --panel:#FFFFFF; --ink:#202A3C; --ink-soft:#5B6472; --line:#DCD5C4;
+    --teal:#1F5C52; --teal-deep:#153F38; --gold:#C68A2E; --clay:#A6472B; --clay-soft:#F3E3DC; --teal-soft:#E4EDE9;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Public Sans',sans-serif;font-size:15px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom);}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+
+  .topnav{position:sticky;top:0;z-index:20;background:var(--teal-deep);color:#EFEAE0;display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;}
+  .topnav .mark{font-family:'Fraunces',serif;font-weight:600;font-size:18px;flex:1;}
+  .icon-btn{background:rgba(255,255,255,.1);border:none;color:#EFEAE0;border-radius:8px;padding:8px 10px;font-size:13px;font-family:'Public Sans',sans-serif;font-weight:600;cursor:pointer;}
+
+  .view{display:none;padding:16px 16px 90px;max-width:720px;margin:0 auto;}
+  .view.active{display:block;}
+
+  .subject-toggle{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;margin-bottom:16px;}
+  .subject-toggle button{flex:1;padding:10px 6px;border:none;border-radius:9px;background:transparent;color:var(--ink-soft);font-family:'Public Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;}
+  .subject-toggle button.active{background:var(--teal-deep);color:#fff;}
+
+  .theme-title{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);font-weight:700;margin:18px 0 8px;}
+  .theme-title:first-child{margin-top:0;}
+  .lesson-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:9px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .lesson-card:active{background:var(--teal-soft);}
+  .lesson-card .titre{font-weight:600;font-size:14.5px;line-height:1.35;}
+  .lesson-card .meta{font-size:12px;color:var(--ink-soft);margin-top:3px;}
+  .lesson-card .arrow{color:var(--gold);font-size:18px;flex-shrink:0;}
+
+  .savedlist-empty{color:var(--ink-soft);font-size:13.5px;text-align:center;padding:40px 20px;}
+  .saved-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .saved-card .titre{font-weight:600;font-size:14px;}
+  .saved-card .del{color:var(--clay);background:var(--clay-soft);border:none;border-radius:7px;padding:6px 9px;font-size:12px;cursor:pointer;flex-shrink:0;}
+
+  .fiche-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;}
+  .back-btn{background:transparent;border:none;color:var(--teal-deep);font-size:22px;cursor:pointer;padding:0 4px;line-height:1;}
+  .fiche-header h1{font-size:21px;margin:2px 0 3px;color:var(--teal-deep);}
+  .fiche-header .meta{font-size:12.5px;color:var(--ink-soft);}
+
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+  button.btn{font-family:'Public Sans',sans-serif;font-weight:600;font-size:13px;border-radius:9px;padding:10px 14px;cursor:pointer;border:1px solid transparent;}
+  .btn-primary{background:var(--teal);color:#fff;}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink);}
+  .btn-clay{background:var(--clay-soft);color:var(--clay);}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px;margin-bottom:14px;}
+  .card h3{margin:0 0 10px;font-size:14px;color:var(--teal-deep);}
+  .entete-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .entete-table th,.entete-table td{border:1px solid var(--line);padding:7px 8px;text-align:left;}
+  .entete-table th{background:var(--teal-soft);font-weight:600;color:var(--teal-deep);width:34%;}
+
+  .field-label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:4px;display:block;}
+  .editable{outline:none;border-radius:6px;padding:2px 4px;min-height:1.4em;display:block;}
+  .editable:focus{background:#FDF6E8;box-shadow:0 0 0 2px var(--gold) inset;}
+  ul.clean{margin:4px 0;padding-left:18px;}
+  ul.clean li{margin:3px 0;font-size:13.5px;}
+
+  table.grid{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;}
+  table.grid th,table.grid td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top;}
+  table.grid th{background:var(--teal-soft);color:var(--teal-deep);font-size:10.8px;text-transform:uppercase;}
+  table.cc td:first-child{font-weight:600;width:34%;}
+  .deroul-item{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;}
+  .deroul-item .ph{font-weight:700;color:var(--teal-deep);font-size:13px;}
+  .deroul-item .dur{color:var(--gold);font-weight:700;font-size:12px;float:right;}
+  .deroul-item .lbl{font-size:10.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+
+  .sp-box{background:var(--clay-soft);border-left:4px solid var(--clay);border-radius:8px;padding:12px 14px;font-style:italic;color:#4a2a1c;font-size:13.5px;}
+  .resume-box{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;}
+  .resume-box h4{margin:10px 0 3px;font-size:13px;color:var(--teal-deep);}
+  .resume-box h4:first-child{margin-top:0;}
+
+  .modal-back{position:fixed;inset:0;background:rgba(32,42,60,.5);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px;}
+  .modal{background:#fff;border-radius:14px;padding:22px 22px;width:100%;max-width:380px;max-height:85vh;overflow:auto;}
+  .modal h3{margin:0 0 14px;color:var(--teal-deep);}
+  .modal label{display:block;font-size:12px;color:var(--ink-soft);margin:10px 0 4px;}
+  .modal input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:'Public Sans',sans-serif;}
+  .modal-actions{margin-top:18px;display:flex;justify-content:flex-end;gap:8px;}
+  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--teal-deep);color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;z-index:70;box-shadow:0 6px 20px rgba(0,0,0,.2);}
+
+  .tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:20;}
+  .tabbar button{flex:1;background:none;border:none;padding:10px 4px 8px;font-family:'Public Sans',sans-serif;font-size:11px;color:var(--ink-soft);cursor:pointer;}
+  .tabbar button .ic{display:block;font-size:18px;margin-bottom:2px;}
+  .tabbar button.active{color:var(--teal-deep);font-weight:700;}
+
+  @media print{
+    .topnav,.tabbar,.actions,.back-btn{display:none !important;}
+    body{background:#fff;padding-bottom:0;}
+    .view{padding:0;max-width:100%;}
+    .card{border:none;padding:8px 0;}
+  }
+</style>
+</head>
+<body>
+<div class="topnav">
+  <div class="mark">Fiches 6e</div>
+  <button class="icon-btn" id="settingsBtn">⚙ Réglages</button>
+</div>
+
+<div id="viewProgram" class="view active"></div>
+<div id="viewSaved" class="view"></div>
+<div id="viewFiche" class="view"></div>
+
+<div class="tabbar">
+  <button id="tabProgram" class="active"><span class="ic">📚</span>Programme</button>
+  <button id="tabSaved"><span class="ic">🗂</span>Mes fiches</button>
+</div>
+
+<script src="fiches-data.js"></script>
+<script>
+/* ============ PROGRAMME (structure/navigation) ============ */
+const PROGRAMS = {
+  geo: { label:"Géographie", themes:[
+    { theme:"Thème 1 — Maîtriser son espace de vie", ids:["g1","g2","g3"] },
+    { theme:"Thème 2 — L'homme et son environnement", ids:["g4","g5","g6","g7","g8"] }
+  ]},
+  hist: { label:"Histoire", themes:[
+    { theme:"Thème 1 — Introduction à la science historique", ids:["h1","h2","h3","h4"] },
+    { theme:"Thème 2 — La Préhistoire", ids:["h5","h6"] },
+    { theme:"Thème 3 — Les civilisations de l'Afrique", ids:["h7","h8","h9"] }
+  ]}
+};
+
+/* ============ STOCKAGE LOCAL (téléphone, hors-ligne) ============ */
+const LS_SETTINGS = 'ftg_settings';
+const LS_SAVED = 'ftg_saved'; // {id: {data, savedAt}}
+
+function getSettings(){
+  try{ return JSON.parse(localStorage.getItem(LS_SETTINGS)) || {etablissement:'',professeur:'',classe:'6ème',annee:'2025-2026'}; }
+  catch(e){ return {etablissement:'',professeur:'',classe:'6ème',annee:'2025-2026'}; }
+}
+function setSettings(s){ localStorage.setItem(LS_SETTINGS, JSON.stringify(s)); }
+function getSaved(){ try{ return JSON.parse(localStorage.getItem(LS_SAVED))||{}; }catch(e){ return {}; } }
+function setSaved(obj){ localStorage.setItem(LS_SAVED, JSON.stringify(obj)); }
+
+/* ============ ÉTAT ============ */
+let state = {
+  tab: 'program',
+  subject: 'geo',
+  currentId: null,
+  fiche: null,
+  settings: getSettings(),
+};
+
+function esc(s){ return (s===undefined||s===null)?'':String(s); }
+function cloneFiche(id){ return JSON.parse(JSON.stringify(FICHES_DATA[id])); }
+function idSubject(id){ return id.startsWith('g') ? 'geo':'hist'; }
+function lessonDuree(id, f){
+  const total = f.deroulement.reduce((s,p)=>s+parseInt(p.duree),0);
+  return total + " min";
+}
+
+function showToast(msg){
+  const t = document.createElement('div');
+  t.className='toast'; t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(), 2200);
+}
+
+function switchTab(tab){
+  state.tab = tab;
+  document.getElementById('viewProgram').classList.toggle('active', tab==='program');
+  document.getElementById('viewSaved').classList.toggle('active', tab==='saved');
+  document.getElementById('viewFiche').classList.remove('active');
+  document.getElementById('tabProgram').classList.toggle('active', tab==='program');
+  document.getElementById('tabSaved').classList.toggle('active', tab==='saved');
+  renderProgram();
+  renderSaved();
+}
+
+document.getElementById('tabProgram').onclick = ()=>switchTab('program');
+document.getElementById('tabSaved').onclick = ()=>switchTab('saved');
+document.getElementById('settingsBtn').onclick = ()=>openSettings();
+
+/* ============ VUE PROGRAMME ============ */
+function renderProgram(){
+  const el = document.getElementById('viewProgram');
+  el.innerHTML = '';
+  const toggle = document.createElement('div'); toggle.className='subject-toggle';
+  ['geo','hist'].forEach(s=>{
+    const b = document.createElement('button');
+    b.textContent = PROGRAMS[s].label;
+    if(state.subject===s) b.className='active';
+    b.onclick = ()=>{ state.subject=s; renderProgram(); };
+    toggle.appendChild(b);
+  });
+  el.appendChild(toggle);
+
+  PROGRAMS[state.subject].themes.forEach(t=>{
+    const tt = document.createElement('div'); tt.className='theme-title'; tt.textContent = t.theme;
+    el.appendChild(tt);
+    t.ids.forEach(id=>{
+      const f = FICHES_DATA[id];
+      const card = document.createElement('div'); card.className='lesson-card';
+      card.innerHTML = `<div><div class="titre">${esc(f.leconTitre)}</div><div class="meta">${esc(lessonDuree(id,f))}</div></div><div class="arrow">›</div>`;
+      card.onclick = ()=> openFiche(id);
+      el.appendChild(card);
+    });
+  });
+}
+
+/* ============ VUE MES FICHES ============ */
+function renderSaved(){
+  const el = document.getElementById('viewSaved');
+  el.innerHTML = '';
+  const saved = getSaved();
+  const keys = Object.keys(saved).sort((a,b)=> saved[b].savedAt - saved[a].savedAt);
+  if(keys.length===0){
+    el.innerHTML = '<div class="savedlist-empty">Aucune fiche enregistrée pour l\'instant.<br>Ouvrez une leçon puis appuyez sur « Enregistrer ».</div>';
+    return;
+  }
+  keys.forEach(k=>{
+    const entry = saved[k];
+    const card = document.createElement('div'); card.className='saved-card';
+    card.innerHTML = `<div class="titre">${esc(entry.data.leconTitre)}</div>`;
+    const openBtn = document.createElement('div');
+    const del = document.createElement('button'); del.className='del'; del.textContent='Supprimer';
+    del.onclick = (e)=>{ e.stopPropagation(); const s=getSaved(); delete s[k]; setSaved(s); renderSaved(); };
+    card.onclick = ()=>{ state.currentId=k; state.fiche=JSON.parse(JSON.stringify(entry.data)); state.editKey=k; goToFicheView(); };
+    card.appendChild(del);
+    el.appendChild(card);
+  });
+}
+
+/* ============ OUVERTURE / GÉNÉRATION D'UNE FICHE (déjà pré-écrite) ============ */
+function openFiche(id){
+  state.currentId = id;
+  state.fiche = cloneFiche(id);
+  state.editKey = null; // pas encore enregistrée sous une clé
+  goToFicheView();
+}
+
+function goToFicheView(){
+  document.getElementById('viewProgram').classList.remove('active');
+  document.getElementById('viewSaved').classList.remove('active');
+  document.getElementById('viewFiche').classList.add('active');
+  renderFicheView();
+}
+
+function makeEditable(tag, value, onChange){
+  const el = document.createElement(tag);
+  el.className = 'editable';
+  el.contentEditable = 'true';
+  el.textContent = value||'';
+  el.addEventListener('blur', ()=> onChange(el.textContent));
+  return el;
+}
+
+function renderFicheView(){
+  const el = document.getElementById('viewFiche');
+  el.innerHTML = '';
+  const f = state.fiche;
+  const settings = state.settings;
+
+  const header = document.createElement('div'); header.className='fiche-header';
+  const back = document.createElement('button'); back.className='back-btn'; back.textContent='←';
+  back.onclick = ()=> switchTab(state.editKey ? 'saved' : 'program');
+  const htxt = document.createElement('div');
+  htxt.innerHTML = `<h1>${esc(f.leconTitre)}</h1><div class="meta">${esc(f.theme)}</div>`;
+  header.appendChild(back); header.appendChild(htxt);
+  el.appendChild(header);
+
+  const actions = document.createElement('div'); actions.className='actions';
+  const saveBtn = document.createElement('button'); saveBtn.className='btn btn-primary'; saveBtn.textContent='Enregistrer';
+  saveBtn.onclick = ()=>{
+    const s = getSaved();
+    const key = state.editKey || (state.currentId + ':' + Date.now());
+    s[key] = { data: f, savedAt: Date.now() };
+    setSaved(s);
+    state.editKey = key;
+    showToast('Fiche enregistrée ✓');
+  };
+  const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer / PDF';
+  printBtn.onclick = ()=> window.print();
+  const resetBtn = document.createElement('button'); resetBtn.className='btn btn-ghost'; resetBtn.textContent='Réinitialiser';
+  resetBtn.onclick = ()=>{ if(state.currentId && FICHES_DATA[state.currentId]){ state.fiche = cloneFiche(state.currentId); renderFicheView(); } };
+  actions.appendChild(saveBtn); actions.appendChild(printBtn); actions.appendChild(resetBtn);
+  el.appendChild(actions);
+
+  // En-tête administratif
+  const c1 = document.createElement('div'); c1.className='card';
+  c1.innerHTML = `<h3>En-tête</h3>`;
+  const t = document.createElement('table'); t.className='entete-table';
+  t.innerHTML = `<tr><th>Classe</th><td class="ed" data-k="classe">${esc(settings.classe||'6ème')}</td></tr>
+    <tr><th>Durée</th><td>${esc(lessonDuree(state.currentId,f))}</td></tr>
+    <tr><th>Établissement</th><td class="ed" data-k="etablissement">${esc(settings.etablissement||'—')}</td></tr>
+    <tr><th>Année scolaire</th><td class="ed" data-k="annee">${esc(settings.annee||'—')}</td></tr>
+    <tr><th>Professeur</th><td class="ed" data-k="professeur">${esc(settings.professeur||'—')}</td></tr>`;
+  t.querySelectorAll('td.ed').forEach(td=>{
+    td.contentEditable='true';
+    td.addEventListener('blur', ()=>{ state.settings[td.dataset.k]=td.textContent; setSettings(state.settings); });
+  });
+  c1.appendChild(t);
+  el.appendChild(c1);
+
+  // Cadrage
+  const c2 = document.createElement('div'); c2.className='card';
+  c2.innerHTML = `<h3>Cadrage</h3><span class="field-label">Compétence</span>`;
+  c2.appendChild(makeEditable('p', f.competence, v=>f.competence=v));
+  const docLabel = document.createElement('span'); docLabel.className='field-label'; docLabel.style.marginTop='10px'; docLabel.style.display='block'; docLabel.textContent='Documentation';
+  c2.appendChild(docLabel);
+  const docUl = document.createElement('ul'); docUl.className='clean';
+  f.documentation.forEach((d,i)=>{ const li=document.createElement('li'); li.appendChild(makeEditable('span', d, v=>f.documentation[i]=v)); docUl.appendChild(li); });
+  c2.appendChild(docUl);
+  const supLabel = document.createElement('span'); supLabel.className='field-label'; supLabel.style.marginTop='6px'; supLabel.style.display='block'; supLabel.textContent='Supports didactiques';
+  c2.appendChild(supLabel);
+  c2.appendChild(makeEditable('p', f.supportsDidactiques, v=>f.supportsDidactiques=v));
+  const preLabel = document.createElement('span'); preLabel.className='field-label'; preLabel.style.marginTop='6px'; preLabel.style.display='block'; preLabel.textContent='Pré-requis';
+  c2.appendChild(preLabel);
+  c2.appendChild(makeEditable('p', f.preRequis, v=>f.preRequis=v));
+  el.appendChild(c2);
+
+  // Capacités / contenus
+  const c3 = document.createElement('div'); c3.className='card';
+  c3.innerHTML = `<h3>Capacités &amp; contenus</h3>`;
+  const cct = document.createElement('table'); cct.className='grid cc';
+  cct.innerHTML = `<tr><th>Capacités</th><th>Contenus</th></tr>`;
+  f.capacitesContenus.forEach(row=>{
+    const tr = document.createElement('tr');
+    const td1 = document.createElement('td'); td1.appendChild(makeEditable('span', row[0], v=>row[0]=v));
+    const td2 = document.createElement('td'); td2.appendChild(makeEditable('span', row[1], v=>row[1]=v));
+    tr.appendChild(td1); tr.appendChild(td2);
+    cct.appendChild(tr);
+  });
+  c3.appendChild(cct);
+  el.appendChild(c3);
+
+  // Situation-problème + consignes + stratégies
+  const c4 = document.createElement('div'); c4.className='card';
+  c4.innerHTML = `<h3>Situation-problème</h3>`;
+  const spBox = document.createElement('div'); spBox.className='sp-box';
+  spBox.appendChild(makeEditable('p', f.situationProbleme, v=>f.situationProbleme=v));
+  c4.appendChild(spBox);
+  const consLabel = document.createElement('span'); consLabel.className='field-label'; consLabel.style.marginTop='12px'; consLabel.style.display='block'; consLabel.textContent='Consignes';
+  c4.appendChild(consLabel);
+  const consUl = document.createElement('ul'); consUl.className='clean';
+  f.consignes.forEach((d,i)=>{ const li=document.createElement('li'); li.appendChild(makeEditable('span', d, v=>f.consignes[i]=v)); consUl.appendChild(li); });
+  c4.appendChild(consUl);
+  const stratLabel = document.createElement('span'); stratLabel.className='field-label'; stratLabel.style.marginTop='8px'; stratLabel.style.display='block'; stratLabel.textContent='Stratégies pédagogiques';
+  c4.appendChild(stratLabel);
+  const stratUl = document.createElement('ul'); stratUl.className='clean';
+  f.strategies.forEach((d,i)=>{ const li=document.createElement('li'); li.appendChild(makeEditable('span', d, v=>f.strategies[i]=v)); stratUl.appendChild(li); });
+  c4.appendChild(stratUl);
+  el.appendChild(c4);
+
+  // Déroulement (cartes, plus lisible sur mobile qu'un tableau large)
+  const c5 = document.createElement('div'); c5.className='card';
+  c5.innerHTML = `<h3>Déroulement de la séance</h3>`;
+  f.deroulement.forEach(row=>{
+    const item = document.createElement('div'); item.className='deroul-item';
+    const head = document.createElement('div');
+    const ph = document.createElement('span'); ph.className='ph'; ph.appendChild(makeEditable('span', row.phase, v=>row.phase=v));
+    const dur = document.createElement('span'); dur.className='dur'; dur.appendChild(makeEditable('span', row.duree, v=>row.duree=v));
+    head.appendChild(dur); head.appendChild(ph);
+    item.appendChild(head);
+    [['Activité du professeur','activiteProf'],['Activité des élèves','activiteEleve'],['Support','support']].forEach(([lbl,key])=>{
+      const l = document.createElement('div'); l.className='lbl'; l.textContent=lbl;
+      const v = makeEditable('p', row[key], val=>row[key]=val); v.style.margin='2px 0 0';
+      item.appendChild(l); item.appendChild(v);
+    });
+    c5.appendChild(item);
+  });
+  el.appendChild(c5);
+
+  // Résumé
+  const c6 = document.createElement('div'); c6.className='card';
+  c6.innerHTML = `<h3>Résumé (trace écrite)</h3>`;
+  const resBox = document.createElement('div'); resBox.className='resume-box';
+  f.resume.forEach(sec=>{
+    const h4 = document.createElement('h4'); h4.appendChild(makeEditable('span', sec.titre, v=>sec.titre=v));
+    const p = document.createElement('p'); p.style.margin='0 0 6px'; p.appendChild(makeEditable('span', sec.texte, v=>sec.texte=v));
+    resBox.appendChild(h4); resBox.appendChild(p);
+  });
+  c6.appendChild(resBox);
+  el.appendChild(c6);
+
+  // Évaluation / devoir
+  const c7 = document.createElement('div'); c7.className='card';
+  c7.innerHTML = `<h3>Évaluation</h3>`;
+  c7.appendChild(makeEditable('p', f.evaluation, v=>f.evaluation=v));
+  const dmLabel = document.createElement('span'); dmLabel.className='field-label'; dmLabel.style.marginTop='10px'; dmLabel.style.display='block'; dmLabel.textContent='Devoir de maison';
+  c7.appendChild(dmLabel);
+  c7.appendChild(makeEditable('p', f.devoirMaison, v=>f.devoirMaison=v));
+  el.appendChild(c7);
+}
+
+/* ============ RÉGLAGES ============ */
+function openSettings(){
+  const back = document.createElement('div'); back.className='modal-back';
+  const modal = document.createElement('div'); modal.className='modal';
+  modal.innerHTML = `<h3>Réglages</h3>`;
+  const fields = [['etablissement','Établissement'],['professeur','Professeur'],['classe','Classe'],['annee','Année scolaire']];
+  const inputs = {};
+  fields.forEach(([key,label])=>{
+    const l=document.createElement('label'); l.textContent=label;
+    const inp=document.createElement('input'); inp.value = state.settings[key]||'';
+    inputs[key]=inp;
+    modal.appendChild(l); modal.appendChild(inp);
+  });
+  const actions = document.createElement('div'); actions.className='modal-actions';
+  const cancel = document.createElement('button'); cancel.className='btn btn-ghost'; cancel.textContent='Annuler';
+  cancel.onclick = ()=> back.remove();
+  const save = document.createElement('button'); save.className='btn btn-primary'; save.textContent='Enregistrer';
+  save.onclick = ()=>{
+    Object.keys(inputs).forEach(k=> state.settings[k]=inputs[k].value);
+    setSettings(state.settings);
+    back.remove();
+    if(document.getElementById('viewFiche').classList.contains('active')) renderFicheView();
+    showToast('Réglages enregistrés ✓');
+  };
+  actions.appendChild(cancel); actions.appendChild(save);
+  modal.appendChild(actions);
+  back.appendChild(modal);
+  back.onclick = (e)=>{ if(e.target===back) back.remove(); };
+  document.body.appendChild(back);
+}
+
+/* ============ SERVICE WORKER (installation + hors-ligne) ============ */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+
+/* ============ INIT ============ */
+renderProgram();
+renderSaved();
+</script>
+</body>
+</html>
