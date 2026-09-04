@@ -399,6 +399,26 @@ function renderFicheView(){
   c3.appendChild(cct);
   el.appendChild(c3);
 
+  // Croquis / carte (si présent) — peut être un objet unique ou un tableau
+  if(f.croquis){
+    const croquisArr = Array.isArray(f.croquis) ? f.croquis : [f.croquis];
+    croquisArr.forEach(cr=>{
+      const c3b = document.createElement('div'); c3b.className='card';
+      c3b.innerHTML = `<h3>${esc(cr.titre)}</h3>`;
+      const imgWrap = document.createElement('div');
+      imgWrap.style.cssText = 'background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;max-width:340px;margin:0 auto;';
+      imgWrap.innerHTML = cr.svg;
+      const svgEl = imgWrap.querySelector('svg');
+      if(svgEl){ svgEl.style.width='100%'; svgEl.style.height='auto'; svgEl.style.display='block'; }
+      c3b.appendChild(imgWrap);
+      const legende = document.createElement('p');
+      legende.style.cssText = 'font-size:12.5px;color:var(--ink-soft);margin-top:10px;font-style:italic;';
+      legende.textContent = cr.legende;
+      c3b.appendChild(legende);
+      el.appendChild(c3b);
+    });
+  }
+
   // Situation-problème + consignes + stratégies
   const c4 = document.createElement('div'); c4.className='card';
   c4.innerHTML = `<h3>Situation d'apprentissage</h3>`;
