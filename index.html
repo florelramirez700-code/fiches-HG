@@ -119,19 +119,62 @@
 </div>
 
 <script src="fiches-data.js"></script>
+<script src="fiches-data-5e.js"></script>
+<script src="fiches-data-4e.js"></script>
+<script src="fiches-data-3e.js"></script>
 <script>
+/* ============ TOUTES LES FICHES (fusion des niveaux) ============ */
+const ALL_FICHES = Object.assign({}, FICHES_DATA, FICHES_DATA_5E, FICHES_DATA_4E, FICHES_DATA_3E);
+
 /* ============ PROGRAMME (structure/navigation) ============ */
-const PROGRAMS = {
-  geo: { label:"Géographie", themes:[
-    { theme:"Thème 1 — Maîtriser son espace de vie", ids:["g1","g2","g3"] },
-    { theme:"Thème 2 — L'homme et son environnement", ids:["g4","g5","g6","g7","g8"] }
-  ]},
-  hist: { label:"Histoire", themes:[
-    { theme:"Thème 1 — Introduction à la science historique", ids:["h1","h2","h3","h4"] },
-    { theme:"Thème 2 — La Préhistoire", ids:["h5","h6"] },
-    { theme:"Thème 3 — Les civilisations de l'Afrique", ids:["h7","h8","h9"] }
-  ]}
+const LEVELS = {
+  '6e': {
+    geo: { label:"Géographie", themes:[
+      { theme:"Thème 1 — Maîtriser son espace de vie", ids:["g1","g2","g3"] },
+      { theme:"Thème 2 — L'homme et son environnement", ids:["g4","g5","g6","g7","g8"] }
+    ]},
+    hist: { label:"Histoire", themes:[
+      { theme:"Thème 1 — Introduction à la science historique", ids:["h1","h2","h3","h4"] },
+      { theme:"Thème 2 — La Préhistoire", ids:["h5","h6"] },
+      { theme:"Thème 3 — Les civilisations de l'Afrique", ids:["h7","h8","h9"] }
+    ]}
+  },
+  '5e': {
+    geo: { label:"Géographie", themes:[
+      { theme:"Connaître les régions économiques de mon pays", ids:["g5_1","g5_2","g5_3","g5_4","g5_5","g5_6","g5_7","g5_8","g5_9","g5_10"] }
+    ]},
+    hist: { label:"Histoire", themes:[
+      { theme:"Thème 1 — Les mutations religieuses du Ier au XIIIe siècle", ids:["h5_1","h5_2"] },
+      { theme:"Thème 2 — Les empires du Soudan occidental du VIIe au XVIe siècle", ids:["h5_3","h5_4","h5_5"] },
+      { theme:"Thème 3 — Le peuplement du Togo des origines au XIIe siècle", ids:["h5_6","h5_7"] },
+      { theme:"Thème 4 — Le monde occidental du Xe au XVIe siècle", ids:["h5_8"] }
+    ]}
+  },
+  '4e': {
+    geo: { label:"Géographie", themes:[
+      { theme:"Thème 1 — Le continent africain face aux enjeux démographiques et environnementaux", ids:["g4_1","g4_2","g4_3"] },
+      { theme:"Thème 2 — Le continent africain face aux enjeux économiques", ids:["g4_4","g4_5","g4_6","g4_7"] }
+    ]},
+    hist: { label:"Histoire", themes:[
+      { theme:"Thème 1 — Les traites négrières", ids:["h4_1","h4_2","h4_3"] },
+      { theme:"Thème 2 — L'Afrique du XVIIe au XIXe siècle", ids:["h4_4","h4_5"] },
+      { theme:"Thème 3 — Peuples et civilisations du Togo du XIIe au XIXe siècle", ids:["h4_6","h4_7","h4_8","h4_9","h4_10","h4_11"] }
+    ]}
+  },
+  '3e': {
+    geo: { label:"Géographie", themes:[
+      { theme:"Thème 1 — Togo, milieu physique et problèmes environnementaux majeurs", ids:["g3_1","g3_2","g3_3","g3_4"] },
+      { theme:"Thème 2 — Dynamique de la population togolaise et ses enjeux", ids:["g3_5","g3_6"] },
+      { theme:"Thème 3 — Une économie togolaise en pleine expansion", ids:["g3_7","g3_8","g3_9","g3_10","g3_11","g3_12"] }
+    ]},
+    hist: { label:"Histoire", themes:[
+      { theme:"Thème 1 — L'impérialisme et ses conséquences en Afrique (fin XIXe siècle-1960)", ids:["h3_1","h3_2","h3_3","h3_4","h3_5","h3_6","h3_7","h3_8"] },
+      { theme:"Thème 2 — Les deux guerres mondiales et leurs conséquences", ids:["h3_9","h3_10"] },
+      { theme:"Thème 3 — L'Afrique postcoloniale", ids:["h3_11"] }
+    ]}
+  }
 };
+const PROGRAMS = LEVELS['6e'];
 
 /* ============ STOCKAGE LOCAL (téléphone, hors-ligne) ============ */
 const LS_SETTINGS = 'ftg_settings';
@@ -148,6 +191,7 @@ function setSaved(obj){ localStorage.setItem(LS_SAVED, JSON.stringify(obj)); }
 /* ============ ÉTAT ============ */
 let state = {
   tab: 'program',
+  level: '6e',
   subject: 'geo',
   currentId: null,
   fiche: null,
@@ -155,8 +199,7 @@ let state = {
 };
 
 function esc(s){ return (s===undefined||s===null)?'':String(s); }
-function cloneFiche(id){ return JSON.parse(JSON.stringify(FICHES_DATA[id])); }
-function idSubject(id){ return id.startsWith('g') ? 'geo':'hist'; }
+function cloneFiche(id){ return JSON.parse(JSON.stringify(ALL_FICHES[id])); }
 function lessonDuree(id, f){
   const total = f.deroulement.reduce((s,p)=>s+parseInt(p.duree),0);
   return total + " min";
@@ -188,21 +231,40 @@ document.getElementById('settingsBtn').onclick = ()=>openSettings();
 function renderProgram(){
   const el = document.getElementById('viewProgram');
   el.innerHTML = '';
-  const toggle = document.createElement('div'); toggle.className='subject-toggle';
+
+  const levelToggle = document.createElement('div'); levelToggle.className='subject-toggle';
+  ['6e','5e','4e','3e'].forEach(lv=>{
+    const b = document.createElement('button');
+    b.textContent = lv;
+    if(state.level===lv) b.className='active';
+    b.onclick = ()=>{ state.level=lv; renderProgram(); };
+    levelToggle.appendChild(b);
+  });
+  el.appendChild(levelToggle);
+
+  const toggle = document.createElement('div'); toggle.className='subject-toggle'; toggle.style.marginTop='8px';
+  const lvl = LEVELS[state.level];
   ['geo','hist'].forEach(s=>{
     const b = document.createElement('button');
-    b.textContent = PROGRAMS[s].label;
+    b.textContent = lvl[s].label;
     if(state.subject===s) b.className='active';
     b.onclick = ()=>{ state.subject=s; renderProgram(); };
     toggle.appendChild(b);
   });
   el.appendChild(toggle);
 
-  PROGRAMS[state.subject].themes.forEach(t=>{
+  if(lvl[state.subject].themes.length === 0){
+    const empty = document.createElement('div'); empty.className='savedlist-empty';
+    empty.textContent = "Le programme officiel d'Histoire 3e n'a pas encore été reçu — ces fiches seront ajoutées dès qu'il sera disponible.";
+    el.appendChild(empty);
+    return;
+  }
+
+  lvl[state.subject].themes.forEach(t=>{
     const tt = document.createElement('div'); tt.className='theme-title'; tt.textContent = t.theme;
     el.appendChild(tt);
     t.ids.forEach(id=>{
-      const f = FICHES_DATA[id];
+      const f = ALL_FICHES[id];
       const card = document.createElement('div'); card.className='lesson-card';
       card.innerHTML = `<div><div class="titre">${esc(f.leconTitre)}</div><div class="meta">${esc(lessonDuree(id,f))}</div></div><div class="arrow">›</div>`;
       card.onclick = ()=> openFiche(id);
@@ -285,7 +347,7 @@ function renderFicheView(){
   const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer / PDF';
   printBtn.onclick = ()=> window.print();
   const resetBtn = document.createElement('button'); resetBtn.className='btn btn-ghost'; resetBtn.textContent='Réinitialiser';
-  resetBtn.onclick = ()=>{ if(state.currentId && FICHES_DATA[state.currentId]){ state.fiche = cloneFiche(state.currentId); renderFicheView(); } };
+  resetBtn.onclick = ()=>{ if(state.currentId && ALL_FICHES[state.currentId]){ state.fiche = cloneFiche(state.currentId); renderFicheView(); } };
   actions.appendChild(saveBtn); actions.appendChild(printBtn); actions.appendChild(resetBtn);
   el.appendChild(actions);
 
@@ -339,7 +401,7 @@ function renderFicheView(){
 
   // Situation-problème + consignes + stratégies
   const c4 = document.createElement('div'); c4.className='card';
-  c4.innerHTML = `<h3>Situation-problème</h3>`;
+  c4.innerHTML = `<h3>Situation d'apprentissage</h3>`;
   const spBox = document.createElement('div'); spBox.className='sp-box';
   spBox.appendChild(makeEditable('p', f.situationProbleme, v=>f.situationProbleme=v));
   c4.appendChild(spBox);
