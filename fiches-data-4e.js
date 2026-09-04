@@ -29,7 +29,8 @@ g4_1: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur le croquis du continent réalisé à partir d'un quadrillage, il faut savoir situer et nommer : l'équateur et les deux tropiques, les quatre océans/mers qui bordent l'Afrique (Méditerranée, mer Rouge, océan Indien, océan Atlantique), ainsi que les cinq grandes régions du continent."}
   ],
   evaluation: "1) Citez les limites du continent africain. 2) Comparez la superficie de l'Afrique à celle d'un autre continent de votre choix.",
-  devoirMaison: "Réalisez, sur une feuille quadrillée, le croquis du continent africain à partir du modèle vu en classe."
+  devoirMaison: "Réalisez, sur une feuille quadrillée, le croquis du continent africain à partir du modèle vu en classe.",
+  croquis: {titre: "Croquis du continent africain", svg: "<svg viewBox=\"0 0 520 520\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"520\" height=\"520\" fill=\"#F3F0E6\"/>\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"320\" y1=\"0\" x2=\"320\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"360\" y1=\"0\" x2=\"360\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"400\" y1=\"0\" x2=\"400\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"440\" y1=\"0\" x2=\"440\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"480\" y1=\"0\" x2=\"480\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"520\" y1=\"0\" x2=\"520\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"520\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"520\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"520\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"520\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"520\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"520\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"520\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"520\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"520\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"520\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"520\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"520\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"520\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"520\" x2=\"520\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<path d=\"M 210,10 L 260,15 L 300,35 L 330,30 L 360,45 L 380,70 L 400,75 L 420,95 L 410,120 L 430,140 L 415,165 L 425,190 L 400,210 L 405,240 L 380,265 L 385,300 L 360,340 L 345,390 L 325,430 L 300,460 L 275,480 L 260,450 L 250,410 L 230,380 L 215,340 L 200,320 L 205,280 L 180,260 L 175,220 L 155,200 L 160,170 L 140,150 L 150,120 L 130,100 L 150,80 L 145,55 L 175,40 L 190,20 Z\" fill=\"#EDEAE0\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"300\" y=\"495\" font-size=\"11\" fill=\"#1F5C52\" font-weight=\"600\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n<text x=\"450\" y=\"235\" font-size=\"11\" fill=\"#1F5C52\" font-weight=\"600\" text-anchor=\"middle\"><tspan x=\"450\" dy=\"0\">OCÉAN</tspan><tspan x=\"450\" dy=\"13\">INDIEN</tspan></text>\n<line x1=\"10\" y1=\"10\" x2=\"510\" y2=\"10\" stroke=\"#C68A2E\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/>\n<text x=\"505\" y=\"22\" font-size=\"9\" fill=\"#C68A2E\" font-weight=\"600\" text-anchor=\"end\">Tropique du Cancer</text>\n<line x1=\"10\" y1=\"260\" x2=\"440\" y2=\"260\" stroke=\"#A6472B\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n<text x=\"220\" y=\"274\" font-size=\"9\" fill=\"#A6472B\" font-weight=\"600\" text-anchor=\"middle\">Équateur</text>\n<line x1=\"10\" y1=\"440\" x2=\"510\" y2=\"440\" stroke=\"#C68A2E\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/>\n<text x=\"505\" y=\"454\" font-size=\"9\" fill=\"#C68A2E\" font-weight=\"600\" text-anchor=\"end\">Tropique du Capricorne</text>\n</svg>", legende: "Silhouette schématique du continent africain, à reproduire à partir d'un quadrillage, avec l'équateur et les deux tropiques (Cancer, Capricorne)."}
 },
 
 g4_2: {
@@ -62,7 +63,8 @@ g4_2: {
     {titre:"4. Un défi commun", texte:"Ces trois phénomènes sont liés : le manque d'opportunités dans les campagnes pousse à l'exode rural, et le manque d'opportunités en ville pousse à l'émigration. Ils appellent des politiques de développement, de formation et de création d'emplois à l'échelle du continent."}
   ],
   evaluation: "1) Définissez l'extrême jeunesse de la population africaine. 2) Citez deux avantages et deux problèmes de l'exode rural massif en Afrique.",
-  devoirMaison: "Pourquoi l'émigration clandestine est-elle dangereuse pour les migrants ?"
+  devoirMaison: "Pourquoi l'émigration clandestine est-elle dangereuse pour les migrants ?",
+  croquis: null
 },
 
 g4_3: {
@@ -95,7 +97,8 @@ g4_3: {
     {titre:"4. Vers des solutions durables", texte:"Face à ces problèmes, plusieurs initiatives sont mises en œuvre en Afrique, comme la Grande Muraille Verte (un projet de reboisement traversant le Sahel d'ouest en est) et des politiques nationales de protection de l'environnement."}
   ],
   evaluation: "1) Citez trois problèmes environnementaux majeurs en Afrique. 2) Montrez le lien entre activités humaines et un problème environnemental de votre choix.",
-  devoirMaison: "Proposez deux solutions pour lutter contre l'avancée du désert."
+  devoirMaison: "Proposez deux solutions pour lutter contre l'avancée du désert.",
+  croquis: null
 },
 
 g4_4: {
@@ -127,7 +130,8 @@ g4_4: {
     {titre:"3. Les défis et perspectives", texte:"L'Afrique dispose d'importantes réserves de terres cultivables et cherche à moderniser son agriculture pour atteindre l'autosuffisance alimentaire, notamment à travers l'agriculture familiale, les coopératives et l'agro-industrie."}
   ],
   evaluation: "1) Citez trois conditions naturelles qui influencent l'agriculture en Afrique. 2) Décrivez les caractéristiques générales de l'agriculture africaine.",
-  devoirMaison: "Donnez un exemple d'effort de modernisation de l'agriculture dans votre pays."
+  devoirMaison: "Donnez un exemple d'effort de modernisation de l'agriculture dans votre pays.",
+  croquis: null
 },
 
 g4_5: {
@@ -159,7 +163,8 @@ g4_5: {
     {titre:"3. Les efforts d'industrialisation", texte:"Plusieurs pays africains mettent en place des politiques industrielles incitatives, créent des zones économiques spéciales et des centres de formation technique, et développent des projets énergétiques (grands barrages hydroélectriques) pour soutenir l'industrialisation du continent."}
   ],
   evaluation: "1) Citez trois potentialités industrielles de l'Afrique. 2) Décrivez deux caractéristiques de l'industrie africaine.",
-  devoirMaison: "Donnez un exemple d'effort d'industrialisation dans un pays africain de votre choix."
+  devoirMaison: "Donnez un exemple d'effort d'industrialisation dans un pays africain de votre choix.",
+  croquis: null
 },
 
 g4_6: {
@@ -190,7 +195,8 @@ g4_6: {
     {titre:"3. Vers une intégration commerciale africaine", texte:"Des initiatives comme la Zone de libre-échange continentale africaine (ZLECAf) visent à renforcer le commerce entre pays africains eux-mêmes, afin de réduire la dépendance aux marchés extérieurs et de stimuler l'industrialisation locale."}
   ],
   evaluation: "1) Pourquoi le commerce interafricain est-il encore peu développé ? 2) Citez deux problèmes du commerce de l'Afrique avec le reste du monde.",
-  devoirMaison: "Proposez une solution pour renforcer les échanges entre pays africains."
+  devoirMaison: "Proposez une solution pour renforcer les échanges entre pays africains.",
+  croquis: null
 },
 
 g4_7: {
@@ -221,7 +227,8 @@ g4_7: {
     {titre:"3. Importance et défis", texte:"Transports et télécommunications sont essentiels au commerce, à l'intégration régionale et au développement économique de l'Afrique, mais nécessitent encore d'importants investissements, notamment pour désenclaver les zones rurales et intérieures."}
   ],
   evaluation: "1) Citez deux caractéristiques des transports en Afrique. 2) Pourquoi la couverture des télécommunications est-elle inégale entre villes et campagnes ?",
-  devoirMaison: "Donnez un exemple d'effort de modernisation des transports dans votre pays."
+  devoirMaison: "Donnez un exemple d'effort de modernisation des transports dans votre pays.",
+  croquis: null
 },
 
 h4_1: {
@@ -233,6 +240,7 @@ h4_1: {
   preRequis: "Notions de société et d'organisation sociale vues en classes antérieures",
   capacitesContenus: [
     ["Différencier l'esclavage de la traite des humains", "Différence entre l'esclavage et la traite des humains"],
+    ["Identifier les différents types d'esclaves", "Esclave de case ou de maison (intégré au foyer) ; esclave de traite (destiné à la vente et au commerce)"],
     ["Identifier les causes de l'esclavage et de la traite des humains", "Causes de l'esclavage ; causes de la traite des humains"],
     ["Décrire le rôle des esclaves dans la société", "Rôle des esclaves dans la société (travaux domestiques, champêtres, soldats, etc.)"],
     ["Montrer le caractère universel de l'esclavage et de la traite", "Caractère universel de l'esclavage et de la traite"],
@@ -253,10 +261,12 @@ h4_1: {
     {titre:"1. Différence entre esclavage et traite", texte:"L'esclavage est le fait de posséder et d'exploiter une personne comme un bien, la privant de liberté ; la traite est le commerce (achat, vente, déplacement) de ces personnes réduites en esclavage. Un esclave peut exister sans qu'il y ait traite organisée, et inversement."},
     {titre:"2. Les causes de l'esclavage et de la traite", texte:"Les causes sont multiples : les guerres et razzias (les prisonniers étant réduits en esclavage), l'endettement, certaines pratiques religieuses ou coutumières, et surtout la recherche de main-d'œuvre bon marché pour l'agriculture, les mines ou l'artisanat."},
     {titre:"3. Le rôle des esclaves dans la société", texte:"Selon les sociétés et les époques, les esclaves effectuaient des travaux domestiques, des travaux agricoles, servaient parfois comme soldats, voire occupaient des fonctions administratives ; leur statut variait considérablement d'une société à l'autre."},
+    {titre:"4. Les différents types d'esclaves", texte:"On distingue l'esclave de case (ou de maison), intégré au foyer et souvent mieux traité, de l'esclave de traite, destiné à la vente et au commerce, dont le sort était généralement bien plus rude."},
     {titre:"4. Un phénomène universel", texte:"L'esclavage et la traite se sont pratiqués sur tous les continents et à toutes les époques de l'Histoire (Antiquité, monde islamique, Afrique, Europe, Amériques). Bien qu'officiellement abolis, des formes modernes d'esclavage (travail forcé, traite des êtres humains) persistent aujourd'hui dans plusieurs régions du monde et doivent être condamnées."}
   ],
   evaluation: "1) Différenciez esclavage et traite des humains. 2) Citez deux causes de l'esclavage.",
-  devoirMaison: "Pourquoi dit-on que l'esclavage a un caractère universel ?"
+  devoirMaison: "Pourquoi dit-on que l'esclavage a un caractère universel ?",
+  croquis: null
 },
 
 h4_2: {
@@ -294,7 +304,8 @@ h4_2: {
     {titre:"5. Un crime contre l'humanité", texte:"Les conditions de transport (la « traversée » ou Middle Passage) étaient effroyables, marquées par une mortalité très élevée. Ce commerce d'êtres humains est aujourd'hui reconnu comme un crime contre l'humanité, notamment en France depuis la loi Taubira de 2001."}
   ],
   evaluation: "1) Expliquez le fonctionnement du commerce triangulaire. 2) Citez une conséquence de la traite négrière pour l'Afrique et une pour l'Europe.",
-  devoirMaison: "Pourquoi peut-on dire que la traite négrière atlantique fut un crime contre l'humanité ?"
+  devoirMaison: "Pourquoi peut-on dire que la traite négrière atlantique fut un crime contre l'humanité ?",
+  croquis: null
 },
 
 h4_3: {
@@ -328,7 +339,8 @@ h4_3: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte de l'Afrique de l'Ouest, il faut savoir situer les grands pôles commerciaux reliés par ces routes (zone saharienne productrice de sel, région de Kano, région ashanti productrice d'or et de kola), ainsi que leur prolongement à travers le territoire togolais."}
   ],
   evaluation: "1) Définissez une route caravanière. 2) Citez trois produits qui circulaient sur les routes caravanières.",
-  devoirMaison: "Quelles conséquences ce commerce a-t-il eues sur les villes du Nord-Togo ?"
+  devoirMaison: "Quelles conséquences ce commerce a-t-il eues sur les villes du Nord-Togo ?",
+  croquis: {titre: "Routes caravanières en Afrique de l'Ouest", svg: "<svg viewBox=\"60,20,220,260\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect x=\"60\" y=\"20\" width=\"220\" height=\"260\" fill=\"#F3F0E6\"/>\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"320\" y1=\"0\" x2=\"320\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"360\" y1=\"0\" x2=\"360\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"400\" y1=\"0\" x2=\"400\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"440\" y1=\"0\" x2=\"440\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"480\" y1=\"0\" x2=\"480\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"520\" y1=\"0\" x2=\"520\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"520\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"520\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"520\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"520\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"520\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"520\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"520\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"520\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"520\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"520\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"520\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"520\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"520\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"520\" x2=\"520\" y2=\"520\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<path d=\"M 210,10 L 260,15 L 300,35 L 330,30 L 360,45 L 380,70 L 400,75 L 420,95 L 410,120 L 430,140 L 415,165 L 425,190 L 400,210 L 405,240 L 380,265 L 385,300 L 360,340 L 345,390 L 325,430 L 300,460 L 275,480 L 260,450 L 250,410 L 230,380 L 215,340 L 200,320 L 205,280 L 180,260 L 175,220 L 155,200 L 160,170 L 140,150 L 150,120 L 130,100 L 150,80 L 145,55 L 175,40 L 190,20 Z\" fill=\"#EDEAE0\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<circle cx=\"140\" cy=\"110\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"148\" y=\"114\" font-size=\"12\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\"><tspan x=\"148\" dy=\"0\">Zone saharienne</tspan><tspan x=\"148\" dy=\"14\">(sel)</tspan></text>\n<circle cx=\"180\" cy=\"180\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"188\" y=\"184\" font-size=\"12\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Kano</text>\n<circle cx=\"150\" cy=\"150\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"154\" font-size=\"12\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\"><tspan x=\"158\" dy=\"0\">Région ashanti</tspan><tspan x=\"158\" dy=\"14\">(or, kola)</tspan></text>\n</svg>", legende: "Les routes caravanières reliaient les zones productrices de sel du Sahara aux régions productrices d'or et de kola de la savane et de la forêt (dont la région ashanti et Kano)."}
 },
 
 h4_4: {
@@ -349,9 +361,9 @@ h4_4: {
     {phase:"Remobilisation des prérequis", duree:"5 min", activiteProf:"Rappelle les routes caravanières et le commerce en Afrique de l'Ouest", activiteEleve:"Répondent oralement", support:"Oral"},
     {phase:"Présentation de la SA", duree:"2 min", activiteProf:"Présente et lit la SA", activiteEleve:"Suivent attentivement", support:"Copier au tableau"},
     {phase:"Appropriation de la SA, organisation du travail", duree:"10 min", activiteProf:"Relit la SA ; organise les groupes ; questionne", activiteEleve:"S'approprient les questions, s'organisent en groupes", support:"Idem SA"},
-    {phase:"Exploration et construction des savoirs", duree:"38 min", activiteProf:"Fait localiser le royaume ashanti sur une carte ; fait relever origines, fondateur, apogée, déclin, et organisation politique/religieuse/sociale", activiteEleve:"Observent la carte, analysent le texte, échangent en groupe", support:"Cartes d'Afrique, manuel"},
-    {phase:"Mise en commun, correction, structuration, entraînement", duree:"38 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
-    {phase:"Synthèse et bilan du travail", duree:"38 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
+    {phase:"Exploration et construction des savoirs", duree:"18 min", activiteProf:"Fait localiser le royaume ashanti sur une carte ; fait relever origines, fondateur, apogée, déclin, et organisation politique/religieuse/sociale", activiteEleve:"Observent la carte, analysent le texte, échangent en groupe", support:"Cartes d'Afrique, manuel"},
+    {phase:"Mise en commun, correction, structuration, entraînement", duree:"14 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
+    {phase:"Synthèse et bilan du travail", duree:"6 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
     {titre:"1. Présentation du royaume ashanti", texte:"Le royaume (ou confédération) ashanti s'est développé à partir de la fin du XVIIe siècle dans la forêt de l'actuel Ghana, autour de la ville de Kumasi. Il devient l'une des puissances les plus importantes d'Afrique de l'Ouest grâce au commerce de l'or et des esclaves."},
@@ -359,7 +371,8 @@ h4_4: {
     {titre:"3. Puissance économique et militaire", texte:"Grâce au contrôle des routes de l'or et à une armée organisée, les Ashanti dominent une grande partie de la région pendant près de deux siècles, avant d'entrer en conflit avec les Britanniques lors de plusieurs guerres anglo-ashanti aux XIXe et début du XXe siècle, qui aboutissent à leur annexion à la Gold Coast britannique."}
   ],
   evaluation: "Situez le royaume ashanti sur une carte d'Afrique.",
-  devoirMaison: "Décrivez brièvement l'organisation politique du royaume ashanti."
+  devoirMaison: "Décrivez brièvement l'organisation politique du royaume ashanti.",
+  croquis: null
 },
 
 h4_5: {
@@ -380,9 +393,9 @@ h4_5: {
     {phase:"Remobilisation des prérequis", duree:"5 min", activiteProf:"Rappelle l'organisation du royaume ashanti", activiteEleve:"Répondent oralement", support:"Oral"},
     {phase:"Présentation de la SA", duree:"2 min", activiteProf:"Présente et lit la SA", activiteEleve:"Suivent attentivement", support:"Copier au tableau"},
     {phase:"Appropriation de la SA, organisation du travail", duree:"10 min", activiteProf:"Relit la SA ; organise les groupes ; questionne", activiteEleve:"S'approprient les questions, s'organisent en groupes", support:"Idem SA"},
-    {phase:"Exploration et construction des savoirs", duree:"38 min", activiteProf:"Fait définir l'art à partir d'images ; fait énumérer les matériaux utilisés ; fait localiser les grands foyers sur une carte", activiteEleve:"Observent les images, échangent en groupe, localisent sur la carte", support:"Images, carte des foyers de l'art africain"},
-    {phase:"Mise en commun, correction, structuration, entraînement", duree:"38 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
-    {phase:"Synthèse et bilan du travail", duree:"38 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
+    {phase:"Exploration et construction des savoirs", duree:"18 min", activiteProf:"Fait définir l'art à partir d'images ; fait énumérer les matériaux utilisés ; fait localiser les grands foyers sur une carte", activiteEleve:"Observent les images, échangent en groupe, localisent sur la carte", support:"Images, carte des foyers de l'art africain"},
+    {phase:"Mise en commun, correction, structuration, entraînement", duree:"14 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
+    {phase:"Synthèse et bilan du travail", duree:"6 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
     {titre:"1. Les grands domaines de l'art africain", texte:"L'art africain traditionnel s'exprime notamment à travers la sculpture (masques, statuettes), l'architecture, la poterie, le tissage et la parure. Il est souvent lié à la vie religieuse, sociale et politique des communautés."},
@@ -390,7 +403,8 @@ h4_5: {
     {titre:"3. Rayonnement et influence", texte:"L'art africain a profondément influencé les grands mouvements artistiques du XXe siècle en Europe, notamment le cubisme, à travers l'intérêt d'artistes comme Pablo Picasso pour les masques africains."}
   ],
   evaluation: "Citez deux matériaux utilisés dans l'art africain.",
-  devoirMaison: "Nommez un grand foyer de l'art en Afrique et ce qui le caractérise."
+  devoirMaison: "Nommez un grand foyer de l'art en Afrique et ce qui le caractérise.",
+  croquis: null
 },
 
 h4_6: {
@@ -424,7 +438,8 @@ h4_6: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte du Togo, il faut savoir situer le bassin de l'Oti (extrême nord du pays, autour du fleuve Oti), la ville de Mango (centre du royaume anoufo) et distinguer les zones peuplées par les Moba, les Gourma et les Anoufo."}
   ],
   evaluation: "1) Localisez le bassin de l'Oti sur une carte du Togo. 2) Retracez brièvement l'évolution historique du royaume anoufo.",
-  devoirMaison: "Décrivez le mode de vie des populations du royaume anoufo."
+  devoirMaison: "Décrivez le mode de vie des populations du royaume anoufo.",
+  croquis: {titre: "Peuples du bassin de l'Oti", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n<g transform=\"translate(90,20)\">\n<circle cx=\"140\" cy=\"55\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"148\" y=\"59\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\"><tspan x=\"148\" dy=\"0\">Mango</tspan><tspan x=\"148\" dy=\"13\">(royaume anoufo)</tspan></text>\n<circle cx=\"120\" cy=\"90\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"128\" y=\"94\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Moba, Gourma</text>\n</g></svg>", legende: "Le bassin de l'Oti, dans le nord du Togo, peuplé par les Moba et les Gourma, avec le royaume anoufo établi autour de Mango."}
 },
 
 h4_7: {
@@ -456,7 +471,8 @@ h4_7: {
     {titre:"3. Contacts et influences extérieures", texte:"À partir du XVIIe siècle, des groupes venus du Gourma introduisent des embryons de pouvoir centralisé dans certaines zones, tandis que les commerçants mandé et haoussa, à travers le commerce caravanier de la cola, introduisent l'islam et favorisent des échanges économiques et culturels."}
   ],
   evaluation: "1) Localisez l'aire lama sur une carte du Togo. 2) Qu'est-ce qu'une société à organisation lignagère (acéphale) ?",
-  devoirMaison: "Citez deux éléments de similitude entre Kabyè et Tem."
+  devoirMaison: "Citez deux éléments de similitude entre Kabyè et Tem.",
+  croquis: null
 },
 
 h4_8: {
@@ -478,9 +494,9 @@ h4_8: {
     {phase:"Remobilisation des prérequis", duree:"5 min", activiteProf:"Rappelle les notions vues sur l'aire lama", activiteEleve:"Répondent oralement", support:"Oral"},
     {phase:"Présentation de la SA", duree:"2 min", activiteProf:"Présente et lit la SA", activiteEleve:"Suivent attentivement", support:"Copier au tableau"},
     {phase:"Appropriation de la SA, organisation du travail", duree:"10 min", activiteProf:"Relit la SA ; organise les groupes ; questionne", activiteEleve:"S'approprient les questions, s'organisent en groupes", support:"Idem SA"},
-    {phase:"Exploration et construction des savoirs", duree:"38 min", activiteProf:"Fait localiser le royaume sur une carte ; fait décrire évolution, structure politique/sociale et mode de vie", activiteEleve:"Observent la carte, lisent le texte, échangent en groupe", support:"Carte murale, manuel"},
-    {phase:"Mise en commun, correction, structuration, entraînement", duree:"38 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
-    {phase:"Synthèse et bilan du travail", duree:"38 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
+    {phase:"Exploration et construction des savoirs", duree:"18 min", activiteProf:"Fait localiser le royaume sur une carte ; fait décrire évolution, structure politique/sociale et mode de vie", activiteEleve:"Observent la carte, lisent le texte, échangent en groupe", support:"Carte murale, manuel"},
+    {phase:"Mise en commun, correction, structuration, entraînement", duree:"14 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
+    {phase:"Synthèse et bilan du travail", duree:"6 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
     {titre:"1. Origines du peuple tem (Kotokoli)", texte:"Les Tem, aussi appelés Kotokoli, résultent d'une coalition de chefferies venues de la région gourma (actuel Burkina Faso), qui se sont installées autour de Sokodé entre les XVIIe et XVIIIe siècles."},
@@ -489,7 +505,8 @@ h4_8: {
     {titre:"4. Le royaume face à la colonisation", texte:"Le royaume du Tchaoudjo joue un rôle important dans le nord du Togo précolonial, avant d'être intégré, comme le reste du territoire, à la colonie allemande à la fin du XIXe siècle."}
   ],
   evaluation: "Situez le royaume de Tchaoudjo sur une carte du Togo.",
-  devoirMaison: "Décrivez brièvement la structure sociale de ce royaume."
+  devoirMaison: "Décrivez brièvement la structure sociale de ce royaume.",
+  croquis: null
 },
 
 h4_9: {
@@ -522,7 +539,8 @@ h4_9: {
     {titre:"3. Causes et conséquences de la dispersion des Aja", texte:"Des rivalités de pouvoir et des tensions internes au sein du royaume ont provoqué, à différentes époques, le départ de groupes d'Aja vers d'autres régions. Cette dispersion est à l'origine de la fondation de plusieurs royaumes et localités du sud du Togo et du Bénin, dont Notsè (fondée par des migrants aja) et Abomey."}
   ],
   evaluation: "1) Localisez Tado sur une carte. 2) Citez une cause de la dispersion des Aja.",
-  devoirMaison: "Nommez une localité fondée à la suite de cette dispersion."
+  devoirMaison: "Nommez une localité fondée à la suite de cette dispersion.",
+  croquis: null
 },
 
 h4_10: {
@@ -545,9 +563,9 @@ h4_10: {
     {phase:"Remobilisation des prérequis", duree:"5 min", activiteProf:"Rappelle la dispersion des Aja vue précédemment", activiteEleve:"Répondent oralement", support:"Oral"},
     {phase:"Présentation de la SA", duree:"2 min", activiteProf:"Présente et lit la SA", activiteEleve:"Suivent attentivement", support:"Copier au tableau"},
     {phase:"Appropriation de la SA, organisation du travail", duree:"10 min", activiteProf:"Relit la SA ; organise les groupes ; questionne", activiteEleve:"S'approprient les questions, s'organisent en groupes", support:"Idem SA"},
-    {phase:"Exploration et construction des savoirs", duree:"38 min", activiteProf:"Fait délimiter et localiser Notsé ; fait décrire l'évolution, l'organisation et le mode de vie ; fait relever causes et conséquences de la dispersion des Ewé", activiteEleve:"Observent la carte et le schéma des fortifications, échangent en groupe", support:"Carte murale, schéma des fortifications de Notsé"},
-    {phase:"Mise en commun, correction, structuration, entraînement", duree:"38 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
-    {phase:"Synthèse et bilan du travail", duree:"38 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
+    {phase:"Exploration et construction des savoirs", duree:"18 min", activiteProf:"Fait délimiter et localiser Notsé ; fait décrire l'évolution, l'organisation et le mode de vie ; fait relever causes et conséquences de la dispersion des Ewé", activiteEleve:"Observent la carte et le schéma des fortifications, échangent en groupe", support:"Carte murale, schéma des fortifications de Notsé"},
+    {phase:"Mise en commun, correction, structuration, entraînement", duree:"14 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
+    {phase:"Synthèse et bilan du travail", duree:"6 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
     {titre:"1. La fondation de Notsè", texte:"Notsè fut fondée par des migrants aja venus de Tado, qui s'y installent et organisent une cité-État fortifiée, entourée d'une célèbre muraille de terre (Agbogbo), dont des vestiges sont encore visibles aujourd'hui."},
@@ -555,7 +573,8 @@ h4_10: {
     {titre:"3. La dispersion des Éwé", texte:"Cette fuite est à l'origine de la dispersion des Éwé vers différentes régions du sud du Togo (et au-delà, vers le Ghana et le Bénin), où ils fondent de nouvelles communautés tout en gardant le souvenir de leur origine commune à Notsè, célébré aujourd'hui encore lors de festivités traditionnelles."}
   ],
   evaluation: "1) Où se situe Notsé sur une carte du Togo ? 2) Citez une cause de la dispersion des Ewé.",
-  devoirMaison: "Nommez une conséquence de cette dispersion sur le peuplement actuel du Togo."
+  devoirMaison: "Nommez une conséquence de cette dispersion sur le peuplement actuel du Togo.",
+  croquis: null
 },
 
 h4_11: {
@@ -577,9 +596,9 @@ h4_11: {
     {phase:"Remobilisation des prérequis", duree:"5 min", activiteProf:"Rappelle les notions vues sur Notsé", activiteEleve:"Répondent oralement", support:"Oral"},
     {phase:"Présentation de la SA", duree:"2 min", activiteProf:"Présente et lit la SA", activiteEleve:"Suivent attentivement", support:"Copier au tableau"},
     {phase:"Appropriation de la SA, organisation du travail", duree:"10 min", activiteProf:"Relit la SA ; organise les groupes ; questionne", activiteEleve:"S'approprient les questions, s'organisent en groupes", support:"Idem SA"},
-    {phase:"Exploration et construction des savoirs", duree:"38 min", activiteProf:"Fait localiser la zone d'occupation des Guin et le royaume de Glidji ; fait retracer l'évolution et décrire organisation et mode de vie", activiteEleve:"Observent les cartes, lisent le texte, échangent en groupe", support:"Carte de la zone guin, carte du royaume de Glidji"},
-    {phase:"Mise en commun, correction, structuration, entraînement", duree:"38 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
-    {phase:"Synthèse et bilan du travail", duree:"38 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
+    {phase:"Exploration et construction des savoirs", duree:"18 min", activiteProf:"Fait localiser la zone d'occupation des Guin et le royaume de Glidji ; fait retracer l'évolution et décrire organisation et mode de vie", activiteEleve:"Observent les cartes, lisent le texte, échangent en groupe", support:"Carte de la zone guin, carte du royaume de Glidji"},
+    {phase:"Mise en commun, correction, structuration, entraînement", duree:"14 min", activiteProf:"Fait exposer les groupes ; corrige et structure", activiteEleve:"Exposent ; participent à la structuration", support:"Tableau, production des élèves"},
+    {phase:"Synthèse et bilan du travail", duree:"6 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
     {titre:"1. La fondation du royaume de Glidji", texte:"À la fin du XVIIe siècle, des Gã venus du royaume d'Accra (actuel Ghana), chassés par des guerres, s'installent sur la côte togolaise et fondent le royaume guin de Glidji, au nord d'Aného."},
@@ -587,7 +606,8 @@ h4_11: {
     {titre:"3. Un peuple de commerçants", texte:"Grâce à leurs contacts précoces avec les navigateurs européens sur la côte, les Guin/Mina de Glidji et d'Aného sont devenus des commerçants réputés et des intermédiaires privilégiés dans les échanges (dont, malheureusement, la traite), un rôle qu'ils conserveront ensuite avec l'administration coloniale."}
   ],
   evaluation: "Situez le royaume de Glidji sur une carte du Togo.",
-  devoirMaison: "Citez une activité économique des populations du royaume de Glidji."
+  devoirMaison: "Citez une activité économique des populations du royaume de Glidji.",
+  croquis: null
 }
 
 };
