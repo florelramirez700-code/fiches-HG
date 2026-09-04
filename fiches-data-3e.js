@@ -25,11 +25,12 @@ g3_1: {
   resume: [
     {titre:"1. Localisation du Togo", texte:"Le Togo est un pays d'Afrique de l'Ouest, situé dans la zone intertropicale, en forme de couloir étroit orienté nord-sud, avec une faible façade maritime sur le golfe de Guinée au sud."},
     {titre:"2. Limites du Togo", texte:"Le Togo est limité au nord par le Burkina Faso, à l'est par le Bénin, à l'ouest par le Ghana, et au sud par l'océan Atlantique (golfe de Guinée)."},
-    {titre:"3. Autres informations", texte:"Le Togo s'étend sur environ 56 600 km², sur une longueur d'environ 600 km du nord au sud pour une largeur variant entre 50 et 150 km. Sa capitale est Lomé, sa monnaie le franc CFA, et il compte plusieurs millions d'habitants."},
+    {titre:"3. Autres informations", texte:"Le Togo s'étend sur environ 56 600 km². Selon le 5e Recensement général de la population et de l'habitat (RGPH-5, INSEED, novembre 2022), sa population résidente est de 8 095 498 habitants (3 944 510 hommes et 4 150 988 femmes). Sa capitale est Lomé et sa monnaie le franc CFA."},
     {titre:"4. Repères cartographiques à retenir", texte:"Sur le croquis du Togo réalisé à partir d'un quadrillage, il faut savoir situer et nommer : les quatre pays limitrophes (Burkina Faso, Bénin, Ghana, océan Atlantique), la capitale Lomé, et la forme allongée caractéristique du territoire togolais."}
   ],
   evaluation: "1) Citez les pays limitrophes du Togo. 2) Donnez la superficie approximative du Togo.",
-  devoirMaison: "Réalisez le croquis du Togo à partir du quadrillage vu en classe."
+  devoirMaison: "Réalisez le croquis du Togo à partir du quadrillage vu en classe.",
+  croquis: {titre: "Croquis du Togo", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n</svg>", legende: "Silhouette schématique du Togo à reproduire à partir d'un quadrillage, avec ses pays limitrophes (Burkina Faso, Ghana, Bénin) et l'océan Atlantique."}
 },
 
 g3_2: {
@@ -61,7 +62,8 @@ g3_2: {
     {titre:"3. Repères cartographiques à retenir", texte:"Sur le croquis de l'hydrographie togolaise, il faut savoir situer : le fleuve Mono à l'est, le fleuve Oti au nord, le lac Togo près du littoral, ainsi que la chaîne montagneuse traversant le pays du sud-ouest au nord-est."}
   ],
   evaluation: "1) Citez deux grands ensembles de relief du Togo. 2) Nommez deux fleuves ou cours d'eau importants du Togo.",
-  devoirMaison: "Proposez une mesure pour prévenir les inondations dans votre localité."
+  devoirMaison: "Proposez une mesure pour prévenir les inondations dans votre localité.",
+  croquis: null
 },
 
 g3_3: {
@@ -93,7 +95,8 @@ g3_3: {
     {titre:"3. Conséquences pour les activités humaines", texte:"Cette diversité climatique explique la variété des cultures pratiquées selon les régions : cultures pluviales à cycle court dans le nord, cultures de rente (café, cacao) dans les zones plus humides du centre-sud, et cultures maraîchères et vivrières variées dans le sud."}
   ],
   evaluation: "1) Citez les deux grands types de climat du Togo. 2) Expliquez brièvement l'anomalie climatique du Bas-Togo.",
-  devoirMaison: "A partir de données fournies, réalisez le diagramme ombrothermique de votre localité."
+  devoirMaison: "A partir de données fournies, réalisez le diagramme ombrothermique de votre localité.",
+  croquis: null
 },
 
 g3_4: {
@@ -125,7 +128,8 @@ g3_4: {
     {titre:"3. Repères cartographiques à retenir", texte:"Sur la carte des sols et de la végétation, il faut savoir situer les grandes zones de sols dominants selon les régions, ainsi que la répartition nord-sud de la végétation, de la savane sahélienne au nord aux reliques de forêt dense au sud."}
   ],
   evaluation: "1) Citez trois types de sols du Togo. 2) Associez un type de sol à une culture adaptée.",
-  devoirMaison: "Proposez deux actions pour protéger le sol et la végétation dans votre localité."
+  devoirMaison: "Proposez deux actions pour protéger le sol et la végétation dans votre localité.",
+  croquis: {titre: "Carte des sols et de la végétation du Togo", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<g clip-path=\"url(#togoClip)\"><rect x=\"0\" y=\"20\" width=\"300\" height=\"98\" fill=\"#D9C48A\"/></g>\n<g clip-path=\"url(#togoClip)\"><rect x=\"0\" y=\"118\" width=\"300\" height=\"88\" fill=\"#B7CFC2\"/></g>\n<g clip-path=\"url(#togoClip)\"><rect x=\"0\" y=\"206\" width=\"300\" height=\"88\" fill=\"#E8C9B0\"/></g>\n<g clip-path=\"url(#togoClip)\"><rect x=\"0\" y=\"294\" width=\"300\" height=\"106\" fill=\"#BFD8C8\"/></g>\n<g clip-path=\"url(#togoClip)\"><rect x=\"0\" y=\"400\" width=\"300\" height=\"70\" fill=\"#A9C9D9\"/></g>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<g clip-path=\"url(#togoClip)\"><line x1=\"0\" y1=\"118\" x2=\"300\" y2=\"118\" stroke=\"#153F38\" stroke-width=\"1\" stroke-dasharray=\"4,3\" opacity=\"0.6\"/></g>\n<g clip-path=\"url(#togoClip)\"><line x1=\"0\" y1=\"206\" x2=\"300\" y2=\"206\" stroke=\"#153F38\" stroke-width=\"1\" stroke-dasharray=\"4,3\" opacity=\"0.6\"/></g>\n<g clip-path=\"url(#togoClip)\"><line x1=\"0\" y1=\"294\" x2=\"300\" y2=\"294\" stroke=\"#153F38\" stroke-width=\"1\" stroke-dasharray=\"4,3\" opacity=\"0.6\"/></g>\n<g clip-path=\"url(#togoClip)\"><line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#153F38\" stroke-width=\"1\" stroke-dasharray=\"4,3\" opacity=\"0.6\"/></g>\n<circle cx=\"145\" cy=\"68\" r=\"4\" fill=\"#153F38\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"153\" y=\"72\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Dapaong</text>\n<circle cx=\"148\" cy=\"162\" r=\"4\" fill=\"#153F38\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"156\" y=\"166\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Kara</text>\n<circle cx=\"148\" cy=\"250\" r=\"4\" fill=\"#153F38\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"156\" y=\"254\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Sokodé</text>\n<circle cx=\"155\" cy=\"347\" r=\"4\" fill=\"#153F38\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"163\" y=\"351\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Atakpamé</text>\n<circle cx=\"165\" cy=\"435\" r=\"4\" fill=\"#153F38\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"173\" y=\"439\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Lomé</text>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n</svg>", legende: "Les grandes zones de sols et de végétation varient globalement du nord (savane, sols ferrugineux) au sud (reliques de forêt dense, sols ferralitiques)."}
 },
 
 g3_5: {
@@ -156,7 +160,8 @@ g3_5: {
     {titre:"3. Facteurs de cette répartition", texte:"Cette répartition s'explique par la fertilité des sols, la présence d'infrastructures et d'emplois (surtout autour de la capitale), ainsi que par des facteurs historiques et climatiques."}
   ],
   evaluation: "1) Citez les trois types de mouvements de la population togolaise. 2) Nommez une zone densément peuplée et une zone faiblement peuplée du Togo.",
-  devoirMaison: "Expliquez pourquoi les causes économiques sont importantes dans la répartition de la population aujourd'hui."
+  devoirMaison: "Expliquez pourquoi les causes économiques sont importantes dans la répartition de la population aujourd'hui.",
+  croquis: null
 },
 
 g3_6: {
@@ -188,7 +193,8 @@ g3_6: {
     {titre:"3. Enjeux liés à la structure de la population", texte:"Cette jeunesse de la population représente un potentiel important pour le développement du pays (main-d'œuvre, dynamisme), mais exige aussi des investissements soutenus en éducation, en santé et en création d'emplois."}
   ],
   evaluation: "1) Citez trois groupes socio-culturels du Togo. 2) Qu'est-ce qu'une pyramide des âges à base large ?",
-  devoirMaison: "Citez un enjeu économique de l'extrême jeunesse de la population togolaise."
+  devoirMaison: "Citez un enjeu économique de l'extrême jeunesse de la population togolaise.",
+  croquis: null
 },
 
 g3_7: {
@@ -199,6 +205,7 @@ g3_7: {
   supportsDidactiques: "cartes physiques, carte agricole, quadrillage",
   preRequis: "Notions vues sur le milieu physique du Togo (thème 1)",
   capacitesContenus: [
+    ["Présenter les conditions naturelles de l'agriculture togolaise", "Conditions liées au relief, à l'hydrographie, au climat, au sol et à la végétation togolais"],
     ["Identifier les caractéristiques générales de l'agriculture togolaise", "Outillage, techniques culturales, productivité"],
     ["Montrer l'importance de l'agriculture dans l'économie", "Importance dans l'économie togolaise ; carte agricole"],
     ["Dégager les enjeux de l'agriculture togolaise", "Efforts de modernisation ; défis de l'agriculture"]
@@ -215,13 +222,15 @@ g3_7: {
     {phase:"Synthèse et bilan du travail", duree:"5 min", activiteProf:"Amène à dégager l'essentiel", activiteEleve:"Formulent la synthèse orale", support:"Oral"}
   ],
   resume: [
-    {titre:"1. Une agriculture dominante dans l'économie", texte:"L'agriculture emploie la majorité de la population active togolaise et reste le principal secteur économique du pays, combinant agriculture vivrière (maïs, sorgho, igname, manioc) et agriculture de rente (coton, café, cacao)."},
-    {titre:"2. Les grandes cultures selon les régions", texte:"Le coton est cultivé principalement dans les Savanes et la Kara ; le café et le cacao dans la région des Plateaux (climat plus humide) ; les cultures vivrières sont présentes dans l'ensemble du pays, avec une intensité particulière dans les zones les plus peuplées."},
-    {titre:"3. Importance et défis de l'agriculture", texte:"L'agriculture contribue fortement au PIB et aux exportations togolaises (notamment le coton), mais reste confrontée à la faible mécanisation, à la dépendance aux aléas climatiques et à la nécessité de moderniser les techniques de production."},
-    {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte agricole du Togo, il faut savoir situer les principales zones de production : le coton dans le nord, le café/cacao dans la région des Plateaux, et les cultures vivrières réparties sur l'ensemble du territoire."}
+    {titre:"1. Les conditions naturelles de l'agriculture togolaise", texte:"L'agriculture togolaise dépend étroitement du relief (plaines, plateaux), de l'hydrographie (Mono, Zio, Oti et leurs affluents), du climat (zones plus humides au sud, plus sèches au nord), des sols (ferrugineux, ferralitiques, hydromorphes) et de la végétation, qui varient selon les régions."},
+    {titre:"2. Une agriculture dominante dans l'économie", texte:"L'agriculture emploie la majorité de la population active togolaise et reste le principal secteur économique du pays, combinant agriculture vivrière (maïs, sorgho, igname, manioc) et agriculture de rente (coton, café, cacao)."},
+    {titre:"3. Les grandes cultures selon les régions", texte:"Le coton est cultivé principalement dans les Savanes et la Kara ; le café et le cacao dans la région des Plateaux (climat plus humide) ; les cultures vivrières sont présentes dans l'ensemble du pays, avec une intensité particulière dans les zones les plus peuplées."},
+    {titre:"4. Importance et défis de l'agriculture", texte:"L'agriculture contribue fortement au PIB et aux exportations togolaises (notamment le coton), mais reste confrontée à la faible mécanisation, à la dépendance aux aléas climatiques et à la nécessité de moderniser les techniques de production."},
+    {titre:"5. Repères cartographiques à retenir", texte:"Sur la carte agricole du Togo, il faut savoir situer les principales zones de production : le coton dans le nord, le café/cacao dans la région des Plateaux, et les cultures vivrières réparties sur l'ensemble du territoire."}
   ],
   evaluation: "1) Citez deux caractéristiques de l'agriculture togolaise. 2) Nommez deux cultures de rente du Togo.",
-  devoirMaison: "Citez un défi de l'agriculture togolaise et une piste de solution."
+  devoirMaison: "Citez un défi de l'agriculture togolaise et une piste de solution.",
+  croquis: {titre: "Carte agricole du Togo", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n<g transform=\"translate(90,20)\">\n<circle cx=\"150\" cy=\"65\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"69\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Coton</text>\n<circle cx=\"150\" cy=\"160\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"164\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Coton</text>\n<circle cx=\"150\" cy=\"347\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"351\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Café, cacao</text>\n<circle cx=\"150\" cy=\"435\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"439\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\"><tspan x=\"158\" dy=\"0\">Cultures</tspan><tspan x=\"158\" dy=\"13\">vivrières</tspan></text>\n</g></svg>", legende: "Répartition schématique des grandes cultures : coton dans le nord (Savanes, Kara), café et cacao dans la région des Plateaux, cultures vivrières sur l'ensemble du territoire."}
 },
 
 g3_8: {
@@ -254,7 +263,8 @@ g3_8: {
     {titre:"3. Défis de l'industrialisation togolaise", texte:"Le Togo cherche à diversifier son industrie, en développant notamment une zone industrielle (la zone franche de Lomé) destinée à attirer les investissements et à créer de la valeur ajoutée locale plutôt que d'exporter uniquement des matières premières brutes."}
   ],
   evaluation: "1) Citez deux ressources minières du Togo. 2) Quelle est l'importance de l'industrie dans l'économie togolaise ?",
-  devoirMaison: "Citez un défi de l'industrialisation au Togo."
+  devoirMaison: "Citez un défi de l'industrialisation au Togo.",
+  croquis: null
 },
 
 g3_9: {
@@ -286,7 +296,8 @@ g3_9: {
     {titre:"3. Le rôle du port de Lomé", texte:"Le port autonome de Lomé, l'un des plus profonds d'Afrique de l'Ouest, joue un rôle de plateforme régionale pour le commerce, desservant non seulement le Togo mais aussi des pays de l'hinterland comme le Burkina Faso, le Mali et le Niger."}
   ],
   evaluation: "1) Citez une caractéristique du commerce intérieur togolais. 2) Pourquoi la balance commerciale du Togo est-elle souvent déficitaire ?",
-  devoirMaison: "Citez un problème du commerce extérieur togolais."
+  devoirMaison: "Citez un problème du commerce extérieur togolais.",
+  croquis: null
 },
 
 g3_10: {
@@ -318,7 +329,8 @@ g3_10: {
     {titre:"3. Importance pour l'économie togolaise", texte:"L'économie bleue représente un potentiel de croissance et d'emplois pour le Togo, notamment à travers le port de Lomé (plateforme régionale majeure) et le développement de la pêche, tout en posant des défis de préservation des ressources marines et de lutte contre l'érosion côtière."}
   ],
   evaluation: "1) Définissez l'économie bleue. 2) Citez trois activités liées à l'économie bleue au Togo.",
-  devoirMaison: "Quelle est l'importance du Port autonome de Lomé pour l'économie togolaise ?"
+  devoirMaison: "Quelle est l'importance du Port autonome de Lomé pour l'économie togolaise ?",
+  croquis: null
 },
 
 g3_11: {
@@ -351,7 +363,8 @@ g3_11: {
     {titre:"4. Efforts de modernisation et défis", texte:"Des efforts sont menés pour moderniser les routes et étendre la couverture numérique, mais certaines zones rurales et enclavées restent difficiles d'accès, freinant leur développement économique."}
   ],
   evaluation: "1) Citez une caractéristique des transports au Togo. 2) Quelle est l'importance des télécommunications dans l'économie togolaise ?",
-  devoirMaison: "Citez un défi des transports ou des télécommunications au Togo."
+  devoirMaison: "Citez un défi des transports ou des télécommunications au Togo.",
+  croquis: null
 },
 
 g3_12: {
@@ -385,7 +398,8 @@ g3_12: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte touristique du Togo, il faut savoir situer les principaux sites : les plages de Lomé et Aného, le lac Togo, les monts de Kpalimé (Kloto), ainsi que les sites historiques de Notsè et Glidji."}
   ],
   evaluation: "1) Citez deux sites touristiques du Togo. 2) Quelle est l'importance du tourisme dans l'économie togolaise ?",
-  devoirMaison: "Citez un défi du tourisme togolais et une piste de solution."
+  devoirMaison: "Citez un défi du tourisme togolais et une piste de solution.",
+  croquis: {titre: "Carte touristique du Togo", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n<g transform=\"translate(90,20)\">\n<circle cx=\"165\" cy=\"435\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"173\" y=\"439\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Plages de Lomé</text>\n<circle cx=\"185\" cy=\"450\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"193\" y=\"454\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Aného</text>\n<circle cx=\"130\" cy=\"360\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"138\" y=\"364\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Kpalimé / Kloto</text>\n<circle cx=\"150\" cy=\"390\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"394\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Notsè</text>\n</g></svg>", legende: "Principaux sites touristiques du Togo : plages du littoral (Lomé, Aného), monts de Kpalimé (Kloto), sites historiques (Notsè, Glidji)."}
 },
 
 h3_1: {
@@ -417,7 +431,8 @@ h3_1: {
     {titre:"3. Moyens d'action en Afrique à la fin du XIXe siècle", texte:"Les puissances impérialistes agissent d'abord par des moyens pacifiques : explorateurs (cartographie du territoire), missionnaires (évangélisation) et commerçants/banques (traités commerciaux), avant de recourir aux moyens militaires (invasions et conquêtes) pour imposer et consolider leur domination."}
   ],
   evaluation: "1) Définissez l'impérialisme et citez deux de ses causes. 2) Donnez deux exemples montrant le caractère universel de l'impérialisme.",
-  devoirMaison: "Citez trois moyens d'action de l'impérialisme en Afrique à la fin du XIXe siècle."
+  devoirMaison: "Citez trois moyens d'action de l'impérialisme en Afrique à la fin du XIXe siècle.",
+  croquis: null
 },
 
 h3_2: {
@@ -449,7 +464,8 @@ h3_2: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte des foyers de résistance au Togo, il faut savoir situer : Mango (résistance anoufo), la région de Sokodé/Tchaoudjo, le pays kabyè, et Tado/la région d'Athiémé (résistance aja), qui constituent les principaux foyers de résistance à travers le pays."}
   ],
   evaluation: "1) Citez deux causes des résistances à l'occupation coloniale. 2) Distinguez résistance des peuples et résistance des souverains.",
-  devoirMaison: "Localisez sur une carte du Togo deux foyers de résistance étudiés en classe."
+  devoirMaison: "Localisez sur une carte du Togo deux foyers de résistance étudiés en classe.",
+  croquis: {titre: "Foyers de résistance au Togo", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n<g transform=\"translate(90,20)\">\n<circle cx=\"140\" cy=\"55\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"148\" y=\"59\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Mango (Anoufo)</text>\n<circle cx=\"150\" cy=\"250\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"254\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Tchaoudjo</text>\n<circle cx=\"150\" cy=\"160\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"164\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Pays kabyè</text>\n<circle cx=\"120\" cy=\"395\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"128\" y=\"399\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Tado (Aja)</text>\n</g></svg>", legende: "Principaux foyers de résistance à l'impérialisme au Togo : Mango (Anoufo), le pays kabyè, la région de Sokodé (Tchaoudjo) et Tado (Aja)."}
 },
 
 h3_3: {
@@ -480,7 +496,8 @@ h3_3: {
     {titre:"3. Le sens de ces résistances", texte:"Ces deux exemples, dans deux régions différentes du pays (le sud aja et le nord anoufo), montrent que des souverains togolais de tradition et de culture différentes ont, chacun à leur manière, refusé la domination étrangère, au prix de leur liberté ou de leur vie."}
   ],
   evaluation: "1) Présentez brièvement le souverain Na Biéma Asabiè de Mango. 2) Présentez brièvement le souverain Aja Kpoyizoun de Tado.",
-  devoirMaison: "Que retenez-vous de la bravoure de ces deux résistants ?"
+  devoirMaison: "Que retenez-vous de la bravoure de ces deux résistants ?",
+  croquis: null
 },
 
 h3_4: {
@@ -512,7 +529,8 @@ h3_4: {
     {titre:"3. Conséquences pour les colonies", texte:"Cette exploitation économique enrichit les métropoles européennes mais freine le développement autonome des colonies, dont les économies sont structurées pour répondre aux besoins extérieurs plutôt qu'aux besoins locaux — une dépendance dont les effets se font sentir bien après les indépendances."}
   ],
   evaluation: "1) Citez trois moyens d'autofinancement de la mise en valeur des colonies. 2) Expliquez ce qu'est le pacte colonial.",
-  devoirMaison: "Dressez un bref bilan (positif et négatif) de la colonisation."
+  devoirMaison: "Dressez un bref bilan (positif et négatif) de la colonisation.",
+  croquis: null
 },
 
 h3_5: {
@@ -545,7 +563,8 @@ h3_5: {
     {titre:"4. Repères cartographiques à retenir", texte:"Sur la carte administrative du Togo allemand, il faut savoir situer : Lomé (capitale et port), Baguida (lieu du traité de 1884), Kamina (station radio stratégique) et les principales voies ferrées construites vers Aného, Kpalimé et Atakpamé."}
   ],
   evaluation: "1) Décrivez l'organisation administrative du Togo allemand. 2) Citez deux réalisations économiques des Allemands au Togo.",
-  devoirMaison: "Quelles actions sociales les Allemands ont-ils menées au Togo ?"
+  devoirMaison: "Quelles actions sociales les Allemands ont-ils menées au Togo ?",
+  croquis: {titre: "Le Togo sous administration allemande", svg: "<svg viewBox=\"0 0 460 540\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"460\" height=\"540\" fill=\"#F3F0E6\"/>\n<g transform=\"translate(90,20)\">\n<line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"120\" y1=\"0\" x2=\"120\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"240\" y1=\"0\" x2=\"240\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"40\" x2=\"300\" y2=\"40\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"80\" x2=\"300\" y2=\"80\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"240\" x2=\"300\" y2=\"240\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"280\" x2=\"300\" y2=\"280\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"320\" x2=\"300\" y2=\"320\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"360\" x2=\"300\" y2=\"360\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"400\" x2=\"300\" y2=\"400\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"440\" x2=\"300\" y2=\"440\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<line x1=\"0\" y1=\"480\" x2=\"300\" y2=\"480\" stroke=\"#8C9A94\" stroke-width=\"0.5\" opacity=\"0.35\"/>\n<clipPath id=\"togoClip\"><path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\"/></clipPath>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"#EDEAE0\" stroke=\"none\"/>\n<path d=\"M 130,20 L 170,18 L 185,60 L 175,110 L 190,150 L 180,200 L 200,250 L 185,300 L 205,345 L 190,395 L 210,430 L 195,460 L 140,470 L 115,440 L 125,395 L 105,350 L 120,300 L 100,250 L 115,200 L 95,150 L 110,110 L 90,65 L 115,25 Z\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"2.5\"/>\n<text x=\"150\" y=\"-4\" font-size=\"10\" fill=\"#202A3C\" font-weight=\"700\" text-anchor=\"middle\">BURKINA FASO</text>\n<text x=\"-14\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(-90,-14,250)\">GHANA</text>\n<text x=\"318\" y=\"250\" font-size=\"10\" fill=\"#202A3C\" text-anchor=\"middle\" font-weight=\"700\" transform=\"rotate(90,318,250)\">BÉNIN</text>\n<text x=\"150\" y=\"500\" font-size=\"10\" fill=\"#1F5C52\" font-weight=\"700\" text-anchor=\"middle\">OCÉAN ATLANTIQUE</text>\n</g>\n<g transform=\"translate(90,20)\">\n<circle cx=\"165\" cy=\"435\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"173\" y=\"439\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Lomé (capitale)</text>\n<circle cx=\"185\" cy=\"452\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"193\" y=\"456\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Baguida (traité 1884)</text>\n<circle cx=\"150\" cy=\"250\" r=\"6\" fill=\"#A6472B\" stroke=\"#fff\" stroke-width=\"1.5\"/><text x=\"158\" y=\"254\" font-size=\"11\" fill=\"#202A3C\" font-weight=\"600\" text-anchor=\"start\">Kamina (station radio)</text>\n</g></svg>", legende: "Repères de l'administration allemande : Lomé (capitale), Baguida (lieu du traité de 1884 avec Mlapa III), Kamina (station radiotélégraphique stratégique)."}
 },
 
 h3_6: {
@@ -577,7 +596,8 @@ h3_6: {
     {titre:"3. De la tutelle SDN à la tutelle ONU", texte:"Après la Seconde Guerre mondiale, le mandat de la Société des Nations est remplacé par une tutelle de l'Organisation des Nations unies (1946), qui prévoit un accompagnement du territoire vers l'autonomie, ouvrant progressivement la voie aux revendications d'indépendance."}
   ],
   evaluation: "1) Décrivez l'organisation administrative du Togo français. 2) Citez deux réalisations économiques des Français au Togo.",
-  devoirMaison: "Comparez brièvement l'action sociale des Allemands et des Français au Togo."
+  devoirMaison: "Comparez brièvement l'action sociale des Allemands et des Français au Togo.",
+  croquis: null
 },
 
 h3_7: {
@@ -608,7 +628,8 @@ h3_7: {
     {titre:"3. Le rôle de la Seconde Guerre mondiale", texte:"La participation de nombreux Africains à la Seconde Guerre mondiale aux côtés des puissances coloniales renforce leur conscience politique et leur sentiment d'avoir droit, en retour, à plus de liberté et de reconnaissance."}
   ],
   evaluation: "1) Définissez la décolonisation. 2) Citez deux facteurs internes de la décolonisation.",
-  devoirMaison: "Citez deux facteurs externes de la décolonisation."
+  devoirMaison: "Citez deux facteurs externes de la décolonisation.",
+  croquis: null
 },
 
 h3_8: {
@@ -637,11 +658,12 @@ h3_8: {
   ],
   resume: [
     {titre:"1. Les acteurs de la lutte au Togo", texte:"Au Togo, la lutte pour l'indépendance est portée notamment par le Comité de l'unité togolaise (CUT), fondé en 1941 et dirigé par des figures comme Sylvanus Olympio, qui revendique la réunification des deux Togo (français et britannique) et l'indépendance."},
-    {titre:"2. Les étapes vers l'indépendance", texte:"Sous tutelle de l'ONU, le Togo obtient une autonomie interne croissante dans les années 1950, avant de proclamer son indépendance le 27 avril 1960, avec Sylvanus Olympio comme premier président de la République togolaise."},
+    {titre:"2. Les étapes vers l'indépendance", texte:"Sous tutelle de l'ONU, le Togo obtient une autonomie interne croissante dans les années 1950, marquée par la domination de la vie politique nationale par les partis progressistes, les élections de 1955, la montée des partis nationalistes, la proclamation de la République autonome du Togo en 1956 et les élections législatives de 1958, ouvrant la voie à la proclamation de l'indépendance le 27 avril 1960."},
     {titre:"3. Les limites de cette indépendance", texte:"La partition entre Togo français et Togo britannique n'ayant pas été résolue par un référendum favorable à la réunification (1956), une partie du Togoland britannique reste rattachée au Ghana, une question qui marque durablement les relations entre les deux pays."}
   ],
   evaluation: "1) Décrivez brièvement les débuts de la vie politique au Togo. 2) Citez deux événements politiques marquants entre 1950 et 1958.",
-  devoirMaison: "Expliquez le rôle de l'ONU dans la décolonisation du Togo."
+  devoirMaison: "Expliquez le rôle de l'ONU dans la décolonisation du Togo.",
+  croquis: null
 },
 
 h3_9: {
@@ -675,7 +697,8 @@ h3_9: {
     {titre:"3. Conséquences pour le Togo", texte:"Ce partage sépare durablement des populations togolaises de même origine ethnique et culturelle, une fracture dont les effets se ressentent encore aujourd'hui, notamment lors du référendum manqué de réunification de 1956."}
   ],
   evaluation: "1) Citez une cause de la Première Guerre mondiale au Togo. 2) Décrivez brièvement le déroulement de la guerre au Togo.",
-  devoirMaison: "Citez deux conséquences de la guerre pour le Togo."
+  devoirMaison: "Citez deux conséquences de la guerre pour le Togo.",
+  croquis: null
 },
 
 h3_10: {
@@ -709,7 +732,8 @@ h3_10: {
     {titre:"3. La culture de la paix", texte:"La culture de la paix désigne l'ensemble des valeurs, attitudes et comportements qui rejettent la violence et favorisent le dialogue, la tolérance et la coopération entre les peuples — un objectif central des Nations unies depuis leur création."}
   ],
   evaluation: "1) Expliquez pourquoi l'ONU a été créée. 2) Citez deux institutions spécialisées de l'ONU et leur rôle.",
-  devoirMaison: "Citez une force et une faiblesse de l'ONU."
+  devoirMaison: "Citez une force et une faiblesse de l'ONU.",
+  croquis: null
 },
 
 h3_11: {
@@ -743,7 +767,8 @@ h3_11: {
     {titre:"3. Une nation en devenir", texte:"Comme de nombreux pays africains nouvellement indépendants, le Togo connaît des turbulences politiques (dont l'assassinat de Sylvanus Olympio en 1963), mais poursuit sa construction en tant que nation, à travers ses institutions, sa culture partagée et son développement économique et social."}
   ],
   evaluation: "1) Définissez peuple et nation. 2) A partir de quelle date peut-on parler de la naissance du peuple togolais ?",
-  devoirMaison: "Proposez deux actions pour promouvoir l'entente entre les groupes ethniques du Togo."
+  devoirMaison: "Proposez deux actions pour promouvoir l'entente entre les groupes ethniques du Togo.",
+  croquis: null
 }
 
 };
