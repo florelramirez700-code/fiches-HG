@@ -398,7 +398,19 @@ function renderIntegrationView(id){
     const c2b = document.createElement('div'); c2b.className='card';
     c2b.innerHTML = `<h3>Corrigé type (réponse modèle)</h3>`;
     const resBox = document.createElement('div'); resBox.className='resume-box';
-    resBox.textContent = intg.corrigeType;
+    if(typeof intg.corrigeType === 'object'){
+      const hIntro = document.createElement('h4'); hIntro.textContent = 'Introduction';
+      const pIntro = document.createElement('p'); pIntro.textContent = intg.corrigeType.intro;
+      const hDev = document.createElement('h4'); hDev.textContent = 'Développement';
+      const pDev = document.createElement('p'); pDev.textContent = intg.corrigeType.corps;
+      const hConc = document.createElement('h4'); hConc.textContent = 'Conclusion';
+      const pConc = document.createElement('p'); pConc.style.marginBottom='0'; pConc.textContent = intg.corrigeType.conclusion;
+      resBox.appendChild(hIntro); resBox.appendChild(pIntro);
+      resBox.appendChild(hDev); resBox.appendChild(pDev);
+      resBox.appendChild(hConc); resBox.appendChild(pConc);
+    } else {
+      resBox.textContent = intg.corrigeType;
+    }
     c2b.appendChild(resBox);
     el.appendChild(c2b);
   }

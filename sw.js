@@ -1,4 +1,4 @@
-const CACHE = 'fiches-hg-v16';
+const CACHE = 'fiches-hg-v17';
 const ASSETS = ['./index.html','./manifest.json','./fiches-data.js','./fiches-data-5e.js','./fiches-data-4e.js','./fiches-data-3e.js','./integrations.js','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install', e => {
