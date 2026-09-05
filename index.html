@@ -394,6 +394,15 @@ function renderIntegrationView(id){
   }
   el.appendChild(c2);
 
+  if(intg.corrigeType){
+    const c2b = document.createElement('div'); c2b.className='card';
+    c2b.innerHTML = `<h3>Corrigé type (réponse modèle)</h3>`;
+    const resBox = document.createElement('div'); resBox.className='resume-box';
+    resBox.textContent = intg.corrigeType;
+    c2b.appendChild(resBox);
+    el.appendChild(c2b);
+  }
+
   const c3 = document.createElement('div'); c3.className='card';
   c3.innerHTML = `<h3>Déroulement</h3>`;
   intg.deroulement.forEach((e,i)=>{
