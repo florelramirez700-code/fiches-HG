@@ -568,7 +568,7 @@ function renderFicheView(){
       c3b.innerHTML = `<h3>${esc(cr.titre)}</h3>`;
       const imgWrap = document.createElement('div');
       imgWrap.style.cssText = 'background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;max-width:340px;margin:0 auto;';
-      imgWrap.innerHTML = cr.svg;
+      imgWrap.innerHTML = cr.img ? `<img src="${esc(cr.img)}" alt="${esc(cr.titre)}" style="width:100%;height:auto;display:block;" onerror="this.parentElement.innerHTML='📷 Image non trouvée'">` : cr.svg;
       const svgEl = imgWrap.querySelector('svg');
       if(svgEl){ svgEl.style.width='100%'; svgEl.style.height='auto'; svgEl.style.display='block'; }
       c3b.appendChild(imgWrap);
