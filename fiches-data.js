@@ -4,7 +4,7 @@ g1: {
   leconTitre: "À la découverte de la géographie : définition, domaines, démarche et utilité",
   theme: "Thème 1 — Maîtriser son espace de vie",
   competence: "Résoudre des situations de vie liées à la compréhension des faits géographiques de son milieu et à la maîtrise de son espace de vie.",
-  documentation: ["Géographie 6e, collection Hatier", "Géographie 6e, collection IPAM, p. 4 à 9", "Dictionnaire Larousse"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Géographie 6e, collection Hatier", "Géographie 6e, collection IPAM, p. 4 à 9", "Internet – Wikipédia", "Dictionnaire Larousse"],
   supportsDidactiques: "Carte, globe terrestre, boussole, planisphère",
   preRequis: "Citer les différentes leçons étudiées au CM2 (histoire, géographie, ECM, EDUSIVIP)",
   capacitesContenus: [
@@ -44,7 +44,7 @@ g2: {
   leconTitre: "Se repérer dans son espace de vie",
   theme: "Thème 1 — Maîtriser son espace de vie",
   competence: "Résoudre des situations de vie liées à la compréhension des faits géographiques de son milieu et à la maîtrise de son espace de vie.",
-  documentation: ["Géographie 6e, collection Hatier", "Géographie 6e, collection IPAM"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Géographie 6e, collection Hatier", "Histoire-Géographie 6e, Initiation économique, Édition Knafou", "Géographie 6e, collection IPAM", "Dictionnaire Le Robert", "Dictionnaire Larousse"],
   supportsDidactiques: "Boussole, rose des vents, croquis de l'établissement",
   preRequis: "Rappeler la définition et les domaines de la géographie",
   capacitesContenus: [
@@ -74,7 +74,7 @@ g2: {
   ],
   evaluation: "1) Citez les quatre points cardinaux principaux. 2) En vous servant du plan de votre établissement, situez la classe de 6e par rapport à la direction.",
   devoirMaison: "Réalisez le croquis de votre trajet habituel de la maison à l'école en indiquant au moins deux repères fixes et l'orientation générale (nord).",
-  croquis: {titre: "Rose des vents et repérage", svg: "<svg viewBox=\"0 0 260 260\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"260\" height=\"260\" fill=\"#F3F0E6\"/>\n<circle cx=\"130.0\" cy=\"130.0\" r=\"104.0\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"1.5\"/>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"130.0\" y2=\"26.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"130.0\" y=\"12.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">N</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"203.53910524340097\" y2=\"56.46089475659906\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"216.2670273047588\" y=\"47.732972695241216\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">NE</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"234.0\" y2=\"130.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"252.0\" y=\"134.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">E</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"203.53910524340097\" y2=\"203.53910524340094\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"216.2670273047588\" y=\"220.26702730475878\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">SE</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"130.0\" y2=\"234.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"130.0\" y=\"256.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">S</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"56.46089475659906\" y2=\"203.53910524340097\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"43.732972695241216\" y=\"220.2670273047588\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">SW</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"26.0\" y2=\"130.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"8.0\" y=\"133.99999999999997\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">W</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"56.46089475659906\" y2=\"56.460894756599046\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"43.732972695241216\" y=\"47.7329726952412\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">NW</text>\n<circle cx=\"130.0\" cy=\"130.0\" r=\"4\" fill=\"#A6472B\"/>\n</svg>", img: null, legende: "Rose des vents à huit branches : les quatre points cardinaux et les quatre points intermédiaires."},
+  croquis: {titre: "Rose des vents et repérage", svg: "<svg viewBox=\"0 0 260 260\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Public Sans, sans-serif\">\n<rect width=\"260\" height=\"260\" fill=\"#F3F0E6\"/>\n<circle cx=\"130.0\" cy=\"130.0\" r=\"104.0\" fill=\"none\" stroke=\"#153F38\" stroke-width=\"1.5\"/>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"130.0\" y2=\"26.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"130.0\" y=\"12.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">N</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"203.53910524340097\" y2=\"56.46089475659906\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"216.2670273047588\" y=\"47.732972695241216\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">NE</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"234.0\" y2=\"130.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"252.0\" y=\"134.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">E</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"203.53910524340097\" y2=\"203.53910524340094\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"216.2670273047588\" y=\"220.26702730475878\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">SE</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"130.0\" y2=\"234.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"130.0\" y=\"256.0\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">S</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"56.46089475659906\" y2=\"203.53910524340097\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"43.732972695241216\" y=\"220.2670273047588\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">SO</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"26.0\" y2=\"130.0\" stroke=\"#C68A2E\" stroke-width=\"2.5\"/>\n<text x=\"8.0\" y=\"133.99999999999997\" font-size=\"14\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">W</text>\n<line x1=\"130.0\" y1=\"130.0\" x2=\"56.46089475659906\" y2=\"56.460894756599046\" stroke=\"#8C9A94\" stroke-width=\"1.2\"/>\n<text x=\"43.732972695241216\" y=\"47.7329726952412\" font-size=\"11\" fill=\"#153F38\" font-weight=\"700\" text-anchor=\"middle\">NO</text>\n<circle cx=\"130.0\" cy=\"130.0\" r=\"4\" fill=\"#A6472B\"/>\n</svg>", img: null, legende: "Rose des vents à huit branches : les quatre points cardinaux et les quatre points intermédiaires."},
   photo: null
 },
 
@@ -82,7 +82,7 @@ g3: {
   leconTitre: "De l'espace réel à l'espace schématisé",
   theme: "Thème 1 — Maîtriser son espace de vie",
   competence: "Résoudre des situations de vie liées à la compréhension des faits géographiques de son milieu et à la maîtrise de son espace de vie.",
-  documentation: ["Géographie 6e, collection Hatier", "Carte administrative du Togo"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Géographie 6e, collection Hatier", "Histoire-Géographie 6e, Initiation économique, Édition Knafou", "Géographie 6e, collection IPAM", "Internet – Wikipédia", "Dictionnaire Larousse"],
   supportsDidactiques: "Cartes murales, croquis du Togo, règle graduée, mètre ruban",
   preRequis: "Rappeler les points cardinaux et les coordonnées géographiques",
   capacitesContenus: [
@@ -121,7 +121,7 @@ g4: {
   leconTitre: "Ménager l'atmosphère",
   theme: "Thème 2 — L'homme et son environnement",
   competence: "Résoudre les problèmes liés à l'interaction entre l'homme et son environnement.",
-  documentation: ["Géographie 6e, collection Hatier", "Documents sur la pollution atmosphérique"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Histoire-Géographie 6e, Initiation économique", "Géographie 6e, Édition Hatier", "Dictionnaire universel", "Internet – Wikipédia"],
   supportsDidactiques: "Schéma des couches de l'atmosphère, images de pollution",
   preRequis: "Rappeler les éléments et la lecture d'une carte",
   capacitesContenus: [
@@ -159,7 +159,7 @@ g5: {
   leconTitre: "L'eau, une ressource indispensable",
   theme: "Thème 2 — L'homme et son environnement",
   competence: "Résoudre les problèmes liés à l'interaction entre l'homme et son environnement.",
-  documentation: ["Géographie 6e, collection Hatier", "Documents sur la gestion de l'eau au Togo"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Histoire-Géographie 6e, Initiation économique", "Géographie 6e, Édition Hatier", "Dictionnaire universel", "Internet – Wikipédia"],
   supportsDidactiques: "Cartes des points d'eau du Togo, images de sources d'eau",
   preRequis: "Rappeler le rôle et les menaces sur l'atmosphère",
   capacitesContenus: [
@@ -196,7 +196,7 @@ g6: {
   leconTitre: "Découvrir le relief",
   theme: "Thème 2 — L'homme et son environnement",
   competence: "Résoudre les problèmes liés à l'interaction entre l'homme et son environnement.",
-  documentation: ["Géographie 6e, collection Hatier", "Carte physique du Togo"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Éléments de géographie générale, Akumey A.G.O.", "Géographie 6e, par une équipe de pédagogues africains, Édition Hatier", "Internet – Wikipédia", "Dictionnaire universel"],
   supportsDidactiques: "Carte physique du Togo, images de formes de relief",
   preRequis: "Rappeler l'importance et les menaces sur l'eau",
   capacitesContenus: [
@@ -237,7 +237,7 @@ g7: {
   leconTitre: "Protéger le sol de son milieu",
   theme: "Thème 2 — L'homme et son environnement",
   competence: "Résoudre les problèmes liés à l'interaction entre l'homme et son environnement.",
-  documentation: ["Géographie 6e, collection Hatier", "Documents sur l'érosion des sols au Togo"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Géologie 4e, Édition Nathan", "Éléments de géographie générale, Akumey A.G.O.", "Géographie 6e, par une équipe de pédagogues africains, Édition Hatier", "Dictionnaire Petit Robert", "Internet – Wikipédia"],
   supportsDidactiques: "Images d'érosion du sol, échantillons de sol",
   preRequis: "Rappeler les formes de relief et les risques associés",
   capacitesContenus: [
@@ -273,7 +273,7 @@ g8: {
   leconTitre: "Préserver la végétation",
   theme: "Thème 2 — L'homme et son environnement",
   competence: "Résoudre les problèmes liés à l'interaction entre l'homme et son environnement.",
-  documentation: ["Géographie 6e, collection Hatier", "Documents sur la déforestation au Togo"],
+  documentation: ["Programme de géographie 6ème, août 2024", "Géologie 4e, Édition Nathan", "Éléments de géographie générale, Akumey A.G.O.", "Géographie 6e, par une équipe de pédagogues africains, Édition Hatier", "Dictionnaire Petit Robert"],
   supportsDidactiques: "Images de types de végétation, carte de la végétation du Togo",
   preRequis: "Rappeler les facteurs et conséquences de l'érosion du sol",
   capacitesContenus: [
@@ -312,7 +312,7 @@ h1: {
   leconTitre: "L'histoire : définition, objet",
   theme: "Thème 1 — Introduction à la science historique",
   competence: "Résoudre une situation-problème qui fait appel à la connaissance de la méthodologie de la science historique.",
-  documentation: ["Histoire 6e, collection Hatier", "Histoire 6e, collection IPAM"],
+  documentation: ["Programme d'Histoire 6ème, août 2024", "Histoire 6e, Hachette", "Histoire 6e, IPAM", "Histoire 6e, l'Afrique et le monde", "Internet – Wikipédia"],
   supportsDidactiques: "Textes, images d'archives",
   preRequis: "Citer les disciplines étudiées au CM2",
   capacitesContenus: [
@@ -348,7 +348,7 @@ h2: {
   leconTitre: "Les sources de l'histoire",
   theme: "Thème 1 — Introduction à la science historique",
   competence: "Résoudre une situation-problème qui fait appel à la connaissance de la méthodologie de la science historique.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Programme d'histoire 6ème, août 2024", "Histoire 6e, IPAM, p. 4-11", "Histoire 6e, CARAP", "Histoire-Géographie 6ème, Ed. Belin", "Dictionnaire Larousse"],
   supportsDidactiques: "Extraits d'archives, objets anciens (images), enregistrement de tradition orale",
   preRequis: "Rappeler la définition et l'intérêt de l'histoire",
   capacitesContenus: [
@@ -381,7 +381,7 @@ h3: {
   leconTitre: "La notion de chronologie",
   theme: "Thème 1 — Introduction à la science historique",
   competence: "Résoudre une situation-problème qui fait appel à la connaissance de la méthodologie de la science historique.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Programme d'histoire 6ème, août 2024", "Histoire 6e, IPAM, p. 4-11", "Histoire 6e, CARAP", "Histoire-Géographie 6ème, Ed. Belin", "Dictionnaire Larousse"],
   supportsDidactiques: "Frise chronologique vierge, règle graduée",
   preRequis: "Rappeler les sources de l'histoire",
   capacitesContenus: [
@@ -415,7 +415,7 @@ h4: {
   leconTitre: "Les grandes divisions du temps à l'échelle humaine",
   theme: "Thème 1 — Introduction à la science historique",
   competence: "Résoudre une situation-problème qui fait appel à la connaissance de la méthodologie de la science historique.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Programme d'histoire 6ème, août 2024", "Histoire 6e, IPAM", "Histoire 6e, CARAP", "Histoire-Géographie 6ème, Ed. Belin", "Internet – Wikipédia", "Dictionnaire Larousse"],
   supportsDidactiques: "Frise chronologique des grandes périodes de l'histoire",
   preRequis: "Rappeler les unités de mesure du temps et la frise chronologique",
   capacitesContenus: [
@@ -449,7 +449,7 @@ h5: {
   leconTitre: "L'apparition de l'Homme en Afrique. Les vestiges préhistoriques en Afrique",
   theme: "Thème 2 — La Préhistoire",
   competence: "Résoudre une situation-problème faisant appel à la connaissance de la vie des hommes de la Préhistoire.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Programme d'histoire 6ème, août 2024", "Histoire 6e, IPAM", "Histoire 6e, CARAP", "Histoire-Géographie 6e, Belin, p. 8-11", "Dictionnaire Larousse"],
   supportsDidactiques: "Carte de l'Afrique avec les sites préhistoriques, images d'outils préhistoriques",
   preRequis: "Rappeler les grandes divisions du temps historique",
   capacitesContenus: [
@@ -488,7 +488,7 @@ h6: {
   leconTitre: "Archéologie et Préhistoire du Togo",
   theme: "Thème 2 — La Préhistoire",
   competence: "Résoudre une situation-problème faisant appel à la connaissance de la vie des hommes de la Préhistoire.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Guide d'exécution de l'histoire 6e, 2018, p. 7-8", "Manuel d'histoire du Togo des origines à 2005, sous la direction de Nicoué L. Gayibor, pp. 21-26, 244 p.", "Programme actualisé d'Histoire, août 2024", "Leçons harmonisées d'histoire 6e, sous la direction de G. Yao Alidjisso, 2013"],
   supportsDidactiques: "Carte du Togo avec les sites archéologiques (Bassar, Tado, Notsè, Aného, Nano, Sogou, Namoudjoga)",
   preRequis: "Rappeler les caractéristiques du Paléolithique et du Néolithique",
   capacitesContenus: [
@@ -524,7 +524,7 @@ h7: {
   leconTitre: "L'Égypte ancienne : présentation (le pays, les hommes, les grandes périodes)",
   theme: "Thème 3 — Les civilisations de l'Afrique",
   competence: "Résoudre des situations-problèmes de la vie courante faisant appel à la connaissance des civilisations de l'Afrique.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Programme d'histoire 6ème, août 2024, p. 9, et guide d'exécution p. 18-19", "Histoire-Géographie 6e, Initiation économique, Hachette collège", "Histoire 6e, le miroir de la préhistoire à la fin du VIe siècle après J.-C., IPAM", "Dictionnaire universel", "Le Petit Robert"],
   supportsDidactiques: "Carte de l'Afrique avec l'Égypte ancienne, images des pyramides et temples",
   preRequis: "Rappeler la vie des hommes de la Préhistoire au Togo",
   capacitesContenus: [
@@ -563,7 +563,7 @@ h8: {
   leconTitre: "L'héritage de la civilisation égyptienne",
   theme: "Thème 3 — Les civilisations de l'Afrique",
   competence: "Résoudre des situations-problèmes de la vie courante faisant appel à la connaissance des civilisations de l'Afrique.",
-  documentation: ["Histoire 6e, collection Hatier"],
+  documentation: ["Histoire 6e, IPAM", "Internet – Wikipédia", "L'Afrique et le Monde, Histoire 6e, Hatier", "Dictionnaire Larousse"],
   supportsDidactiques: "Images d'art égyptien, documents sur la religion égyptienne",
   preRequis: "Rappeler la société et les monuments de l'Égypte ancienne",
   capacitesContenus: [
@@ -598,7 +598,7 @@ h9: {
   leconTitre: "La métallurgie du fer au Togo et ses conséquences",
   theme: "Thème 3 — Les civilisations de l'Afrique",
   competence: "Résoudre des situations-problèmes de la vie courante faisant appel à la connaissance des civilisations de l'Afrique.",
-  documentation: ["Histoire 6e, collection Hatier", "Documents sur la métallurgie ancienne à Bassar"],
+  documentation: ["Manuel d'histoire du Togo des origines à 2005", "Internet – Wikipédia", "Dictionnaire Larousse"],
   supportsDidactiques: "Carte du Togo avec les sites métallurgiques, schéma d'un fourneau de réduction du fer",
   preRequis: "Rappeler l'héritage de la civilisation égyptienne",
   capacitesContenus: [
