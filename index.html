@@ -206,6 +206,12 @@ function lessonDuree(id, f){
   const total = f.deroulement.reduce((s,p)=>s+parseInt(p.duree),0);
   return total + " min";
 }
+function lessonNumero(niv, subject, id){
+  const themes = LEVELS[niv] && LEVELS[niv][subject] ? LEVELS[niv][subject].themes : [];
+  let n = 0;
+  for(const t of themes){ for(const lid of t.ids){ n++; if(lid===id) return n; } }
+  return null;
+}
 
 function showToast(msg){
   const t = document.createElement('div');
@@ -373,47 +379,63 @@ function renderIntegrationView(id){
     el.appendChild(c1b);
   }
 
-  const c2 = document.createElement('div'); c2.className='card';
-  c2.innerHTML = `<h3>Situation d'intégration</h3>`;
-  const spBox = document.createElement('div'); spBox.className='sp-box';
-  spBox.textContent = intg.situationIntegration;
-  c2.appendChild(spBox);
-  if(intg.consignes && intg.consignes.length){
-    const consLabel = document.createElement('span'); consLabel.className='field-label'; consLabel.style.cssText='margin-top:12px;display:block;'; consLabel.textContent='Consignes';
-    c2.appendChild(consLabel);
-    const ol = document.createElement('ul'); ol.className='clean';
-    intg.consignes.forEach(c=>{ const li=document.createElement('li'); li.textContent=c; ol.appendChild(li); });
-    c2.appendChild(ol);
-  }
-  if(intg.strategies && intg.strategies.length){
-    const stratLabel = document.createElement('span'); stratLabel.className='field-label'; stratLabel.style.cssText='margin-top:10px;display:block;'; stratLabel.textContent='Stratégies pédagogiques';
-    c2.appendChild(stratLabel);
-    const ul2 = document.createElement('ul'); ul2.className='clean';
-    intg.strategies.forEach(s=>{ const li=document.createElement('li'); li.textContent=s; ul2.appendChild(li); });
-    c2.appendChild(ul2);
-  }
-  el.appendChild(c2);
-
-  if(intg.corrigeType){
-    const c2b = document.createElement('div'); c2b.className='card';
-    c2b.innerHTML = `<h3>Corrigé type (réponse modèle)</h3>`;
-    const resBox = document.createElement('div'); resBox.className='resume-box';
-    if(typeof intg.corrigeType === 'object'){
-      const hIntro = document.createElement('h4'); hIntro.textContent = 'Introduction';
-      const pIntro = document.createElement('p'); pIntro.textContent = intg.corrigeType.intro;
-      const hDev = document.createElement('h4'); hDev.textContent = 'Développement';
-      const pDev = document.createElement('p'); pDev.textContent = intg.corrigeType.corps;
-      const hConc = document.createElement('h4'); hConc.textContent = 'Conclusion';
-      const pConc = document.createElement('p'); pConc.style.marginBottom='0'; pConc.textContent = intg.corrigeType.conclusion;
-      resBox.appendChild(hIntro); resBox.appendChild(pIntro);
-      resBox.appendChild(hDev); resBox.appendChild(pDev);
-      resBox.appendChild(hConc); resBox.appendChild(pConc);
-    } else {
-      resBox.textContent = intg.corrigeType;
+  const situationsList = intg.situations || [{ titre: 'Situation d\'intégration', situationIntegration: intg.situationIntegration, consignes: intg.consignes, corrigeType: intg.corrigeType, criteresEvaluation: intg.criteresEvaluation }];
+  situationsList.forEach((sit, sitIdx)=>{
+    const isIndividuel = /individuel/i.test(sit.titre || '');
+    const c2 = document.createElement('div'); c2.className='card';
+    c2.innerHTML = `<h3>${esc(sit.titre || 'Situation d\'intégration')}</h3>`;
+    const spBox = document.createElement('div'); spBox.className='sp-box';
+    spBox.textContent = sit.situationIntegration;
+    c2.appendChild(spBox);
+    if(sit.consignes && sit.consignes.length){
+      const consLabel = document.createElement('span'); consLabel.className='field-label'; consLabel.style.cssText='margin-top:12px;display:block;'; consLabel.textContent='Consignes';
+      c2.appendChild(consLabel);
+      const ol = document.createElement('ul'); ol.className='clean';
+      sit.consignes.forEach(c=>{ const li=document.createElement('li'); li.textContent=c; ol.appendChild(li); });
+      c2.appendChild(ol);
     }
-    c2b.appendChild(resBox);
-    el.appendChild(c2b);
-  }
+    if(sitIdx===0 && intg.strategies && intg.strategies.length){
+      const stratLabel = document.createElement('span'); stratLabel.className='field-label'; stratLabel.style.cssText='margin-top:10px;display:block;'; stratLabel.textContent='Stratégies pédagogiques';
+      c2.appendChild(stratLabel);
+      const ul2 = document.createElement('ul'); ul2.className='clean';
+      intg.strategies.forEach(s=>{ const li=document.createElement('li'); li.textContent=s; ul2.appendChild(li); });
+      c2.appendChild(ul2);
+    }
+    el.appendChild(c2);
+
+    if(sit.corrigeType && !isIndividuel){
+      const c2b = document.createElement('div'); c2b.className='card';
+      c2b.innerHTML = `<h3>Corrigé type (réponse modèle)</h3>`;
+      const resBox = document.createElement('div'); resBox.className='resume-box';
+      if(typeof sit.corrigeType === 'object'){
+        const hIntro = document.createElement('h4'); hIntro.textContent = 'Introduction';
+        const pIntro = document.createElement('p'); pIntro.textContent = sit.corrigeType.intro;
+        const hDev = document.createElement('h4'); hDev.textContent = 'Développement';
+        const pDev = document.createElement('p'); pDev.textContent = sit.corrigeType.corps;
+        const hConc = document.createElement('h4'); hConc.textContent = 'Conclusion';
+        const pConc = document.createElement('p'); pConc.style.marginBottom='0'; pConc.textContent = sit.corrigeType.conclusion;
+        resBox.appendChild(hIntro); resBox.appendChild(pIntro);
+        resBox.appendChild(hDev); resBox.appendChild(pDev);
+        resBox.appendChild(hConc); resBox.appendChild(pConc);
+      } else {
+        resBox.textContent = sit.corrigeType;
+      }
+      c2b.appendChild(resBox);
+      el.appendChild(c2b);
+      if(sit.criteresEvaluation && sit.criteresEvaluation.length){
+        const c4b = document.createElement('div'); c4b.className='card';
+        c4b.innerHTML = `<h3>Grille de correction</h3>`;
+        const ulc = document.createElement('ul'); ulc.className='clean';
+        sit.criteresEvaluation.forEach(c=>{ const li=document.createElement('li'); li.textContent=c; ulc.appendChild(li); });
+        c4b.appendChild(ulc);
+        el.appendChild(c4b);
+      }
+    } else if(isIndividuel){
+      const c2c = document.createElement('div'); c2c.className='card';
+      c2c.innerHTML = `<p style="font-style:italic;color:var(--rose,#A6472B);">À toi de traiter cette situation seul(e), en appliquant la méthode en 6 étapes.</p>`;
+      el.appendChild(c2c);
+    }
+  });
 
   const c3 = document.createElement('div'); c3.className='card';
   c3.innerHTML = `<h3>Déroulement</h3>`;
@@ -428,13 +450,6 @@ function renderIntegrationView(id){
     c3.appendChild(item);
   });
   el.appendChild(c3);
-
-  const c4 = document.createElement('div'); c4.className='card';
-  c4.innerHTML = `<h3>Critères d'évaluation</h3>`;
-  const ul = document.createElement('ul'); ul.className='clean';
-  intg.criteresEvaluation.forEach(c=>{ const li=document.createElement('li'); li.textContent=c; ul.appendChild(li); });
-  c4.appendChild(ul);
-  el.appendChild(c4);
 
   if(intg.devoirMaison){
     const c5 = document.createElement('div'); c5.className='card';
@@ -490,25 +505,43 @@ function renderFicheView(){
   actions.appendChild(saveBtn); actions.appendChild(printBtn); actions.appendChild(resetBtn);
   el.appendChild(actions);
 
-  // En-tête administratif
+  // En-tête administratif (format APC, aligné sur l'appli ECM)
+  const discipline = state.subject === 'geo' ? 'Géographie' : 'Histoire';
+  const ficheNumero = lessonNumero(state.level, state.subject, state.currentId);
+  const totalMin = f.deroulement.reduce((s,p)=>s+parseInt(p.duree),0);
+  const nbSeances = Math.max(1, Math.round(totalMin/55));
   const c1 = document.createElement('div'); c1.className='card';
   c1.innerHTML = `<h3>En-tête</h3>`;
   const t = document.createElement('table'); t.className='entete-table';
-  t.innerHTML = `<tr><th>Classe</th><td class="ed" data-k="classe">${esc(settings.classe||'6ème')}</td></tr>
-    <tr><th>Durée</th><td>${esc(lessonDuree(state.currentId,f))}</td></tr>
-    <tr><th>Établissement</th><td class="ed" data-k="etablissement">${esc(settings.etablissement||'—')}</td></tr>
-    <tr><th>Année scolaire</th><td class="ed" data-k="annee">${esc(settings.annee||'—')}</td></tr>
-    <tr><th>Professeur</th><td class="ed" data-k="professeur">${esc(settings.professeur||'—')}</td></tr>`;
-  t.querySelectorAll('td.ed').forEach(td=>{
+  t.innerHTML = `<tr><th>Fiche N°</th><td>${ficheNumero!=null?ficheNumero:'—'}</td>
+      <th>AN/SC</th><td class="ed" data-k="annee">${esc(settings.annee||'—')}</td></tr>
+    <tr><th>Discipline</th><td>${discipline}</td>
+      <th>Classe</th><td class="ed" data-k="classe">${esc(settings.classe||'6ème')}</td></tr>
+    <tr><th>Établissement</th><td colspan="3" class="ed" data-k="etablissement">${esc(settings.etablissement||'—')}</td></tr>
+    <tr><th>Professeur</th><td colspan="3" class="ed" data-k="professeur">${esc(settings.professeur||'—')}</td></tr>
+    <tr><th>Effectif</th><td colspan="3"><span class="ed-f nw">F = <span class="ed" data-fk="effectifF">${esc(f.effectifF||'')}</span></span> <span class="ed-f nw">G = <span class="ed" data-fk="effectifG">${esc(f.effectifG||'')}</span></span></td></tr>
+    <tr><th>Thème</th><td colspan="3">${esc(f.theme)}</td></tr>
+    <tr><th>Nombre de séances</th><td>${nbSeances}</td><th>Durée d'une séance</th><td>55 min</td></tr>`;
+  t.querySelectorAll('td.ed[data-k]').forEach(td=>{
     td.contentEditable='true';
     td.addEventListener('blur', ()=>{ state.settings[td.dataset.k]=td.textContent; setSettings(state.settings); });
+  });
+  t.querySelectorAll('span.ed[data-fk]').forEach(span=>{
+    span.contentEditable='true';
+    span.addEventListener('blur', ()=>{ f[span.dataset.fk]=span.textContent; });
   });
   c1.appendChild(t);
   el.appendChild(c1);
 
   // Cadrage
   const c2 = document.createElement('div'); c2.className='card';
-  c2.innerHTML = `<h3>Cadrage</h3><span class="field-label">Compétence</span>`;
+  c2.innerHTML = `<h3>Cadrage</h3><span class="field-label">Méthode</span>`;
+  c2.appendChild(makeEditable('p', f.methodes, v=>f.methodes=v));
+  const tecLabel = document.createElement('span'); tecLabel.className='field-label'; tecLabel.style.marginTop='6px'; tecLabel.style.display='block'; tecLabel.textContent='Techniques';
+  c2.appendChild(tecLabel);
+  c2.appendChild(makeEditable('p', f.techniques, v=>f.techniques=v));
+  const compLabel = document.createElement('span'); compLabel.className='field-label'; compLabel.style.marginTop='10px'; compLabel.style.display='block'; compLabel.textContent='Compétence';
+  c2.appendChild(compLabel);
   c2.appendChild(makeEditable('p', f.competence, v=>f.competence=v));
   const docLabel = document.createElement('span'); docLabel.className='field-label'; docLabel.style.marginTop='10px'; docLabel.style.display='block'; docLabel.textContent='Documentation';
   c2.appendChild(docLabel);
@@ -545,7 +578,7 @@ function renderFicheView(){
     const imgWrap = document.createElement('div');
     imgWrap.style.cssText = 'text-align:center;';
     const img = document.createElement('img');
-    img.src = 'photos/' + f.photo.fichier;
+    img.src = f.photo.fichier;
     img.alt = f.photo.legende;
     img.style.cssText = 'max-width:100%;max-height:320px;border-radius:8px;border:1px solid var(--line);';
     img.onerror = function(){
