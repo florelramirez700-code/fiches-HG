@@ -81,6 +81,20 @@
   .resume-box{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;}
   .resume-box h4{margin:10px 0 3px;font-size:13px;color:var(--teal-deep);}
   .resume-box h4:first-child{margin-top:0;}
+  .pre{white-space:pre-line;}
+  ol.clean{margin:4px 0;padding-left:22px;}
+  ol.clean li{margin:3px 0;font-size:13.5px;}
+  h4.sit-titre{margin:14px 0 6px;font-size:13px;color:var(--clay);}
+  .card h3 + h4.sit-titre{margin-top:4px;}
+  .seance-titre{background:var(--teal-deep);color:#fff;border-radius:8px;padding:7px 10px;font-weight:700;font-size:12.5px;margin:14px 0 8px;}
+  .seance-titre:first-of-type{margin-top:4px;}
+  details.corrige{margin-top:8px;background:#FAF8F2;border:1px solid var(--line);border-radius:8px;padding:6px 10px;}
+  details.corrige summary{cursor:pointer;font-weight:600;font-size:12.5px;color:var(--teal);}
+  details.corrige p{margin:6px 0 2px;font-size:13px;}
+  .consigne-comp{font-weight:600;font-size:13px;margin:8px 0 0;}
+  .note{font-size:12px;color:var(--ink-soft);margin:-4px 0 8px;}
+  .doc-figure{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:4px 0 8px;}
+  .credit{font-size:11px;color:var(--ink-soft);font-style:italic;margin:-4px 0 10px;}
 
   .modal-back{position:fixed;inset:0;background:rgba(32,42,60,.5);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px;}
   .modal{background:#fff;border-radius:14px;padding:22px 22px;width:100%;max-width:380px;max-height:85vh;overflow:auto;}
@@ -283,7 +297,7 @@ function renderProgram(){
       const card = document.createElement('div'); card.className='lesson-card';
       card.style.background = 'var(--teal-soft)'; card.style.borderColor = 'var(--teal)';
       const totalMin = intg.deroulement.reduce((s,e)=>s+parseInt(e.duree),0);
-      card.innerHTML = `<div><div class="titre">🧩 ${esc(intg.titre)}</div><div class="meta">${intg.deroulement.length} séances · ${totalMin} min</div></div><div class="arrow">›</div>`;
+      card.innerHTML = `<div><div class="titre">🧩 ${esc(intg.titre)}</div><div class="meta">${intg.nbSeances || intg.deroulement.length} séances · ${totalMin} min</div></div><div class="arrow">›</div>`;
       card.onclick = ()=> openIntegration(t.integration);
       el.appendChild(card);
     }
@@ -329,10 +343,91 @@ function openIntegration(id){
   renderIntegrationView(id);
 }
 
+/* ============ INTÉGRATIONS AU FORMAT OFFICIEL (épreuves BEPC / compositions régionales) ============ */
+const hx = s => String(s===undefined||s===null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// Texte avec retours à la ligne ; les lignes qui commencent par « | » forment un tableau (1re ligne = en-têtes)
+function texteHTML(t){
+  const lignes = String(t||'').split('\n'); let h = '', tab = [];
+  const vider = ()=>{ if(!tab.length) return; h += '<table class="grid" style="margin:6px 0">' + tab.map((l,i)=>'<tr>'+l.replace(/^\|/,'').split('|').map(c=> i===0?`<th>${hx(c.trim())}</th>`:`<td>${hx(c.trim())}</td>`).join('')+'</tr>').join('') + '</table>'; tab = []; };
+  lignes.forEach(l=>{ if(/^\s*\|/.test(l)) tab.push(l.trim()); else { vider(); h += hx(l) + '<br>'; } });
+  vider();
+  return h.replace(/(<br>)+$/,'');
+}
+const fmtPts = x => (Math.round(x*100)/100).toString().replace('.',',')+(x>1?' pts':' pt');
+// Une situation notée vaut 8 pts : une consigne = 2 pts par critère (pertinence, correction, cohérence, perfectionnement)
+function grilleSituationHTML(s){
+  const rows = s.consignes.length>1 ? s.consignes.map((c,j)=>'Consigne '+(j+1)) : ['Consigne'];
+  const pt = rows.length>1 ? 1 : 2;
+  let h = `<table class="grid" style="margin-top:10px"><tr><th></th><th>Pertinence</th><th>Correction</th><th>Cohérence</th><th>Perfectionnement</th><th>Total</th></tr>`;
+  rows.forEach(r=>{ h += `<tr><td><b>${r}</b></td>${[1,2,3,4].map(()=>`<td>${fmtPts(pt)}</td>`).join('')}<td><b>${fmtPts(pt*4)}</b></td></tr>`; });
+  return h + `</table>`;
+}
+// Barème de la grille détaillée (format des fiches d'intégration de l'IESG) : pertinence 0,5/0,5/1 ; correction 1/1 ; cohérence 2 ; perfectionnement 2
+function baremeIndices(rows){
+  const pts = rows.map(()=>0), de = c=>rows.map((r,i)=>i).filter(i=>rows[i][0]===c);
+  const P = de('Pertinence'); if(P.length===3){ pts[P[0]]=0.5; pts[P[1]]=0.5; pts[P[2]]=1; } else P.forEach(i=>pts[i]=2/P.length);
+  ['Correction','Cohérence'].forEach(c=>{ const X=de(c); X.forEach(i=>pts[i]=2/X.length); });
+  const Fp = de('Perfectionnement'); if(Fp.length===2){ pts[Fp[0]]=1.5; pts[Fp[1]]=0.5; } else Fp.forEach(i=>pts[i]=2/Fp.length);
+  return pts;
+}
+const estNotee = s => !/remédiation|exercice de maison/i.test(s.titre);
+
+function renderIntegrationOfficielle(el, id, intg){
+  const settings = state.settings;
+  let niv = null, subj = null, ids = [];
+  for(const lv of Object.keys(LEVELS)) for(const sj of ['geo','hist']) LEVELS[lv][sj].themes.forEach(t=>{ if(t.integration===id){ niv=lv; subj=sj; ids=t.ids; } });
+  const discipline = subj==='geo' ? 'Géographie' : 'Histoire';
+  let h = `<div class="fiche-header"><button class="back-btn" id="intBack">←</button><div><h1>${hx(intg.titre)}</h1><div class="meta">${hx(intg.niveauMatiere)} · ${hx(intg.theme)}</div></div></div>
+    <div class="actions"><button class="btn btn-ghost" onclick="window.print()">Imprimer / PDF</button></div>`;
+  h += `<div class="card"><h3>En-tête</h3><table class="entete-table">
+    <tr><th>Fiche</th><td>Intégration</td><th>AN/SC</th><td>${hx(settings.annee||'—')}</td></tr>
+    <tr><th>Discipline</th><td>${discipline}</td><th>Classe</th><td>${hx(settings.classe||niv||'')}</td></tr>
+    <tr><th>Établissement</th><td colspan="3">${hx(settings.etablissement||'—')}</td></tr>
+    <tr><th>Professeur</th><td colspan="3">${hx(settings.professeur||'—')}</td></tr>
+    <tr><th>Effectif</th><td colspan="3">F = &nbsp;&nbsp;&nbsp; G =</td></tr>
+    <tr><th>Thème</th><td colspan="3">${hx(intg.theme)}</td></tr>
+    <tr><th>Leçons</th><td colspan="3">${hx(intg.leconsRange)}</td></tr>
+    <tr><th>Nombre de séances</th><td>${intg.nbSeances||''}</td><th>Durée d'une séance</th><td>55 min</td></tr></table>
+    <p class="note" style="margin-top:8px">${(intg.seancesTitres||[]).map(t=>hx(t.replace(/^Séance (\d+) — /,'$1. '))).join(' · ')}</p></div>`;
+  h += `<div class="card"><h3>Compétence à intégrer</h3><p>${hx(intg.competence)}</p>
+    <span class="field-label">Documentation</span><ul class="clean">${(intg.documentation||[]).map(d=>`<li>${hx(d)}</li>`).join('')}</ul>
+    <span class="field-label">Supports didactiques</span><p>${hx(intg.supportsDidactiques)}</p>
+    <span class="field-label">Pré-requis</span><p>${hx(intg.preRequis)}</p></div>`;
+  const caps = []; ids.forEach(fid=>{ const f = ALL_FICHES[fid]; if(f) f.capacitesContenus.forEach(c=>caps.push(c)); });
+  if(caps.length) h += `<div class="card"><h3>Capacités évaluées</h3><table class="grid cc"><tr><th>Capacités</th><th>Contenus</th></tr>${caps.map(c=>`<tr><td>${hx(c[0])}</td><td class="pre">${hx(c[1])}</td></tr>`).join('')}</table></div>`;
+  if(intg.methode) h += `<div class="card" style="border:2px solid var(--gold)"><h3>📝 Méthode : traiter une situation d'évaluation</h3><p class="note">À enseigner lors de cette première intégration ; les élèves la recopient et l'appliquent ensuite à chaque situation.</p><p class="pre" style="font-size:13.5px">${hx(intg.methode)}</p></div>`;
+  intg.situations.forEach((s,n)=>{
+    h += `<div class="card"><h3>${hx(s.titre)}${s.ref?` <span class="note">(${hx(s.ref)})</span>`:''}</h3>
+      <div class="sp-box pre">${hx(s.texte)}</div>
+      <p class="pre" style="margin:10px 0 4px;font-size:13.5px">${s.amorce?hx(s.amorce)+'\n':''}${s.consignes.map((c,j)=>'<b>Consigne'+(s.consignes.length>1?' '+(j+1):'')+' :</b> '+hx(c)).join('\n')}</p>
+      ${(s.documents||[]).map(d=>`<h4 class="sit-titre">${hx(d.titre)}</h4>${d.svg?`<div class="doc-figure">${d.svg}</div>`:''}${d.image?`<img src="${hx(d.image)}" alt="${hx(d.titre)}" style="max-width:100%;border-radius:6px;display:block">${d.credit?`<p class="credit">${hx(d.credit)}</p>`:''}`:''}${d.texte?`<div style="font-size:13px">${texteHTML(d.texte)}</div>`:''}`).join('')}
+      ${estNotee(s) ? `<span class="field-label" style="margin-top:12px;display:block">Grille de notation (8 points)</span>${grilleSituationHTML(s)}` : `<p class="note" style="margin-top:10px">Situation non notée (remédiation ou exercice de maison).</p>`}
+      <details class="corrige" ${n===0?'open':''}><summary>Corrigé type</summary><p class="pre">${hx(s.corrige)}</p></details>
+      ${s.indices?`<details class="corrige"><summary>Grille de correction de cette situation (critères, indicateurs, indices, barème)</summary>
+        <table class="grid"><tr><th>Critères</th><th>Indicateurs</th><th>Indices</th><th>Barème</th></tr>
+        ${(b=>s.indices.map((r,ri)=>`<tr><td><b>${hx(r[0])}</b></td><td>${hx(r[1])}</td><td>${hx(r[2])}</td><td>${fmtPts(b[ri])}</td></tr>`).join(''))(baremeIndices(s.indices))}
+        <tr><td colspan="3" style="text-align:right;font-weight:700">Total</td><td><b>8 pts</b></td></tr></table></details>`:''}
+    </div>`;
+  });
+  h += `<div class="card"><h3>Déroulement</h3>`;
+  let sc = null;
+  intg.deroulement.forEach(p=>{
+    if(p.seance !== sc){ sc = p.seance; h += `<div class="seance-titre">${hx((intg.seancesTitres||[])[sc-1]||('Séance '+sc))} — 55 min</div>`; }
+    h += `<div class="deroul-item"><div><span class="dur">${hx(p.duree)}</span><span class="ph">${hx(p.phase)}</span></div>
+      <div class="lbl">Activité du professeur</div><p class="pre" style="margin:2px 0 0">${hx(p.activiteProf)}</p>
+      <div class="lbl">Activité des élèves</div><p class="pre" style="margin:2px 0 0">${hx(p.activiteEleve)}</p>
+      <div class="lbl">Support</div><p style="margin:2px 0 0;color:var(--ink-soft)">${hx(p.support)}</p></div>`;
+  });
+  h += `</div>`;
+  el.innerHTML = h;
+  document.getElementById('intBack').onclick = ()=> switchTab('program');
+}
+
 function renderIntegrationView(id){
   const el = document.getElementById('viewFiche');
   el.innerHTML = '';
   const intg = INTEGRATIONS[id];
+  if(intg.situations && intg.situations.length && intg.situations[0].texte !== undefined){ renderIntegrationOfficielle(el, id, intg); return; }
 
   const header = document.createElement('div'); header.className='fiche-header';
   const back = document.createElement('button'); back.className='back-btn'; back.textContent='←';
@@ -613,17 +708,31 @@ function renderFicheView(){
     });
   }
 
-  // Situation-problème + consignes + stratégies
+  // Situation(s) d'apprentissage + consignes + stratégies
   const c4 = document.createElement('div'); c4.className='card';
-  c4.innerHTML = `<h3>Situation d'apprentissage</h3>`;
-  const spBox = document.createElement('div'); spBox.className='sp-box';
-  spBox.appendChild(makeEditable('p', f.situationProbleme, v=>f.situationProbleme=v));
-  c4.appendChild(spBox);
-  const consLabel = document.createElement('span'); consLabel.className='field-label'; consLabel.style.marginTop='12px'; consLabel.style.display='block'; consLabel.textContent='Consignes';
-  c4.appendChild(consLabel);
-  const consUl = document.createElement('ul'); consUl.className='clean';
-  f.consignes.forEach((d,i)=>{ const li=document.createElement('li'); li.appendChild(makeEditable('span', d, v=>f.consignes[i]=v)); consUl.appendChild(li); });
-  c4.appendChild(consUl);
+  const sitList = f.situations || [{ titre: "Situation d'apprentissage", texte: f.situationProbleme, consignes: f.consignes }];
+  c4.innerHTML = `<h3>${sitList.length > 1 ? "Situations d'apprentissage" : "Situation d'apprentissage"}</h3>`;
+  sitList.forEach((sit, k)=>{
+    if(sitList.length > 1 || sit.ref){
+      const h4 = document.createElement('h4'); h4.className='sit-titre';
+      h4.textContent = (sitList.length > 1 ? sit.titre : "Situation d'apprentissage") + (sit.ref ? ' — ' + sit.ref : '');
+      c4.appendChild(h4);
+    }
+    const spBox = document.createElement('div'); spBox.className='sp-box pre';
+    spBox.appendChild(makeEditable('p', sit.texte, v=>{ sit.texte=v; if(k===0 && !f.situations) f.situationProbleme=v; }));
+    c4.appendChild(spBox);
+    if(sit.tableau){
+      const tb = document.createElement('table'); tb.className='grid'; tb.style.marginTop='8px';
+      tb.innerHTML = '<tr>' + sit.tableau.entetes.map(h=>`<th>${esc(h)}</th>`).join('') + '</tr>';
+      sit.tableau.lignes.forEach(l=>{ const tr=document.createElement('tr'); l.forEach(cell=>{ const td=document.createElement('td'); td.innerHTML = cell ? esc(cell) : '&nbsp;'; tr.appendChild(td); }); tb.appendChild(tr); });
+      c4.appendChild(tb);
+    }
+    const consLabel = document.createElement('span'); consLabel.className='field-label'; consLabel.style.marginTop='12px'; consLabel.style.display='block'; consLabel.textContent='Consignes';
+    c4.appendChild(consLabel);
+    const consOl = document.createElement('ol'); consOl.className='clean';
+    sit.consignes.forEach((d,i)=>{ const li=document.createElement('li'); li.appendChild(makeEditable('span', d, v=>{ sit.consignes[i]=v; })); consOl.appendChild(li); });
+    c4.appendChild(consOl);
+  });
   const stratLabel = document.createElement('span'); stratLabel.className='field-label'; stratLabel.style.marginTop='8px'; stratLabel.style.display='block'; stratLabel.textContent='Stratégies pédagogiques';
   c4.appendChild(stratLabel);
   const stratUl = document.createElement('ul'); stratUl.className='clean';
@@ -631,10 +740,40 @@ function renderFicheView(){
   c4.appendChild(stratUl);
   el.appendChild(c4);
 
-  // Déroulement (cartes, plus lisible sur mobile qu'un tableau large)
+  // Documents-supports (textes reformulés du manuel ; images : renvoi à la page du manuel ou schéma redessiné)
+  if(f.documentsSupports && f.documentsSupports.length){
+    const cD = document.createElement('div'); cD.className='card';
+    cD.innerHTML = `<h3>Documents-supports</h3>`;
+    f.documentsSupports.forEach(doc=>{
+      const h4 = document.createElement('h4'); h4.className='sit-titre'; h4.textContent = doc.titre;
+      cD.appendChild(h4);
+      if(doc.svg){
+        const w = document.createElement('div'); w.className='doc-figure'; w.innerHTML = doc.svg;
+        const s = w.querySelector('svg'); if(s){ s.style.width='100%'; s.style.height='auto'; s.style.display='block'; }
+        cD.appendChild(w);
+      }
+      if(doc.image){
+        const img = document.createElement('img'); img.src = doc.image; img.alt = doc.titre;
+        img.style.cssText = 'max-width:100%;border-radius:6px;display:block;margin:4px 0 6px;border:1px solid var(--line);';
+        cD.appendChild(img);
+      }
+      if(doc.texte){ const p = makeEditable('p', doc.texte, v=>doc.texte=v); p.classList.add('pre'); p.style.margin='0 0 10px'; cD.appendChild(p); }
+      if(doc.credit){ const cr = document.createElement('p'); cr.className='credit'; cr.textContent = doc.credit; cD.appendChild(cr); }
+    });
+    el.appendChild(cD);
+  }
+
+  // Déroulement (cartes, plus lisible sur mobile qu'un tableau large), regroupé par séance de 55 min
   const c5 = document.createElement('div'); c5.className='card';
-  c5.innerHTML = `<h3>Déroulement de la séance</h3>`;
+  c5.innerHTML = `<h3>Déroulement</h3>`;
+  let seanceCourante = null;
   f.deroulement.forEach(row=>{
+    if(row.seance && row.seance !== seanceCourante){
+      seanceCourante = row.seance;
+      const hs = document.createElement('div'); hs.className='seance-titre';
+      hs.textContent = (f.seancesTitres && f.seancesTitres[row.seance-1]) || ('Séance ' + row.seance);
+      c5.appendChild(hs);
+    }
     const item = document.createElement('div'); item.className='deroul-item';
     const head = document.createElement('div');
     const ph = document.createElement('span'); ph.className='ph'; ph.appendChild(makeEditable('span', row.phase, v=>row.phase=v));
@@ -643,7 +782,7 @@ function renderFicheView(){
     item.appendChild(head);
     [['Activité du professeur','activiteProf'],['Activité des élèves','activiteEleve'],['Support','support']].forEach(([lbl,key])=>{
       const l = document.createElement('div'); l.className='lbl'; l.textContent=lbl;
-      const v = makeEditable('p', row[key], val=>row[key]=val); v.style.margin='2px 0 0';
+      const v = makeEditable('p', row[key], val=>row[key]=val); v.style.margin='2px 0 0'; v.classList.add('pre');
       item.appendChild(l); item.appendChild(v);
     });
     c5.appendChild(item);
@@ -656,21 +795,47 @@ function renderFicheView(){
   const resBox = document.createElement('div'); resBox.className='resume-box';
   f.resume.forEach(sec=>{
     const h4 = document.createElement('h4'); h4.appendChild(makeEditable('span', sec.titre, v=>sec.titre=v));
-    const p = document.createElement('p'); p.style.margin='0 0 6px'; p.appendChild(makeEditable('span', sec.texte, v=>sec.texte=v));
+    const p = document.createElement('p'); p.className='pre'; p.style.margin='0 0 6px'; p.appendChild(makeEditable('span', sec.texte, v=>sec.texte=v));
     resBox.appendChild(h4); resBox.appendChild(p);
   });
   c6.appendChild(resBox);
   el.appendChild(c6);
 
-  // Évaluation / devoir
+  // Évaluation / devoir, avec leurs corrigés repliables
+  const corrige = (titre, texte, onChange)=>{
+    const det = document.createElement('details'); det.className='corrige';
+    const sum = document.createElement('summary'); sum.textContent = titre;
+    const p = makeEditable('p', texte, onChange); p.classList.add('pre');
+    det.appendChild(sum); det.appendChild(p);
+    return det;
+  };
   const c7 = document.createElement('div'); c7.className='card';
   c7.innerHTML = `<h3>Évaluation</h3>`;
-  c7.appendChild(makeEditable('p', f.evaluation, v=>f.evaluation=v));
-  const dmLabel = document.createElement('span'); dmLabel.className='field-label'; dmLabel.style.marginTop='10px'; dmLabel.style.display='block'; dmLabel.textContent='Devoir de maison';
+  const ev = makeEditable('p', f.evaluation, v=>f.evaluation=v); ev.classList.add('pre'); c7.appendChild(ev);
+  if(f.evaluationCorrige) c7.appendChild(corrige('Corrigé de l\'évaluation', f.evaluationCorrige, v=>f.evaluationCorrige=v));
+  const dmLabel = document.createElement('span'); dmLabel.className='field-label'; dmLabel.style.marginTop='14px'; dmLabel.style.display='block'; dmLabel.textContent='Devoir de maison';
   c7.appendChild(dmLabel);
-  c7.appendChild(makeEditable('p', f.devoirMaison, v=>f.devoirMaison=v));
+  const dm = makeEditable('p', f.devoirMaison, v=>f.devoirMaison=v); dm.classList.add('pre'); c7.appendChild(dm);
+  if(f.devoirCorrige) c7.appendChild(corrige('Corrigé du devoir de maison', f.devoirCorrige, v=>f.devoirCorrige=v));
   el.appendChild(c7);
+
+  // Situations « J'évalue mes compétences » du manuel (pour un devoir, une remédiation ou une évaluation)
+  if(f.situationsCompetence && f.situationsCompetence.length){
+    const c8 = document.createElement('div'); c8.className='card';
+    c8.innerHTML = `<h3>J'évalue mes compétences (manuel)</h3><p class="note">Situations proposées par le manuel FAZAO, à utiliser en devoir, en remédiation ou pour préparer l'intégration.</p>`;
+    f.situationsCompetence.forEach(sc=>{
+      const h4 = document.createElement('h4'); h4.className='sit-titre'; h4.textContent = sc.titre; c8.appendChild(h4);
+      const box = document.createElement('div'); box.className='sp-box pre';
+      box.appendChild(makeEditable('p', sc.texte, v=>sc.texte=v)); c8.appendChild(box);
+      const cons = makeEditable('p', sc.consigne, v=>sc.consigne=v); cons.classList.add('consigne-comp'); c8.appendChild(cons);
+      if(sc.corrige) c8.appendChild(corrige('Éléments de réponse attendus', sc.corrige, v=>sc.corrige=v));
+    });
+    el.appendChild(c8);
+  }
 }
+
+// À l'impression, on déplie les corrigés pour qu'ils figurent sur la feuille
+window.addEventListener('beforeprint', ()=> document.querySelectorAll('details').forEach(d=> d.open = true));
 
 /* ============ RÉGLAGES ============ */
 function openSettings(){
