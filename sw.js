@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v31';
+const CACHE = 'fiches-hg-v32';
 const ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,10 @@ const ASSETS = [
   './fiches-data-4e.js',
   './fiches-data-3e.js',
   './integrations.js',
+  './images/g5_cacaoyer_cafeier.jpg',
+  './images/h5_astrolabe.jpg',
+  './images/h5_caravelle.jpg',
+  './images/h5_sermon_montagne_bloch.jpg',
   './images/h6_abou_simbel_frith.jpg',
   './images/h6_pesee_du_coeur_hunefer.jpg',
   './images/h6_pyramides_gizeh_bonfils.jpg',
@@ -22,10 +26,6 @@ const ASSETS = [
   './photos/h4_2_memorial_esclavage.jpg',
   './photos/h4_4_ashanti_kente.jpg',
   './photos/h4_5_art_africain.jpg',
-  './photos/h5_3_empire_ghana.jpg',
-  './photos/h5_4_empire_mali.jpg',
-  './photos/h5_5_empire_songhai.jpg',
-  './photos/h5_8_grandes_decouvertes.jpg',
   './photos_hg/g3_10_peche_port.jpg',
   './photos_hg/g3_11_port_conteneurs.jpg',
   './photos_hg/g3_12_danse_traditionnelle_ewe.jpg',
@@ -48,22 +48,6 @@ const ASSETS = [
   './photos_hg/g4_6_exports_importations.jpg',
   './photos_hg/g4_7_etat_route_africaine.jpg',
   './photos_hg/g4_7_fibre_optique.jpg',
-  './photos_hg/g5_10_ciments_togo.jpg',
-  './photos_hg/g5_10_plateforme_industrielle_adetiokope.jpg',
-  './photos_hg/g5_1_savanes_relief_hydro.jpg',
-  './photos_hg/g5_2_culture_attelee.jpg',
-  './photos_hg/g5_2_pintades_savanes.jpg',
-  './photos_hg/g5_2_repiquage_riz.jpg',
-  './photos_hg/g5_3_kara_relief_hydro.jpg',
-  './photos_hg/g5_4_lutte_evala_kozah.jpg',
-  './photos_hg/g5_4_marche_ketao.jpg',
-  './photos_hg/g5_5_centrale_relief_hydro.jpg',
-  './photos_hg/g5_6_artisans_sokode.jpg',
-  './photos_hg/g5_6_fete_adossa_gadao.jpg',
-  './photos_hg/g5_7_plateaux_sols.jpg',
-  './photos_hg/g5_8_cacaoyer.jpg',
-  './photos_hg/g5_8_chateau_viale.jpg',
-  './photos_hg/g5_9_maritime_hydrographie.jpg',
   './photos_hg/h3_10_sdn_vs_onu.jpg',
   './photos_hg/h3_11_diversite_culturelle.jpg',
   './photos_hg/h3_1_carte_coloniale_1914.jpg',
@@ -86,12 +70,7 @@ const ASSETS = [
   './photos_hg/h4_6_royaume_anoufo_mango.jpg',
   './photos_hg/h4_7_lutte_kabye.jpg',
   './photos_hg/h4_8_royaume_tchaoudjo.jpg',
-  './photos_hg/h4_9_aire_ajatado.jpg',
-  './photos_hg/h5_1_diffusion_christianisme.jpg',
-  './photos_hg/h5_3_empire_ghana_reel.jpg',
-  './photos_hg/h5_4_empire_mali_reel.jpeg',
-  './photos_hg/h5_5_empire_songhai_reel.png',
-  './photos_hg/h5_6_ethnies_togo_reel.png'
+  './photos_hg/h4_9_aire_ajatado.jpg'
 ];
 
 self.addEventListener('install', e => {
