@@ -364,6 +364,8 @@ function grilleSituationHTML(s){
 }
 // Barème de la grille détaillée (format des fiches d'intégration de l'IESG) : pertinence 0,5/0,5/1 ; correction 1/1 ; cohérence 2 ; perfectionnement 2
 function baremeIndices(rows){
+  // Grilles à deux consignes (4e, 3e) : chaque ligne porte son barème (4e élément)
+  if(rows.length && rows.every(r=>typeof r[3]==='number')) return rows.map(r=>r[3]);
   const pts = rows.map(()=>0), de = c=>rows.map((r,i)=>i).filter(i=>rows[i][0]===c);
   const P = de('Pertinence'); if(P.length===3){ pts[P[0]]=0.5; pts[P[1]]=0.5; pts[P[2]]=1; } else P.forEach(i=>pts[i]=2/P.length);
   ['Correction','Cohérence'].forEach(c=>{ const X=de(c); X.forEach(i=>pts[i]=2/X.length); });

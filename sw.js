@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v32';
+const CACHE = 'fiches-hg-v33';
 const ASSETS = [
   './',
   './index.html',
@@ -11,7 +11,17 @@ const ASSETS = [
   './fiches-data-4e.js',
   './fiches-data-3e.js',
   './integrations.js',
+  './images/g4_lac_tchad.jpg',
+  './images/g4_outils_agricoles.jpg',
   './images/g5_cacaoyer_cafeier.jpg',
+  './images/h4_art_croix_ethiopie.jpg',
+  './images/h4_art_djenne.jpg',
+  './images/h4_art_masque_baoule.jpg',
+  './images/h4_caravane.jpg',
+  './images/h4_fort_traite.jpg',
+  './images/h4_kumasi_1817.jpg',
+  './images/h4_medaillon_wedgwood.jpg',
+  './images/h4_navire_brookes.jpg',
   './images/h5_astrolabe.jpg',
   './images/h5_caravelle.jpg',
   './images/h5_sermon_montagne_bloch.jpg',
@@ -22,10 +32,6 @@ const ASSETS = [
   './photos/g3_12_tourisme_togo.jpg',
   './photos/h3_5_togo_allemand.jpg',
   './photos/h3_8_sylvanus_olympio.jpg',
-  './photos/h4_1_memorial_esclavage.jpg',
-  './photos/h4_2_memorial_esclavage.jpg',
-  './photos/h4_4_ashanti_kente.jpg',
-  './photos/h4_5_art_africain.jpg',
   './photos_hg/g3_10_peche_port.jpg',
   './photos_hg/g3_11_port_conteneurs.jpg',
   './photos_hg/g3_12_danse_traditionnelle_ewe.jpg',
@@ -39,15 +45,6 @@ const ASSETS = [
   './photos_hg/g3_7_agriculture_reel.png',
   './photos_hg/g3_8_ressources_minieres.jpeg',
   './photos_hg/g3_9_dix_premiers_clients.jpg',
-  './photos_hg/g4_1_afrique_politique.jpeg',
-  './photos_hg/g4_2_migration_clandestine.jpg',
-  './photos_hg/g4_2_routes_migratoires.jpg',
-  './photos_hg/g4_3_sols_afrique.jpeg',
-  './photos_hg/g4_5_ressources_minerales.jpeg',
-  './photos_hg/g4_6_echanges_internationaux.jpg',
-  './photos_hg/g4_6_exports_importations.jpg',
-  './photos_hg/g4_7_etat_route_africaine.jpg',
-  './photos_hg/g4_7_fibre_optique.jpg',
   './photos_hg/h3_10_sdn_vs_onu.jpg',
   './photos_hg/h3_11_diversite_culturelle.jpg',
   './photos_hg/h3_1_carte_coloniale_1914.jpg',
@@ -58,19 +55,7 @@ const ASSETS = [
   './photos_hg/h3_5_togo_allemand_francais.png',
   './photos_hg/h3_6_gouverneurs_francais.jpg',
   './photos_hg/h3_7_contestation_anticoloniale.jpg',
-  './photos_hg/h3_9_carte_militaire_1914.png',
-  './photos_hg/h4_10_migrations_notse.jpg',
-  './photos_hg/h4_10_muraille_agbogbo.jpg',
-  './photos_hg/h4_11_royaume_glidji.jpeg',
-  './photos_hg/h4_1_commerce_triangulaire.jpeg',
-  './photos_hg/h4_3_caravane_sokode.jpg',
-  './photos_hg/h4_3_route_kola_1800s.jpg',
-  './photos_hg/h4_3_voies_bassin_oti.jpg',
-  './photos_hg/h4_4_empire_ashanti.png',
-  './photos_hg/h4_6_royaume_anoufo_mango.jpg',
-  './photos_hg/h4_7_lutte_kabye.jpg',
-  './photos_hg/h4_8_royaume_tchaoudjo.jpg',
-  './photos_hg/h4_9_aire_ajatado.jpg'
+  './photos_hg/h3_9_carte_militaire_1914.png'
 ];
 
 self.addEventListener('install', e => {
