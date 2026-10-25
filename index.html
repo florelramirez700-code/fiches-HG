@@ -110,6 +110,12 @@
   .tabbar button .ic{display:block;font-size:18px;margin-bottom:2px;}
   .tabbar button.active{color:var(--teal-deep);font-weight:700;}
 
+  /* PDF fabriqué dans l'appli : le temps de la capture, la fiche prend la largeur d'une feuille A4 */
+  body.mode-pdf #viewFiche{width:760px;max-width:none;padding:0;margin:0;}
+  body.mode-pdf #viewFiche .actions,body.mode-pdf #viewFiche .back-btn{display:none !important;}
+  .pdf-attente{position:fixed;inset:0;background:var(--paper);z-index:80;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;font-weight:600;color:var(--teal-deep);}
+  .pdf-attente small{font-weight:400;color:var(--ink-soft);}
+
   @media print{
     .topnav,.tabbar,.actions,.back-btn{display:none !important;}
     body{background:#fff;padding-bottom:0;}
@@ -198,9 +204,16 @@ const LS_SETTINGS = 'ftg_settings';
 const LS_SAVED = 'ftg_saved'; // {id: {data, savedAt}}
 
 function getSettings(){
-  try{ return JSON.parse(localStorage.getItem(LS_SETTINGS)) || {etablissement:'',professeur:'',classe:'6ème',annee:'2025-2026'}; }
-  catch(e){ return {etablissement:'',professeur:'',classe:'6ème',annee:'2025-2026'}; }
+  try{ return JSON.parse(localStorage.getItem(LS_SETTINGS)) || {etablissement:'',professeur:'',annee:'2025-2026'}; }
+  catch(e){ return {etablissement:'',professeur:'',annee:'2025-2026'}; }
 }
+// Classe de l'en-tête : celle notée pour ce niveau dans les réglages, sinon le niveau de la fiche (ex. « 3ème »)
+function classeDe(lv){
+  const s = state.settings, ancienne = s.classe && lv && s.classe[0] === lv[0] ? s.classe : '';
+  return s['classe_'+lv] || ancienne || (lv ? lv.replace('e','ème') : '');
+}
+// Niveau d'une fiche d'après le programme (utile quand on l'ouvre depuis « Mes fiches » avec un autre niveau à l'écran)
+const niveauDe = id => Object.keys(LEVELS).find(lv=> ['geo','hist'].some(sj=> LEVELS[lv][sj].themes.some(t=> (t.ids||[]).includes(id)))) || state.level;
 function setSettings(s){ localStorage.setItem(LS_SETTINGS, JSON.stringify(s)); }
 function getSaved(){ try{ return JSON.parse(localStorage.getItem(LS_SAVED))||{}; }catch(e){ return {}; } }
 function setSaved(obj){ localStorage.setItem(LS_SAVED, JSON.stringify(obj)); }
@@ -381,10 +394,10 @@ function renderIntegrationOfficielle(el, id, intg){
   for(const lv of Object.keys(LEVELS)) for(const sj of ['geo','hist']) LEVELS[lv][sj].themes.forEach(t=>{ if(t.integration===id){ niv=lv; subj=sj; ids=t.ids; } });
   const discipline = subj==='geo' ? 'Géographie' : 'Histoire';
   let h = `<div class="fiche-header"><button class="back-btn" id="intBack">←</button><div><h1>${hx(intg.titre)}</h1><div class="meta">${hx(intg.niveauMatiere)} · ${hx(intg.theme)}</div></div></div>
-    <div class="actions"><button class="btn btn-ghost" onclick="window.print()">Imprimer / PDF</button></div>`;
+    <div class="actions"><button class="btn btn-primary" onclick="telechargerPDF()">⬇ Télécharger le PDF</button><button class="btn btn-ghost" onclick="window.print()">Imprimer</button></div>`;
   h += `<div class="card"><h3>En-tête</h3><table class="entete-table">
     <tr><th>Fiche</th><td>Intégration</td><th>AN/SC</th><td>${hx(settings.annee||'—')}</td></tr>
-    <tr><th>Discipline</th><td>${discipline}</td><th>Classe</th><td>${hx(settings.classe||niv||'')}</td></tr>
+    <tr><th>Discipline</th><td>${discipline}</td><th>Classe</th><td>${hx(classeDe(niv))}</td></tr>
     <tr><th>Établissement</th><td colspan="3">${hx(settings.etablissement||'—')}</td></tr>
     <tr><th>Professeur</th><td colspan="3">${hx(settings.professeur||'—')}</td></tr>
     <tr><th>Effectif</th><td colspan="3">F = &nbsp;&nbsp;&nbsp; G =</td></tr>
@@ -441,9 +454,11 @@ function renderIntegrationView(id){
   el.appendChild(header);
 
   const actions = document.createElement('div'); actions.className='actions';
-  const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer / PDF';
+  const pdfBtn = document.createElement('button'); pdfBtn.className='btn btn-primary'; pdfBtn.textContent='⬇ Télécharger le PDF';
+  pdfBtn.onclick = ()=> telechargerPDF();
+  const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer';
   printBtn.onclick = ()=> window.print();
-  actions.appendChild(printBtn);
+  actions.appendChild(pdfBtn); actions.appendChild(printBtn);
   el.appendChild(actions);
 
   const banner = document.createElement('div'); banner.className='banner';
@@ -596,11 +611,13 @@ function renderFicheView(){
     state.editKey = key;
     showToast('Fiche enregistrée ✓');
   };
-  const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer / PDF';
+  const pdfBtn = document.createElement('button'); pdfBtn.className='btn btn-ghost'; pdfBtn.textContent='⬇ Télécharger le PDF';
+  pdfBtn.onclick = ()=> telechargerPDF();
+  const printBtn = document.createElement('button'); printBtn.className='btn btn-ghost'; printBtn.textContent='Imprimer';
   printBtn.onclick = ()=> window.print();
   const resetBtn = document.createElement('button'); resetBtn.className='btn btn-ghost'; resetBtn.textContent='Réinitialiser';
   resetBtn.onclick = ()=>{ if(state.currentId && ALL_FICHES[state.currentId]){ state.fiche = cloneFiche(state.currentId); renderFicheView(); } };
-  actions.appendChild(saveBtn); actions.appendChild(printBtn); actions.appendChild(resetBtn);
+  actions.appendChild(saveBtn); actions.appendChild(pdfBtn); actions.appendChild(printBtn); actions.appendChild(resetBtn);
   el.appendChild(actions);
 
   // En-tête administratif (format APC, aligné sur l'appli ECM)
@@ -614,7 +631,7 @@ function renderFicheView(){
   t.innerHTML = `<tr><th>Fiche N°</th><td>${ficheNumero!=null?ficheNumero:'—'}</td>
       <th>AN/SC</th><td class="ed" data-k="annee">${esc(settings.annee||'—')}</td></tr>
     <tr><th>Discipline</th><td>${discipline}</td>
-      <th>Classe</th><td class="ed" data-k="classe">${esc(settings.classe||'6ème')}</td></tr>
+      <th>Classe</th><td class="ed" data-k="classe_${niveauDe(state.currentId)}">${esc(classeDe(niveauDe(state.currentId)))}</td></tr>
     <tr><th>Établissement</th><td colspan="3" class="ed" data-k="etablissement">${esc(settings.etablissement||'—')}</td></tr>
     <tr><th>Professeur</th><td colspan="3" class="ed" data-k="professeur">${esc(settings.professeur||'—')}</td></tr>
     <tr><th>Effectif</th><td colspan="3"><span class="ed-f nw">F = <span class="ed" data-fk="effectifF">${esc(f.effectifF||'')}</span></span> <span class="ed-f nw">G = <span class="ed" data-fk="effectifG">${esc(f.effectifG||'')}</span></span></td></tr>
@@ -743,7 +760,7 @@ function renderFicheView(){
   c4.appendChild(stratUl);
   el.appendChild(c4);
 
-  // Documents-supports (textes reformulés du manuel ; images : renvoi à la page du manuel ou schéma redessiné)
+  // Documents-supports (textes rédigés pour la fiche ; images : photos vérifiées ou schémas redessinés)
   if(f.documentsSupports && f.documentsSupports.length){
     const cD = document.createElement('div'); cD.className='card';
     cD.innerHTML = `<h3>Documents-supports</h3>`;
@@ -824,10 +841,10 @@ function renderFicheView(){
   if(f.devoirCorrige) c7.appendChild(corrige('Corrigé du devoir de maison', f.devoirCorrige, v=>f.devoirCorrige=v));
   el.appendChild(c7);
 
-  // Situations « J'évalue mes compétences » du manuel (pour un devoir, une remédiation ou une évaluation)
+  // Situations d'évaluation des compétences (pour un devoir, une remédiation ou une évaluation)
   if(f.situationsCompetence && f.situationsCompetence.length){
     const c8 = document.createElement('div'); c8.className='card';
-    c8.innerHTML = `<h3>J'évalue mes compétences (manuel)</h3><p class="note">Situations proposées par le manuel FAZAO, à utiliser en devoir, en remédiation ou pour préparer l'intégration.</p>`;
+    c8.innerHTML = `<h3>Situations d'évaluation des compétences</h3><p class="note">À utiliser en devoir, en remédiation ou pour préparer l'intégration.</p>`;
     f.situationsCompetence.forEach(sc=>{
       const h4 = document.createElement('h4'); h4.className='sit-titre'; h4.textContent = sc.titre; c8.appendChild(h4);
       const box = document.createElement('div'); box.className='sp-box pre';
@@ -842,16 +859,87 @@ function renderFicheView(){
 // À l'impression, on déplie les corrigés pour qu'ils figurent sur la feuille
 window.addEventListener('beforeprint', ()=> document.querySelectorAll('details').forEach(d=> d.open = true));
 
+/* ============ PDF FABRIQUÉ DANS L'APPLI ============ */
+// Sur les téléphones Android, « Imprimer / PDF » passe par le système d'impression du téléphone, qui laisse parfois
+// un fichier vide (0 octet) pour les longues fiches. Ce bouton fabrique lui-même le PDF : chaque bloc de la fiche est
+// photographié (html2canvas) puis placé sur des pages A4 (jsPDF), en coupant entre deux lignes, jamais au milieu.
+const chargerScript = src => new Promise((ok, ko) => {
+  if(document.querySelector('script[src="'+src+'"]')) return ok();
+  const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ()=> ko(new Error(src)); document.head.appendChild(s);
+});
+const nomPDF = t => ('HG ' + t).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9 _-]+/g,' ').replace(/\s+/g,' ').trim().slice(0,90) + '.pdf';
+// Endroits où l'on peut couper un bloc trop long (bas des lignes, paragraphes, cadres) ; dans un tableau, seulement entre deux lignes
+function pointsDeCoupe(bloc){
+  const haut = bloc.getBoundingClientRect().top, pts = new Set();
+  bloc.querySelectorAll('tr,p,li,h3,h4,div,table,img,svg,details,ul,ol').forEach(e=>{
+    if(e.closest('svg') && e.tagName.toLowerCase()!=='svg') return;
+    const t = e.closest('table'); if(t && e!==t && e.tagName!=='TR') return;
+    pts.add(Math.round(e.getBoundingClientRect().bottom - haut));
+  });
+  // Jamais juste après un titre : il partirait seul en bas de page, séparé de son document
+  const titres = [...bloc.querySelectorAll('h3,h4,.field-label,.lbl,.deroul-item > div:first-child')].map(e=> Math.round(e.getBoundingClientRect().bottom - haut));
+  return [...pts].filter(c=> !titres.some(b=> Math.abs(c - b) <= 2)).sort((a,b)=>a-b);
+}
+async function telechargerPDF(){
+  const vue = document.getElementById('viewFiche');
+  const titre = (vue.querySelector('.fiche-header h1')||{}).textContent || 'fiche';
+  const attente = document.createElement('div'); attente.className = 'pdf-attente';
+  attente.innerHTML = 'Fabrication du PDF…<small>Cela peut prendre quelques secondes pour une longue fiche.</small>';
+  document.body.appendChild(attente);
+  try{
+    await chargerScript('lib/html2canvas.min.js'); await chargerScript('lib/jspdf.umd.min.js');
+    document.body.classList.add('mode-pdf');
+    vue.querySelectorAll('details').forEach(d=> d.open = true);
+    if(document.fonts && document.fonts.ready) await document.fonts.ready;
+    const pdf = new window.jspdf.jsPDF({ unit:'mm', format:'a4', compress:true });
+    const M = 12, L = 210 - 2*M, BAS = 297 - M - 6;   // marges, largeur utile, bas de la zone imprimable (mm)
+    let y = M;
+    for(const bloc of [...vue.children].filter(b=> b.offsetHeight > 0 && getComputedStyle(b).display !== 'none')){
+      const total = bloc.offsetHeight, mmParPx = L / bloc.offsetWidth;
+      const coupes = pointsDeCoupe(bloc);
+      const canvas = await html2canvas(bloc, { scale: 1.6, backgroundColor: '#ffffff', useCORS: true, logging: false });
+      const k = canvas.height / total;
+      let debut = 0;
+      while(debut < total - 1){
+        const place = (BAS - y) / mmParPx, reste = total - debut;
+        // Un bloc qui tient sur une page entière, mais plus sur la fin de celle-ci, commence sur une nouvelle page
+        if(debut === 0 && reste > place && reste <= (BAS - M) / mmParPx && y > M + 1){ pdf.addPage(); y = M; continue; }
+        let fin = reste <= place ? total : Math.max(0, ...coupes.filter(c=> c > debut + 30 && c <= debut + place));
+        if(!fin){ if(y > M + 1){ pdf.addPage(); y = M; continue; } fin = debut + place; }
+        const morceau = document.createElement('canvas');
+        morceau.width = canvas.width; morceau.height = Math.max(1, Math.round((fin - debut) * k));
+        morceau.getContext('2d').drawImage(canvas, 0, Math.round(debut * k), canvas.width, morceau.height, 0, 0, canvas.width, morceau.height);
+        pdf.addImage(morceau.toDataURL('image/jpeg', 0.8), 'JPEG', M, y, L, (fin - debut) * mmParPx);
+        y += (fin - debut) * mmParPx + 3;
+        debut = fin;
+        if(debut < total - 1){ pdf.addPage(); y = M; }
+        morceau.width = 0;
+      }
+      canvas.width = 0;
+    }
+    const n = pdf.getNumberOfPages();
+    for(let i = 1; i <= n; i++){ pdf.setPage(i); pdf.setFontSize(8); pdf.setTextColor(120); pdf.text('Page ' + i + ' / ' + n, 210 - M, 297 - 6, { align:'right' }); }
+    pdf.save(nomPDF(titre));
+    showToast('PDF enregistré (dossier Téléchargements) ✓');
+  }catch(e){
+    showToast('Le PDF n\'a pas pu être fabriqué : ' + e.message);
+  }finally{
+    document.body.classList.remove('mode-pdf');
+    attente.remove();
+  }
+}
+
 /* ============ RÉGLAGES ============ */
 function openSettings(){
   const back = document.createElement('div'); back.className='modal-back';
   const modal = document.createElement('div'); modal.className='modal';
   modal.innerHTML = `<h3>Réglages</h3>`;
-  const fields = [['etablissement','Établissement'],['professeur','Professeur'],['classe','Classe'],['annee','Année scolaire']];
+  const fields = [['etablissement','Établissement'],['professeur','Professeur'],['annee','Année scolaire']]
+    .concat(Object.keys(LEVELS).map(lv=> ['classe_'+lv, 'Classe de ' + lv + ' (ex. ' + lv.replace('e','ème') + ' A)', classeDe(lv)]));
   const inputs = {};
-  fields.forEach(([key,label])=>{
+  fields.forEach(([key,label,valeur])=>{
     const l=document.createElement('label'); l.textContent=label;
-    const inp=document.createElement('input'); inp.value = state.settings[key]||'';
+    const inp=document.createElement('input'); inp.value = valeur || state.settings[key]||'';
     inputs[key]=inp;
     modal.appendChild(l); modal.appendChild(inp);
   });
