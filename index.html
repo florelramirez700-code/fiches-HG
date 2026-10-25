@@ -759,7 +759,9 @@ function renderFicheView(){
         img.style.cssText = 'max-width:100%;border-radius:6px;display:block;margin:4px 0 6px;border:1px solid var(--line);';
         cD.appendChild(img);
       }
-      if(doc.texte){ const p = makeEditable('p', doc.texte, v=>doc.texte=v); p.classList.add('pre'); p.style.margin='0 0 10px'; cD.appendChild(p); }
+      // Un texte dont des lignes commencent par « | » contient un tableau : on l'affiche en vrai tableau (non modifiable)
+      if(doc.texte && /^\s*\|/m.test(doc.texte)){ const d = document.createElement('div'); d.style.margin='0 0 10px'; d.innerHTML = texteHTML(doc.texte); cD.appendChild(d); }
+      else if(doc.texte){ const p = makeEditable('p', doc.texte, v=>doc.texte=v); p.classList.add('pre'); p.style.margin='0 0 10px'; cD.appendChild(p); }
       if(doc.credit){ const cr = document.createElement('p'); cr.className='credit'; cr.textContent = doc.credit; cD.appendChild(cr); }
     });
     el.appendChild(cD);

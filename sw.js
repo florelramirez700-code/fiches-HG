@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v33';
+const CACHE = 'fiches-hg-v35';
 const ASSETS = [
   './',
   './index.html',
@@ -14,6 +14,13 @@ const ASSETS = [
   './images/g4_lac_tchad.jpg',
   './images/g4_outils_agricoles.jpg',
   './images/g5_cacaoyer_cafeier.jpg',
+  './images/h3_bandung.jpg',
+  './images/h3_jules_ferry.jpg',
+  './images/h3_kamina.jpg',
+  './images/h3_nachtigal.jpg',
+  './images/h3_olympio.jpg',
+  './images/h3_samori_behanzin.jpg',
+  './images/h3_wharf_lome.jpg',
   './images/h4_art_croix_ethiopie.jpg',
   './images/h4_art_djenne.jpg',
   './images/h4_art_masque_baoule.jpg',
@@ -28,34 +35,7 @@ const ASSETS = [
   './images/h6_abou_simbel_frith.jpg',
   './images/h6_pesee_du_coeur_hunefer.jpg',
   './images/h6_pyramides_gizeh_bonfils.jpg',
-  './images/h6_vendange_tombe_nakht.jpg',
-  './photos/g3_12_tourisme_togo.jpg',
-  './photos/h3_5_togo_allemand.jpg',
-  './photos/h3_8_sylvanus_olympio.jpg',
-  './photos_hg/g3_10_peche_port.jpg',
-  './photos_hg/g3_11_port_conteneurs.jpg',
-  './photos_hg/g3_12_danse_traditionnelle_ewe.jpg',
-  './photos_hg/g3_12_hauts_fourneaux_bassar.jpg',
-  './photos_hg/g3_12_restaurant_attrayant.jpg',
-  './photos_hg/g3_1_togo_afrique.jpg',
-  './photos_hg/g3_2_population_pyramide_2020.jpeg',
-  './photos_hg/g3_2_relief_togo.jpg',
-  './photos_hg/g3_4_types_sols.jpg',
-  './photos_hg/g3_6_pyramide_ages.jpg',
-  './photos_hg/g3_7_agriculture_reel.png',
-  './photos_hg/g3_8_ressources_minieres.jpeg',
-  './photos_hg/g3_9_dix_premiers_clients.jpg',
-  './photos_hg/h3_10_sdn_vs_onu.jpg',
-  './photos_hg/h3_11_diversite_culturelle.jpg',
-  './photos_hg/h3_1_carte_coloniale_1914.jpg',
-  './photos_hg/h3_2_behanzin_samori.jpg',
-  './photos_hg/h3_2_foyers_resistance.jpg',
-  './photos_hg/h3_3_deux_souverains.jpg',
-  './photos_hg/h3_4_exploitation_colonies.jpg',
-  './photos_hg/h3_5_togo_allemand_francais.png',
-  './photos_hg/h3_6_gouverneurs_francais.jpg',
-  './photos_hg/h3_7_contestation_anticoloniale.jpg',
-  './photos_hg/h3_9_carte_militaire_1914.png'
+  './images/h6_vendange_tombe_nakht.jpg'
 ];
 
 self.addEventListener('install', e => {
