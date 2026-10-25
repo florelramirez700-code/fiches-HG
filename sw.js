@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v38';
+const CACHE = 'fiches-hg-v39';
 const ASSETS = [
   './',
   './index.html',
@@ -45,8 +45,10 @@ self.addEventListener('install', e => {
   self.skipWaiting();
 });
 
+// On n'efface que les anciennes copies de l'HG : l'appli ECM (et d'autres) sont à la même adresse
+// (florelramirez700-code.github.io) et partagent les mêmes caches ; tout effacer supprimait leur copie hors ligne.
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('fiches-hg-') && k !== CACHE).map(k => caches.delete(k)))));
   self.clients.claim();
 });
 
