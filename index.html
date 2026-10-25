@@ -113,6 +113,8 @@
   /* PDF fabriqué dans l'appli : le temps de la capture, la fiche prend la largeur d'une feuille A4 */
   body.mode-pdf #viewFiche{width:760px;max-width:none;padding:0;margin:0;}
   body.mode-pdf #viewFiche .actions,body.mode-pdf #viewFiche .back-btn{display:none !important;}
+  body.mode-pdf summary{list-style:none;}
+  body.mode-pdf summary::-webkit-details-marker{display:none;}
   .pdf-attente{position:fixed;inset:0;background:var(--paper);z-index:80;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;font-weight:600;color:var(--teal-deep);}
   .pdf-attente small{font-weight:400;color:var(--ink-soft);}
 
@@ -868,17 +870,24 @@ const chargerScript = src => new Promise((ok, ko) => {
   const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ()=> ko(new Error(src)); document.head.appendChild(s);
 });
 const nomPDF = t => ('HG ' + t).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9 _-]+/g,' ').replace(/\s+/g,' ').trim().slice(0,90) + '.pdf';
-// Endroits où l'on peut couper un bloc trop long (bas des lignes, paragraphes, cadres) ; dans un tableau, seulement entre deux lignes
+// Endroits où l'on peut couper un bloc trop long pour une page. « bons » : bas d'un paragraphe, d'une ligne de tableau,
+// d'un cadre ; « lignes » : entre deux lignes d'un long texte. Jamais à travers une ligne de texte, une carte ou une image
+// (dans un tableau, toutes les cases de la ligne doivent être entre deux lignes), jamais juste après un titre ou une étiquette.
 function pointsDeCoupe(bloc){
-  const haut = bloc.getBoundingClientRect().top, pts = new Set();
-  bloc.querySelectorAll('tr,p,li,h3,h4,div,table,img,svg,details,ul,ol').forEach(e=>{
-    if(e.closest('svg') && e.tagName.toLowerCase()!=='svg') return;
-    const t = e.closest('table'); if(t && e!==t && e.tagName!=='TR') return;
-    pts.add(Math.round(e.getBoundingClientRect().bottom - haut));
-  });
-  // Jamais juste après un titre : il partirait seul en bas de page, séparé de son document
-  const titres = [...bloc.querySelectorAll('h3,h4,.field-label,.lbl,.deroul-item > div:first-child')].map(e=> Math.round(e.getBoundingClientRect().bottom - haut));
-  return [...pts].filter(c=> !titres.some(b=> Math.abs(c - b) <= 2)).sort((a,b)=>a-b);
+  const haut = bloc.getBoundingClientRect().top, y = v => Math.round(v - haut);
+  const obstacles = [], bons = new Set(), lignes = new Set();
+  bloc.querySelectorAll('img,svg,canvas').forEach(e=>{ const r = e.getBoundingClientRect(); obstacles.push([y(r.top), y(r.bottom)]); });
+  const w = document.createTreeWalker(bloc, NodeFilter.SHOW_TEXT), rg = document.createRange();
+  while(w.nextNode()){
+    if(!w.currentNode.textContent.trim() || w.currentNode.parentElement.closest('svg')) continue;
+    rg.selectNodeContents(w.currentNode);
+    for(const r of rg.getClientRects()){ obstacles.push([y(r.top), y(r.bottom)]); lignes.add(y(r.bottom) + 1); }
+  }
+  bloc.querySelectorAll('tr,p,li,div,table,img,details,ul,ol').forEach(e=>{ if(!e.closest('svg')) bons.add(y(e.getBoundingClientRect().bottom)); });
+  const titres = [...bloc.querySelectorAll('h3,h4,thead,summary,.field-label,.lbl,.deroul-item > div:first-child')].map(e=> y(e.getBoundingClientRect().bottom));
+  const libre = c => !obstacles.some(([a,b])=> a + 1 < c && c < b - 1) && !titres.some(b=> Math.abs(c - b) <= 2);
+  const trier = s => [...s].filter(libre).sort((a,b)=>a-b);
+  return { bons: trier(bons), lignes: trier(lignes) };
 }
 async function telechargerPDF(){
   const vue = document.getElementById('viewFiche');
@@ -891,6 +900,7 @@ async function telechargerPDF(){
     document.body.classList.add('mode-pdf');
     vue.querySelectorAll('details').forEach(d=> d.open = true);
     if(document.fonts && document.fonts.ready) await document.fonts.ready;
+    await Promise.all([...vue.querySelectorAll('img')].map(im=> im.complete ? 0 : new Promise(r=>{ im.onload = im.onerror = r; })));
     const pdf = new window.jspdf.jsPDF({ unit:'mm', format:'a4', compress:true });
     const M = 12, L = 210 - 2*M, BAS = 297 - M - 6;   // marges, largeur utile, bas de la zone imprimable (mm)
     let y = M;
@@ -901,16 +911,28 @@ async function telechargerPDF(){
       const k = canvas.height / total;
       let debut = 0;
       while(debut < total - 1){
-        const place = (BAS - y) / mmParPx, reste = total - debut;
-        // Un bloc qui tient sur une page entière, mais plus sur la fin de celle-ci, commence sur une nouvelle page
-        if(debut === 0 && reste > place && reste <= (BAS - M) / mmParPx && y > M + 1){ pdf.addPage(); y = M; continue; }
-        let fin = reste <= place ? total : Math.max(0, ...coupes.filter(c=> c > debut + 30 && c <= debut + place));
-        if(!fin){ if(y > M + 1){ pdf.addPage(); y = M; continue; } fin = debut + place; }
+        const place = (BAS - y) / mmParPx, reste = total - debut, tiers = (BAS - M) / mmParPx / 3;
+        // Un bloc qui ne tient plus sur la fin de la page va à la page suivante s'il est petit (moins d'un tiers de page)
+        // ou s'il reste moins d'un tiers de page ; sinon il commence ici et se coupe à un endroit propre
+        if(debut === 0 && reste > place && y > M + 1 && (reste <= tiers || place < tiers)){ pdf.addPage(); y = M; continue; }
+        let fin = total;
+        if(reste > place){
+          const dans = (a, lim) => Math.max(0, ...a.filter(c=> c > debut + 30 && c <= debut + lim));
+          fin = dans(coupes.bons, place);
+          // Pas de bonne coupure dans le dernier quart de la place : on coupe entre deux lignes de texte
+          if(fin < debut + place * 0.75) fin = Math.max(fin, dans(coupes.lignes, place));
+          // Si la fin du bloc (ou une coupure bien plus loin, après une carte) ne dépasse la place que de 8 % au plus,
+          // on réduit un peu le morceau plutôt que de laisser quelques lignes seules sur une page
+          if(reste <= place * 1.08) fin = total;
+          else { const loin = dans(coupes.bons, place * 1.08); if(loin > debut + place && loin - debut > (fin - debut) * 1.3) fin = loin; }
+          if(!fin){ if(y > M + 1){ pdf.addPage(); y = M; continue; } fin = debut + place; }
+        }
+        const pose = Math.min(fin - debut, place), r = pose / (fin - debut);   // r < 1 : morceau légèrement réduit (centré)
         const morceau = document.createElement('canvas');
         morceau.width = canvas.width; morceau.height = Math.max(1, Math.round((fin - debut) * k));
         morceau.getContext('2d').drawImage(canvas, 0, Math.round(debut * k), canvas.width, morceau.height, 0, 0, canvas.width, morceau.height);
-        pdf.addImage(morceau.toDataURL('image/jpeg', 0.8), 'JPEG', M, y, L, (fin - debut) * mmParPx);
-        y += (fin - debut) * mmParPx + 3;
+        pdf.addImage(morceau.toDataURL('image/jpeg', 0.8), 'JPEG', M + L * (1 - r) / 2, y, L * r, pose * mmParPx);
+        y += pose * mmParPx + 3;
         debut = fin;
         if(debut < total - 1){ pdf.addPage(); y = M; }
         morceau.width = 0;
