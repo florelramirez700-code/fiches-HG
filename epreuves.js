@@ -20,7 +20,9 @@ const TRIMESTRES = {
   // 5e : GEO_5e__version_finale.pdf p. 5, Histoire_5ème REVU_VF.pdf p. 28
   '5e': { '1er': ['g5_1', 'g5_2', 'g5_3', 'g5_4', 'h5_1', 'h5_2', 'h5_3', 'h5_4'], '2e': ['g5_5', 'g5_6', 'g5_7', 'g5_8', 'h5_5', 'h5_6', 'h5_7'], '3e': 'tout' },
   // 4e : GEO_4e__version_finale.pdf p. 5, Histoire_4eREVU_VF (1).pdf p. 4 (g4_7, commencée en mars, compte au 2e trimestre)
-  '4e': { '1er': ['g4_1', 'g4_2', 'g4_3', 'h4_1', 'h4_2', 'h4_3', 'h4_4', 'h4_5'], '2e': ['g4_4', 'g4_5', 'g4_6', 'g4_7', 'h4_6', 'h4_7', 'h4_8', 'h4_9'], '3e': 'tout' }
+  '4e': { '1er': ['g4_1', 'g4_2', 'g4_3', 'h4_1', 'h4_2', 'h4_3', 'h4_4', 'h4_5'], '2e': ['g4_4', 'g4_5', 'g4_6', 'g4_7', 'h4_6', 'h4_7', 'h4_8', 'h4_9'], '3e': 'tout' },
+  // 3e : GEO_3e__version_finale.pdf p. 5-6, PROGRAMME HIST 3è 2024.pdf p. 4-5 (g3_11 et h3_11, commencées en mars, comptent au 2e trimestre)
+  '3e': { '1er': ['g3_1', 'g3_2', 'g3_3', 'g3_4', 'g3_5', 'g3_6', 'h3_1', 'h3_2', 'h3_3', 'h3_4', 'h3_5', 'h3_6', 'h3_7'], '2e': ['g3_7', 'g3_8', 'g3_9', 'g3_10', 'g3_11', 'h3_8', 'h3_9', 'h3_10', 'h3_11'], '3e': 'tout' }
 };
 const LS_EPREUVES = 'ftg_epreuves'; // leçons cochées et options, par niveau (commodité sur cet appareil seulement)
 const ep = { level: '6e', choix: {}, epreuve: null };
@@ -29,7 +31,8 @@ function lireChoixEpreuves(){ try{ return JSON.parse(localStorage.getItem(LS_EPR
 function garderChoixEpreuves(){ try{ localStorage.setItem(LS_EPREUVES, JSON.stringify(ep.choix)); }catch(e){} }
 ep.choix = lireChoixEpreuves();
 function choixNiveau(lv){
-  if(!ep.choix[lv]) ep.choix[lv] = { lecons: [], type: 'dst', trimestre: '1er', duree: (lv === '6e' || lv === '5e') ? '1 h 30' : '2 h' };
+  // en 3e, la partie A a par défaut deux situations (histoire et géographie, 4 pts chacune), comme au BEPC
+  if(!ep.choix[lv]) ep.choix[lv] = { lecons: [], type: 'dst', trimestre: '1er', duree: (lv === '6e' || lv === '5e') ? '1 h 30' : '2 h', situations: lv === '3e' ? 2 : 1 };
   return ep.choix[lv];
 }
 
@@ -351,7 +354,7 @@ function renderEpreuves(){
   const lv = ep.level, B = BANQUES_EPREUVES[lv], ch = choixNiveau(lv);
   let h = `<div class="subject-toggle">${['6e', '5e', '4e', '3e'].map(l => `<button data-lv="${l}" class="${l === lv ? 'active' : ''}">${l}</button>`).join('')}</div>`;
   if(!B){
-    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour l'instant en 6e, en 5e et en 4e.</div>`;
+    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour les quatre niveaux.</div>`;
     el.querySelectorAll('[data-lv]').forEach(b => b.onclick = () => { ep.level = b.dataset.lv; ep.epreuve = null; renderEpreuves(); });
     return;
   }
