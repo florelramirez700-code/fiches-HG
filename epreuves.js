@@ -16,7 +16,9 @@ const BANQUES_EPREUVES = {
 // (demande de l'enseignante) : 'tout' = toutes les leçons du niveau. La composition du 2e trimestre mélange un peu :
 // situations et partie B sur les leçons du 2e trimestre, questions de cours (partie C) sur le 1er et le 2e trimestre.
 const TRIMESTRES = {
-  '6e': { '1er': ['g1', 'g2', 'g3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], '2e': ['g4', 'g5', 'g6', 'g7', 'h7', 'h8', 'h9'], '3e': 'tout' }
+  '6e': { '1er': ['g1', 'g2', 'g3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], '2e': ['g4', 'g5', 'g6', 'g7', 'h7', 'h8', 'h9'], '3e': 'tout' },
+  // 5e : GEO_5e__version_finale.pdf p. 5, Histoire_5ème REVU_VF.pdf p. 28
+  '5e': { '1er': ['g5_1', 'g5_2', 'g5_3', 'g5_4', 'h5_1', 'h5_2', 'h5_3', 'h5_4'], '2e': ['g5_5', 'g5_6', 'g5_7', 'g5_8', 'h5_5', 'h5_6', 'h5_7'], '3e': 'tout' }
 };
 const LS_EPREUVES = 'ftg_epreuves'; // leçons cochées et options, par niveau (commodité sur cet appareil seulement)
 const ep = { level: '6e', choix: {}, epreuve: null };
@@ -202,7 +204,7 @@ function blocsSujet(e){
     // une consigne qui commence par « À partir de tes connaissances… » (forme du BEPC) n'a pas besoin de la phrase d'amorce
     if(!/^(À partir|En t'appuyant)/.test(A.consigne)) b.push({ k: 'p', txt: A.amorce || (A.doc ? 'En t\'appuyant sur tes connaissances et sur le document ci-après :' : 'En t\'appuyant sur tes connaissances :') });
     b.push({ k: 'p', txt: 'Consigne : ' + A.consigne, b: true });
-    if(A.doc) b.push({ k: 'cadre', titre: A.doc.titre, texte: A.doc.texte, liste: A.doc.liste, image: A.doc.image, tableau: A.doc.tableau });
+    if(A.doc) b.push({ k: 'cadre', titre: A.doc.titre, texte: A.doc.texte, liste: A.doc.liste, image: A.doc.image, credit: A.doc.credit, tableau: A.doc.tableau });
     b.push({ k: 'p', txt: 'Grille de notation', b: true });
     b.push(e.A.length === 2
       ? { k: 'table', entetes: ['Pertinence', 'Correction', 'Cohérence', 'Perfectionnement', 'Total'], lignes: [['1,5 pt', '1 pt', '1 pt', '0,5 pt', '4 pts']] }
@@ -254,20 +256,25 @@ function blocsHTML(blocs){
     if(x.k === 'centre') return `<p class="ep-centre">${hx(x.txt)}</p>`;
     if(x.k === 'h') return `<p class="ep-h">${hx(x.txt)}</p>`;
     if(x.k === 'p') return `<p class="ep-p${x.b ? ' b' : ''}${x.i ? ' i' : ''}${x.u ? ' u' : ''}">${hx(x.txt)}</p>`;
-    if(x.k === 'cadre') return `<div class="ep-cadre"><p class="ep-p b">${hx(x.titre)}</p>${x.texte ? `<p class="ep-p">${hx(x.texte)}</p>` : ''}${x.liste ? x.liste.map(l => `<p class="ep-p">– ${hx(l)}</p>`).join('') : ''}${x.image ? `<img class="ep-img" src="${hx(x.image)}" alt="${hx(x.titre)}">` : ''}${x.tableau ? blocsHTML([Object.assign({ k: 'table' }, x.tableau)]) : ''}</div>`;
+    if(x.k === 'cadre') return `<div class="ep-cadre"><p class="ep-p b">${hx(x.titre)}</p>${x.texte ? `<p class="ep-p">${hx(x.texte)}</p>` : ''}${x.liste ? x.liste.map(l => `<p class="ep-p">– ${hx(l)}</p>`).join('') : ''}${x.image ? `<img class="ep-img" src="${hx(x.image)}" alt="${hx(x.titre)}">` : ''}${x.credit ? `<p class="ep-p i" style="font-size:.8em">${hx(x.credit)}</p>` : ''}${x.tableau ? blocsHTML([Object.assign({ k: 'table' }, x.tableau)]) : ''}</div>`;
     if(x.k === 'table') return `<div class="ep-tablewrap"><table class="grid ep-table"><tr>${x.entetes.map(t => `<th>${hx(t)}</th>`).join('')}</tr>${x.lignes.map(l => `<tr>${l.map(c => `<td class="pre">${hx(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
     return '';
   }).join('');
 }
 
 /* ---------- Fichiers Word ---------- */
-// Images des documents (PNG rendus à 2 fois la taille) : lues avant de fabriquer le Word, avec leur taille d'affichage
+// Images des documents (PNG rendus à 2 fois la taille, ou photos JPEG) : lues avant de fabriquer le Word, avec leur taille d'affichage
 // (au plus 15 cm de large et 11 cm de haut, pour économiser le papier). lire(src) rend les octets du fichier (fetch dans l'appli, fs dans les essais).
 async function imagesDesBlocs(blocs, lire = src => fetch(src).then(r => { if(!r.ok) throw new Error('image introuvable : ' + src); return r.arrayBuffer(); })){
   const imgs = {};
   for(const x of blocs) if(x.k === 'cadre' && x.image && !imgs[x.image]){
     const data = new Uint8Array(await lire(x.image)), v = new DataView(data.buffer, data.byteOffset, data.byteLength);
-    let w = v.getUint32(16) / 2, h = v.getUint32(20) / 2; // largeur et hauteur lues dans l'en-tête PNG
+    let w, h;
+    if(v.getUint16(0) === 0xFFD8){ // photo JPEG (taille réelle) : largeur et hauteur lues dans le segment SOF
+      for(let i = 2; i < data.length - 9;){ const m = v.getUint16(i), n = v.getUint16(i + 2);
+        if(m >= 0xFFC0 && m <= 0xFFCF && m !== 0xFFC4 && m !== 0xFFC8 && m !== 0xFFCC){ h = v.getUint16(i + 5); w = v.getUint16(i + 7); break; }
+        i += 2 + n; }
+    } else { w = v.getUint32(16) / 2; h = v.getUint32(20) / 2; } // PNG rendu à 2 fois la taille : en-tête PNG
     const k = Math.min(1, 560 / w, 420 / h); imgs[x.image] = { data, w: Math.round(w * k), h: Math.round(h * k) };
   }
   return imgs;
@@ -286,6 +293,7 @@ function blocsDocx(blocs, imgs = {}){
     else if(x.k === 'cadre') out.push(tableau([new d.TableRow({ children: [new d.TableCell({ margins: { top: 100, bottom: 100, left: 120, right: 120 }, children:
       [para(x.titre, { bold: true })].concat(x.texte ? [para(x.texte, { italics: true })] : [], (x.liste || []).map(l => para('– ' + l)),
         x.image && imgs[x.image] ? [new d.Paragraph({ alignment: d.AlignmentType.CENTER, children: [new d.ImageRun({ data: imgs[x.image].data, transformation: { width: imgs[x.image].w, height: imgs[x.image].h } })] })] : [],
+        x.credit ? [para(x.credit, { italics: true, size: 18 })] : [],
         x.tableau ? [new d.Table({ width: { size: 100, type: d.WidthType.PERCENTAGE }, rows: [new d.TableRow({ tableHeader: true, children: x.tableau.entetes.map(t => cellule(t, true)) })].concat(x.tableau.lignes.map(l => new d.TableRow({ children: l.map(c => cellule(c, false)) }))) }), para('', {}, { spacing: { after: 0 } })] : []) })] })]), para(''));
     else if(x.k === 'table') out.push(tableau([new d.TableRow({ tableHeader: true, children: x.entetes.map(t => cellule(t, true)) })].concat(x.lignes.map(l => new d.TableRow({ children: l.map(c => cellule(c, false)) })))), para(''));
   });
@@ -315,7 +323,7 @@ function renderEpreuves(){
   const lv = ep.level, B = BANQUES_EPREUVES[lv], ch = choixNiveau(lv);
   let h = `<div class="subject-toggle">${['6e', '5e', '4e', '3e'].map(l => `<button data-lv="${l}" class="${l === lv ? 'active' : ''}">${l}</button>`).join('')}</div>`;
   if(!B){
-    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour l'instant en 6e.</div>`;
+    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour l'instant en 6e et en 5e.</div>`;
     el.querySelectorAll('[data-lv]').forEach(b => b.onclick = () => { ep.level = b.dataset.lv; ep.epreuve = null; renderEpreuves(); });
     return;
   }
