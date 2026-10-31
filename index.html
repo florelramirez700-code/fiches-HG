@@ -102,6 +102,23 @@
   .doc-figure{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:4px 0 8px;}
   .credit{font-size:11px;color:var(--ink-soft);font-style:italic;margin:-4px 0 10px;}
 
+  /* Onglet Épreuves */
+  .ep-lecon{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;padding:6px 2px;border-bottom:1px solid #EFEBE0;cursor:pointer;}
+  .ep-lecon input{margin-top:3px;flex-shrink:0;}
+  .ep-lecon small{color:var(--ink-soft);}
+  .ep-select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:'Public Sans',sans-serif;background:#fff;margin-bottom:6px;}
+  .ep-feuille{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-family:'Times New Roman',serif;font-size:14.5px;}
+  .ep-titre{text-align:center;font-weight:700;margin:0 0 4px;}
+  .ep-centre{text-align:center;margin:0 0 12px;font-size:13px;}
+  .ep-h{font-weight:700;text-decoration:underline;margin:16px 0 6px;}
+  .ep-p{margin:0 0 6px;white-space:pre-line;}
+  .ep-p.b{font-weight:700;} .ep-p.i{font-style:italic;} .ep-p.u{text-decoration:underline;}
+  .ep-cadre{border:1px solid var(--ink);padding:8px 10px;margin:6px 0 10px;}
+  .ep-img{display:block;max-width:100%;max-height:520px;height:auto;margin:6px auto;background:#fff;}
+  .ep-tablewrap{overflow-x:auto;margin:4px 0 10px;}
+  table.ep-table{margin:0;font-family:'Public Sans',sans-serif;}
+  table.ep-table th{text-transform:none;font-size:11.5px;}
+
   .modal-back{position:fixed;inset:0;background:rgba(32,42,60,.5);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px;}
   .modal{background:#fff;border-radius:14px;padding:22px 22px;width:100%;max-width:380px;max-height:85vh;overflow:auto;}
   .modal h3{margin:0 0 14px;color:var(--teal-deep);}
@@ -140,10 +157,12 @@
 <div id="viewProgram" class="view active"></div>
 <div id="viewSaved" class="view"></div>
 <div id="viewFiche" class="view"></div>
+<div id="viewEpreuves" class="view"></div>
 
 <div class="tabbar">
   <button id="tabProgram" class="active"><span class="ic">📚</span>Programme</button>
   <button id="tabSaved"><span class="ic">🗂</span>Mes fiches</button>
+  <button id="tabEpreuves"><span class="ic">📝</span>Épreuves</button>
 </div>
 
 <script src="fiches-data.js"></script>
@@ -151,6 +170,7 @@
 <script src="fiches-data-4e.js"></script>
 <script src="fiches-data-3e.js"></script>
 <script src="integrations.js"></script>
+<script src="epreuves-6e.js"></script>
 <script>
 /* ============ TOUTES LES FICHES (fusion des niveaux) ============ */
 const ALL_FICHES = Object.assign({}, FICHES_DATA, FICHES_DATA_5E, FICHES_DATA_4E, FICHES_DATA_3E);
@@ -259,15 +279,19 @@ function switchTab(tab){
   state.tab = tab;
   document.getElementById('viewProgram').classList.toggle('active', tab==='program');
   document.getElementById('viewSaved').classList.toggle('active', tab==='saved');
+  document.getElementById('viewEpreuves').classList.toggle('active', tab==='epreuves');
   document.getElementById('viewFiche').classList.remove('active');
   document.getElementById('tabProgram').classList.toggle('active', tab==='program');
   document.getElementById('tabSaved').classList.toggle('active', tab==='saved');
+  document.getElementById('tabEpreuves').classList.toggle('active', tab==='epreuves');
   renderProgram();
   renderSaved();
+  if(tab==='epreuves') renderEpreuves();
 }
 
 document.getElementById('tabProgram').onclick = ()=>switchTab('program');
 document.getElementById('tabSaved').onclick = ()=>switchTab('saved');
+document.getElementById('tabEpreuves').onclick = ()=>switchTab('epreuves');
 document.getElementById('settingsBtn').onclick = ()=>openSettings();
 
 /* ============ VUE PROGRAMME ============ */
@@ -1007,5 +1031,6 @@ if('serviceWorker' in navigator){
 renderProgram();
 renderSaved();
 </script>
+<script src="epreuves.js"></script>
 </body>
 </html>

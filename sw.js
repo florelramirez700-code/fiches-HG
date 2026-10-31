@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v41';
+const CACHE = 'fiches-hg-v42';
 const ASSETS = [
   './',
   './index.html',
@@ -11,8 +11,18 @@ const ASSETS = [
   './fiches-data-4e.js',
   './fiches-data-3e.js',
   './integrations.js',
+  './epreuves-6e.js',
+  './epreuves.js',
+  './lib/docx.umd.js',
   './lib/html2canvas.min.js',
   './lib/jspdf.umd.min.js',
+  './images/epreuves/6e_g2.png',
+  './images/epreuves/6e_g3.png',
+  './images/epreuves/6e_g5.png',
+  './images/epreuves/6e_g6.png',
+  './images/epreuves/6e_h5.png',
+  './images/epreuves/6e_h6.png',
+  './images/epreuves/6e_h9.png',
   './images/g4_lac_tchad.jpg',
   './images/g4_outils_agricoles.jpg',
   './images/g5_cacaoyer_cafeier.jpg',
