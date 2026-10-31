@@ -18,7 +18,9 @@ const BANQUES_EPREUVES = {
 const TRIMESTRES = {
   '6e': { '1er': ['g1', 'g2', 'g3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], '2e': ['g4', 'g5', 'g6', 'g7', 'h7', 'h8', 'h9'], '3e': 'tout' },
   // 5e : GEO_5e__version_finale.pdf p. 5, Histoire_5ème REVU_VF.pdf p. 28
-  '5e': { '1er': ['g5_1', 'g5_2', 'g5_3', 'g5_4', 'h5_1', 'h5_2', 'h5_3', 'h5_4'], '2e': ['g5_5', 'g5_6', 'g5_7', 'g5_8', 'h5_5', 'h5_6', 'h5_7'], '3e': 'tout' }
+  '5e': { '1er': ['g5_1', 'g5_2', 'g5_3', 'g5_4', 'h5_1', 'h5_2', 'h5_3', 'h5_4'], '2e': ['g5_5', 'g5_6', 'g5_7', 'g5_8', 'h5_5', 'h5_6', 'h5_7'], '3e': 'tout' },
+  // 4e : GEO_4e__version_finale.pdf p. 5, Histoire_4eREVU_VF (1).pdf p. 4 (g4_7, commencée en mars, compte au 2e trimestre)
+  '4e': { '1er': ['g4_1', 'g4_2', 'g4_3', 'h4_1', 'h4_2', 'h4_3', 'h4_4', 'h4_5'], '2e': ['g4_4', 'g4_5', 'g4_6', 'g4_7', 'h4_6', 'h4_7', 'h4_8', 'h4_9'], '3e': 'tout' }
 };
 const LS_EPREUVES = 'ftg_epreuves'; // leçons cochées et options, par niveau (commodité sur cet appareil seulement)
 const ep = { level: '6e', choix: {}, epreuve: null };
@@ -66,12 +68,18 @@ function leconsRecentes(lv, lecons, ch){
   const r = lecons.filter(id => t.includes(id));
   return r.length && r.length < lecons.length ? r : null;
 }
-function tirerSituation(lecons, B){
+// En 4e et en 3e, une situation peut avoir deux consignes (consignes + prods, une production par consigne).
+// Avec deux situations (BEPC), chaque situation n'a qu'une consigne : on prend de préférence une situation à une consigne.
+const consignesDe = A => A.consignes || [A.consigne];
+const productionsDe = A => A.prods || [A];
+function tirerSituation(lecons, B, uneConsigne){
   const pool = lecons.flatMap(id => (B[id].sit || []).map(s => ({ id, s })));
-  return pool.length ? unAuHasard(pool) : null;
+  const simples = uneConsigne ? pool.filter(o => !o.s.consignes) : [];
+  return pool.length ? unAuHasard(simples.length ? simples : pool) : null;
 }
 function tirerPartieA(e, B){
-  return e.plan.sit.map(m => { const t = tirerSituation(leconsDe(e, m), B); return t && Object.assign(t, { mat: m, pts: e.plan.sit.length === 2 ? 4 : 8 }); }).filter(Boolean);
+  const deux = e.plan.sit.length === 2;
+  return e.plan.sit.map(m => { const t = tirerSituation(leconsDe(e, m), B, deux); return t && Object.assign(t, { mat: m, pts: deux ? 4 : 8 }); }).filter(Boolean);
 }
 // Exercices possibles de la partie B (chacun sur 2 pts : 4 réponses à 0,5 pt)
 function exercicesPossibles(lecons, B){
@@ -193,22 +201,30 @@ function exerciceB(x, n, corrige){
   if(corrige) b.push({ k: 'p', txt: x.type === 'ordre' ? 'Barème : 0,5 pt par élément bien placé.' : 'Barème : 0,5 pt par réponse juste' + (x.type === 'intrus' ? ' (0,25 pt pour l\'intrus, 0,25 pt pour la justification).' : '.'), i: true });
   return b;
 }
-// Une situation : partie A sur 8 pts (grille 2/2/2/2). Deux situations (BEPC) : 4 pts chacune (grille 1,5/1/1/0,5).
+// Une situation : partie A sur 8 pts (grille 2/2/2/2 ; avec deux consignes, 1/1/1/1 par consigne, comme les compositions
+// régionales de 4e). Deux situations (BEPC) : 4 pts chacune (grille 1,5/1/1/0,5 ; si une situation à deux consignes
+// est tirée faute d'autre, 0,75/0,5/0,5/0,25 par consigne).
 const titreSituation = (e, i) => e.A.length === 2 ? 'Situation d\'évaluation ' + (i + 1) + ' (4 pts)' : null;
+function grilleNotation(e, A){
+  const ent = ['', 'Pertinence', 'Correction', 'Cohérence', 'Perfectionnement', 'Total'], c = consignesDe(A);
+  if(c.length === 2) return { k: 'table', entetes: ent, lignes: c.map((x, i) => ['Consigne ' + (i + 1)].concat(e.A.length === 2 ? ['0,75 pt', '0,5 pt', '0,5 pt', '0,25 pt', '2 pts'] : ['1 pt', '1 pt', '1 pt', '1 pt', '4 pts'])) };
+  return e.A.length === 2
+    ? { k: 'table', entetes: ent.slice(1), lignes: [['1,5 pt', '1 pt', '1 pt', '0,5 pt', '4 pts']] }
+    : { k: 'table', entetes: ent, lignes: [['Consigne', '2 pts', '2 pts', '2 pts', '2 pts', '8 pts']] };
+}
 function blocsSujet(e){
   const b = enteteEpreuve(e, false);
   b.push({ k: 'h', txt: e.A.length === 2 ? 'PARTIE A : SITUATIONS D\'ÉVALUATION (8 pts)' : 'PARTIE A : SITUATION D\'ÉVALUATION (8 pts)' });
   e.A.forEach(({ s: A }, i) => {
     if(titreSituation(e, i)) b.push({ k: 'p', txt: titreSituation(e, i), b: true, u: true });
     b.push({ k: 'p', txt: A.texte });
+    const c = consignesDe(A);
     // une consigne qui commence par « À partir de tes connaissances… » (forme du BEPC) n'a pas besoin de la phrase d'amorce
-    if(!/^(À partir|En t'appuyant)/.test(A.consigne)) b.push({ k: 'p', txt: A.amorce || (A.doc ? 'En t\'appuyant sur tes connaissances et sur le document ci-après :' : 'En t\'appuyant sur tes connaissances :') });
-    b.push({ k: 'p', txt: 'Consigne : ' + A.consigne, b: true });
+    if(c.length === 2 || !/^(À partir|En t'appuyant)/.test(c[0])) b.push({ k: 'p', txt: A.amorce || (A.doc ? 'En t\'appuyant sur tes connaissances et sur le document ci-après :' : 'En t\'appuyant sur tes connaissances :') });
+    c.forEach((x, j) => b.push({ k: 'p', txt: (c.length === 2 ? 'Consigne ' + (j + 1) + ' : ' : 'Consigne : ') + x, b: true }));
     if(A.doc) b.push({ k: 'cadre', titre: A.doc.titre, texte: A.doc.texte, liste: A.doc.liste, image: A.doc.image, credit: A.doc.credit, tableau: A.doc.tableau });
     b.push({ k: 'p', txt: 'Grille de notation', b: true });
-    b.push(e.A.length === 2
-      ? { k: 'table', entetes: ['Pertinence', 'Correction', 'Cohérence', 'Perfectionnement', 'Total'], lignes: [['1,5 pt', '1 pt', '1 pt', '0,5 pt', '4 pts']] }
-      : { k: 'table', entetes: ['', 'Pertinence', 'Correction', 'Cohérence', 'Perfectionnement', 'Total'], lignes: [['Consigne', '2 pts', '2 pts', '2 pts', '2 pts', '8 pts']] });
+    b.push(grilleNotation(e, A));
   });
   const totalB = e.B.length * 2;
   b.push({ k: 'h', txt: 'PARTIE B : QUESTIONS OBJECTIVES (' + totalB + ' pts)' });
@@ -221,26 +237,34 @@ function blocsCorrige(e){
   const b = enteteEpreuve(e, true);
   b.push({ k: 'h', txt: e.A.length === 2 ? 'PARTIE A : SITUATIONS D\'ÉVALUATION (8 pts)' : 'PARTIE A : SITUATION D\'ÉVALUATION (8 pts)' });
   e.A.forEach(({ s: A }, i) => {
-    // barème de la grille de correction : sur 8 pts, ou sur 4 pts quand il y a deux situations
-    const g = e.A.length === 2 ? ['0,25 pt', '0,25 pt', '1 pt', '0,5 pt', '0,5 pt', '1 pt', '0,5 pt', '4 pts'] : ['0,5 pt', '0,5 pt', '1 pt', '1 pt', '1 pt', '2 pts', '2 pts', '8 pts'];
+    const c = consignesDe(A), P = productionsDe(A), deux = c.length === 2;
+    // barème de la grille de correction (par consigne) : sur 8 pts, ou sur 4 pts quand il y a deux situations ;
+    // deux consignes : 4 pts par consigne (2 pts avec deux situations)
+    const g = deux ? (e.A.length === 2 ? ['0,25 pt', '0,25 pt', '0,25 pt', '0,25 pt', '0,25 pt', '0,5 pt', '0,25 pt', '2 pts'] : ['0,25 pt', '0,25 pt', '0,5 pt', '0,5 pt', '0,5 pt', '1 pt', '1 pt', '4 pts'])
+      : e.A.length === 2 ? ['0,25 pt', '0,25 pt', '1 pt', '0,5 pt', '0,5 pt', '1 pt', '0,5 pt', '4 pts'] : ['0,5 pt', '0,5 pt', '1 pt', '1 pt', '1 pt', '2 pts', '2 pts', '8 pts'];
     if(titreSituation(e, i)) b.push({ k: 'p', txt: titreSituation(e, i), b: true, u: true });
     // même présentation que les corrigés des intégrations : introduction qui reprend la situation, développement
-    // ouvert par une formule d'adresse et mené avec des connecteurs, conclusion « En définitive… »
-    b.push({ k: 'p', txt: 'Production attendue', b: true });
-    if(A.titreProd) b.push({ k: 'p', txt: A.titreProd, b: true, u: true }); // titre d'un article
-    b.push({ k: 'p', txt: 'INTRODUCTION', b: true }, { k: 'p', txt: A.intro });
-    b.push({ k: 'p', txt: 'DÉVELOPPEMENT', b: true }, ...(A.adresse ? [{ k: 'p', txt: A.adresse }] : []), ...A.dev.map(t => ({ k: 'p', txt: t })));
-    b.push({ k: 'p', txt: 'CONCLUSION', b: true }, { k: 'p', txt: A.concl }, ...(A.signature ? [{ k: 'p', txt: A.signature }] : []));
+    // ouvert par une formule d'adresse et mené avec des connecteurs, conclusion « En définitive… » ; une production par consigne
+    b.push({ k: 'p', txt: deux ? 'Productions attendues' : 'Production attendue', b: true });
+    P.forEach((p, j) => {
+      if(deux) b.push({ k: 'p', txt: 'PRODUCTION ' + (j + 1) + ' (consigne ' + (j + 1) + ')', b: true, u: true });
+      if(p.titreProd) b.push({ k: 'p', txt: p.titreProd, b: true, u: true }); // titre d'un article
+      b.push({ k: 'p', txt: 'INTRODUCTION', b: true }, { k: 'p', txt: p.intro });
+      b.push({ k: 'p', txt: 'DÉVELOPPEMENT', b: true }, ...(p.adresse ? [{ k: 'p', txt: p.adresse }] : []), ...p.dev.map(t => ({ k: 'p', txt: t })));
+      b.push({ k: 'p', txt: 'CONCLUSION', b: true }, { k: 'p', txt: p.concl }, ...(p.signature ? [{ k: 'p', txt: p.signature }] : []));
+    });
     b.push({ k: 'p', txt: 'Grille de correction', b: true });
-    b.push({ k: 'table', entetes: ['Critères', 'Indicateurs', 'Indices', 'Barème'], lignes: [
-      ['PERTINENCE', 'Production conforme au support', A.support || 'Informations du document-support exploitées', g[0]],
-      ['', 'Production conforme à la consigne', A.indConsigne || A.consigne, g[1]],
-      ['', 'Justesse des réponses au regard de la consigne', A.justesse.map(j => '– ' + j).join('\n'), g[2]],
-      ['CORRECTION', 'Concepts et outils de la discipline bien utilisés', A.concepts, g[3]],
-      ['', 'Justesse des réponses au regard des concepts utilisés', 'À apprécier par le professeur selon la production de l\'élève', g[4]],
-      ['COHÉRENCE', 'Enchaînement logique des idées', 'Introduction, développement, conclusion ; idées bien agencées ; connecteurs logiques (d\'abord, ensuite, enfin, en définitive…)', g[5]],
-      ['PERFECTIONNEMENT', 'Qualité de la langue et présentation', 'Phrases correctes ; grammaire, orthographe et ponctuation respectées ; bonne présentation ; lisibilité ; absence de ratures', g[6]],
-      ['TOTAL', '', '', g[7]]] });
+    // indices de chaque consigne : une colonne « Indices » et une colonne « Barème » par consigne
+    const ind = p => [p.support || 'Informations du document-support exploitées', p.indConsigne || p.consigne, p.justesse.map(j => '– ' + j).join('\n'), p.concepts, 'À apprécier par le professeur selon la production de l\'élève',
+      'Introduction, développement, conclusion ; idées bien agencées ; connecteurs logiques (d\'abord, ensuite, enfin, en définitive…)',
+      'Phrases correctes ; grammaire, orthographe et ponctuation respectées ; bonne présentation ; lisibilité ; absence de ratures'];
+    const crit = [['PERTINENCE', 'Production conforme au support'], ['', 'Production conforme à la consigne'], ['', 'Justesse des réponses au regard de la consigne'],
+      ['CORRECTION', 'Concepts et outils de la discipline bien utilisés'], ['', 'Justesse des réponses au regard des concepts utilisés'],
+      ['COHÉRENCE', 'Enchaînement logique des idées'], ['PERFECTIONNEMENT', 'Qualité de la langue et présentation']];
+    const I = P.map(p => ind(Object.assign({ consigne: c[0] }, p)));
+    b.push({ k: 'table', entetes: ['Critères', 'Indicateurs'].concat(deux ? ['Indices (consigne 1)', 'Barème', 'Indices (consigne 2)', 'Barème'] : ['Indices', 'Barème']),
+      lignes: crit.map((cr, r) => cr.concat(...I.map(x => [x[r], g[r]]))).concat([['TOTAL', ''].concat(...I.map(() => ['', g[7]]))]),
+      largeurs: deux ? [18, 13, 24, 10, 25, 10] : [19, 19, 50, 12] }); // en % de la largeur (fichier Word, texte en taille 10)
   });
   b.push({ k: 'h', txt: 'PARTIE B : QUESTIONS OBJECTIVES (' + (e.B.length * 2) + ' pts)' });
   e.B.forEach((x, i) => b.push(...exerciceB(x, i + 1, true)));
@@ -282,8 +306,11 @@ async function imagesDesBlocs(blocs, lire = src => fetch(src).then(r => { if(!r.
 function blocsDocx(blocs, imgs = {}){
   const d = window.docx, T = (txt, o = {}) => new d.TextRun(Object.assign({ text: txt }, o));
   const para = (txt, o = {}, p = {}) => new d.Paragraph(Object.assign({ children: String(txt).split('\n').flatMap((l, i) => i ? [T(l, Object.assign({ break: 1 }, o))] : [T(l, o)]), spacing: { after: 80 } }, p));
-  const cellule = (txt, entete) => new d.TableCell({ children: String(txt).split('\n').map(l => para(l, entete ? { bold: true } : {}, { spacing: { after: 0 } })), shading: entete ? { fill: 'E4EDE9' } : undefined, margins: { top: 60, bottom: 60, left: 80, right: 80 } });
-  const tableau = lignes => new d.Table({ width: { size: 100, type: d.WidthType.PERCENTAGE }, rows: lignes });
+  const cellule = (txt, entete, pct, taille) => new d.TableCell({ children: String(txt).split('\n').map(l => para(l, Object.assign(entete ? { bold: true } : {}, taille ? { size: taille } : {}), { spacing: { after: 0 } })), shading: entete ? { fill: 'E4EDE9' } : undefined, margins: { top: 60, bottom: 60, left: 80, right: 80 },
+    width: pct ? { size: Math.round(9000 * pct / 100), type: d.WidthType.DXA } : undefined });
+  // largeurs (en % de la page) : colonnes fixes, sinon Word les répartit selon le texte et écrase les petites colonnes
+  const tableau = (lignes, L) => new d.Table(Object.assign({ width: { size: 100, type: d.WidthType.PERCENTAGE }, rows: lignes },
+    L ? { layout: d.TableLayoutType.FIXED, columnWidths: L.map(p => Math.round(9000 * p / 100)) } : {}));
   const out = [];
   blocs.forEach(x => {
     if(x.k === 'titre') out.push(para(x.txt, { bold: true, size: 26 }, { alignment: d.AlignmentType.CENTER, spacing: { after: 60 } }));
@@ -295,7 +322,8 @@ function blocsDocx(blocs, imgs = {}){
         x.image && imgs[x.image] ? [new d.Paragraph({ alignment: d.AlignmentType.CENTER, children: [new d.ImageRun({ data: imgs[x.image].data, transformation: { width: imgs[x.image].w, height: imgs[x.image].h } })] })] : [],
         x.credit ? [para(x.credit, { italics: true, size: 18 })] : [],
         x.tableau ? [new d.Table({ width: { size: 100, type: d.WidthType.PERCENTAGE }, rows: [new d.TableRow({ tableHeader: true, children: x.tableau.entetes.map(t => cellule(t, true)) })].concat(x.tableau.lignes.map(l => new d.TableRow({ children: l.map(c => cellule(c, false)) }))) }), para('', {}, { spacing: { after: 0 } })] : []) })] })]), para(''));
-    else if(x.k === 'table') out.push(tableau([new d.TableRow({ tableHeader: true, children: x.entetes.map(t => cellule(t, true)) })].concat(x.lignes.map(l => new d.TableRow({ children: l.map(c => cellule(c, false)) })))), para(''));
+    else if(x.k === 'table'){ const L = x.largeurs || [];
+      out.push(tableau([new d.TableRow({ tableHeader: true, children: x.entetes.map((t, j) => cellule(t, true, L[j], x.largeurs && 20)) })].concat(x.lignes.map(l => new d.TableRow({ children: l.map((c, j) => cellule(c, false, L[j], x.largeurs && 20)) }))), x.largeurs), para('')); }
   });
   return out;
 }
@@ -323,7 +351,7 @@ function renderEpreuves(){
   const lv = ep.level, B = BANQUES_EPREUVES[lv], ch = choixNiveau(lv);
   let h = `<div class="subject-toggle">${['6e', '5e', '4e', '3e'].map(l => `<button data-lv="${l}" class="${l === lv ? 'active' : ''}">${l}</button>`).join('')}</div>`;
   if(!B){
-    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour l'instant en 6e et en 5e.</div>`;
+    el.innerHTML = h + `<div class="savedlist-empty">La réserve de questions de la ${lv} est en préparation.<br>Le générateur marche pour l'instant en 6e, en 5e et en 4e.</div>`;
     el.querySelectorAll('[data-lv]').forEach(b => b.onclick = () => { ep.level = b.dataset.lv; ep.epreuve = null; renderEpreuves(); });
     return;
   }
