@@ -82,6 +82,11 @@
   .resume-box{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;}
   .resume-box h4{margin:10px 0 3px;font-size:13px;color:var(--teal-deep);}
   .resume-box h4:first-child{margin-top:0;}
+  .resume-box h4.gp{font-size:13.5px;text-transform:uppercase;text-decoration:underline;color:var(--clay);margin-top:14px;}
+  .croquis-trace{max-width:520px;margin:6px auto 10px;}
+  .croquis-trace svg{max-height:75vh;}
+  @media print{.croquis-trace{break-inside:avoid;}.croquis-trace svg{max-height:200mm;}}
+  .croquis-legende{font-size:11.5px;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px;}
   .pre{white-space:pre-line;}
   ol.clean{margin:4px 0;padding-left:22px;}
   ol.clean li{margin:3px 0;font-size:13.5px;}
@@ -818,9 +823,17 @@ function renderFicheView(){
   c6.innerHTML = `<h3>Résumé (trace écrite)</h3>`;
   const resBox = document.createElement('div'); resBox.className='resume-box';
   f.resume.forEach(sec=>{
-    const h4 = document.createElement('h4'); h4.appendChild(makeEditable('span', sec.titre, v=>sec.titre=v));
-    const p = document.createElement('p'); p.className='pre'; p.style.margin='0 0 6px'; p.appendChild(makeEditable('span', sec.texte, v=>sec.texte=v));
-    resBox.appendChild(h4); resBox.appendChild(p);
+    // Grande partie (I, II…) : titre seul, sans texte
+    const gp = !sec.texte && !sec.svg;
+    const h4 = document.createElement('h4'); if(gp) h4.className='gp'; h4.appendChild(makeEditable('span', sec.titre, v=>sec.titre=v));
+    resBox.appendChild(h4);
+    if(!gp){ const p = document.createElement('p'); p.className='pre'; p.style.margin='0 0 6px'; p.appendChild(makeEditable('span', sec.texte, v=>sec.texte=v)); resBox.appendChild(p); }
+    if(sec.svg){
+      const w = document.createElement('div'); w.className='doc-figure croquis-trace';
+      const lg = document.createElement('div'); lg.className='croquis-legende'; lg.textContent='Croquis à reproduire dans le cahier'; w.appendChild(lg);
+      const fig = document.createElement('div'); fig.innerHTML = sec.svg; const s = fig.querySelector('svg'); if(s){ s.style.width='100%'; s.style.height='auto'; s.style.display='block'; } w.appendChild(fig);
+      resBox.appendChild(w);
+    }
   });
   c6.appendChild(resBox);
   el.appendChild(c6);
