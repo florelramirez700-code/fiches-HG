@@ -569,3 +569,1026 @@ var EPREUVES_4E = {
     cours: [["Qui sont les Mina ?", 1, "Des Fanti venus d'Elmina (0,5 pt), installés à Aného (0,5 pt)."], ["Sous quel roi le royaume de Glidji a-t-il connu son apogée ? Grâce à quoi ?", 1.5, "Sous Assiongbon Dandjin (0,5 pt), de 1733 à 1767 (0,5 pt), grâce au commerce (0,5 pt)."], ["Montre que le royaume de Glidji était tourné vers la mer.", 1, "Ses habitants pêchaient en mer et dans la lagune (0,5 pt) ; ils commerçaient, y compris par la traite négrière, dans les ports d'Aného et de Kéta (0,5 pt)."], ["Qui était Foli Bébé ?", 1, "Selon la tradition, le chef qui a conduit les Gan venus d'Accra (0,5 pt) et fondé Glidji à la fin du XVIIe siècle (0,5 pt)."], ["Quelle est la religion des Guin ? Décris leur grande fête.", 1.5, "Ils pratiquent le vodou (0,5 pt) ; leur grande fête, l'Epé-Ekpé (Kpessosso), est célébrée chaque année à Glidji (0,5 pt) avec la prise de la pierre sacrée (0,5 pt)."], ["Quel rôle Glidji garde-t-elle aujourd'hui ?", 1, "C'est le centre religieux des Guin (0,5 pt) et le lieu de la fête Epé-Ekpé (0,5 pt)."]]
   }
 };
+
+// Situations à deux consignes déjà en réserve (01/11/2026) : un document par consigne.
+// Chaque situation reçoit un second document ; le texte, les consignes et les indices « conforme au support » renvoient au bon document.
+(function () {
+  const S = (id) => EPREUVES_4E[id].sit[0];
+  const deuxDocs = (id, docs, texte, consignes, supports) => {
+    const s = S(id);
+    s.docs = docs; delete s.doc;
+    s.texte = texte; s.consignes = consignes;
+    supports.forEach((x, i) => { if (x) s.prods[i].support = x; });
+  };
+  const ancien = (id, titre) => Object.assign({}, S(id).doc, { titre });
+
+  deuxDocs("g4_2", [
+    { titre: "Document 1 : la lettre d'une grand-mère du village", texte: "« Au village, il ne reste presque que des vieux comme moi. Les jeunes sont tous partis en ville ; les champs sont abandonnés et la récolte diminue chaque année. Même les fêtes de nos ancêtres, plus personne ne sait les organiser. Mon petit-fils, à Lomé, dort dans une baraque au bord d'un caniveau, sans eau ni travail, et il a peur des voleurs. »" },
+    ancien("g4_2", "Document 2 : le témoignage de Bawa")
+  ], "La radio communautaire de ta ville prépare une émission intitulée « Jeunes, où allez-vous ? ». Chaque semaine, des jeunes quittent les villages des environs pour la ville, et certains prennent la route du désert pour tenter de rejoindre l'Europe. L'animateur invite les élèves de 4e de ton collège à préparer deux interventions. Il te remet la lettre d'une grand-mère d'un village voisin (document 1) ; ton camarade Bawa, revenu de Libye, a accepté que l'on lise son témoignage (document 2).",
+  ["À partir du document 1 et de tes connaissances, explique aux auditeurs ce qu'est l'exode rural massif et ce qu'il entraîne, à la campagne et en ville.",
+    "À partir du témoignage de Bawa (document 2) et de tes connaissances, montre aux auditeurs les avantages que les jeunes espèrent de l'émigration clandestine et les problèmes qu'elle pose réellement."],
+  ["L'émission « Jeunes, où allez-vous ? » ; la lettre de la grand-mère (village de vieux, champs abandonnés, récolte en baisse, fêtes oubliées ; petit-fils dans une baraque à Lomé, sans eau ni travail, peur des voleurs) ; informations du document 1 exploitées",
+    "Le témoignage de Bawa (document 2) : passeur payé, traversée du Sahara, compagnons morts, enfermement et vente en Libye, travail sans salaire, renvoi au pays sans rien ; la croyance du village ; informations du document exploitées"]);
+
+  deuxDocs("g4_3", [
+    ancien("g4_3", "Document 1 : le lac Tchad rétrécit (images satellites de 1973, 1987, 1997 et 2001)"),
+    { titre: "Document 2 : ce que racontent des habitants des rives du lac Tchad", texte: "« Nos pères pêchaient là où nous cultivons aujourd'hui. Les pluies sont devenues plus rares, c'est vrai. Mais nous avons aussi coupé presque tous les arbres pour le bois de chauffe, nos troupeaux sont si nombreux qu'ils ne laissent plus une herbe, et chaque saison sèche, les feux de brousse brûlent tout. »" }
+  ], "Pour la Journée mondiale de l'environnement, le 5 juin, le club « Nature » de ton collège prépare une exposition. Le président du club te remet les images satellites du document 1, qui montrent le lac Tchad à quatre dates, ainsi que des témoignages d'habitants des rives du lac (document 2), et te charge de rédiger deux panneaux pour les visiteurs.",
+  ["Rédige le premier panneau : à partir du document 1 et de tes connaissances, présente les problèmes environnementaux majeurs de l'Afrique.",
+    "Rédige le second panneau : à partir du document 2 et de tes connaissances, explique les causes de ces problèmes en montrant que l'homme en est le principal responsable."],
+  ["Les images satellites du lac Tchad (document 1 : 1973, 1987, 1997, 2001) : le lac devient de plus en plus petit ; l'exposition du 5 juin ; informations du document exploitées",
+    "Les témoignages des habitants du lac Tchad (document 2 : pluies plus rares, mais arbres coupés pour le bois de chauffe, troupeaux trop nombreux, feux de brousse) ; informations exploitées"]);
+
+  deuxDocs("g4_5", [
+    { titre: "Document 1 : ce qu'explique un ingénieur togolais", texte: "« Nos usines extraient des minerais ou transforment des produits agricoles, mais nous fabriquons très peu de machines. Pour cent ouvriers, nous trouvons à peine quelques techniciens qualifiés. Nos produits coûtent souvent plus cher que ceux qui viennent de l'étranger, car le crédit est difficile à obtenir et les impôts sont lourds. Et certaines entreprises ont fermé, ruinées par les détournements. »" },
+    ancien("g4_5", "Document 2 : les grands barrages hydroélectriques de l'Afrique")
+  ], "Ta classe a visité la Plateforme industrielle d'Adétikopé (PIA), près de Lomé. De retour au collège, le professeur de géographie demande à chaque groupe un compte rendu sur l'industrie africaine. Pendant le travail, un camarade s'étonne : « Si l'Afrique a autant de richesses, pourquoi achetons-nous presque tout à l'étranger ? » Ton groupe dispose des propos d'un ingénieur rencontré pendant la visite (document 1) et de la carte du document 2.",
+  ["À partir du document 1 et de tes connaissances, présente les caractéristiques générales de l'industrie africaine.",
+    "À partir de la carte du document 2 et de tes connaissances, relève les efforts que font les États africains pour s'industrialiser, en montrant le rôle de l'énergie des grands barrages."],
+  ["La visite de la PIA ; la question du camarade ; les propos de l'ingénieur (extraction et transformation, peu de machines, peu de techniciens qualifiés, produits plus chers que les produits étrangers, crédit difficile, impôts lourds, détournements) ; informations du document 1 exploitées",
+    "La carte des grands barrages (document 2) : Renaissance et Gibe III (Éthiopie), Assouan (Égypte), Inga (RD Congo), Kariba et Cahora Bassa (Zambèze), Laúca (Angola), Akosombo (Ghana), Kainji (Nigeria), Kossou (Côte d'Ivoire), Manantali (Mali), Nangbéto (Togo-Bénin) ; la PIA ; informations du document exploitées"]);
+
+  deuxDocs("g4_7", [
+    { titre: "Document 1 : les transports en Afrique en quelques mots", tableau: { entetes: ["Mode de transport", "Situation"], lignes: [["Route", "environ 80 % des marchandises et 90 % des voyageurs ; routes bitumées, routes en terre et pistes"], ["Mer", "en progrès, mais ports moins performants que dans le reste du monde"], ["Chemin de fer", "en retard"], ["Avion", "en difficulté"]] } },
+    ancien("g4_7", "Document 2 : le Togo, carrefour en chantier")
+  ], "Un camionneur burkinabè, ami de ton père, fait souvent le trajet entre le port de Lomé et Ouagadougou. De passage chez vous, il se plaint : « En Afrique, tout passe par la route, et quelle route ! Et au village, chez moi, mon téléphone ne capte presque rien. » Le club de journalisme de ton collège prépare justement une émission de la radio scolaire sur ce sujet ; le professeur vous remet le tableau du document 1 et l'article du document 2.",
+  ["À partir du document 1 et de tes connaissances, décris, pour l'émission, les caractéristiques générales des transports en Afrique.",
+    "À partir de l'article du document 2 et de tes connaissances, montre les efforts de modernisation des transports et des télécommunications au Togo et en Afrique."],
+  ["Les plaintes du camionneur : « tout passe par la route », route en mauvais état ; le tableau du document 1 (route : 80 % des marchandises, 90 % des voyageurs ; mer en progrès ; chemin de fer en retard ; avion en difficulté) ; informations exploitées",
+    "L'article (document 2) : port en eau profonde de Lomé, corridor Lomé-Ouagadougou, aérogare de 2016, 5G (2020), câble Equiano (2022), paiements par téléphone, services en ligne ; réseau faible et Internet cher loin des villes ; informations du document exploitées"]);
+
+  deuxDocs("h4_2", [
+    { titre: "Document 1 : le château de Cape Coast (Ghana), ancien fort de traite sur la Côte de l'Or", image: "images/ep4_cape_coast.jpg", credit: "Photo Afus199620 — CC0 (Wikimedia Commons)." },
+    ancien("h4_2", "Document 2 : le navire négrier Brookes, chargé de captifs")
+  ], "Ton collège organise une exposition sur la mémoire de la traite négrière. Tu es chargé d'accueillir les visiteurs devant deux reproductions : la photo d'un ancien fort de traite (document 1) et le plan du navire négrier Brookes (document 2). Un visiteur s'étonne : « Comment des millions d'Africains ont-ils pu se retrouver de l'autre côté de l'océan ? Et qu'est-ce que cela a changé pour l'Afrique ? »",
+  ["À partir du document 1 et de tes connaissances, explique aux visiteurs le fonctionnement du commerce triangulaire et la façon dont les captifs étaient obtenus sur la côte ouest-africaine, en particulier au Togo.",
+    "À partir du document 2 et de tes connaissances, montre le caractère inhumain de la traite négrière atlantique et ses conséquences pour l'Afrique."],
+  ["L'exposition ; la question du visiteur ; la photo du château de Cape Coast (document 1), fort de traite de la Côte de l'Or où les captifs attendaient d'être embarqués ; informations exploitées",
+    "Le plan du navire Brookes (document 2) : captifs couchés les uns contre les autres, serrés dans les cales sur toute la longueur du navire ; informations du document exploitées"]);
+
+  deuxDocs("h4_4", [
+    { titre: "Document 1 : quelques dates de l'histoire du royaume ashanti", liste: ["1701 : victoire des Ashanti sur le Denkyira", "1874 : Kumasi est incendiée par les Anglais", "1896 : le roi Prempeh Ier est exilé", "1902 : l'Ashanti est rattaché à la colonie anglaise de la Gold Coast"] },
+    ancien("h4_4", "Document 2 : une grande fête à Kumasi en 1817")
+  ], "Ton oncle, chauffeur sur la ligne Lomé-Kumasi, a rapporté du Ghana une reproduction de la gravure du document 2, achetée près du palais de l'Asantehene, avec un petit dépliant qui donne quelques dates (document 1). « Ce royaume a été très puissant, puis les Anglais l'ont vaincu, mais son roi existe toujours », dit-il, sans pouvoir en dire plus. Il te demande de lui expliquer l'histoire et l'organisation de ce royaume.",
+  ["À partir du document 1 et de tes connaissances, retrace pour ton oncle l'évolution historique du royaume ashanti, de sa naissance à son rattachement à la Gold Coast.",
+    "À partir de la gravure du document 2 et de tes connaissances, explique-lui l'organisation religieuse des Ashanti et le rôle du roi dans l'organisation politique du royaume."],
+  ["Les propos de l'oncle : royaume très puissant, vaincu par les Anglais, roi qui existe toujours ; les dates du dépliant (document 1 : 1701, 1874, 1896, 1902) ; informations exploitées",
+    "La gravure (document 2) : le premier jour de la fête des ignames à Kumasi en 1817, devant le roi et les chefs, sous de grands parasols ; informations du document exploitées"]);
+
+  deuxDocs("h4_6", [
+    ancien("h4_6", "Document 1 : le royaume anoufom de Sansanné-Mango"),
+    { titre: "Document 2 : Mango au temps du royaume", texte: "« Le roi vivait à Mango, et chacun des trois quartiers de la ville, Djabou, Sangbana et Fomboro, avait ses villages soumis, qui lui apportaient le tribut. À la mosquée, les marabouts priaient avant les expéditions des guerriers. Au marché, on vendait la kola, le sel et les tissus ; aux champs de mil, de sorgho et d'igname travaillaient les captifs. » (Récit d'après les traditions de Mango)" }
+  ], "La mairie de Mango veut attirer les touristes et prépare un dépliant sur l'histoire de la ville. Elle organise un concours entre les collèges de la région des Savanes : chaque classe doit rédiger le texte du dépliant. Ta classe a choisi de s'appuyer sur la carte du document 1 et sur un récit recueilli auprès des anciens de la ville (document 2).",
+  ["À partir de la carte du document 1 et de tes connaissances, rédige la première partie du dépliant : présente les Anoufom, les sources de l'histoire de leur royaume et son évolution, de sa naissance à son déclin.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie du dépliant : décris l'organisation politique, sociale et religieuse du royaume anoufom et le mode de vie de ses habitants."],
+  ["Le concours de la mairie de Mango ; la carte du royaume anoufom (document 1 : Sansanné-Mango, l'Oti, les peuples soumis : Moba, Natchaba, Dyè, Konkomba…) ; informations du document exploitées",
+    "Le récit des anciens (document 2 : roi à Mango, trois quartiers et villages soumis, tribut, marabouts et expéditions, commerce de la kola, du sel et des tissus, captifs aux champs) ; informations du document exploitées"]);
+
+  deuxDocs("h4_8", [
+    ancien("h4_8", "Document 1 : le royaume de Tchaoudjo"),
+    { titre: "Document 2 : ce que raconte le grand-père d'Issifou", texte: "« Les Tem étaient là les premiers. Les Mola sont venus du pays gourma et nous ont donné nos chefs. Nos ancêtres Touré sont venus du pays mandé : ils ont apporté l'islam, les chevaux, le boubou et le métier de tisserand. Moi, j'ai été tisserand et commerçant toute ma vie, et je cultivais aussi mon champ de mil et d'igname. » (Propos recueillis à Sokodé)" }
+  ], "Ton camarade Issifou Touré, de Sokodé, s'étonne : son nom de famille, Touré, se retrouve aussi au Mali et en Guinée, et son grand-père répète que « les Tem ne sont pas un seul peuple, mais plusieurs peuples devenus un ». Il te demande de l'aider à comprendre l'histoire de son royaume d'origine, le Tchaoudjo. Vous disposez de la carte du document 1 et des propos du grand-père (document 2).",
+  ["À partir de la carte du document 1 et de tes connaissances, présente à Issifou le royaume de Tchaoudjo (situation, chefferies) et explique comment il est né et comment il est devenu puissant.",
+    "À partir du document 2 et de tes connaissances, montre-lui ce que chacun des peuples du Tchaoudjo a apporté au royaume, puis décris le mode de vie de ses populations."],
+  [null,
+    "Le nom Touré, présent aussi au Mali et en Guinée ; les propos du grand-père (document 2 : Tem premiers installés, Mola venus du pays gourma et chefferie, ancêtres mandé avec l'islam, les chevaux, le boubou, le tissage ; tisserand, commerçant, champ de mil et d'igname) ; informations exploitées"]);
+
+  deuxDocs("h4_10", [
+    { titre: "Document 1 : ce que raconte la tradition de Notsé", texte: "« À Notsé, le roi ne gouvernait pas seul : c'est le grand prêtre de Mawou qui l'installait sur le trône, et ce sont les chefs des quartiers, réunis en conseil, qui décidaient des affaires de la cité. Chaque quartier, chaque famille avait son chef. » (Tradition orale éwé)" },
+    ancien("h4_10", "Document 2 : la dispersion des Éwé à partir de Notsé")
+  ], "Pour la fête Agbogboza, la troupe de théâtre de ton collège, à Kpalimé, prépare une pièce sur la fuite des Éwé de Notsé. Le metteur en scène te demande d'écrire les textes que lira le narrateur avant chaque acte. Il te remet un récit de la tradition (document 1) et la carte du document 2, et ajoute : « N'oublie pas de dire au public ce que notre ville doit à cette histoire. »",
+  ["À partir du document 1 et de tes connaissances, rédige le texte du narrateur pour le premier acte : présente la cité-État de Notsé, son évolution historique et son organisation politique et sociale.",
+    "À partir de la carte du document 2 et de tes connaissances, rédige le texte du narrateur pour le second acte : explique les causes de la dispersion des Éwé et ses conséquences, notamment pour la région de Kpalimé."],
+  ["La pièce de théâtre pour la fête Agbogboza ; la demande du metteur en scène ; le récit de la tradition (document 1 : roi installé par le grand prêtre de Mawou, conseil des chefs de quartier qui décide, chefs de quartier et de famille) ; informations exploitées",
+    "La carte de la dispersion (document 2) : Notsé, Gamé, puis directions du sud (Tsévié, Aflao, Anloga ; Vo, Tabligbo), du sud-ouest (Ho) et de l'ouest (Kpalimé, Agou, Kpando) ; la demande du metteur en scène ; informations du document exploitées"]);
+})();
+// Situations nouvelles des leçons d'histoire de 4e (01/11/2026) : 3 situations par leçon en tout, tirées des traces,
+// différentes des situations d'apprentissage, des évaluations, des devoirs, des situations compétence et des situations déjà en réserve.
+// Deux consignes au plus ; quand il y en a deux, un document par consigne (docs).
+EPREUVES_4E.h4_1.sit.push({
+  texte: "Pendant une veillée au village, un vieux conteur raconte l'histoire d'un royaume d'autrefois (document). Les enfants l'écoutent, mais ton petit cousin te demande ensuite : « Pourquoi y avait-il des esclaves ? Et c'était quoi, un esclave de case ? » Le magazine d'histoire de ton collège cherche justement un article sur ce sujet.",
+  consigne: "Rédige l'article pour le magazine du collège : à partir du récit du conteur et de tes connaissances, explique la différence entre l'esclavage et la traite, leurs causes, puis le rôle des esclaves dans la société et les types d'esclaves.",
+  doc: { titre: "Document : le récit du conteur", texte: "« Dans ce royaume, quand le roi gagnait une guerre, les prisonniers devenaient esclaves. Certains, achetés depuis peu, étaient revendus au marché dès qu'un marchand en offrait un bon prix. D'autres, nés dans la maison du maître, n'étaient jamais vendus : ils cultivaient les champs avec la famille, et l'un d'eux devint même le chef des soldats du roi. »" },
+  titreProd: "Esclaves d'hier : qui étaient-ils, et pourquoi ?",
+  intro: "Au cours d'une veillée, un conteur a raconté l'histoire d'un royaume où vivaient des esclaves. Cet article explique ce qui distingue l'esclavage de la traite, leurs causes, puis le rôle des esclaves dans la société et les types d'esclaves.",
+  support: "La veillée et le récit du conteur (prisonniers de guerre devenus esclaves ; esclaves récents revendus au marché ; esclaves nés dans la maison, jamais vendus, aux champs, chef des soldats) ; les questions du petit cousin ; informations exploitées",
+  indConsigne: "Article : définitions de l'esclavage et de la traite ; causes de l'esclavage et de la traite ; travaux des esclaves ; esclave de case et esclave de traite",
+  dev: ["D'abord, l'esclavage est la situation d'une personne privée de liberté et traitée comme la propriété d'une autre, comme un objet. La traite est le fait de recruter, de transporter, de vendre ou d'accueillir des personnes, par la force, la menace ou la tromperie, pour les exploiter : c'est elle qui fournit les esclaves, comme le marché dont parle le conteur.",
+    "Ensuite, l'esclavage a plusieurs causes : les guerres, car les prisonniers devenaient esclaves, comme dans le royaume du récit ; les sociétés très hiérarchisées ; les dettes ; la pauvreté et l'ignorance des victimes. La traite, elle, s'explique par la recherche du gain facile par les trafiquants et par le besoin d'une main-d'œuvre nombreuse et gratuite pour les plantations et les mines, surtout après la découverte de l'Amérique et sa mise en valeur.",
+    "Enfin, les esclaves travaillaient sans salaire pour leur maître : travaux domestiques et travaux des champs, plantations et mines ; certains étaient artisans, soldats, et même administrateurs au service d'un roi, comme le chef des soldats du récit. On distinguait l'esclave de case, ou de maison, né chez son maître, qu'on ne vendait pas et qui pouvait s'intégrer à la famille, et l'esclave de traite, captif récent, que l'on pouvait revendre à tout moment."],
+  concl: "En définitive, qu'il soit de case ou de traite, l'esclave était privé de liberté et de dignité : comprendre l'esclavage d'hier aide à refuser toutes ses formes d'aujourd'hui.",
+  justesse: ["Esclavage : personne privée de liberté, traitée comme la propriété d'une autre ; traite : recruter, transporter, vendre ou accueillir des personnes par la force, la menace ou la tromperie pour les exploiter ; elle fournit les esclaves.",
+    "Causes de l'esclavage : guerres, sociétés hiérarchisées, dettes, pauvreté et ignorance ; causes de la traite : gain facile, besoin de main-d'œuvre gratuite (plantations, mines, mise en valeur de l'Amérique).",
+    "Rôle : travaux domestiques, champs, plantations, mines ; artisans, soldats, administrateurs ; esclave de case (né chez le maître, non vendu, intégré) / esclave de traite (captif récent, revendable)."],
+  concepts: "Esclavage, traite, captif, esclave de case, esclave de traite, main-d'œuvre."
+});
+EPREUVES_4E.h4_1.sit.push({
+  texte: "Pour la Journée mondiale contre la traite des êtres humains, le 30 juillet, la radio de ta ville prépare une émission. Une auditrice a appelé en disant : « L'esclavage, c'est une vieille histoire, ça n'existe plus ! » L'animatrice te demande de préparer deux interventions et te remet deux documents.",
+  consignes: ["À partir du document 1 et de tes connaissances, montre aux auditeurs que l'esclavage et la traite ont existé à toutes les époques et existent encore aujourd'hui.",
+    "À partir du document 2 et de tes connaissances, montre que l'esclavage et la traite sont condamnés, puis dis ce que chacun peut faire contre eux."],
+  docs: [{ titre: "Document 1 : deux faits divers", texte: "« Des enfants venus de plusieurs pays de la sous-région ont été retrouvés travaillant de force dans des champs, loin de leurs familles. » « Des migrants africains ont été vendus comme des marchandises dans un marché en Libye. » (D'après la presse)" },
+    { titre: "Document 2 : l'article 4 de la Déclaration universelle des droits de l'homme (1948)", texte: "« Nul ne sera tenu en esclavage ni en servitude ; l'esclavage et la traite des esclaves sont interdits sous toutes leurs formes. »" }],
+  prods: [{
+    intro: "Une auditrice pense que l'esclavage n'existe plus. Dans cette première intervention, je vais montrer, à partir de deux faits divers récents, que l'esclavage et la traite ont existé à toutes les époques et existent encore aujourd'hui.",
+    adresse: "Chers auditeurs,",
+    support: "La Journée mondiale du 30 juillet ; l'appel de l'auditrice ; les deux faits divers (enfants de la sous-région au travail forcé dans des champs ; migrants vendus en Libye) ; informations exploitées",
+    indConsigne: "Intervention 1 : caractère universel (Hébreux, Grèce et Rome, Soudan occidental, serfs du Moyen Âge, traites négrières) ; formes modernes (travail forcé, mariages forcés, prostitution forcée, trafic d'organes, mendicité forcée, trafic d'enfants, migrants en Libye, Mauritanie)",
+    dev: ["D'abord, l'esclavage et la traite ont existé à toutes les époques et dans toutes les sociétés : les Hébreux en Égypte selon la Bible, les esclaves de la Grèce et de Rome, ceux des empires du Soudan occidental, les serfs et les esclaves de l'Europe du Moyen Âge, et les traites négrières.",
+      "Ensuite, ils n'ont pas disparu : ils existent aujourd'hui sous des formes modernes. Le premier fait divers montre le trafic d'enfants, qui touche le Togo et la sous-région, et le travail forcé ; le second montre la vente de migrants en Libye.",
+      "Enfin, il existe bien d'autres formes modernes : les mariages forcés, la prostitution forcée, le trafic d'organes, la mendicité forcée, et la servitude en Mauritanie."],
+    concl: "En définitive, chers auditeurs, l'esclavage n'est pas une vieille histoire : il a existé partout et il continue sous des formes nouvelles, parfois tout près de nous.",
+    justesse: ["Caractère universel : Hébreux en Égypte (Bible), Grèce et Rome, empires du Soudan occidental, serfs et esclaves du Moyen Âge européen, traites négrières.",
+      "Formes modernes du document : trafic d'enfants (Togo, sous-région), travail forcé, vente de migrants en Libye.",
+      "Autres formes : mariages forcés, prostitution forcée, trafic d'organes, mendicité forcée, servitude en Mauritanie."],
+    concepts: "Caractère universel, esclavage moderne, travail forcé, trafic d'enfants, servitude."
+  }, {
+    intro: "Heureusement, la loi protège les victimes. Dans cette seconde intervention, à partir de l'article 4 de la Déclaration universelle des droits de l'homme, je vais montrer que l'esclavage et la traite sont condamnés, puis dire ce que chacun peut faire.",
+    adresse: "Chers auditeurs,",
+    support: "L'article 4 de la Déclaration universelle des droits de l'homme de 1948 (« nul ne sera tenu en esclavage ni en servitude » ; interdiction sous toutes leurs formes) ; informations exploitées",
+    indConsigne: "Intervention 2 : crimes contre l'humanité ; textes (SDN 1926, DUDH 1948 art. 4, Protocole de l'ONU 2000, loi togolaise de 2005, Code pénal de 2015) ; prudence, refus d'être complice, dénonciation",
+    dev: ["D'abord, l'esclavage et la traite sont aujourd'hui des crimes contre l'humanité. Comme le dit l'article 4 de la Déclaration universelle des droits de l'homme de 1948, nul ne peut être tenu en esclavage, et ils sont interdits sous toutes leurs formes.",
+      "Ensuite, d'autres textes les condamnent : la Convention de la Société des Nations relative à l'esclavage, en 1926 ; le Protocole des Nations unies contre la traite des personnes, en 2000 ; et au Togo, la loi contre le trafic d'enfants de 2005 et le Code pénal de 2015.",
+      "Enfin, chacun de nous doit rester prudent pour ne pas devenir victime ou complice de la traite : se méfier des promesses de travail trop belles, ne pas confier un enfant à un inconnu, et dénoncer à la police ou aux autorités ceux qui pratiquent ce trafic."],
+    concl: "En définitive, chers auditeurs, la loi condamne l'esclavage et la traite partout, mais elle a besoin de notre vigilance : ouvrons l'œil et dénonçons les trafiquants.",
+    justesse: ["Crimes contre l'humanité ; DUDH 1948, article 4.",
+      "Convention de la SDN (1926) ; Protocole de l'ONU contre la traite (2000) ; au Togo, loi contre le trafic d'enfants (2005), Code pénal (2015).",
+      "Rester prudent pour ne pas être victime ou complice ; dénoncer ceux qui pratiquent la traite."],
+    concepts: "Crime contre l'humanité, Déclaration universelle des droits de l'homme, protocole, loi, vigilance, dénonciation."
+  }]
+});
+EPREUVES_4E.h4_2.sit.push({
+  texte: "Ta correspondante brésilienne, Luana, qui vit à Salvador de Bahia, a visité le château d'Elmina, au Ghana, et t'envoie la photo du document. Elle t'écrit : « Ma grand-mère dit que nos ancêtres sont passés par cette porte. Comment ont-ils été capturés, et qu'est-ce que leur arrivée a changé chez nous, en Amérique ? »",
+  consigne: "Réponds à Luana par une lettre dans laquelle tu lui expliques, à partir de la photo et de tes connaissances, comment les captifs étaient obtenus et embarqués sur la côte ouest-africaine, en particulier au Togo, puis le rôle des esclaves en Amérique et les conséquences de la traite pour les Amériques.",
+  doc: { titre: "Document : la « porte du non-retour » du château d'Elmina (Ghana), par où les captifs étaient embarqués", image: "images/ep4_porte_elmina.jpg", credit: "Photo Afus199620 — CC0 (Wikimedia Commons)." },
+  intro: "Ta photo de la « porte du non-retour » d'Elmina m'a beaucoup ému, et je comprends tes questions. Je vais t'expliquer comment les captifs étaient obtenus et embarqués sur notre côte, puis ce que leur arrivée a changé en Amérique.",
+  adresse: "Chère Luana,",
+  support: "La lettre de Luana, de Salvador de Bahia ; la photo de la porte du non-retour d'Elmina, par où passaient les captifs ; ses questions sur la capture et les conséquences en Amérique ; informations exploitées",
+  indConsigne: "Lettre : points de traite (Gorée, Bunce, Elmina, Cape Coast, Agbodrafo, Aného, Ouidah, Badagry, Lagos) ; moyens de mise en esclavage et rôle des rois de la côte ; circuits au Togo ; rôle des esclaves en Amérique ; conséquences pour les Amériques",
+  dev: ["D'abord, du XVe au XIXe siècle, les Européens ont bâti des forts et des comptoirs sur la côte ouest-africaine : Gorée au Sénégal, l'île de Bunce en Sierra Leone, Elmina, dont tu as vu la porte, et Cape Coast au Ghana, Agbodrafo et Aného, l'ancien Petit-Popo, au Togo, Ouidah au Bénin, Badagry et Lagos au Nigeria. C'est par des portes comme celle-ci que les captifs montaient dans les navires, sans espoir de retour.",
+    "Ensuite, les captifs étaient obtenus par les guerres, les razzias, les enlèvements, les condamnations de criminels ou de rebelles, et les dettes. Les négriers européens s'entendaient avec les rois de la côte, Ashanti, Dahomey, Oyo, Bénin, qui leur livraient des captifs contre des marchandises ; quand les côtes se sont vidées, des rabatteurs sont allés en chercher de plus en plus loin. Au Togo, des captifs venus du pays adja, d'Atakpamé, du Tchaoudjo, du pays anoufo ou du Bassar étaient conduits vers Petit-Popo, Agbodrafo et Ouidah.",
+    "Enfin, en Amérique, les esclaves travaillaient dans les plantations de canne à sucre, de coton, de café, de tabac et de cacao, et dans les mines ; ils étaient aussi domestiques, artisans et ouvriers des ports et des villes. La traite a donné aux Amériques une population noire nombreuse, comme à Salvador de Bahia, une main-d'œuvre abondante et le développement des plantations, et elle a fait naître une culture nouvelle, mélange d'Afrique et d'Europe, dans la musique, la religion et la cuisine."],
+  concl: "En définitive, chère Luana, tes ancêtres ont été arrachés à notre côte dans la violence, mais leur travail et leur culture ont façonné ton pays : nous gardons ensemble la mémoire de cette tragédie. Je t'embrasse.",
+  signature: "Ton ami(e) du Togo",
+  justesse: ["Points de traite : Gorée, île de Bunce, Elmina, Cape Coast, Agbodrafo, Aného (Petit-Popo), Ouidah, Badagry, Lagos ; forts et comptoirs européens.",
+    "Moyens : guerres, razzias, enlèvements, condamnations, dettes ; accords avec les rois de la côte (Ashanti, Dahomey, Oyo, Bénin), rabatteurs ; circuits togolais (pays adja, Atakpamé, Tchaoudjo, pays anoufo, Bassar vers Petit-Popo, Agbodrafo, Ouidah).",
+    "Rôle en Amérique : plantations (canne, coton, café, tabac, cacao), mines, domestiques, artisans, ouvriers ; conséquences : population noire nombreuse, main-d'œuvre, plantations, culture métissée."],
+  concepts: "Traite atlantique, fort, comptoir, captif, razzia, rabatteur, plantation, métissage culturel."
+});
+EPREUVES_4E.h4_2.sit.push({
+  texte: "Le club d'histoire de ton collège prépare un débat : « La traite négrière : qui en a profité ? ». Ton groupe doit défendre deux idées devant la classe. Le professeur vous remet le schéma du document 1 et l'extrait du document 2.",
+  consignes: ["À partir du schéma du document 1 et de tes connaissances, présente les différents types de traites qu'a connus l'Afrique, puis explique le fonctionnement du commerce triangulaire.",
+    "À partir du document 2 et de tes connaissances, montre les conséquences de la traite négrière pour l'Europe et pour l'Afrique."],
+  docs: [{ titre: "Document 1 : le commerce triangulaire", image: "images/epreuves/4e_h4_2.png" },
+    { titre: "Document 2 : un port européen au XVIIIe siècle", texte: "« Sur les quais de Nantes et de Bordeaux, les entrepôts débordent de sucre, de café et de coton venus d'Amérique. Les armateurs se font construire de beaux hôtels, et des fabriques de tissus et d'armes travaillent pour les navires qui partent vers l'Afrique. » (Récit d'après des historiens)" }],
+  prods: [{
+    intro: "Pour comprendre qui a profité de la traite, il faut d'abord savoir comment elle fonctionnait. Je vais présenter les différents types de traites qu'a connus l'Afrique, puis, à l'aide du schéma, le fonctionnement du commerce triangulaire.",
+    adresse: "Chers camarades,",
+    support: "Le débat du club d'histoire ; le schéma du commerce triangulaire (Europe, Afrique, Amériques ; produits sur chaque côté ; « passage du milieu » ; ports comme Nantes, Bordeaux, Liverpool, Gorée, Elmina, Ouidah) ; informations exploitées",
+    indConsigne: "Première idée : les quatre traites et leurs dates ; définition du commerce triangulaire et ses trois étapes avec les produits (lecture du schéma)",
+    dev: ["D'abord, l'Afrique a connu plusieurs traites : la traite transsaharienne ou arabe, du VIIe au XIXe siècle, à travers le Sahara vers l'Afrique du Nord et le Moyen-Orient ; la traite orientale, du VIIIe au XIXe siècle, des côtes de l'Afrique de l'Est vers l'Arabie et l'Inde ; la traite atlantique, du XVe au XIXe siècle, vers les Amériques ; et la traite intérieure, entre peuples et royaumes africains.",
+      "Ensuite, le commerce triangulaire est un commerce en trois étapes qui relie l'Europe, l'Afrique et les Amériques. Comme le montre le schéma, les navires partent d'Europe chargés de tissus, d'alcools, de fusils, de poudre, de verroterie et d'objets en métal, qu'ils échangent en Afrique contre des captifs.",
+      "Enfin, les captifs africains sont emmenés vers les Amériques : cette traversée est appelée le « passage du milieu ». Les navires reviennent ensuite des Amériques vers l'Europe chargés de sucre, de café, de coton, de tabac et de cacao. Environ 12,5 millions d'Africains ont ainsi été embarqués de force du XVe au XIXe siècle."],
+    concl: "En définitive, chers camarades, de toutes les traites, la traite atlantique, organisée en triangle par les Européens, a été la plus massive : à chaque étape, des marchandises étaient échangées, et les hommes étaient la marchandise.",
+    justesse: ["Traites : transsaharienne ou arabe (VIIe-XIXe s.), orientale (VIIIe-XIXe s.), atlantique (XVe-XIXe s.), intérieure.",
+      "Commerce triangulaire : Europe → Afrique (tissus, alcools, fusils, poudre, verroterie, objets en métal).",
+      "Afrique → Amériques (captifs, « passage du milieu ») ; Amériques → Europe (sucre, café, coton, tabac, cacao) ; environ 12,5 millions d'Africains embarqués."],
+    concepts: "Traite transsaharienne, traite orientale, traite atlantique, traite intérieure, commerce triangulaire, passage du milieu."
+  }, {
+    intro: "Qui a profité de ce commerce ? Dans cette seconde idée, à partir de la description d'un port européen du XVIIIe siècle, je vais montrer les conséquences de la traite pour l'Europe, puis pour l'Afrique.",
+    adresse: "Chers camarades,",
+    support: "Le récit sur Nantes et Bordeaux au XVIIIe siècle (entrepôts de sucre, café, coton ; hôtels des armateurs ; fabriques de tissus et d'armes travaillant pour les navires) ; informations exploitées",
+    indConsigne: "Seconde idée : conséquences pour l'Europe (ports et négociants enrichis, industries, domination) ; conséquences pour l'Afrique (pertes humaines, insécurité, recul des activités, destructions, royaumes négriers enrichis, plantes américaines)",
+    dev: ["D'abord, l'Europe a profité de la traite : ses ports, comme Nantes, Bordeaux et Liverpool, et ses négociants se sont enrichis ; le document montre les entrepôts pleins de produits d'Amérique et les beaux hôtels des armateurs.",
+      "Ensuite, la traite a développé les industries européennes, comme ces fabriques de tissus et d'armes qui travaillaient pour les navires partant vers l'Afrique, et elle a renforcé la domination de l'Europe sur le monde.",
+      "Enfin, pour l'Afrique, les conséquences ont été terribles : la perte de millions d'hommes et de femmes jeunes ; des guerres et une insécurité permanentes ; le recul de l'agriculture et de l'artisanat ; la destruction de sociétés et de royaumes. Seuls quelques royaumes négriers, comme le Dahomey et l'Ashanti, se sont enrichis. La traite a aussi fait arriver en Afrique des plantes venues d'Amérique, comme le maïs, le manioc et l'arachide."],
+    concl: "En définitive, chers camarades, la traite a enrichi l'Europe et vidé l'Afrique de ses forces : c'est une des plus grandes tragédies de l'histoire, reconnue aujourd'hui comme un crime contre l'humanité.",
+    justesse: ["Europe : enrichissement des ports (Nantes, Bordeaux, Liverpool) et des négociants.",
+      "Europe : développement des industries ; renforcement de sa domination sur le monde.",
+      "Afrique : perte de millions de jeunes ; guerres et insécurité ; recul de l'agriculture et de l'artisanat ; destruction de sociétés ; enrichissement de royaumes négriers (Dahomey, Ashanti) ; maïs, manioc, arachide."],
+    concepts: "Enrichissement, négociant, armateur, domination, dépeuplement, royaume négrier."
+  }]
+});
+EPREUVES_4E.h4_3.sit.push({
+  texte: "À la gare routière de Sokodé, une vendeuse te tend des noix de kola comme celles du document. « Mon arrière-grand-père transportait déjà la kola sur sa tête jusqu'au pays haoussa », te dit-elle fièrement. Le concours d'écriture de ton collège a pour thème « Une voix du passé » : tu décides d'imaginer le récit de cet arrière-grand-père.",
+  consigne: "Imagine le récit qu'un vieux porteur du XIXe siècle aurait pu faire à ses petits-enfants : à partir de la photo et de tes connaissances, il raconte ce qu'était une caravane et la route qu'il suivait, puis il décrit les hommes, les moyens de transport et les produits de ce commerce.",
+  doc: { titre: "Document : des noix de kola", image: "images/ep4_kola.jpg", credit: "Photo HK RIGASA2 — CC0 (Wikimedia Commons)." },
+  titreProd: "Le récit du vieux porteur de kola",
+  intro: "« Approchez, mes enfants. Vous voyez ces noix de kola ? Quand j'étais jeune, je les portais sur ma tête, de la forêt jusqu'au pays haoussa. Je vais vous raconter ce qu'était une caravane, la route que nous suivions, puis les hommes, les bêtes et les marchandises de ce grand commerce. »",
+  support: "La vendeuse de kola de la gare routière de Sokodé ; la photo des noix de kola ; l'arrière-grand-père porteur ; le concours « Une voix du passé » ; informations exploitées",
+  indConsigne: "Récit à la première personne : définitions de la caravane et de la route caravanière ; Salaga et une voie de la kola ; hommes (Haoussa, Mandé, guides, porteurs, chefs des villes-étapes) ; moyens de transport ; produits du Sud, du Nord et du Togo",
+  dev: ["D'abord, une caravane, c'était un groupe de voyageurs et de marchands qui se déplaçaient ensemble sur de longues distances, et la route caravanière, l'itinéraire que nous suivions entre la région qui produisait les marchandises et celle qui les achetait. La kola poussait dans la forêt ashanti, autour de Kumasi ; on la vendait au grand marché de Salaga, en pays gondja. De là, nous partions vers Kano, en pays haoussa, grand acheteur de kola. Moi, je suivais la voie méridionale : Salaga, Bimbila, Nakpali, Bassar, le Tchaoudjo, Kparatao, Tchamba, Adjéidè, puis Djougou et Kano. D'autres prenaient la voie médiane, par Bafilo, ou la voie septentrionale, par Sansanné-Mango.",
+    "Ensuite, nos caravanes étaient menées surtout par des marchands haoussa et mandé, qu'on appelait dioula, avec des guides et des porteurs comme moi. Dans chaque ville-étape, le chef nous accueillait et nous faisait payer des taxes. Nous portions les charges sur la tête ; il y avait aussi des ânes et des chevaux ; les dromadaires, on ne les voyait que dans le Sahel et dans le désert.",
+    "Enfin, du Sud, nous emportions surtout la kola, mais aussi de l'or, de l'ivoire, des esclaves, de l'huile de palme, du sel marin et des produits européens venus de la côte, fusils et tissus. Au retour, nous rapportions du Nord le sel du Sahara, le natron, la galène, les cuirs, les tissus haoussa, des chevaux et du bétail. Et notre pays vendait aussi ses produits : le fer de Bassar, les nattes, les pagnes tissés, les boulettes de tabac, le soumbala et les céréales."],
+  concl: "« En définitive, mes enfants, c'est grâce à cette petite noix que nos chemins reliaient la forêt au pays haoussa. Quand vous croquerez une kola, pensez aux longues marches de votre grand-père. »",
+  justesse: ["Caravane : groupe de voyageurs et de marchands sur de longues distances ; route caravanière : itinéraire entre région productrice et région acheteuse ; kola de la forêt ashanti (Kumasi), marché de Salaga, vers Kano.",
+    "Voies : septentrionale (Salaga, Yendi, Sansanné-Mango, Gando, Borgou, Sokoto, Kano) ; médiane (Salaga, Bimbila, Kabou, Bafilo, Djougou, Nikki, Boussa, Zaria, Kano) ; méridionale (Salaga, Bimbila, Nakpali, Bassar ou Fazao, Tchaoudjo, Tchamba, Adjéidè, Djougou, Kano).",
+    "Hommes : marchands haoussa et mandé (dioula), guides, porteurs, chefs des villes-étapes et taxes ; transports : porteurs, ânes, chevaux, dromadaires seulement au Sahel ; produits du Sud, du Nord et du Togo."],
+  concepts: "Caravane, route caravanière, kola, ville-étape, porteur, dioula, taxe."
+});
+EPREUVES_4E.h4_3.sit.push({
+  texte: "Pour les Journées du patrimoine, ton collège prépare une exposition sur « Les routes de la kola ». Ton groupe doit rédiger deux panneaux. Le professeur vous remet le carnet de route d'un marchand d'autrefois (document 1) et le récit d'un vieil habitant de Tchamba (document 2).",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige le premier panneau : identifie la voie suivie par le marchand et présente les trois voies de la kola entre la région ashanti et Kano.",
+    "À partir du document 2 et de tes connaissances, rédige le second panneau : montre les conséquences du commerce caravanier sur les villes et les peuples du Nord-Togo."],
+  docs: [{ titre: "Document 1 : les étapes notées par un marchand de kola", liste: ["Départ : le grand marché de Salaga", "Étapes : Bimbila, Kabou, Bafilo, Djougou, Nikki, Boussa, Zaria", "Arrivée : Kano, au pays haoussa"] },
+    { titre: "Document 2 : le récit d'un vieil habitant de Tchamba", texte: "« Autrefois, Tchamba n'était qu'un petit village. Les caravanes de kola s'y arrêtaient, un marché est né et la ville a grandi. Avec les marchands haoussa et dioula sont venus les premiers marabouts, et la première mosquée a été bâtie. Beaucoup de familles d'ici ont un ancêtre venu du pays haoussa. »" }],
+  prods: [{
+    titreProd: "Les trois routes de la kola",
+    intro: "Le carnet de route d'un marchand d'autrefois nous permet de suivre une caravane de kola. Ce premier panneau identifie la voie qu'il a suivie et présente les trois voies de la kola entre la région ashanti et Kano.",
+    support: "Les Journées du patrimoine ; le carnet de route (départ de Salaga ; Bimbila, Kabou, Bafilo, Djougou, Nikki, Boussa, Zaria ; arrivée à Kano) ; informations exploitées",
+    indConsigne: "Panneau 1 : définition de la route caravanière ; origine de la kola et rôle de Salaga ; identification de la voie médiane ; les trois voies et leurs étapes ; royaume anoufo et chefferies sur ces voies",
+    dev: ["D'abord, une route caravanière est un itinéraire suivi par les caravanes entre une région qui produit des marchandises et une région qui les achète. La kola de la forêt ashanti, autour de Kumasi, était vendue au grand marché de Salaga, en pays gondja, puis transportée vers le pays haoussa, et surtout Kano, grand acheteur de kola.",
+      "Ensuite, le marchand du carnet est passé par Bimbila, Kabou, Bafilo, Djougou, Nikki, Boussa et Zaria : il a suivi la voie médiane, qui traverse le Nord du Togo actuel par Kabou et Bafilo.",
+      "Enfin, il existait deux autres voies : la voie septentrionale, par Salaga, Yendi, Sansanné-Mango, Gando, le Borgou, puis Sokoto et Kano ; et la voie méridionale, par Salaga, Bimbila, Nakpali, Bassar ou Fazao, le Tchaoudjo, avec Kparatao, Tchamba, Adjéidè, Djougou et Kano. Sur ces voies se trouvaient le royaume anoufo de Mango et les chefferies tem et bassar."],
+    concl: "En définitive, trois grandes voies reliaient la forêt ashanti au pays haoussa, et toutes traversaient le Nord du Togo actuel.",
+    justesse: ["Route caravanière : itinéraire entre région productrice et région acheteuse ; kola de la forêt ashanti, marché de Salaga, vers Kano.",
+      "Voie du carnet : la voie médiane (Salaga, Bimbila, Kabou, Bafilo, Djougou, Nikki, Boussa, Zaria, Kano).",
+      "Voies septentrionale (par Yendi, Sansanné-Mango, Gando, Borgou, Sokoto) et méridionale (par Nakpali, Bassar ou Fazao, Tchaoudjo, Kparatao, Tchamba, Adjéidè, Djougou) ; royaume anoufo, chefferies tem et bassar."],
+    concepts: "Route caravanière, voie, étape, marché, kola."
+  }, {
+    titreProd: "Ce que les caravanes ont changé au Nord-Togo",
+    intro: "Les caravanes n'ont pas seulement transporté de la kola : elles ont transformé le Nord du Togo. Ce second panneau montre, à partir du récit d'un vieil habitant de Tchamba, les conséquences du commerce caravanier sur les villes et les peuples de la région.",
+    support: "Le récit du vieil habitant de Tchamba (petit village devenu ville grâce aux caravanes, marché, marchands haoussa et dioula, marabouts, première mosquée, ancêtres venus du pays haoussa) ; informations exploitées",
+    indConsigne: "Panneau 2 : naissance et croissance des villes-étapes et des marchés ; échanges avec le Soudan occidental ; diffusion de l'islam ; chefferies tem et enrichissement des chefs ; brassage des peuples",
+    dev: ["D'abord, le commerce caravanier a fait naître et grandir des villes-étapes et des marchés, comme Tchamba, petit village devenu ville grâce aux caravanes, mais aussi Mango, Bafilo, Kabou et Kparatao. Il a développé les échanges entre le Nord-Togo et le Soudan occidental.",
+      "Ensuite, il a apporté et répandu l'islam : avec les marchands haoussa et dioula sont venus des marabouts, et des mosquées ont été bâties, comme à Tchamba. Il a aussi favorisé l'organisation des Tem en chefferies et l'enrichissement des chefs, qui percevaient des taxes sur les caravanes.",
+      "Enfin, il a mélangé les peuples : les peuples du Nord-Togo se sont mêlés aux Haoussa, aux Mandé et à d'autres peuples du Soudan, si bien que beaucoup de familles de Tchamba ont un ancêtre venu du pays haoussa."],
+    concl: "En définitive, le commerce de la kola a fait naître des villes, répandu l'islam et mélangé les peuples : le Nord-Togo d'aujourd'hui en porte encore la marque.",
+    justesse: ["Villes-étapes et marchés : Mango, Bafilo, Kabou, Tchamba, Kparatao ; échanges entre le Nord-Togo et le Soudan occidental.",
+      "Arrivée et diffusion de l'islam ; organisation des Tem en chefferies et enrichissement des chefs.",
+      "Brassage des peuples du Nord-Togo avec les Haoussa, les Mandé et d'autres peuples du Soudan."],
+    concepts: "Ville-étape, marché, islamisation, chefferie, brassage des peuples."
+  }]
+});
+EPREUVES_4E.h4_4.sit.push({
+  texte: "Pour le défilé de mode de la fête de fin d'année, ton amie Akua portera un pagne kente comme celui du document. Un camarade se moque : « Ce n'est qu'un tissu coloré ! » Akua, vexée, te demande de rédiger le texte que le présentateur lira pendant son passage, pour faire connaître le royaume d'où vient ce tissu.",
+  consigne: "Rédige le texte du présentateur : à partir de la photo et de tes connaissances, présente le royaume ashanti, puis décris son organisation économique, sociale et religieuse.",
+  doc: { titre: "Document : un tissu kente des Akan (Ghana)", image: "images/ep4_kente.jpg", credit: "Kente, peuples akan — Metropolitan Museum of Art, New York, CC0 (Wikimedia Commons)." },
+  intro: "Le pagne que porte Akua n'est pas un simple tissu coloré : c'est un kente, tissé par les artisans d'un grand royaume, le royaume ashanti. Je vais vous présenter ce royaume, puis son organisation économique, sociale et religieuse.",
+  adresse: "Mesdames et Messieurs, chers camarades,",
+  support: "Le défilé de mode de fin d'année ; la photo du tissu kente des Akan ; la moquerie du camarade ; informations exploitées",
+  indConsigne: "Texte de présentation : situation, peuple akan, capitale Kumasi, confédération, Trône d'or, étendue ; économie (commerce, agriculture, artisanat dont le kente) ; société hiérarchisée ; religion (Dieu créateur, divinités, ancêtres, Trône d'or, Odwira)",
+  dev: ["D'abord, le royaume ashanti est l'État des Ashanti, un peuple akan, dans la forêt du centre du Ghana actuel, autour de sa capitale, Kumasi. C'est une confédération de chefferies akan unies autour d'un roi et d'un symbole sacré, le Trône d'or. À son apogée, il s'étendait sur presque tout le Ghana actuel, à peu près de la Comoé à la Volta.",
+    "Ensuite, son économie reposait sur le commerce de l'or, de l'ivoire, de la kola et des esclaves, sur l'agriculture et sur l'artisanat : les orfèvres, les teinturiers et les tisserands du kente, ce tissu que porte Akua. Sa société était hiérarchisée : en haut, les privilégiés, le roi, la reine-mère et les notables ; puis les hommes libres, paysans, artisans et commerçants ; en bas, les esclaves.",
+    "Enfin, les Ashanti pratiquaient la religion traditionnelle : ils croyaient en un Dieu créateur, honoraient les divinités des forces de la nature et surtout les ancêtres. Le Trône d'or, sacré, contient l'âme du peuple, et la grande fête des ignames, l'Odwira, honore les ancêtres et renforce l'unité du royaume."],
+  concl: "En définitive, mesdames et messieurs, ce kente raconte l'histoire d'un royaume riche, organisé et uni autour de son Trône d'or. Applaudissons Akua, qui porte sur elle un morceau de cette histoire !",
+  justesse: ["Présentation : peuple akan, forêt du centre du Ghana actuel, capitale Kumasi ; confédération de chefferies unies autour d'un roi et du Trône d'or ; de la Comoé à la Volta à l'apogée.",
+    "Économie : commerce (or, ivoire, kola, esclaves), agriculture, artisanat (orfèvres, tisserands du kente, teinturiers) ; société : privilégiés (roi, reine-mère, notables), hommes libres, esclaves.",
+    "Religion : Dieu créateur, divinités de la nature, ancêtres ; Trône d'or sacré, âme du peuple ; fête des ignames (Odwira)."],
+  concepts: "Royaume, confédération, Trône d'or, artisanat, société hiérarchisée, culte des ancêtres."
+});
+EPREUVES_4E.h4_4.sit.push({
+  texte: "Ton correspondant Kwame, élève à Kumasi, prépare avec sa classe une pièce de théâtre sur l'histoire de son royaume. Il te demande de l'aider à écrire deux scènes et t'envoie la carte du document 1 ainsi que le récit du document 2.",
+  consignes: ["À partir de la carte du document 1 et de tes connaissances, écris le texte que dira le narrateur au début de la pièce : raconte la naissance du royaume ashanti et son expansion jusqu'à son apogée.",
+    "À partir du document 2 et de tes connaissances, écris la tirade du vieux conseiller qui explique à un jeune prince comment le royaume est gouverné."],
+  docs: [{ titre: "Document 1 : le royaume ashanti du XVIIIe au début du XIXe siècle", image: "images/epreuves/4e_h4_4.png" },
+    { titre: "Document 2 : une scène de la cour, racontée par un voyageur", texte: "« Le roi siégeait entouré de sa mère, la reine-mère, et des grands chefs des provinces, venus lui rendre hommage. Des messagers partaient vers les royaumes voisins, et l'on m'a dit que rien de ce qui se passait dans le pays n'échappait au roi. » (Récit d'après des voyageurs du XIXe siècle)" }],
+  prods: [{
+    intro: "« Mesdames et Messieurs, voici l'histoire d'un petit groupe de chefferies devenu l'un des plus puissants royaumes de l'Afrique de l'Ouest. Je vais vous raconter sa naissance, puis son expansion jusqu'à son apogée. »",
+    adresse: "Chers spectateurs,",
+    support: "La pièce de théâtre de la classe de Kwame ; la carte (noyau ashanti vers 1700 autour de Kumasi, Feyiase 1701, conquêtes du XVIIIe siècle, États tributaires : Gonja, Dagomba ; Denkyira, Akyem) ; informations exploitées",
+    indConsigne: "Texte du narrateur : naissance (Osei Tutu, Okomfo Anokye, Trône d'or, Kumasi, victoire sur le Denkyira en 1701) ; apogée (Opoku Ware, Osei Kwadwo, Osei Bonsu ; conquêtes ; contrôle du commerce) ; lecture de la carte",
+    dev: ["D'abord, à la fin du XVIIe siècle, dans la forêt du Ghana actuel, des chefferies akan étaient soumises au Denkyira. Osei Tutu, aidé du prêtre Okomfo Anokye, les unit ; selon la tradition, le Trône d'or, le Sika Dwa Kofi, descend alors du ciel. Kumasi devient la capitale du royaume, au cœur du noyau ashanti que montre la carte.",
+      "Ensuite, en 1701, les Ashanti battent le Denkyira, près de Feyiase, comme l'indique la carte : le royaume est libre et peut s'agrandir.",
+      "Enfin, au XVIIIe siècle et au début du XIXe siècle, sous Opoku Ware, Osei Kwadwo et Osei Bonsu, le royaume conquiert ses voisins : la carte montre ses conquêtes et les États tributaires du nord, comme le Gonja et le Dagomba. Il contrôle alors le commerce de l'or, de la kola et des esclaves, et s'étend sur presque tout le Ghana actuel, de la Comoé à la Volta : c'est l'apogée."],
+    concl: "« En définitive, chers spectateurs, en un siècle, l'union de quelques chefferies autour du Trône d'or a donné naissance à un royaume immense et puissant. Place maintenant à la cour de Kumasi ! »",
+    justesse: ["Naissance (fin XVIIe siècle) : Osei Tutu et le prêtre Okomfo Anokye unissent des chefferies soumises au Denkyira ; Trône d'or (Sika Dwa Kofi) ; Kumasi capitale.",
+      "Victoire sur le Denkyira en 1701 (Feyiase, carte).",
+      "Apogée (XVIIIe - début XIXe s.) : Opoku Ware, Osei Kwadwo, Osei Bonsu ; conquêtes, États tributaires (carte) ; contrôle du commerce de l'or, de la kola, des esclaves ; de la Comoé à la Volta."],
+    concepts: "Confédération, Trône d'or, conquête, État tributaire, apogée."
+  }, {
+    intro: "« Écoute-moi bien, jeune prince : un royaume aussi vaste ne se gouverne pas seul. Je vais t'expliquer comment le roi, la reine-mère, les chefs et les serviteurs du royaume se partagent le pouvoir. »",
+    adresse: "Mon prince,",
+    support: "Le récit du voyageur (roi entouré de la reine-mère et des chefs des provinces, messagers vers les voisins, rien n'échappe au roi) ; la pièce de théâtre ; informations exploitées",
+    indConsigne: "Tirade du conseiller : l'Asantehene ; la reine-mère et le choix du roi ; le conseil des notables ; les Omanhene ; fonctionnaires, messagers, espions ; succession matrilinéaire",
+    dev: ["D'abord, le roi porte le titre d'Asantehene. Il n'est pas seul : la reine-mère, que tu as vue à ses côtés, propose le futur roi, et un conseil de notables l'aide à gouverner.",
+      "Ensuite, le royaume est partagé en provinces, dirigées par des chefs qu'on appelle Omanhene : ce sont eux qui viennent rendre hommage au roi. Des fonctionnaires lèvent les impôts ; des messagers entretiennent les relations avec les royaumes voisins ; et des espions renseignent le roi : voilà pourquoi rien de ce qui se passe dans le pays ne lui échappe.",
+      "Enfin, souviens-toi que chez nous la succession est matrilinéaire : le pouvoir se transmet par la famille de la mère. C'est pourquoi la reine-mère a un si grand rôle dans le choix du roi."],
+    concl: "« En définitive, mon prince, un roi fort est un roi bien entouré : la reine-mère, les notables, les chefs et les serviteurs du royaume sont les colonnes du Trône d'or. »",
+    justesse: ["Roi : l'Asantehene ; aidé par la reine-mère (qui propose le futur roi) et par un conseil de notables.",
+      "Provinces dirigées par des chefs (Omanhene) ; fonctionnaires (impôts), messagers (relations avec les voisins), espions (renseignement).",
+      "Succession matrilinéaire (par la famille de la mère)."],
+    concepts: "Asantehene, reine-mère, conseil des notables, Omanhene, succession matrilinéaire."
+  }]
+});
+EPREUVES_4E.h4_5.sit.push({
+  texte: "En feuilletant un livre d'art, ta petite sœur tombe sur la photo du document. Elle rit : « Il est bizarre, ce monsieur : sa tête est énorme et les autres sont tout petits à côté ! Pourquoi l'artiste ne l'a-t-il pas dessiné comme une vraie personne ? Et à quoi ça sert ? » Tu décides de lui répondre en écrivant votre conversation pour le journal du collège.",
+  consigne: "Rédige, sous forme de dialogue entre ta sœur et toi, ta réponse : à partir de la plaque du document et de tes connaissances, explique ce qu'est l'art, les caractéristiques de l'art africain et à quoi il sert, puis les deux grands types d'art africain.",
+  doc: { titre: "Document : plaque en bronze du royaume du Bénin (Nigeria) montrant un chef guerrier et ses serviteurs, XVIe-XVIIe siècle", image: "images/ep4_plaque_benin_guerrier.jpg", credit: "Plaque, peuple edo, royaume du Bénin — Metropolitan Museum of Art, New York, CC0 (Wikimedia Commons)." },
+  titreProd: "« Pourquoi sa tête est-elle si grosse ? »",
+  intro: "Ma petite sœur trouvait bizarre le chef guerrier d'une plaque en bronze du royaume du Bénin, avec sa grosse tête et ses serviteurs minuscules. Voici notre conversation, où je lui explique ce qu'est l'art, les caractéristiques de l'art africain, son utilité et ses deux grands types.",
+  support: "La photo de la plaque en bronze du Bénin (chef guerrier plus grand que ses serviteurs, grosse tête) ; les questions de la petite sœur ; informations exploitées",
+  indConsigne: "Dialogue : définition de l'art et différence avec l'artisanat ; supports, représentation stylisée, utilité ; art de cour et art religieux avec des exemples",
+  dev: ["D'abord : « C'est quoi, l'art ? » — « L'art, c'est la manière dont un peuple exprime, par des œuvres, sa façon de vivre, de penser et de croire. Ce n'est pas l'artisanat : une œuvre d'art exprime d'abord une idée, une croyance ou la beauté, alors que l'artisanat fabrique surtout des objets utiles. Mais en Afrique, l'artisan est souvent aussi un artiste, comme celui qui a coulé cette plaque. »",
+    "Ensuite : « Mais pourquoi la tête est-elle si grosse ? » — « Parce que l'art africain est souvent stylisé : l'artiste simplifie les formes et en exagère certaines, comme les grands yeux ou la grosse tête, au lieu de copier exactement la réalité. Ici, le chef est plus grand que ses serviteurs pour montrer qu'il est le plus important. L'art africain utilise beaucoup de supports : le bois, la terre cuite, l'ivoire, le bronze, comme cette plaque, le fer, l'or, la pierre et le tissu. Et il sert à honorer les dieux, les ancêtres et les morts, à embellir les palais et à montrer la puissance des rois, et à représenter la vie de tous les jours. »",
+    "Enfin : « Alors, cette plaque servait à quoi ? » — « Elle ornait sans doute le palais du roi du Bénin : c'est de l'art de cour, au service du roi, qui glorifie le souverain, comme les bronzes du Bénin ou l'or ashanti. L'autre grand type, c'est l'art religieux, au service des croyances, qui représente les divinités et les ancêtres, comme les masques et les statuettes. »"],
+  concl: "En définitive, ma sœur a compris que cette grosse tête n'est pas une erreur : l'artiste africain ne copie pas la réalité, il exprime une idée, ici la puissance d'un chef. « Alors c'est encore plus beau ! » m'a-t-elle dit.",
+  justesse: ["Art : manière dont un peuple exprime par des œuvres sa façon de vivre, de penser et de croire ; différent de l'artisanat (objets utiles) ; en Afrique, l'artisan est souvent artiste.",
+    "Caractéristiques : supports (bois, terre cuite, ivoire, bronze, fer, or, pierre, tissu) ; représentation stylisée (formes simplifiées, exagérées) ; utilité (dieux, ancêtres, morts ; palais et puissance des rois ; vie quotidienne).",
+    "Types : art de cour (au service du roi : bronzes du Bénin, or ashanti) ; art religieux (divinités, ancêtres : masques, statuettes)."],
+  concepts: "Art, artisanat, support, stylisation, art de cour, art religieux."
+});
+EPREUVES_4E.h4_5.sit.push({
+  texte: "Ton collège participe au concours régional « Trésors d'Afrique ». Ta classe doit présenter deux œuvres sur une affiche, avec un texte pour chacune. Le professeur a choisi la plaque du royaume du Bénin (document 1) et un petit poids à peser l'or des Akan (document 2).",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige le texte de la première œuvre : montre ce qui caractérise l'art africain et à quel type d'art appartient cette plaque.",
+    "À partir du document 2 et de tes connaissances, rédige le texte de la seconde œuvre : montre que l'artisan africain est aussi un artiste, puis présente les grands foyers de l'art africain dans toutes les régions du continent."],
+  docs: [{ titre: "Document 1 : plaque en bronze du royaume du Bénin (Nigeria) montrant deux marchands portugais, XVIe-XVIIe siècle", image: "images/ep4_plaque_benin_portugais.jpg", credit: "Plaque, peuple edo, royaume du Bénin — Metropolitan Museum of Art, New York, CC0 (Wikimedia Commons)." },
+    { titre: "Document 2 : poids à peser l'or en forme de tabouret, laiton, peuples akan (Ghana)", image: "images/ep4_poids_or.jpg", credit: "Poids à peser l'or, peuples akan — Metropolitan Museum of Art, New York, CC0 (Wikimedia Commons)." }],
+  prods: [{
+    titreProd: "Une plaque en bronze du royaume du Bénin",
+    intro: "Cette plaque en bronze vient du royaume du Bénin, dans l'actuel Nigeria ; elle montre deux marchands portugais. Ce texte montre ce qui caractérise l'art africain et à quel type d'art elle appartient.",
+    support: "Le concours « Trésors d'Afrique » ; la plaque en bronze du Bénin (deux marchands portugais, formes simplifiées, visages et têtes exagérés) ; informations exploitées",
+    indConsigne: "Texte 1 : définition de l'art ; supports (le bronze) ; représentation stylisée ; utilité ; art de cour (bronzes du Bénin) distingué de l'art religieux",
+    dev: ["D'abord, l'art est la manière dont un peuple exprime, par des œuvres, sa façon de vivre, de penser et de croire. L'art africain emploie des supports variés : le bois, la terre cuite, l'ivoire, le fer, l'or, la pierre, le tissu et, comme ici, le bronze.",
+      "Ensuite, la représentation y est souvent stylisée : l'artiste simplifie les formes et en exagère certaines, au lieu de copier exactement la réalité ; sur la plaque, les deux Portugais ont de grosses têtes et des corps simplifiés. L'art africain sert à honorer les dieux, les ancêtres et les morts, à embellir les palais et à montrer la puissance des rois, et à représenter la vie de tous les jours, comme ici la venue de marchands étrangers.",
+      "Enfin, cette plaque appartient à l'art de cour : au service du roi, cet art orne les palais et glorifie le souverain, comme les célèbres bronzes du Bénin ou l'or ashanti. Il se distingue de l'art religieux, au service des croyances, qui représente les divinités et les ancêtres, comme les masques et les statuettes."],
+    concl: "En définitive, cette plaque, qui ornait le palais du roi du Bénin, est un bel exemple d'art de cour stylisé, au service de la puissance royale.",
+    justesse: ["Art : expression par des œuvres de la façon de vivre, de penser et de croire ; supports : bois, terre cuite, ivoire, bronze, fer, or, pierre, tissu.",
+      "Représentation stylisée (formes simplifiées, exagérées) ; utilité : dieux, ancêtres, morts ; palais et puissance des rois ; vie quotidienne.",
+      "Art de cour (au service du roi : bronzes du Bénin, or ashanti) ; art religieux (divinités, ancêtres : masques, statuettes)."],
+    concepts: "Art, bronze, stylisation, art de cour, art religieux."
+  }, {
+    titreProd: "Un poids à peser l'or des Akan",
+    intro: "Ce petit tabouret en laiton servait à peser l'or chez les Akan, au Ghana. Ce texte montre que l'artisan africain est aussi un artiste, puis présente les grands foyers de l'art africain sur tout le continent.",
+    support: "Le poids à peser l'or akan en forme de tabouret (objet utile, mais finement décoré) ; le concours ; informations exploitées",
+    indConsigne: "Texte 2 : différence entre art et artisanat, et artisan artiste en Afrique (exemple du poids) ; grands foyers de l'Ouest, du Centre, de l'Est et du Nord, et de l'Afrique australe",
+    dev: ["D'abord, l'art n'est pas l'artisanat : une œuvre d'art exprime d'abord une idée, une croyance ou la beauté, alors que l'artisanat fabrique surtout des objets utiles. Mais en Afrique, l'artisan est souvent aussi un artiste : ce poids servait à peser l'or, il était donc utile, mais l'artisan lui a donné la forme d'un tabouret finement décoré.",
+      "Ensuite, l'Afrique de l'Ouest compte de nombreux grands foyers d'art : Nok, Ife chez les Yoruba, le royaume du Bénin, Abomey, les Ashanti, auxquels se rattache ce poids akan, les Baoulé, les Dogon et Djenné.",
+      "Enfin, l'art s'est épanoui dans toutes les régions : en Afrique centrale, chez les Kongo, les Kuba et les Fang ; en Afrique de l'Est et du Nord, dans l'Égypte ancienne et l'Éthiopie chrétienne, à Lalibela ; en Afrique australe, au Monomotapa, avec le Grand Zimbabwe."],
+    concl: "En définitive, du Nord au Sud, l'Afrique a produit des œuvres variées, même dans ses objets de tous les jours : son art fait partie du patrimoine de l'humanité.",
+    justesse: ["Art (idée, croyance, beauté) / artisanat (objets utiles) ; en Afrique, l'artisan est souvent aussi un artiste (le poids à peser l'or).",
+      "Foyers de l'Ouest : Nok, Ife (Yoruba), royaume du Bénin, Abomey, Ashanti, Baoulé, Dogon, Djenné.",
+      "Centre : Kongo, Kuba, Fang ; Est et Nord : Égypte ancienne, Éthiopie chrétienne (Lalibela) ; Afrique australe : Monomotapa (Grand Zimbabwe)."],
+    concepts: "Artisanat, artiste, foyer d'art, patrimoine de l'humanité."
+  }]
+});
+EPREUVES_4E.h4_6.sit.push({
+  texte: "La radio communautaire de Mango lance une émission intitulée « Mosaïque des Savanes ». Pour le premier numéro, l'animateur a enregistré au marché de Mango une vendeuse de beignets (document). Il te demande d'écrire le texte de présentation de l'émission, qui explique aux auditeurs qui sont les peuples de la région.",
+  consigne: "Rédige le texte de présentation de l'émission : à partir des propos de la vendeuse et de tes connaissances, présente les peuples du bassin de l'Oti et de ses environs, en distinguant les plus anciens, ceux qui sont venus plus tard et les minorités.",
+  doc: { titre: "Document : les propos d'une vendeuse du marché de Mango", texte: "« Ici, au marché, j'entends toutes les langues ! Mes clientes moba et ngangam viennent des villages, les Konkomba et les Natchaba aussi. Le vieux Peul qui vend le lait parle sa langue, et le tailleur haoussa la sienne. Et les Anoufom de la ville disent que leurs ancêtres sont venus de très loin. »" },
+  intro: "Au marché de Mango, une vendeuse entend toutes les langues de la région. Pour ce premier numéro de « Mosaïque des Savanes », je vais vous présenter les peuples du bassin de l'Oti et de ses environs : les plus anciens, ceux venus plus tard et les minorités.",
+  adresse: "Chers auditeurs,",
+  support: "L'émission « Mosaïque des Savanes » ; les propos de la vendeuse (clientes moba, ngangam, konkomba, natchaba ; Peul ; tailleur haoussa ; Anoufom venus de loin) ; informations exploitées",
+  indConsigne: "Présentation : peuples de l'Atakora ; autochtones de langues gur et leur organisation (sans pouvoir central, clans, lignages, anciens, chefs de terre), Bassar et Tchamba ; peuples venus plus tard (Gourma, Anoufom) ; minorités",
+  dev: ["D'abord, au nord du Togo, l'Oti et ses affluents arrosent une grande plaine peuplée depuis longtemps. Les plus anciens habitants du bassin, de langues gur, sont les Moba, les Natchaba, les Dyè, appelés aussi Ngangam, et les Konkomba, que la vendeuse rencontre au marché ; aux environs vivent les Bassar, connus pour leur travail du fer, et les Tchamba. Ces peuples vivent en sociétés sans pouvoir central, organisées en clans et en lignages, où les anciens et les chefs de terre ont l'autorité. Dans l'Atakora et ses environs vivent aussi des peuples aux langues proches : les Tamberma, ou Batammariba, les Biyobè et les Nawdéba.",
+    "Ensuite, d'autres peuples sont venus plus tard : les Gourma, à partir du XVIe siècle, puis les Anoufom, au XVIIIe siècle. Ces derniers, venus de l'Ano, en Côte d'Ivoire actuelle, comme le disent les Anoufom de la ville, ont dominé la région jusqu'à la conquête coloniale.",
+    "Enfin, des minorités vivent aussi dans la région : les Peuls, comme le vendeur de lait, les Haoussa, comme le tailleur, et les Mamproussi."],
+  concl: "En définitive, chers auditeurs, le bassin de l'Oti réunit des peuples anciens et des peuples venus plus tard : c'est cette mosaïque que notre émission vous fera découvrir chaque semaine.",
+  justesse: ["Atakora : Tamberma (Batammariba), Biyobè, Nawdéba ; autochtones de langues gur : Moba, Natchaba, Dyè (Ngangam), Konkomba ; aux environs : Bassar (travail du fer), Tchamba.",
+    "Sociétés sans pouvoir central, en clans et lignages, autorité des anciens et des chefs de terre.",
+    "Venus plus tard : Gourma (à partir du XVIe siècle), Anoufom (XVIIIe siècle, dominants jusqu'à la colonisation) ; minorités : Peuls, Haoussa, Mamproussi."],
+  concepts: "Peuple autochtone, langue gur, société sans pouvoir central, clan, lignage, chef de terre, minorité."
+});
+EPREUVES_4E.h4_6.sit.push({
+  texte: "Le club de journalisme de ton collège prépare une interview imaginaire du chef traditionnel des Anoufom pour le journal de l'école. Pour écrire ses réponses, tu disposes du récit de la tradition (document 1) et de la description d'un village soumis au royaume (document 2).",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première partie de l'interview : fais raconter par le chef l'origine des Anoufom et l'histoire de leur royaume, de sa naissance à son déclin.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie de l'interview : fais décrire par le chef l'organisation politique, sociale et religieuse du royaume et le mode de vie de ses habitants."],
+  docs: [{ titre: "Document 1 : ce que raconte la tradition", texte: "« Nos ancêtres ont quitté l'Ano comme guerriers. Conduits par Na Biéma, ils ont atteint l'Oti, soumis les peuples du pays et se sont installés à Kondjogo, qu'ils ont appelé Sansanné-Mango, “le camp de Mango”. Des lettrés musulmans ont écrit cette histoire en arabe. » (Tradition orale anoufo)" },
+    { titre: "Document 2 : un village soumis au royaume", texte: "« Chaque année, le chef du village moba envoyait le tribut au quartier de Mango dont il dépendait. Il gardait son autorité sur les siens, qui continuaient d'honorer leurs ancêtres. À Mango, avant chaque expédition, les marabouts priaient pour les guerriers ; les captifs travaillaient aux champs de mil et d'igname. » (Récit d'après les traditions de la région)" }],
+  prods: [{
+    titreProd: "Interview du chef des Anoufom (1) : l'histoire d'un royaume",
+    intro: "Notre journal a imaginé une rencontre avec le chef traditionnel des Anoufom, à Mango. Dans cette première partie, il nous raconte l'origine de son peuple et l'histoire de son royaume, de sa naissance à son déclin.",
+    support: "Le récit de la tradition (départ de l'Ano comme guerriers, Na Biéma, l'Oti, peuples soumis, Kondjogo devenu Sansanné-Mango, histoire écrite en arabe par des lettrés) ; informations exploitées",
+    indConsigne: "Interview, partie 1 (questions et réponses) : origine et nom (Anoufom, Tchokossi, Ano) ; sources (traditions orales, chronique de Mango) ; naissance (milieu du XVIIIe s., Na Biéma, peuples soumis, Kondjogo) ; apogée ; déclin",
+    dev: ["D'abord, question : « D'où vient votre peuple ? » Réponse : « Nous sommes les Anoufom, que nos voisins appellent Tchokossi. Nos ancêtres sont venus de l'Ano, en Côte d'Ivoire actuelle. Notre histoire est connue par les traditions orales et par une source écrite en arabe par des lettrés musulmans : la chronique de Mango. »",
+      "Ensuite, question : « Comment votre royaume est-il né ? » Réponse : « Partis comme guerriers ou mercenaires, nos ancêtres ont atteint l'Oti vers le milieu du XVIIIe siècle. Conduits par Na Biéma, ils ont soumis les Natchaba, les Dyè et les Konkomba, et se sont installés à Kondjogo, qu'ils ont rebaptisé Sansanné-Mango, “le camp de Mango”, devenu notre capitale. »",
+      "Enfin, question : « Jusqu'où votre royaume a-t-il dominé, et comment a-t-il fini ? » Réponse : « De la fin du XVIIIe siècle au XIXe siècle, nous dominions le pays moba, le pays dyè et les Natchaba, qui nous payaient un tribut ; nous lancions des expéditions vers les pays konkomba et bassar et nous contrôlions une route de la kola. Mais à la fin du XIXe siècle, les révoltes des peuples soumis, la fin de la traite, puis la conquête allemande ont mis fin à notre indépendance. »"],
+    concl: "En définitive, de guerriers venus de l'Ano, les Anoufom sont devenus les maîtres du bassin de l'Oti pendant plus d'un siècle, jusqu'à la colonisation.",
+    justesse: ["Anoufom (Tchokossi), venus de l'Ano (Côte d'Ivoire actuelle) ; capitale Sansanné-Mango ; sources : traditions orales et chronique de Mango (en arabe).",
+      "Naissance : vers le milieu du XVIIIe siècle, guerriers ou mercenaires, Na Biéma ; soumission des Natchaba, Dyè, Konkomba ; Kondjogo rebaptisé Sansanné-Mango.",
+      "Apogée (fin XVIIIe - XIXe s.) : tribut des Moba, Dyè, Natchaba ; expéditions (Konkomba, Bassar) ; route de la kola ; déclin (fin XIXe s.) : révoltes, fin de la traite, conquête allemande."],
+    concepts: "Mercenaire, tribut, chronique, tradition orale, apogée, déclin."
+  }, {
+    titreProd: "Interview du chef des Anoufom (2) : un royaume guerrier et commerçant",
+    intro: "Dans cette seconde partie, le chef nous explique comment le royaume était organisé et comment vivaient ses habitants.",
+    support: "La description du village soumis (tribut au quartier de Mango, chef local gardant son autorité, culte des ancêtres ; marabouts priant avant les expéditions ; captifs aux champs de mil et d'igname) ; informations exploitées",
+    indConsigne: "Interview, partie 2 : organisation politique (roi à Mango, trois quartiers Djabou, Sangbana, Fomboro, peuples soumis et tribut) ; sociale (chefs guerriers, marabouts, guerriers, captifs) ; religieuse (islam, cultes traditionnels des soumis) ; mode de vie",
+    dev: ["D'abord, question : « Comment le royaume était-il gouverné ? » Réponse : « Le roi résidait à Mango. Les territoires soumis étaient partagés entre les trois quartiers de Mango : Djabou, Sangbana et Fomboro. Les peuples soumis gardaient leurs chefs, comme ce chef moba, mais ils payaient le tribut. »",
+      "Ensuite, question : « Comment était organisée la société ? » Réponse : « Elle était hiérarchisée : il y avait les chefs guerriers, les marabouts, qui préparaient les expéditions par des prières et des rites, les guerriers, et tout en bas les captifs. Nous, Anoufom, sommes musulmans, mais les peuples soumis gardaient leurs cultes traditionnels et honoraient leurs ancêtres. »",
+      "Enfin, question : « De quoi viviez-vous ? » Réponse : « Guerriers, musulmans et commerçants, nous vivions modestement : du tribut, du commerce de la kola, du sel et des tissus, de l'agriculture, mil, sorgho et igname, et de l'élevage. Les captifs travaillaient aux champs. »"],
+    concl: "En définitive, guerrier, musulman et commerçant, le royaume anoufom laissait aux peuples soumis leurs chefs et leurs cultes, pourvu qu'ils paient le tribut.",
+    justesse: ["Politique : roi à Mango ; territoires soumis partagés entre Djabou, Sangbana et Fomboro ; peuples soumis gardant leurs chefs mais payant le tribut.",
+      "Sociale : chefs guerriers, marabouts (prières et rites avant les expéditions), guerriers, captifs ; religieuse : Anoufom musulmans, peuples soumis fidèles aux cultes traditionnels.",
+      "Mode de vie : vie modeste ; tribut ; commerce (kola, sel, tissus) ; agriculture (mil, sorgho, igname) ; élevage ; captifs aux champs."],
+    concepts: "Tribut, marabout, captif, société hiérarchisée, islam, mode de vie."
+  }]
+});
+EPREUVES_4E.h4_7.sit.push({
+  texte: "Ta correspondante Yawa, qui vit à Lomé, a vu à la télévision des jeunes Kabyè travailler tous ensemble dans un champ en terrasses. Elle t'écrit : « Qui commande chez les Kabyè ? Il paraît qu'il n'y a jamais eu de roi : comment font-ils pour s'organiser ? » Tu lui réponds en t'aidant du récit du document.",
+  consigne: "Écris à Yawa une lettre dans laquelle tu lui expliques, à partir du document et de tes connaissances, l'organisation politique, sociale et religieuse des Kabyè, puis leur organisation économique.",
+  doc: { titre: "Document : un jour d'entraide dans un této kabyè", texte: "« Ce matin, tous les jeunes de la même classe d'âge sont venus aider le vieux Pidabi à remonter les murets de ses terrasses. Les anciens surveillaient le travail, le tchotcho est passé bénir le champ, et le soir, la famille a offert à boire et à manger. Demain, ce sera le tour d'un autre. »" },
+  intro: "Tu as raison : les Kabyè n'ont jamais eu de roi, et pourtant ils sont très bien organisés. À partir du récit d'une journée d'entraide, je vais t'expliquer leur organisation politique, sociale et religieuse, puis leur organisation économique.",
+  adresse: "Chère Yawa,",
+  support: "La lettre de Yawa ; le récit de la journée d'entraide (jeunes d'une même classe d'âge, terrasses du vieux Pidabi, anciens qui surveillent, tchotcho qui bénit, repas offert) ; informations exploitées",
+  indConsigne: "Lettre : société acéphale ; této ; tchotcho, soso, kondona ; classes d'âge et initiations (évala, akpéma) ; lignages ; religion traditionnelle ; économie (cultures en terrasses, élevage, chasse, pêche, artisanat, marchés, hara)",
+  dev: ["D'abord, la société kabyè est sans pouvoir central : on dit qu'elle est acéphale. L'unité politique est le této, le terroir, qui regroupe plusieurs lignages. Le tchotcho, chef religieux, comme celui qui est venu bénir le champ, y a une autorité morale, mais son pouvoir est limité par les anciens, les soso, chefs de lignage, et par les guerriers, les kondona.",
+    "Ensuite, la société repose sur les lignages, dirigés par les plus anciens, et sur les classes d'âge, qui jouent un grand rôle : on passe de l'une à l'autre par des initiations, l'évala, lutte des jeunes hommes, et l'akpéma pour les filles ; les membres d'une même classe, comme les jeunes du récit, sont égaux en droits. Les Kabyè pratiquent la religion traditionnelle : le culte des ancêtres, des forces de la nature et des divinités du této.",
+    "Enfin, les Kabyè vivent de l'agriculture, sorgho, igname, mil et haricot, sur des terrasses qui retiennent la terre, comme celles du vieux Pidabi ; ils pratiquent aussi l'élevage, la chasse et la pêche, l'artisanat, la forge à Tcharè et à Bohou, la poterie et la vannerie, et le commerce sur les marchés de Kabou et de Bafilo. Les gros travaux se font par l'entraide, le hara, que tu as vue à la télévision."],
+  concl: "En définitive, chère Yawa, sans roi, les Kabyè s'organisent grâce au této, aux lignages, aux classes d'âge et à l'entraide : c'est une organisation solide. Viens un jour voir les terrasses ! Je t'embrasse.",
+  signature: "Ton ami(e) de Kara",
+  justesse: ["Politique : société sans pouvoir central (acéphale) ; této (terroir, plusieurs lignages) ; tchotcho (chef religieux, autorité morale) limité par les soso (anciens, chefs de lignage) et les kondona (guerriers).",
+    "Sociale : lignages dirigés par les anciens ; classes d'âge, initiations (évala, akpéma), égalité dans une même classe ; religieuse : ancêtres, forces de la nature, divinités du této.",
+    "Économie : sorgho, igname, mil, haricot sur terrasses ; élevage, chasse, pêche ; forge (Tcharè, Bohou), poterie, vannerie ; marchés (Kabou, Bafilo) ; entraide (hara)."],
+  concepts: "Société acéphale, této, lignage, classe d'âge, initiation, terrasse, entraide."
+});
+EPREUVES_4E.h4_7.sit.push({
+  texte: "Ta grande sœur, kabyè, épouse un jeune homme tem de Sokodé. Pendant la cérémonie, les deux familles s'étonnent de se comprendre si bien et de partager tant de coutumes. Le père de la mariée te demande de prendre la parole au nom de la jeunesse. Pour préparer ton discours, ton oncle te remet deux documents.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première partie du discours : présente l'aire lama (définition, limites et groupes).",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie du discours : montre les éléments de ressemblance entre les Kabyè et les Tem."],
+  docs: [{ titre: "Document 1 : ce que disent les anciens", texte: "« Lama, Kabyè, Lamba, Lokpa, et même certains Tem : nous disons tous que nos premiers ancêtres viennent de Farendè, dans les montagnes du nord. Nos langues sont sœurs, et nos villages s'étendent jusqu'au Bénin, du côté de Djougou. » (Propos recueillis à Kara)" },
+    { titre: "Document 2 : quelques coutumes partagées", liste: ["Chez les Kabyè comme chez les Tem, l'oncle maternel a une place très importante dans la famille.", "Dans les deux peuples, une veuve pouvait épouser un frère de son mari défunt.", "Les jeunes mariés et leur belle-famille se taquinent par la parenté à plaisanterie.", "On respecte des interdits semblables et on donne les noms de la même façon."] }],
+  prods: [{
+    intro: "Si nos deux familles se comprennent si bien aujourd'hui, c'est que nos peuples ont une histoire en partie commune. Dans cette première partie, je vais vous présenter l'aire lama : sa définition, ses limites et ses groupes.",
+    adresse: "Chers parents, chers mariés, chers invités,",
+    support: "Le mariage entre une Kabyè et un Tem de Sokodé ; les propos des anciens (Lama, Kabyè, Lamba, Lokpa et certains Tem venus de Farendè ; langues sœurs ; villages jusqu'au Bénin, vers Djougou) ; informations exploitées",
+    indConsigne: "Discours, partie 1 : définition de l'aire lama (langues gur, berceau commun Farendè) ; limites (Togo et Bénin, Kéran et Koumongou, 8°50', Oti, Djougou) ; groupes et localisation",
+    dev: ["D'abord, on appelle « lama » des peuples de langues gur, ou voltaïques, qui disent tous venir du même berceau, Farendè, dans le massif nord, comme le rappellent nos anciens.",
+      "Ensuite, l'aire lama est partagée entre le nord-est du Togo et le nord-ouest du Bénin. Elle s'étend entre la Kéran et le Koumongou au nord, le parallèle 8°50' au sud, vers Fazao, l'Oti à l'ouest et Djougou à l'est.",
+      "Enfin, elle regroupe plusieurs peuples, selon le relief et la langue : les Lama du massif nord, ou Lama-Dessi, dans la Binah ; les Kabyè du massif sud, dans la Kozah, la famille de la mariée ; les Lamba, dans la Kéran et le Doufelgou ; les Lokpa, ou Logba, dans la Binah et autour de Djougou ; et les Tem de souche lama, au Togo et au Bénin."],
+    concl: "En définitive, chers invités, Kabyè et Tem de souche lama appartiennent à la même aire lama : ce mariage unit des cousins plus que des étrangers.",
+    justesse: ["Définition : peuples de langues gur (voltaïques) venus du même berceau, Farendè, dans le massif nord.",
+      "Limites : nord-est du Togo et nord-ouest du Bénin ; Kéran et Koumongou au nord ; parallèle 8°50' au sud (vers Fazao) ; Oti à l'ouest ; Djougou à l'est.",
+      "Groupes : Lama du massif nord (Lama-Dessi, Binah) ; Kabyè du massif sud (Kozah) ; Lamba (Kéran, Doufelgou) ; Lokpa ou Logba (Binah, Djougou) ; Tem de souche lama."],
+    concepts: "Aire culturelle, langue gur, berceau, massif, groupe ethnique."
+  }, {
+    intro: "Cette parenté se voit aussi dans nos coutumes. Dans cette seconde partie, je vais montrer les éléments de ressemblance entre les Kabyè et les Tem.",
+    adresse: "Chers parents, chers mariés, chers invités,",
+    support: "La liste des coutumes partagées (rôle de l'oncle maternel, lévirat, parenté à plaisanterie avec la belle-famille, interdits, façon de donner les noms) ; l'étonnement des deux familles ; informations exploitées",
+    indConsigne: "Discours, partie 2 : langue ; organisation sociale et politique ; oncle maternel ; lévirat ; noms ; croyances ; manières de produire et d'échanger ; interdits ; parenté à plaisanterie",
+    dev: ["D'abord, nos langues appartiennent à la même famille, la famille gur, ce qui explique que nos deux familles se comprennent si bien. Nos peuples ont aussi une organisation sociale et politique semblable.",
+      "Ensuite, dans nos familles, l'oncle maternel a une très grande importance ; les deux peuples pratiquaient le lévirat, c'est-à-dire que la veuve épousait un frère du défunt ; et nous donnons les noms de la même façon.",
+      "Enfin, nous partageons des croyances religieuses, des manières de produire et d'échanger, le respect des mêmes interdits, et la parenté à plaisanterie entre les époux et la belle-famille : je souhaite d'ailleurs bien du courage au marié, qui devra supporter les taquineries de notre famille !"],
+    concl: "En définitive, chers invités, langue, famille, croyances, interdits : tout rapproche les Kabyè et les Tem, signe d'une histoire en partie commune. Longue vie aux mariés !",
+    justesse: ["Langue de la même famille gur ; organisation sociale et politique semblable.",
+      "Importance de l'oncle maternel ; lévirat (la veuve épouse un frère du défunt) ; façon de donner les noms.",
+      "Croyances religieuses ; manières de produire et d'échanger ; respect des interdits ; parenté à plaisanterie entre époux et belle-famille."],
+    concepts: "Similitude, oncle maternel, lévirat, interdit, parenté à plaisanterie."
+  }]
+});
+EPREUVES_4E.h4_8.sit.push({
+  texte: "En visite à Kparatao avec ta classe, un guide vous montre l'emplacement de l'ancienne résidence royale et vous lit une courte présentation (document). Au retour, le professeur demande à chaque élève de rédiger le compte rendu de la visite pour le cahier de sorties de la classe.",
+  consigne: "Rédige le compte rendu de la visite : à partir des propos du guide et de tes connaissances, présente le royaume de Tchaoudjo et retrace son évolution historique, puis décris sa structure politique.",
+  doc: { titre: "Document : ce que dit le guide de Kparatao", texte: "« Pendant longtemps, le pouvoir passait d'une chefferie à l'autre. Puis, vers 1880, un chef de Kparatao, Ouro Djobo Boukari, a gardé le pouvoir ici, à Kparatao. Il avait des cavaliers redoutables et s'était converti à l'islam. Il siégeait entouré de ses notables et de l'imam, et les peuples vaincus lui apportaient le tribut. »" },
+  titreProd: "Compte rendu de la visite de Kparatao",
+  intro: "Notre classe a visité Kparatao, où le guide nous a montré l'emplacement de l'ancienne résidence royale du Tchaoudjo. Ce compte rendu présente le royaume et son évolution historique, puis sa structure politique.",
+  support: "La visite de Kparatao ; les propos du guide (pouvoir tournant entre chefferies, Ouro Djobo Boukari vers 1880, cavaliers, conversion à l'islam, notables, imam, tribut des peuples vaincus) ; informations exploitées",
+  indConsigne: "Compte rendu : situation et confédération de sept chefferies ; naissance (Mola et Tem, pouvoir tournant, Kpangalam) ; apogée (Ouro Djobo Boukari, 1880-1889, sémassi, Anyanga, routes de la kola) ; déclin (colonisation allemande) ; structure politique (ouro-esso, notables, imam, tribut)",
+  dev: ["D'abord, le Tchaoudjo se trouvait au centre du Togo, autour de l'actuelle Sokodé, dans l'actuelle préfecture de Tchaoudjo. C'était une confédération de sept chefferies : Kpangalam, Tchavadi, Komah, Kadambara, Kparatao, Birini et Yélivo.",
+    "Ensuite, au XVIIIe siècle, les Mola, venus du pays gourma, s'unissent aux Tem déjà installés et fondent les chefferies ; le pouvoir tourne entre les sept chefferies, Kpangalam la première, comme l'a expliqué le guide. À partir de 1880, Ouro Djobo Boukari, de Kparatao, qui règne de 1880 à 1889, fixe le pouvoir à Kparatao ; avec des cavaliers musulmans, les sémassi, il soumet ses opposants et ses voisins, comme les Anyanga, et contrôle les routes de la kola : c'est l'apogée. À la fin du XIXe siècle, la colonisation allemande met fin à l'indépendance du royaume.",
+    "Enfin, le roi porte le titre d'ouro-esso, « roi-dieu ». Il est entouré de notables et, après sa conversion à l'islam, de dignitaires musulmans comme l'imam, dont a parlé le guide. Les peuples soumis lui paient un tribut."],
+  concl: "En définitive, cette visite nous a appris qu'à Kparatao a régné un roi qui a fait du Tchaoudjo un royaume puissant, jusqu'à l'arrivée des Allemands.",
+  justesse: ["Présentation : centre du Togo (préfecture de Tchaoudjo, autour de Sokodé) ; confédération de sept chefferies (Kpangalam, Tchavadi, Komah, Kadambara, Kparatao, Birini, Yélivo).",
+    "Évolution : naissance au XVIIIe siècle (Mola du pays gourma unis aux Tem, pouvoir tournant, Kpangalam la première) ; apogée à partir de 1880 (Ouro Djobo Boukari, 1880-1889, pouvoir fixé à Kparatao, sémassi, Anyanga, routes de la kola) ; déclin (colonisation allemande).",
+    "Structure politique : ouro-esso (« roi-dieu ») ; notables ; dignitaires musulmans (imam) ; tribut des peuples soumis."],
+  concepts: "Confédération, chefferie, cavalerie, apogée, tribut, ouro-esso."
+});
+EPREUVES_4E.h4_8.sit.push({
+  texte: "La radio de Sokodé prépare une série intitulée « Nos royaumes d'hier ». Pour l'épisode consacré au Tchaoudjo, l'animatrice te demande d'écrire deux chroniques. Elle te remet la liste du document 1 et la description du document 2.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première chronique : montre que la société du Tchaoudjo est née du mélange de plusieurs peuples et dis ce que chacun a apporté.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde chronique : décris le mode de vie des populations du Tchaoudjo, leurs activités et leurs pratiques religieuses."],
+  docs: [{ titre: "Document 1 : quelques noms de famille entendus à Sokodé", liste: ["Touré, Fofana, Traoré, Cissé, Konaté", "Ces familles disent que leurs ancêtres sont venus de l'ouest, du pays mandé."] },
+    { titre: "Document 2 : un jour de marché à Sokodé", texte: "« Au marché, les tisserands déroulent leurs bandes de coton, les cordonniers cousent sandales et sacs de cuir, les forgerons martèlent des dabas. Les femmes vendent mil et ignames. À midi, l'appel du muezzin résonne en ville ; dans les villages alentour, beaucoup honorent encore les divinités de leurs ancêtres. »" }],
+  prods: [{
+    intro: "Touré, Fofana, Traoré, Cissé, Konaté : ces noms entendus à Sokodé racontent une histoire. Dans cette première chronique, je vais montrer que la société du Tchaoudjo est née du mélange de plusieurs peuples, et ce que chacun a apporté.",
+    adresse: "Chers auditeurs,",
+    support: "La série « Nos royaumes d'hier » ; la liste des noms de famille (Touré, Fofana, Traoré, Cissé, Konaté) et leur origine mandé ; informations exploitées",
+    indConsigne: "Chronique 1 : société mêlée ; les Tem (les plus anciens) ; les Mola (venus du pays gourma, ont apporté la chefferie) ; les Mandé (islam, circoncision, cavalerie, boubou, tissage, cordonnerie)",
+    dev: ["D'abord, la société du Tchaoudjo mêle des peuples d'origines différentes. Les plus anciens sont les Tem, déjà installés dans la région.",
+      "Ensuite, les Mola, venus du pays gourma, se sont unis aux Tem au XVIIIe siècle : ce sont eux qui ont apporté la chefferie et fondé les chefferies du royaume.",
+      "Enfin, les Mandé, venus de l'ouest, dont descendent les familles Touré, Fofana, Traoré, Cissé et Konaté, ont apporté l'islam, la circoncision, la cavalerie, le boubou, le tissage et la cordonnerie."],
+    concl: "En définitive, chers auditeurs, le Tchaoudjo est né de la rencontre des Tem, des Mola et des Mandé : nos noms et nos coutumes en gardent la trace.",
+    justesse: ["Société mêlant des peuples d'origines différentes ; les Tem, les plus anciens.",
+      "Les Mola, venus du pays gourma, ont apporté la chefferie.",
+      "Les Mandé (Touré, Fofana, Traoré, Cissé, Konaté) ont apporté l'islam, la circoncision, la cavalerie, le boubou, le tissage, la cordonnerie."],
+    concepts: "Brassage des peuples, chefferie, islam, apport culturel."
+  }, {
+    intro: "Comment vivaient les habitants du Tchaoudjo ? Dans cette seconde chronique, à partir d'un jour de marché à Sokodé, je vais décrire leurs activités et leurs pratiques religieuses.",
+    adresse: "Chers auditeurs,",
+    support: "La description du marché de Sokodé (tisserands, cordonniers, forgerons, mil et ignames ; appel du muezzin en ville ; divinités des ancêtres dans les villages) ; informations exploitées",
+    indConsigne: "Chronique 2 : commerce (grands commerçants, étape de la kola) ; artisanat (tissage, cordonnerie, nattes, forge) ; agriculture (mil, igname, coton) ; islam dans les villes, religion traditionnelle dans les villages",
+    dev: ["D'abord, les Tem sont de grands commerçants, et le Tchaoudjo était une étape sur les routes de la kola, ce qui a fait de ses marchés des lieux d'échanges animés.",
+      "Ensuite, l'artisanat y tient une grande place : le tissage, la cordonnerie, la fabrication de nattes et la forge, comme le montrent les tisserands, les cordonniers et les forgerons du marché. Les habitants pratiquent aussi l'agriculture : le mil, l'igname et le coton.",
+      "Enfin, l'islam domine dans les villes, où résonne l'appel du muezzin, tandis que la religion traditionnelle reste forte dans les villages, où beaucoup honorent les divinités de leurs ancêtres."],
+    concl: "En définitive, chers auditeurs, commerçants, artisans et cultivateurs, musulmans en ville et fidèles aux traditions dans les villages, les habitants du Tchaoudjo ont gardé jusqu'à nos jours ce mode de vie.",
+    justesse: ["Commerce : les Tem, grands commerçants ; le Tchaoudjo, étape de la kola.",
+      "Artisanat : tissage, cordonnerie, nattes, forge ; agriculture : mil, igname, coton.",
+      "Religion : l'islam domine dans les villes ; la religion traditionnelle reste forte dans les villages."],
+    concepts: "Mode de vie, commerce, artisanat, islam, religion traditionnelle."
+  }]
+});
+EPREUVES_4E.h4_9.sit.push({
+  texte: "Lors de la fête Togbé-Anyi, à Tado, le comité d'organisation veut accueillir les visiteurs venus du Togo, du Bénin et même du Nigeria avec un petit guide. Il te charge d'en rédiger le texte et te remet la carte du document.",
+  consigne: "Rédige le texte du guide des visiteurs : à partir de la carte et de tes connaissances, présente l'aire ajatado et le royaume de Tado, puis décris la structure politique et sociale du royaume et le mode de vie de ses habitants.",
+  doc: { titre: "Document : l'aire culturelle ajatado", image: "images/epreuves/4e_h4_9b.png" },
+  titreProd: "Bienvenue à Tado, berceau de l'aire ajatado",
+  intro: "Visiteurs du Togo, du Bénin et du Nigeria, vous voici à Tado, d'où beaucoup de vos ancêtres sont partis. Ce guide vous présente l'aire ajatado et le royaume de Tado, puis la structure politique et sociale du royaume et le mode de vie de ses habitants.",
+  adresse: "Chers visiteurs,",
+  support: "La fête Togbé-Anyi ; les visiteurs venus de trois pays ; la carte (aire ajatado de la Volta au Yéwa, Tado au bord du Mono, peuples éwé, ouatchi, fon, gun, xwla, xwéda, aja ; Notsé, Abomey, Allada, Porto-Novo) ; informations exploitées",
+  indConsigne: "Guide : limites et peuples de l'aire ajatado ; situation de Tado ; structure politique (Anyigbafio roi-prêtre, Tashinon, descendants de Togbé-Anyi) et sociale (trois quartiers, hiérarchie) ; mode de vie (activités, religion)",
+  dev: ["D'abord, comme le montre la carte, l'aire ajatado s'étend de la Volta, au Ghana, à l'ouest, jusqu'au Yéwa, au Nigeria, à l'est, et de l'océan Atlantique jusqu'à environ 200 km à l'intérieur des terres, vers Atakpamé. Ses peuples, Aja, Éwé, Fon, Gun, Xwla, Xwéda, parlent des langues proches et disent tous venir de Tado. Le royaume de Tado se trouvait au sud-est du Togo actuel, au bord du Mono, près de la frontière avec le Bénin, dans la préfecture du Moyen-Mono.",
+    "Ensuite, le roi de Tado porte le titre d'Anyigbafio, « roi de la terre ». Roi-prêtre sacré, il règne mais ne gouverne pas : le pouvoir est exercé par ses conseillers, les Tashinon, qui le choisissent, et seuls les descendants de Togbé-Anyi peuvent devenir rois. Tado comprend trois quartiers : Tado-Domè, celui des Azanou, Tado-Alou, celui des Alou, et Tado-Ajatchè, celui des Aja. La société est hiérarchisée : le roi, considéré comme un dieu, qu'on ne peut regarder en face ; les Tashinon ; puis le peuple, qui ne s'approche du roi qu'en rampant.",
+    "Enfin, les habitants vivaient de l'agriculture, de la forge, qui fabriquait outils et armes, et du commerce : grâce au Mono, Tado était un grand carrefour. Ils pratiquaient le culte de la terre et des ancêtres, dont le roi était le prêtre, et celui des divinités, le vodou."],
+  concl: "En définitive, chers visiteurs, Tado, royaume du fer, du commerce et d'un roi sacré, est le berceau commun de vos peuples : bonne fête Togbé-Anyi à tous !",
+  justesse: ["Aire ajatado : de la Volta (Ghana) au Yéwa (Nigeria), de l'Atlantique à environ 200 km à l'intérieur (vers Atakpamé) ; peuples aja, éwé, fon, gun, xwla, xwéda, aux langues proches, venus de Tado ; Tado au sud-est du Togo, au bord du Mono (Moyen-Mono).",
+    "Politique : Anyigbafio (« roi de la terre »), roi-prêtre qui règne mais ne gouverne pas ; pouvoir des Tashinon, qui le choisissent ; descendants de Togbé-Anyi ; sociale : trois quartiers (Tado-Domè, Tado-Alou, Tado-Ajatchè) ; roi-dieu, Tashinon, peuple qui rampe.",
+    "Mode de vie : agriculture, forge (outils, armes), commerce, carrefour sur le Mono ; culte de la terre et des ancêtres (roi prêtre), divinités (vodou)."],
+  concepts: "Aire culturelle, roi-prêtre, Anyigbafio, Tashinon, quartier, carrefour, vodou."
+});
+EPREUVES_4E.h4_9.sit.push({
+  texte: "Ton collège participe à un jeu radiophonique entre établissements : « Les secrets de nos origines ». Ton équipe a tiré le sujet « Tado ». Pour préparer vos deux réponses écrites, le professeur vous remet l'extrait du document 1 et la liste du document 2.",
+  consignes: ["À partir du document 1 et de tes connaissances, retrace l'évolution historique du royaume de Tado, de sa naissance à son déclin.",
+    "À partir du document 2 et de tes connaissances, explique les causes de la dispersion des Aja, puis ses conséquences."],
+  docs: [{ titre: "Document 1 : Tado vu par un voyageur", texte: "« En 1627, un voyageur espagnol décrit Tado comme un royaume puissant, dont la renommée s'étend jusqu'à la côte. » (D'après des historiens)" },
+    { titre: "Document 2 : des royaumes et des peuples nés de Tado", liste: ["Vers l'ouest : les Éwé, qui fondent Notsé", "Vers l'est : Allada, d'où naîtront Abomey (Danxomè) et Porto-Novo (Hogbonou)", "Vers le sud : les Xwla et les Xwéda, le long du Mono et de la côte"] }],
+  prods: [{
+    intro: "Pour notre première réponse, nous allons retracer l'évolution historique du royaume de Tado, de sa naissance, sous Togbé-Anyi, à son déclin.",
+    adresse: "Chers auditeurs, chers membres du jury,",
+    support: "Le jeu radiophonique « Les secrets de nos origines » ; l'extrait sur Tado en 1627 (royaume puissant décrit par un voyageur espagnol, renommée jusqu'à la côte) ; informations exploitées",
+    indConsigne: "Réponse 1 : naissance (XIe-XIIe s. selon les traditions ; Togbé-Anyi venu d'Oyo ; Alou et Azanou à Azanmè ; naissance du peuple aja) ; apogée (XIVe-XVIIe s. ; fer et commerce ; 1627) ; déclin (départs dès le XVe-XVIe s. ; variole, cavaliers yoruba et fon, colonisation)",
+    dev: ["D'abord, selon les traditions, vers le XIe ou le XIIe siècle, Togbé-Anyi, venu du pays yoruba, d'Oyo, arrive à Azanmè, où vivaient les Alou, qui étaient forgerons, et les Azanou. De leur union naît le peuple aja, et Azanmè devient Tado.",
+      "Ensuite, du XIVe au XVIIe siècle, c'est l'apogée : Tado est un grand centre du travail du fer et du commerce, et sa renommée atteint la côte. Le document le confirme : en 1627, un voyageur espagnol décrit Tado comme un royaume puissant.",
+      "Enfin, le déclin commence avec les départs de ses habitants, à partir du XVe et du XVIe siècle ; il s'aggrave au XIXe siècle avec une épidémie de variole et les attaques des cavaliers yoruba et fon, puis avec la colonisation."],
+    concl: "En définitive, né de la rencontre de Togbé-Anyi et des habitants d'Azanmè, Tado a été un royaume puissant du fer et du commerce avant de décliner peu à peu.",
+    justesse: ["Naissance (XIe-XIIe s., traditions) : Togbé-Anyi venu d'Oyo ; Azanmè habitée par les Alou (forgerons) et les Azanou ; naissance du peuple aja ; Azanmè devient Tado.",
+      "Apogée (XIVe-XVIIe s.) : centre du fer et du commerce ; renommée jusqu'à la côte ; royaume puissant décrit en 1627 par un voyageur espagnol.",
+      "Déclin : départs dès le XVe-XVIe s. ; au XIXe s., variole, attaques des cavaliers yoruba et fon ; colonisation."],
+    concepts: "Royaume, apogée, déclin, migration, travail du fer."
+  }, {
+    intro: "Pour notre seconde réponse, nous allons expliquer pourquoi les Aja ont quitté Tado, puis ce que leur dispersion a produit, à partir de la liste des royaumes et des peuples nés de Tado.",
+    adresse: "Chers auditeurs, chers membres du jury,",
+    support: "La liste des royaumes et peuples nés de Tado (Éwé et Notsé vers l'ouest ; Allada, Abomey, Porto-Novo vers l'est ; Xwla et Xwéda vers le sud) ; informations exploitées",
+    indConsigne: "Réponse 2 : causes (querelles de succession, épidémies et manque de terres, attaques des Fon et des Yoruba) ; conséquences (nouveaux royaumes et peuples selon les directions, occupation du pays éwé, déclin de Tado devenu lieu sacré)",
+    dev: ["D'abord, les Aja ont quitté Tado à cause des querelles de succession au trône, qui poussaient des groupes à partir, des épidémies et du manque de terres cultivables, et des attaques des Fon et des Yoruba.",
+      "Ensuite, cette dispersion a fait naître de nouveaux royaumes et de nouveaux peuples, comme le montre la liste : vers l'ouest, les Éwé fondent Notsé ; vers l'est, d'autres fondent Allada, d'où naîtront Abomey, ou Danxomè, et Porto-Novo, ou Hogbonou ; vers le sud, des groupes s'installent le long du Mono et de la côte, les Xwla et les Xwéda. Les Éwé ont ensuite occupé le pays éwé actuel.",
+      "Enfin, Tado s'est affaibli et a décliné, mais il reste un haut lieu sacré pour tous ces peuples, qui gardent une origine et une culture communes."],
+    concl: "En définitive, en se dispersant, les Aja ont donné naissance à de nombreux peuples et royaumes du Togo et du Bénin, qui voient tous en Tado leur berceau.",
+    justesse: ["Causes : querelles de succession ; épidémies et manque de terres cultivables ; attaques des Fon et des Yoruba.",
+      "Conséquences : Notsé (Éwé, ouest) ; Allada, puis Abomey (Danxomè) et Porto-Novo (Hogbonou) (est) ; Xwla et Xwéda (sud) ; occupation du pays éwé.",
+      "Affaiblissement et déclin de Tado, qui reste un haut lieu sacré ; origine et culture communes."],
+    concepts: "Dispersion, querelle de succession, migration, fondation, lieu sacré."
+  }]
+});
+EPREUVES_4E.h4_10.sit.push({
+  texte: "Le club d'histoire de ton collège, à Kpalimé, a visité Notsé. Devant un reste de l'ancienne muraille, le guide a lu le texte du document. De retour au collège, le président du club te charge d'écrire, pour le bulletin du club, le compte rendu de la visite.",
+  consigne: "Rédige le compte rendu de la visite : à partir du texte lu par le guide et de tes connaissances, présente la cité-État de Notsé et son organisation politique et sociale, décris le mode de vie de ses habitants, puis explique pourquoi les Éwé l'ont quittée.",
+  doc: { titre: "Document : le texte lu par le guide", texte: "« Ce talus de terre est un reste de l'Agbogbo, la grande muraille qui entourait la ville. Le roi Agokoli força les habitants à la bâtir et à la réparer sans cesse. Lassés de ses exigences et de sa dureté, ils décidèrent un jour de s'enfuir. »" },
+  titreProd: "Compte rendu de la visite de Notsé",
+  intro: "Notre club d'histoire a visité Notsé, où le guide nous a montré un reste de l'Agbogbo, l'ancienne muraille. Ce compte rendu présente la cité-État et son organisation, le mode de vie de ses habitants, puis les causes du départ des Éwé.",
+  support: "La visite du club d'histoire ; le texte du guide (reste de l'Agbogbo, travaux imposés par Agokoli, dureté du roi, fuite des habitants) ; informations exploitées",
+  indConsigne: "Compte rendu : définition de la cité-État et situation de Notsé ; organisation politique (pouvoir centralisé, Mawoufia, Mawouno, conseil des chefs de quartier) et sociale (quartiers, lignages) ; mode de vie ; causes de la dispersion",
+  dev: ["D'abord, une cité-État est une ville indépendante qui gouverne aussi les campagnes autour d'elle. Notsé est la cité-État fondée par les Éwé après leur départ de Tado ; elle se trouve dans la région des Plateaux, dans la préfecture du Haho, à une centaine de kilomètres au nord de Lomé. Le pouvoir y était centralisé : le roi, qui portait le titre de Mawoufia, avait surtout un rôle religieux et était intronisé par le Mawouno, grand prêtre du dieu Mawou ; le vrai pouvoir appartenait au conseil des chefs de quartier. La cité était divisée en quartiers et en lignages, dirigés par des chefs de quartier et des chefs de famille.",
+    "Ensuite, les habitants vivaient de l'agriculture, de la chasse et de l'artisanat : la forge, et la poterie, faite par les femmes. Ils pratiquaient la religion traditionnelle : le culte de Mawou, des divinités de la cité et des ancêtres.",
+    "Enfin, les Éwé ont quitté Notsé à cause du roi Agokoli : comme l'a dit le guide, il leur imposait des corvées pour bâtir la muraille ; il voulait garder tout le pouvoir et ne respectait pas les traditions. L'insécurité et les divisions entre habitants ont achevé de les pousser à s'enfuir."],
+  concl: "En définitive, cette visite nous a montré que Notsé, cité bien organisée, protégée par sa muraille, a été vidée de ses habitants par la dureté d'Agokoli : c'est de là que sont partis les ancêtres des Éwé de Kpalimé.",
+  justesse: ["Cité-État : ville indépendante qui gouverne les campagnes autour ; Notsé, fondée par les Éwé venus de Tado, région des Plateaux (Haho), à une centaine de km au nord de Lomé.",
+    "Organisation : pouvoir centralisé ; Mawoufia au rôle religieux, intronisé par le Mawouno ; vrai pouvoir au conseil des chefs de quartier ; quartiers et lignages ; mode de vie : agriculture, chasse, forge, poterie des femmes ; culte de Mawou, des divinités et des ancêtres.",
+    "Causes de la dispersion : corvées d'Agokoli pour la muraille, volonté de garder tout le pouvoir, non-respect des traditions, insécurité, divisions."],
+  concepts: "Cité-État, muraille, Mawoufia, Mawouno, conseil des chefs de quartier, corvée, dispersion."
+});
+EPREUVES_4E.h4_10.sit.push({
+  texte: "Ton cousin Selorm, qui vit à Ho, au Ghana, prépare un exposé pour son école et t'écrit : « Mon grand-père dit que nos ancêtres sont partis de Notsé. Mais quand est née cette ville, et que sont devenus tous ceux qui l'ont quittée ? » Pour lui répondre, tu disposes de deux documents.",
+  consignes: ["À partir du document 1 et de tes connaissances, explique à Selorm l'évolution historique de la cité-État de Notsé, de son origine à son déclin.",
+    "À partir du document 2 et de tes connaissances, montre-lui les conséquences de la dispersion des Éwé."],
+  docs: [{ titre: "Document 1 : ce que racontent les anciens de Notsé", texte: "« Nos ancêtres ont quitté Tado, déchiré par les querelles pour le pouvoir. Un chasseur, Afotsè, les a guidés vers l'ouest, jusqu'ici. La ville a grandi, s'est remplie d'habitants et s'est entourée d'un grand mur. » (Tradition orale éwé)" },
+    { titre: "Document 2 : ce que sont devenus les fugitifs", liste: ["Première halte : Gamé", "Vers le sud : Tsévié, Aflao, Anloga ; les Ouatchi à Vo et Tabligbo", "Vers le sud-ouest : Ho", "Vers l'ouest : Kpalimé, Agou, Kpando", "Chaque année, la fête Agbogboza rappelle cet exode."] }],
+  prods: [{
+    intro: "Ton grand-père a raison, cher Selorm : nos ancêtres viennent tous de Notsé. Je vais d'abord t'expliquer l'histoire de cette cité-État, de son origine à son déclin.",
+    adresse: "Cher Selorm,",
+    support: "La lettre de Selorm, de Ho ; le récit des anciens de Notsé (départ de Tado à cause des querelles pour le pouvoir, chasseur Afotsè, ville peuplée entourée d'un grand mur) ; informations exploitées",
+    indConsigne: "Explication 1 : définition et situation de Notsé ; origine (XVe s., querelles à Tado, Afotsè ou Ndétsi) ; apogée (XVIe-XVIIe s., ville peuplée, Agbogbo) ; déclin (XVIIe s., Agokoli, fuite des habitants)",
+    dev: ["D'abord, Notsé est une cité-État, c'est-à-dire une ville indépendante qui gouverne aussi les campagnes autour d'elle. Elle se trouve dans la région des Plateaux, dans la préfecture du Haho, à une centaine de kilomètres au nord de Lomé.",
+      "Ensuite, au XVe siècle, à cause des querelles pour le pouvoir à Tado, des groupes partent vers l'ouest, conduits selon la tradition par le chasseur Afotsè, ou Ndétsi, comme le racontent les anciens, et fondent Notsé. Aux XVIe et XVIIe siècles, c'est l'apogée : la ville est très peuplée et protégée par une grande muraille, l'Agbogbo.",
+      "Enfin, au XVIIe siècle, sous le roi Agokoli, la plupart des habitants s'enfuient et la cité se vide : c'est le déclin."],
+    concl: "En définitive, cher Selorm, née des querelles de Tado, Notsé a été une grande cité fortifiée avant d'être abandonnée sous Agokoli.",
+    justesse: ["Cité-État : ville indépendante gouvernant les campagnes autour ; Notsé, région des Plateaux (Haho), à une centaine de km au nord de Lomé.",
+      "Origine (XVe s.) : querelles pour le pouvoir à Tado, départ vers l'ouest, chasseur Afotsè (Ndétsi) ; apogée (XVIe-XVIIe s.) : ville très peuplée, muraille Agbogbo.",
+      "Déclin (XVIIe s.) : sous Agokoli, fuite de la plupart des habitants."],
+    concepts: "Cité-État, fondation, muraille, apogée, déclin."
+  }, {
+    intro: "Que sont devenus ceux qui ont fui Notsé ? À partir de la liste de leurs étapes, je vais te montrer les conséquences de la dispersion des Éwé.",
+    adresse: "Cher Selorm,",
+    support: "La liste des étapes des fugitifs (Gamé ; Tsévié, Aflao, Anloga, Vo, Tabligbo ; Ho ; Kpalimé, Agou, Kpando ; fête Agbogboza) ; informations exploitées",
+    indConsigne: "Explication 2 : muraille percée et halte à Gamé ; dispersion vers le sud, le sud-ouest et l'ouest avec les localités ; déclin de Notsé ; même langue et même culture ; fête Agbogboza",
+    dev: ["D'abord, selon la tradition, les fugitifs percent la muraille et s'arrêtent d'abord à Gamé, puis ils se dispersent dans plusieurs directions.",
+      "Ensuite, vers le sud, ils fondent ou peuplent Tsévié, Aflao et Anloga, et les Ouatchi s'installent à Vo et à Tabligbo ; vers le sud-ouest, ils vont à Ho, ta ville ; vers l'ouest, à Kpalimé, ma ville, à Agou et à Kpando. La dispersion a ainsi donné naissance à de nombreuses localités du sud du Togo et du Ghana, tandis que Notsé déclinait.",
+      "Enfin, tous ces Éwé gardent la même langue et la même culture, et ils célèbrent chaque année leur exode par la fête Agbogboza."],
+    concl: "En définitive, cher Selorm, toi à Ho et moi à Kpalimé, nous descendons des mêmes fugitifs de Notsé : viens donc fêter Agbogboza avec nous ! Je t'embrasse.",
+    justesse: ["Muraille percée ; première halte à Gamé.",
+      "Dispersion : sud (Tsévié, Aflao, Anloga ; Ouatchi à Vo et Tabligbo), sud-ouest (Ho), ouest (Kpalimé, Agou, Kpando) ; nombreuses localités du sud du Togo et du Ghana ; déclin de Notsé.",
+      "Même langue et même culture ; fête Agbogboza qui célèbre l'exode."],
+    concepts: "Dispersion, exode, localité, identité culturelle, fête commémorative."
+  }]
+});
+EPREUVES_4E.h4_11.sit.push({
+  texte: "Ton amie journaliste prépare un reportage sur la fête Epé-Ekpé et assistera à la prise de la pierre sacrée (document). Avant de partir, elle te demande de lui écrire une note pour comprendre l'histoire du peuple qui célèbre cette fête.",
+  consigne: "Rédige pour la journaliste une note dans laquelle tu lui expliques, à partir du document et de tes connaissances, l'origine des Guin et l'évolution historique du royaume de Glidji, puis les pratiques religieuses et les activités de ses populations.",
+  doc: { titre: "Document : la fête Epé-Ekpé", texte: "« Chaque année, à Glidji, des milliers de Guin se rassemblent pour l'Epé-Ekpé, qu'on appelle aussi Kpessosso. Le moment le plus attendu est la prise de la pierre sacrée. »" },
+  intro: "Tu vas assister à l'Epé-Ekpé, la grande fête des Guin, à Glidji. Pour t'aider à comprendre ce que tu verras, je t'explique l'origine des Guin et l'histoire du royaume de Glidji, puis les pratiques religieuses et les activités de ses populations.",
+  adresse: "Chère amie,",
+  support: "Le reportage de la journaliste ; le document sur l'Epé-Ekpé (rassemblement annuel à Glidji, Kpessosso, prise de la pierre sacrée) ; informations exploitées",
+  indConsigne: "Note : peuples fondateurs (Gan d'Accra, Fanti d'Elmina, Mina d'Aného) et situation ; naissance (Akwamu, Foli Bébé), apogée (Assiongbon Dandjin, 1733-1767), déclin (Lawson et Adjigo, fin de la traite, colonisation) ; vodou et Epé-Ekpé ; activités",
+  dev: ["D'abord, le royaume de Glidji, appelé aussi Genyi, a été formé par les Guin, des Gan venus d'Accra, et par des Fanti venus d'Elmina, installés à Aného, les Mina. Il se trouvait dans la région d'Aného, entre le Mono à l'est et Kéta à l'ouest.",
+    "Ensuite, à la fin du XVIIe siècle, battus par les Akwamu, des Gan quittent la région d'Accra et, conduits selon la tradition par Foli Bébé, fondent Glidji. Au XVIIIe siècle, sous le roi Assiongbon Dandjin, de 1733 à 1767, le royaume prospère grâce au commerce. Au XIXe siècle, la rivalité entre les familles Lawson et Adjigo à Aného et la fin de la traite négrière l'affaiblissent, avant la colonisation.",
+    "Enfin, les Guin pratiquent le vodou. Leur grande fête traditionnelle est l'Epé-Ekpé, ou Kpessosso, que tu vas voir : elle est célébrée chaque année à Glidji avec la prise de la pierre sacrée. Les populations vivaient de la pêche, en mer et dans la lagune, de l'agriculture et surtout du commerce, y compris la traite négrière dans les ports d'Aného et de Kéta."],
+  concl: "En définitive, chère amie, la fête que tu vas filmer est celle d'un peuple venu de la Côte de l'Or, qui a fondé à Glidji un royaume commerçant ; Glidji reste aujourd'hui son centre religieux. Bon reportage !",
+  justesse: ["Fondateurs : Guin (Gan venus d'Accra) et Fanti d'Elmina installés à Aného (Mina) ; région d'Aného, entre le Mono et Kéta.",
+    "Évolution : naissance (fin XVIIe s., Gan battus par les Akwamu, Foli Bébé) ; apogée (XVIIIe s., Assiongbon Dandjin, 1733-1767, commerce) ; déclin (XIXe s., rivalité Lawson-Adjigo, fin de la traite, colonisation).",
+    "Religion : vodou ; Epé-Ekpé (Kpessosso), chaque année à Glidji, prise de la pierre sacrée ; activités : pêche (mer, lagune), agriculture, commerce (dont la traite à Aného et Kéta)."],
+  concepts: "Royaume, migration, vodou, fête traditionnelle, commerce, traite négrière."
+});
+EPREUVES_4E.h4_11.sit.push({
+  texte: "Le club « Patrimoine » de ton collège, à Aného, prépare une petite brochure sur le royaume de Glidji pour les élèves de 6e. Tu dois en rédiger deux pages. La présidente du club te remet le récit du document 1 et le texte du document 2.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première page de la brochure : décris l'organisation politique et sociale du royaume de Glidji.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde page de la brochure : explique pourquoi le royaume de Glidji a décliné, en montrant d'abord sur quoi reposait sa prospérité."],
+  docs: [{ titre: "Document 1 : l'intronisation d'un roi", texte: "« Quand le roi mourut, les notables se réunirent pour choisir son successeur parmi les princes, fils des rois de la famille royale. Le nouveau Fio reçut ses attributs devant les hauts dignitaires, les hommes libres venus des villages et les esclaves de la cour. » (Récit d'après les traditions de Glidji)" },
+    { titre: "Document 2 : Aného au XIXe siècle", texte: "« Dans les ports d'Aného et de Kéta, les navires européens venaient autrefois chercher des captifs. Quand ce commerce fut interdit, les grandes familles d'Aného, les Lawson et les Adjigo, se disputèrent le pouvoir et les richesses, tandis que les Européens s'installaient sur la côte. » (D'après des historiens)" }],
+  prods: [{
+    titreProd: "Comment le royaume de Glidji était-il organisé ?",
+    intro: "Le royaume de Glidji, fondé à la fin du XVIIe siècle par les Guin venus d'Accra, était bien organisé. Cette page décrit son organisation politique et sociale, à partir du récit de l'intronisation d'un roi.",
+    support: "La brochure pour les élèves de 6e ; le récit de l'intronisation (notables qui choisissent le successeur parmi les princes, fils des rois ; Fio ; hauts dignitaires, hommes libres, esclaves) ; informations exploitées",
+    indConsigne: "Page 1 : le Fio (ou Fia) et le conseil de notables ; choix parmi les princes ; succession patrilinéaire ; société (hauts dignitaires, hommes libres, esclaves)",
+    dev: ["D'abord, le roi de Glidji porte le titre de Fio, ou Fia. Il gouverne aidé par un conseil de notables, comme ceux qui se réunissent dans le récit.",
+      "Ensuite, le roi est choisi parmi les princes de la famille royale : la succession est patrilinéaire, c'est-à-dire qu'elle se fait de père en fils, ce qui explique que les candidats soient des fils de rois.",
+      "Enfin, la société comprend trois groupes : en haut, les hauts dignitaires ; puis les hommes libres ; et en bas, les esclaves, tous présents lors de l'intronisation du nouveau Fio."],
+    concl: "En définitive, à Glidji, un roi choisi de père en fils et entouré de notables gouvernait une société hiérarchisée.",
+    justesse: ["Roi : Fio (ou Fia), aidé par un conseil de notables.",
+      "Choix parmi les princes de la famille royale ; succession patrilinéaire (de père en fils).",
+      "Société : hauts dignitaires, hommes libres, esclaves."],
+    concepts: "Fio, conseil de notables, succession patrilinéaire, société hiérarchisée."
+  }, {
+    titreProd: "Pourquoi le royaume de Glidji a-t-il décliné ?",
+    intro: "Après une période de prospérité, le royaume de Glidji s'est affaibli. Cette page montre d'abord sur quoi reposait sa richesse, puis explique, à partir d'un texte sur Aného au XIXe siècle, pourquoi il a décliné.",
+    support: "Le texte sur Aného au XIXe siècle (navires européens venant chercher des captifs à Aného et Kéta ; interdiction de ce commerce ; rivalité Lawson-Adjigo ; installation des Européens) ; informations exploitées",
+    indConsigne: "Page 2 : prospérité (apogée sous Assiongbon Dandjin, 1733-1767 ; pêche, agriculture, surtout commerce dont la traite à Aného et Kéta) ; déclin au XIXe s. (rivalité Lawson-Adjigo, fin de la traite, colonisation)",
+    dev: ["D'abord, le royaume a connu son apogée au XVIIIe siècle, sous le roi Assiongbon Dandjin, de 1733 à 1767 : il prospérait grâce au commerce. Ses habitants vivaient de la pêche, en mer et dans la lagune, de l'agriculture et surtout du commerce, y compris la traite négrière dans les ports d'Aného et de Kéta, où, comme le dit le document, les navires européens venaient chercher des captifs.",
+      "Ensuite, au XIXe siècle, la fin de la traite négrière a privé le royaume d'une grande partie de ses revenus, puisqu'une part de sa richesse venait de ce commerce.",
+      "Enfin, la rivalité entre les familles Lawson et Adjigo à Aného, qui se disputaient le pouvoir et les richesses, a divisé et affaibli le royaume, avant que la colonisation ne s'installe sur la côte."],
+    concl: "En définitive, Glidji, enrichi par le commerce, s'est affaibli quand la traite a pris fin et que les grandes familles d'Aného se sont divisées ; la colonisation a achevé son déclin.",
+    justesse: ["Apogée au XVIIIe s. sous Assiongbon Dandjin (1733-1767), grâce au commerce.",
+      "Activités : pêche (mer, lagune), agriculture, surtout commerce, dont la traite négrière à Aného et Kéta.",
+      "Déclin (XIXe s.) : fin de la traite ; rivalité entre les familles Lawson et Adjigo à Aného ; colonisation."],
+    concepts: "Prospérité, commerce, traite négrière, rivalité, déclin, colonisation."
+  }]
+});
+// Situations nouvelles des leçons de géographie de 4e (01/11/2026) : 3 situations par leçon en tout, tirées des traces,
+// différentes des situations d'apprentissage, des évaluations, des devoirs, des situations compétence et des situations déjà en réserve.
+// Deux consignes au plus ; quand il y en a deux, un document par consigne (docs).
+EPREUVES_4E.g4_1.sit.push({
+  texte: "Le 25 mai, Journée de l'Afrique, le club « Union africaine » de ton collège organise une cérémonie dans la cour. Le président du club, qui doit ouvrir la cérémonie devant tous les élèves, te demande d'écrire son discours. Il te remet la liste du document en disant : « Les petits de 6e ne savent même pas où commence et où finit notre continent. »",
+  consigne: "Rédige le discours d'ouverture de la cérémonie : à partir du document et de tes connaissances, présente la localisation et les limites de l'Afrique, puis les régions qui la composent.",
+  doc: { titre: "Document : quelques États africains rangés par région", tableau: { entetes: ["Région", "Quelques États"], lignes: [["Afrique de l'Ouest", "Togo, Bénin, Côte d'Ivoire, Burkina Faso"], ["Afrique de l'Est", "Éthiopie, Djibouti, Somalie, Kenya"], ["Afrique centrale", "Cameroun, Tchad, Centrafrique, Gabon"], ["Afrique du Nord", "Maroc, Algérie, Tunisie, Égypte"], ["Afrique australe", "Afrique du Sud, Namibie, Zambie, Madagascar"]] } },
+  intro: "En ce 25 mai, Journée de l'Afrique, notre club « Union africaine » veut que chaque élève sache bien situer son continent. Je vais présenter la localisation et les limites de l'Afrique, puis les régions qui la composent.",
+  adresse: "Monsieur le Directeur, chers professeurs, chers camarades,",
+  support: "La Journée de l'Afrique du 25 mai ; la cérémonie du club « Union africaine » ; les élèves de 6e qui ne savent pas situer le continent ; le tableau des États rangés par région exploité",
+  indConsigne: "Discours d'ouverture : localisation (latitudes, équateur, tropiques, zone intertropicale) ; limites (mers, océans, Suez, Gibraltar) ; 54 États et cinq régions avec des exemples",
+  dev: ["D'abord, l'Afrique est un continent massif, aux côtes peu découpées. Elle s'étend de part et d'autre de l'équateur, à peu près de 37° de latitude nord, en Tunisie, à 35° de latitude sud, en Afrique du Sud. C'est le seul continent traversé à la fois par l'équateur et par les deux tropiques, celui du Cancer et celui du Capricorne : la plus grande partie de l'Afrique se trouve donc dans la zone intertropicale, d'où son climat surtout chaud.",
+    "Ensuite, notre continent est entouré d'eau : la mer Méditerranée au nord, l'océan Atlantique à l'ouest et au sud-ouest, la mer Rouge et l'océan Indien à l'est. L'isthme de Suez, traversé par le canal de Suez, le rattache à l'Asie, tandis que le détroit de Gibraltar le sépare de l'Europe.",
+    "Enfin, l'Afrique compte 54 États indépendants ; l'Union africaine en compte 55, avec la République sahraouie. Comme le montre le tableau, on les regroupe en cinq régions : l'Afrique de l'Ouest, où se trouve notre pays, le Togo, avec le Bénin, la Côte d'Ivoire et le Burkina Faso ; l'Afrique de l'Est, avec l'Éthiopie et le Kenya ; l'Afrique centrale, avec le Cameroun et le Tchad ; l'Afrique du Nord, avec le Maroc et l'Égypte ; l'Afrique australe, avec l'Afrique du Sud et Madagascar."],
+  concl: "En définitive, chers camarades, l'Afrique, à cheval sur l'équateur et entourée de mers et d'océans, réunit 54 États en cinq régions : connaître notre continent, c'est la première façon de l'aimer. Bonne fête de l'Afrique à tous !",
+  justesse: ["Localisation : de part et d'autre de l'équateur, d'environ 37° N (Tunisie) à 35° S (Afrique du Sud) ; seul continent traversé par l'équateur et les deux tropiques ; surtout dans la zone intertropicale, climat surtout chaud.",
+    "Limites : Méditerranée au nord ; Atlantique à l'ouest et au sud-ouest ; mer Rouge et océan Indien à l'est ; isthme et canal de Suez (Asie) ; détroit de Gibraltar (Europe).",
+    "Composantes : 54 États (55 pour l'Union africaine, avec la République sahraouie) ; cinq régions (Ouest, Est, centrale, Nord, australe) avec des exemples ; le Togo en Afrique de l'Ouest."],
+  concepts: "Continent, équateur, tropique, zone intertropicale, isthme, détroit, État, région."
+});
+EPREUVES_4E.g4_1.sit.push({
+  texte: "Un peintre de Kpalimé doit décorer le grand mur du préau de ton collège avec une carte de l'Afrique. Il a recopié le croquis du document 1 dans le cahier de ta grande sœur, mais il ne sait pas quoi écrire sous la carte. Le directeur te charge de rédiger les deux panneaux qui accompagneront la fresque ; pour le second, il te remet l'extrait du document 2.",
+  consignes: ["À partir du croquis du document 1 et de tes connaissances, rédige le premier panneau : montre où se trouve l'Afrique sur le globe et explique pourquoi son climat est surtout chaud.",
+    "À partir du document 2 et de tes connaissances, rédige le second panneau : compare l'Afrique aux autres continents par la superficie et par la population."],
+  docs: [{ titre: "Document 1 : le croquis de l'Afrique dans un quadrillage", image: "images/epreuves/4e_g4_1.png" },
+    { titre: "Document 2 : l'Afrique en chiffres", texte: "« Avec environ 30 millions de km², l'Afrique est trois fois plus étendue que l'Europe ; seuls deux continents sont plus vastes qu'elle. En 2024, elle comptait environ 1,5 milliard d'habitants, et aucun continent ne voit sa population augmenter aussi vite. » (Extrait d'une émission de la radio scolaire)" }],
+  prods: [{
+    titreProd: "L'Afrique sur le globe",
+    intro: "La fresque du préau montre l'Afrique telle qu'on la dessine dans un quadrillage. Ce premier panneau explique où se trouve notre continent sur le globe et pourquoi son climat est surtout chaud.",
+    support: "La fresque du préau ; le croquis du document 1 (quadrillage, équateur, tropiques, mers et océans) ; le peintre qui ne sait pas quoi écrire ; informations du croquis exploitées",
+    indConsigne: "Panneau 1 : localisation (latitudes extrêmes, équateur et tropiques lus sur le croquis) ; limites (mers, océans, Suez, Gibraltar) ; explication du climat surtout chaud (zone intertropicale)",
+    dev: ["D'abord, le croquis montre que l'équateur coupe l'Afrique en deux : le continent s'étend de part et d'autre de cette ligne, à peu près de 37° de latitude nord, en Tunisie, à 35° de latitude sud, en Afrique du Sud. C'est un continent massif, aux côtes peu découpées.",
+      "Ensuite, on lit sur le croquis les mers et les océans qui l'entourent : la mer Méditerranée au nord, l'océan Atlantique à l'ouest, la mer Rouge et l'océan Indien à l'est. Au nord-est, l'isthme de Suez, traversé par le canal de Suez, la rattache à l'Asie ; au nord-ouest, le détroit de Gibraltar la sépare de l'Europe.",
+      "Enfin, le croquis place le tropique du Cancer au nord et le tropique du Capricorne au sud : l'Afrique est le seul continent traversé à la fois par l'équateur et par les deux tropiques. La plus grande partie de ses terres se trouve donc dans la zone intertropicale, entre les deux tropiques, là où il fait chaud toute l'année : c'est pourquoi son climat est surtout chaud."],
+    concl: "En définitive, à cheval sur l'équateur et presque tout entière entre les deux tropiques, l'Afrique occupe une position centrale sur le globe, qui explique son climat surtout chaud.",
+    justesse: ["Localisation : de part et d'autre de l'équateur, d'environ 37° N à 35° S ; continent massif aux côtes peu découpées.",
+      "Limites : Méditerranée, Atlantique, mer Rouge, océan Indien ; isthme et canal de Suez (Asie) ; détroit de Gibraltar (Europe).",
+      "Climat : seul continent traversé par l'équateur et les deux tropiques ; surtout dans la zone intertropicale, d'où un climat surtout chaud."],
+    concepts: "Équateur, tropique du Cancer, tropique du Capricorne, latitude, zone intertropicale, isthme, détroit."
+  }, {
+    titreProd: "L'Afrique parmi les continents",
+    intro: "Ce second panneau compare l'Afrique aux autres continents, d'abord par la superficie, puis par la population, à partir de l'extrait de la radio scolaire.",
+    support: "L'extrait de l'émission de la radio scolaire (document 2) : 30 millions de km², trois fois l'Europe, deux continents plus vastes, 1,5 milliard d'habitants en 2024, croissance la plus rapide ; informations exploitées",
+    indConsigne: "Panneau 2 : rang de l'Afrique par la superficie (chiffres des six continents, comparaison avec l'Europe) ; rang par la population et rythme de croissance",
+    dev: ["D'abord, par la superficie, l'Afrique est le 3e continent du monde. Avec environ 30,3 millions de km², elle vient après l'Asie (44,6 millions de km²) et l'Amérique (42 millions de km²) : ce sont les deux continents plus vastes dont parle le document. Elle devance l'Antarctique (14 millions de km²), l'Europe (10,2 millions de km²) et l'Océanie (8,5 millions de km²).",
+      "Ensuite, comme le dit l'extrait, l'Afrique est trois fois plus grande que l'Europe : notre continent n'est donc pas petit, même si certaines cartes le font paraître moins étendu qu'il ne l'est.",
+      "Enfin, par la population, avec environ 1,5 milliard d'habitants en 2024, l'Afrique est le 2e continent du monde, après l'Asie. Sa population augmente plus vite que celle de tous les autres continents."],
+    concl: "En définitive, troisième par la superficie et deuxième par la population, l'Afrique est un grand continent, dont la population est celle qui grandit le plus vite au monde.",
+    justesse: ["Superficie (millions de km²) : Asie 44,6 ; Amérique 42 ; Afrique 30,3 ; Antarctique 14 ; Europe 10,2 ; Océanie 8,5 : l'Afrique est 3e.",
+      "L'Afrique est environ trois fois plus grande que l'Europe.",
+      "Population : environ 1,5 milliard d'habitants en 2024, 2e continent après l'Asie ; croissance la plus rapide de tous les continents."],
+    concepts: "Superficie, population, rang, continent, croissance démographique."
+  }]
+});
+EPREUVES_4E.g4_2.sit.push({
+  texte: "Le journal de ton collège prépare un numéro spécial intitulé « Être jeune en Afrique ». La rédaction a interrogé le directeur d'un collège de la ville, et ses propos (document) ont fait réagir : certains élèves pensent que tant de jeunes, c'est une malchance ; d'autres, que c'est la plus grande richesse du continent. Le rédacteur en chef te demande l'article principal du numéro.",
+  consigne: "Rédige pour le journal l'article principal du numéro spécial : à partir des propos du directeur et de tes connaissances, explique ce qu'est l'extrême jeunesse de la population africaine, puis montre ses avantages et les problèmes qu'elle pose.",
+  doc: { titre: "Document : les propos d'un directeur de collège", texte: "« Chaque rentrée, nous refusons des élèves : certaines classes dépassent cent élèves pour un seul professeur, et il manque des tables, des salles et des enseignants. Pourtant, quand je vois toute cette jeunesse, je me dis que notre pays ne manquera jamais de bras. Mon inquiétude, c'est après : beaucoup de mes anciens élèves, même diplômés, n'ont pas trouvé de travail, et quelques-uns ont mal tourné. »" },
+  titreProd: "Tant de jeunes : chance ou problème ?",
+  intro: "Dans nos classes surchargées comme dans nos rues, les jeunes sont partout : c'est l'extrême jeunesse de la population africaine. Cet article explique ce phénomène, puis montre ses avantages et les problèmes qu'il pose.",
+  support: "Le numéro spécial « Être jeune en Afrique » ; les propos du directeur (classes de plus de cent élèves, manque de tables et d'enseignants, « jamais de bras », diplômés sans travail, certains ont « mal tourné ») ; le débat entre élèves ; informations exploitées",
+  indConsigne: "Article : définition de l'extrême jeunesse (environ 60 % de moins de 25 ans) ; avantages (renouvellement, main-d'œuvre, marché) ; problèmes (écoles, enseignants, santé, chômage, délinquance juvénile)",
+  dev: ["D'abord, l'extrême jeunesse, c'est la très forte part des jeunes dans la population. En Afrique, il y a beaucoup plus de jeunes que d'adultes et de personnes âgées : environ 60 % des habitants ont moins de 25 ans. L'Afrique comptait environ 1,5 milliard d'habitants en 2024, et sa population augmente très vite.",
+    "Ensuite, cette jeunesse a des avantages. Le renouvellement des générations est assuré ; la main-d'œuvre est abondante, comme le dit le directeur quand il affirme que notre pays « ne manquera jamais de bras » ; enfin, le marché de consommation s'agrandit, ce qui peut faire vivre de nombreuses entreprises.",
+    "Enfin, elle pose de graves problèmes. Il manque des écoles, des enseignants, des centres de formation et des centres de santé : les classes de plus de cent élèves pour un seul professeur, dont parle le directeur, le prouvent. Le chômage frappe les jeunes, même diplômés, et la délinquance juvénile se développe, comme chez ces anciens élèves qui ont « mal tourné »."],
+  concl: "En définitive, tant de jeunes peuvent être une chance pour l'Afrique, à condition de les former et de leur donner du travail ; sinon, cette jeunesse devient un problème. À nous, élèves, d'en faire une richesse.",
+  justesse: ["Extrême jeunesse : très forte part des jeunes ; environ 60 % des Africains ont moins de 25 ans ; population d'environ 1,5 milliard en 2024, en forte croissance.",
+    "Avantages : renouvellement des générations ; main-d'œuvre abondante ; marché de consommation qui s'agrandit.",
+    "Problèmes : manque d'écoles, d'enseignants, de centres de formation et de santé ; chômage des jeunes ; délinquance juvénile."],
+  concepts: "Extrême jeunesse, renouvellement des générations, main-d'œuvre, marché de consommation, chômage, délinquance juvénile."
+});
+EPREUVES_4E.g4_2.sit.push({
+  texte: "La Maison des jeunes de ton quartier organise un débat public sur le thème : « Nos jeunes : une chance ou un fardeau pour l'Afrique ? ». Ton équipe doit faire deux interventions. Pour les préparer, l'animateur vous remet deux témoignages recueillis dans le quartier (documents 1 et 2).",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première intervention : montre en quoi l'extrême jeunesse de la population est une chance pour l'Afrique.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde intervention : explique ce qu'est l'émigration clandestine et montre les problèmes qu'elle pose aux pays africains, sans oublier ce qu'en espèrent ceux qui partent."],
+  docs: [{ titre: "Document 1 : le témoignage d'un patron de menuiserie", texte: "« J'emploie quinze apprentis, tous ont moins de vingt-cinq ans. Ils apprennent vite et ne craignent pas l'effort. Et mes clients aussi sont jeunes : chaque année, de nouveaux couples s'installent et veulent des lits, des tables, des armoires. Le travail ne manque pas. »" },
+    { titre: "Document 2 : le témoignage d'une infirmière", texte: "« Mon frère, médecin formé ici, est parti en Europe sans papiers. Il envoie un peu d'argent à notre mère, mais notre dispensaire n'a plus de médecin. Mon cousin, lui, a pris une pirogue vers les Canaries : nous n'avons plus jamais eu de ses nouvelles. Un voisin, arrivé en Europe, a été renvoyé au pays les mains vides. »" }],
+  prods: [{
+    intro: "Notre équipe pense que la jeunesse de l'Afrique peut être une chance. Dans cette première intervention, je vais expliquer ce qu'est l'extrême jeunesse et montrer, à partir du témoignage du menuisier, ses avantages pour le continent.",
+    adresse: "Mesdames et Messieurs, chers jeunes,",
+    support: "Le débat de la Maison des jeunes ; le témoignage du patron de menuiserie (quinze apprentis de moins de 25 ans, clients jeunes, nouveaux couples, « le travail ne manque pas ») ; informations exploitées",
+    indConsigne: "Intervention 1 : définition de l'extrême jeunesse (environ 60 % de moins de 25 ans) ; avantages illustrés par le document (main-d'œuvre, marché, renouvellement) ; condition : former et employer",
+    dev: ["D'abord, l'extrême jeunesse est la très forte part des jeunes dans la population : en Afrique, environ 60 % des habitants ont moins de 25 ans, et il y a beaucoup plus de jeunes que d'adultes et de personnes âgées.",
+      "Ensuite, cette jeunesse fournit une main-d'œuvre abondante : le menuisier emploie quinze apprentis de moins de vingt-cinq ans, qui apprennent vite. Elle assure aussi le renouvellement des générations : les nouveaux couples qui s'installent chaque année en sont la preuve.",
+      "Enfin, ces jeunes sont aussi des consommateurs : le marché de consommation s'agrandit. Les jeunes couples veulent des lits, des tables et des armoires, si bien que, chez le menuisier, « le travail ne manque pas »."],
+    concl: "En définitive, mesdames et messieurs, notre jeunesse est une chance pour l'Afrique, à condition de la former, comme ce menuisier forme ses apprentis, et de lui donner du travail.",
+    justesse: ["Extrême jeunesse : très forte part des jeunes ; environ 60 % de moins de 25 ans.",
+      "Avantages : main-d'œuvre abondante (apprentis) ; renouvellement des générations (jeunes couples) ; marché de consommation qui s'agrandit (clients).",
+      "Condition : former et employer les jeunes."],
+    concepts: "Extrême jeunesse, main-d'œuvre, renouvellement des générations, marché de consommation."
+  }, {
+    intro: "Mais cette jeunesse, quand elle n'a pas de perspectives, part parfois au péril de sa vie. Dans cette seconde intervention, je vais expliquer ce qu'est l'émigration clandestine, ce qu'en espèrent les jeunes et les problèmes qu'elle pose, à partir du témoignage de l'infirmière.",
+    adresse: "Mesdames et Messieurs, chers jeunes,",
+    support: "Le témoignage de l'infirmière (frère médecin parti sans papiers, argent envoyé, dispensaire sans médecin, cousin disparu en pirogue vers les Canaries, voisin renvoyé) ; informations exploitées",
+    indConsigne: "Intervention 2 : définition et routes de l'émigration clandestine ; avantages espérés (moins de bouches à nourrir, emploi, argent envoyé) ; problèmes (fuite des cerveaux, morts, manque à gagner, renvoi des sans-papiers)",
+    dev: ["D'abord, l'émigration clandestine est le départ illégal d'Africains vers les autres continents, surtout l'Europe, mais aussi l'Amérique du Nord et l'Asie. Beaucoup traversent le Sahara puis la Méditerranée, ou longent l'Atlantique en pirogue vers les îles Canaries, comme le cousin de l'infirmière.",
+      "Ensuite, ceux qui partent en espèrent des avantages : la population à nourrir diminue au pays ; certains émigrés trouvent une formation ou un emploi à l'étranger et envoient de l'argent à leur famille restée au pays, comme le frère médecin qui aide sa mère.",
+      "Enfin, les problèmes sont graves. C'est d'abord la fuite des cerveaux : le dispensaire a perdu son médecin, formé au pays. Ce sont aussi les morts pendant la traversée du désert et de la mer : le cousin n'a plus jamais donné de nouvelles. C'est encore le manque à gagner pour les pays de départ, qui perdent ceux qu'ils ont formés, et le renvoi forcé des sans-papiers, comme ce voisin revenu les mains vides."],
+    concl: "En définitive, l'émigration clandestine fait perdre à l'Afrique ses forces et parfois la vie de ses enfants : pour que notre jeunesse reste une chance, il faut lui offrir un avenir ici.",
+    justesse: ["Émigration clandestine : départ illégal vers l'Europe, l'Amérique du Nord, l'Asie ; par le Sahara et la Méditerranée, ou en pirogue vers les Canaries.",
+      "Avantages espérés : moins de population à nourrir ; formation ou emploi à l'étranger ; argent envoyé aux familles.",
+      "Problèmes : fuite des cerveaux ; morts pendant la traversée ; manque à gagner pour les pays de départ ; renvoi forcé des sans-papiers."],
+    concepts: "Émigration clandestine, fuite des cerveaux, sans-papiers, migration, pays de départ."
+  }]
+});
+EPREUVES_4E.g4_3.sit.push({
+  texte: "Dans un vieux calendrier de ton grand-père, tu découvres une photo du Kilimandjaro, le plus haut sommet d'Afrique, couvert de neige. Ton professeur de géographie te montre alors les deux images satellites du document : en quelques années, la glace du sommet a beaucoup reculé. La radio scolaire prépare justement une émission intitulée « Notre continent en danger » et te demande d'en écrire le texte.",
+  consigne: "Rédige le texte de l'émission : à partir des images du document et de tes connaissances, présente les problèmes environnementaux majeurs de l'Afrique, explique leurs causes, puis propose des solutions.",
+  doc: { titre: "Document : la glace du sommet du Kilimandjaro (Tanzanie) vue par satellite en 1993 et en 2000", image: "images/ep4_kilimandjaro.jpg", credit: "Images du satellite Landsat 5 — NASA Earth Observatory, domaine public (Wikimedia Commons)." },
+  intro: "Les images satellites du Kilimandjaro le montrent : en quelques années, la glace de son sommet a fortement reculé. Dans cette émission, nous allons présenter les problèmes environnementaux majeurs de l'Afrique, expliquer leurs causes et proposer des solutions.",
+  adresse: "Chers auditeurs,",
+  support: "Le vieux calendrier avec le Kilimandjaro enneigé ; les deux images satellites (1993 et 2000) : la glace du sommet a beaucoup reculé ; l'émission « Notre continent en danger » ; informations exploitées",
+  indConsigne: "Texte d'émission : définition et problèmes majeurs (dont la fonte des glaciers du Kilimandjaro) ; causes humaines et naturelles ; solutions",
+  dev: ["D'abord, un problème environnemental est une perturbation du fonctionnement normal de la nature. Le recul de la glace du Kilimandjaro, visible entre 1993 et 2000, est un signe du réchauffement climatique, qui dérègle aussi les saisons : saison sèche plus longue, pluies plus courtes. L'Afrique connaît aussi l'avancée du désert et la sécheresse au Sahel, dans la Corne de l'Afrique et en Afrique australe ; les inondations au Togo, au Niger ou au Mozambique ; les cyclones à Madagascar ; l'érosion côtière au Togo et au Bénin ; la déforestation, la pollution, et le rétrécissement du lac Tchad.",
+    "Ensuite, la plupart de ces problèmes ont des causes humaines : la coupe anarchique des arbres et les feux de brousse ; les gaz à effet de serre rejetés par les usines, les véhicules et les centrales qui brûlent du pétrole ou du charbon, et qui réchauffent le climat ; le surpâturage ; l'extraction du sable sur les plages ; les déchets des villes et des industries. Il existe aussi des causes naturelles : la baisse des pluies, les cyclones, les raz-de-marée, les volcans et les tremblements de terre.",
+    "Enfin, des solutions existent : reboiser et gérer les forêts avec raison, comme la Grande Muraille verte, du Sénégal à Djibouti, ou la Journée de l'arbre, le 1er juin au Togo ; planter des haies vives et construire des cordons pierreux ; construire des digues et des épis contre l'érosion côtière ; préférer les feux de brousse précoces ; remplacer les énergies polluantes par le solaire et l'éolien et taxer la pollution."],
+  concl: "En définitive, chers auditeurs, la glace qui fond sur le Kilimandjaro nous avertit : la plupart des problèmes de notre environnement viennent de l'homme, et chacun de nous peut agir pour le protéger.",
+  justesse: ["Problème environnemental : perturbation du fonctionnement normal de la nature ; réchauffement climatique (fonte des glaciers du Kilimandjaro), dérèglement des saisons ; désert, sécheresse, inondations, cyclones, érosion, déforestation, pollution, lac Tchad.",
+    "Causes humaines (coupe des arbres, feux de brousse, gaz à effet de serre, surpâturage, sable des plages, déchets) et naturelles (baisse des pluies, cyclones, raz-de-marée, volcans, séismes).",
+    "Solutions : reboisement (Grande Muraille verte, Journée de l'arbre le 1er juin) ; haies vives, cordons pierreux ; digues et épis ; feux précoces ; énergies renouvelables, taxe carbone."],
+  concepts: "Problème environnemental, réchauffement climatique, glacier, gaz à effet de serre, reboisement, énergie renouvelable."
+});
+EPREUVES_4E.g4_3.sit.push({
+  texte: "À Agbodrafo, la mer avance chaque année et menace la maison de ta tante. Au marché, un pêcheur accuse « les camions qui viennent la nuit chercher le sable de la plage ». Les habitants décident d'écrire au maire de la commune pour lui demander d'agir, et ils te chargent de rédiger la lettre. Le chef du quartier te remet deux documents.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première partie de la lettre : explique les causes humaines et naturelles des problèmes environnementaux qui touchent l'Afrique et ton quartier.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie de la lettre : propose au maire des solutions pour protéger l'environnement."],
+  docs: [{ titre: "Document 1 : ce que dit le vieux pêcheur", texte: "« Quand j'étais jeune, la plage était large comme un terrain de football. Depuis que des camions viennent prendre le sable pour les chantiers de la ville, la mer mange un peu plus de terre chaque année. Et derrière le village, on a coupé les arbres et on brûle la brousse : la terre part avec les pluies. »" },
+    { titre: "Document 2 : des exemples d'actions en Afrique et au Togo", liste: ["Au Togo, chaque 1er juin, la Journée de l'arbre invite à planter des arbres.", "La Grande Muraille verte veut faire pousser une bande d'arbres du Sénégal à Djibouti.", "Sur une partie de la côte togolaise, des épis de pierre ont été construits dans la mer pour retenir le sable.", "Des villages installent des panneaux solaires au lieu de groupes électrogènes au gasoil."] }],
+  prods: [{
+    intro: "Notre quartier d'Agbodrafo perd chaque année une partie de sa plage, et les habitants s'inquiètent pour leurs maisons. Dans cette première partie de notre lettre, nous voulons expliquer au maire les causes humaines et naturelles des problèmes environnementaux qui touchent l'Afrique et notre quartier.",
+    adresse: "Monsieur le Maire,",
+    support: "La mer qui avance à Agbodrafo ; les propos du vieux pêcheur (sable pris par les camions, mer qui « mange » la terre, arbres coupés, brousse brûlée, terre emportée par les pluies) ; informations exploitées",
+    indConsigne: "Lettre, partie 1 : l'érosion côtière et l'érosion des sols du quartier ; causes humaines (sable des plages, coupe des arbres, feux de brousse, gaz à effet de serre, surpâturage, déchets) ; causes naturelles",
+    dev: ["D'abord, notre quartier subit l'érosion côtière, comme d'autres côtes du Togo, du Bénin, de la Côte d'Ivoire et du Sénégal, et l'érosion des sols derrière le village. Comme le dit le vieux pêcheur, la cause principale est humaine : l'extraction du sable sur la plage pour les chantiers de la ville. La coupe anarchique des arbres et les feux de brousse laissent aussi la terre nue, que les pluies emportent.",
+      "Ensuite, partout en Afrique, l'homme est le premier responsable des problèmes environnementaux : les gaz à effet de serre rejetés par les usines, les véhicules et les centrales qui brûlent du pétrole ou du charbon réchauffent le climat ; le surpâturage et l'élevage intensif dégradent les sols ; les déchets des villes et des industries polluent l'air, l'eau et les sols.",
+      "Enfin, il existe des causes naturelles : la baisse des pluies, les cyclones, les raz-de-marée, les volcans, les tremblements de terre et les glissements de terrain. Mais elles sont moins nombreuses que les causes humaines."],
+    concl: "En définitive, Monsieur le Maire, si la mer avance chez nous, c'est surtout à cause de l'action de l'homme : c'est donc aussi l'homme qui peut arrêter ces dégâts.",
+    justesse: ["Problèmes du quartier : érosion côtière (Togo, Bénin, Côte d'Ivoire, Sénégal) et érosion des sols.",
+      "Causes humaines : extraction du sable sur les plages ; coupe anarchique des arbres et feux de brousse ; gaz à effet de serre (usines, véhicules, centrales) ; surpâturage, élevage intensif ; déchets.",
+      "Causes naturelles : baisse des pluies, cyclones, raz-de-marée, volcans, tremblements de terre, glissements de terrain."],
+    concepts: "Érosion côtière, érosion des sols, cause humaine, cause naturelle, gaz à effet de serre."
+  }, {
+    intro: "Puisque l'homme est le principal responsable, il peut aussi protéger l'environnement. Dans cette seconde partie, en nous appuyant sur des actions déjà menées en Afrique et au Togo, nous vous proposons des solutions.",
+    adresse: "Monsieur le Maire,",
+    support: "La liste d'actions (Journée de l'arbre du 1er juin, Grande Muraille verte, épis de pierre sur la côte togolaise, panneaux solaires) ; la demande des habitants ; informations exploitées",
+    indConsigne: "Lettre, partie 2 : solutions contre l'érosion côtière (digues, épis, arrêt de l'extraction) ; reboisement et gestion des forêts ; haies vives, cordons pierreux, feux précoces ; énergies renouvelables, taxe carbone",
+    dev: ["D'abord, contre l'avancée de la mer, nous vous demandons de faire construire des digues et des épis, comme ceux qui retiennent déjà le sable sur une partie de la côte togolaise, et d'interdire l'extraction du sable sur notre plage.",
+      "Ensuite, il faut reboiser, limiter la coupe des arbres et gérer les forêts avec raison : la commune pourrait profiter de la Journée de l'arbre, le 1er juin, pour planter des arbres derrière le village, comme la Grande Muraille verte le fait du Sénégal à Djibouti. Pour retenir la terre, on peut planter des haies vives, construire des cordons pierreux, enherber les berges et préférer les feux de brousse précoces.",
+      "Enfin, la commune peut encourager les énergies renouvelables, comme les panneaux solaires installés à la place des groupes électrogènes, et soutenir l'idée de taxer la pollution, par la taxe carbone."],
+    concl: "En définitive, Monsieur le Maire, nous comptons sur vous pour protéger notre plage et notre environnement ; de notre côté, nous sommes prêts à planter et à entretenir les arbres. Veuillez agréer, Monsieur le Maire, l'expression de notre profond respect.",
+    signature: "Les habitants du quartier",
+    justesse: ["Contre l'érosion côtière : digues et épis ; arrêt de l'extraction du sable.",
+      "Reboiser, limiter la coupe, gérer les forêts (Grande Muraille verte ; Journée de l'arbre le 1er juin) ; haies vives, cordons pierreux, berges enherbées ; feux de brousse précoces ; orienter les bâtiments selon les grands vents.",
+      "Énergies renouvelables (solaire, éolien) à la place des énergies polluantes ; taxe carbone."],
+    concepts: "Reboisement, digue, épi, haie vive, cordon pierreux, énergie renouvelable, taxe carbone."
+  }]
+});
+EPREUVES_4E.g4_4.sit.push({
+  texte: "Kossi, ton cousin de vingt ans, cultive le maïs et l'igname près de Kpalimé avec une daba et un coupe-coupe. Découragé par ses maigres récoltes, il t'écrit (document) qu'il veut tout abandonner pour aller conduire une moto-taxi en ville. Tu décides de lui répondre par une lettre.",
+  consigne: "Écris à Kossi une lettre dans laquelle tu lui expliques, à partir de son message et de tes connaissances, pourquoi l'agriculture africaine produit peu, puis tu lui montres les efforts de modernisation qui peuvent l'aider, au Togo et en Afrique.",
+  doc: { titre: "Document : le message de Kossi", texte: "« Je travaille du matin au soir avec ma daba, mais mes récoltes sont toujours petites. J'attends la pluie pour semer, et cette année elle est arrivée en retard. Je voudrais un tracteur ou un motoculteur, mais je n'ai pas d'argent, et je ne sais pas à qui demander conseil. Je crois que je vais tout laisser pour la moto-taxi. »" },
+  intro: "Ton message m'a inquiété : tu veux abandonner tes champs parce que tes récoltes sont petites. Je vais t'expliquer pourquoi l'agriculture africaine produit peu, puis te montrer les efforts de modernisation qui peuvent t'aider.",
+  adresse: "Cher Kossi,",
+  support: "Le message de Kossi (daba, petites récoltes, attente de la pluie, envie d'un tracteur, pas d'argent, pas de conseil, projet de moto-taxi) ; sa région de Kpalimé ; informations exploitées",
+  indConsigne: "Lettre : caractéristiques de l'agriculture africaine (outillage rudimentaire, techniques traditionnelles, faible productivité, dualisme, population active) ; efforts de modernisation (formation et appui, techniques, financement)",
+  dev: ["D'abord, si tes récoltes sont petites, ce n'est pas ta faute seulement : en Afrique, l'outillage est rudimentaire, fait de la daba, du coupe-coupe, du bâton à fouir et de la faucille, avec parfois la culture attelée. Les techniques sont traditionnelles : on pratique une agriculture pluviale, où l'on attend la pluie, comme toi cette année, extensive, sur brûlis, avec jachère et sur de petites exploitations. La productivité est donc faible et les rendements sont bas, alors que l'agriculture occupe plus de la moitié de la population active. Elle est aussi dualiste : des cultures vivrières pour nourrir la famille, comme ton maïs et ton igname, à côté de cultures de rente plus modernes, comme le café, le cacao ou le coton.",
+    "Ensuite, tu peux te former et te faire conseiller. Tout près de chez toi, l'INFA de Tové forme les agriculteurs ; il y a aussi l'École supérieure d'agronomie de l'Université de Lomé et l'Institut supérieur des métiers de l'agriculture à Kara. L'ICAT conseille les producteurs, l'ITRA fait la recherche agronomique, et en Afrique de l'Ouest le CORAF, à Dakar, fait aussi de la recherche. Tu y apprendrais les techniques modernes : la mécanisation avec les tracteurs et les motoculteurs, l'irrigation moderne, qui évite d'attendre la pluie, les engrais et les semences améliorées, le compost, l'agroforesterie et l'association de l'élevage et des cultures. Les agropoles, comme celle de la Kara, permettent même de produire et de transformer sur place.",
+    "Enfin, pour le motoculteur dont tu rêves, des structures aident les agriculteurs à obtenir des crédits : au Togo, le MIFA, le FNFI et la FUCEC ; en Afrique, l'Association africaine du crédit rural et agricole (AFRACA) ou le Fonds de développement agricole du Maroc."],
+  concl: "En définitive, cher Kossi, ne lâche pas ta terre : nos conditions naturelles sont bonnes, et avec la formation, des techniques modernes et un crédit, tu peux obtenir de bien meilleures récoltes. Je t'embrasse et je compte sur toi.",
+  signature: "Ton cousin qui croit en toi",
+  justesse: ["Caractéristiques : outillage rudimentaire (daba, coupe-coupe, bâton à fouir, faucille, parfois culture attelée) ; techniques traditionnelles (pluviale, extensive, sur brûlis, jachère, petites exploitations) ; faible productivité ; dualisme vivrier / rente ; plus de la moitié de la population active.",
+    "Formation et appui : INFA de Tové, École supérieure d'agronomie (Lomé), ISMA (Kara) ; ICAT (conseil), ITRA (recherche), CORAF (Dakar) ; techniques : mécanisation, irrigation, engrais, semences améliorées, agroforesterie, compost, agropoles (Kara).",
+    "Financement : MIFA, FNFI, FUCEC au Togo ; AFRACA, Fonds de développement agricole du Maroc."],
+  concepts: "Outillage rudimentaire, agriculture pluviale, rendement, culture vivrière, culture de rente, mécanisation, crédit agricole."
+});
+EPREUVES_4E.g4_4.sit.push({
+  texte: "Des élèves burkinabè en voyage d'étude visitent la région de Kpalimé. Ton professeur te charge de leur présenter, en deux exposés, l'agriculture de notre continent. Pour le premier, il te remet le tableau du document 1 ; pour le second, il te fait lire le portrait de deux agriculteurs de la région (document 2).",
+  consignes: ["À partir du document 1 et de tes connaissances, présente dans un premier exposé les conditions naturelles de l'agriculture africaine.",
+    "À partir du document 2 et de tes connaissances, présente dans un second exposé les caractéristiques générales de l'agriculture africaine."],
+  docs: [{ titre: "Document 1 : quelques grands fleuves de l'Afrique", tableau: { entetes: ["Fleuve", "Longueur approximative", "Remarque"], lignes: [["Nil", "6 650 km", "aucun fleuve au monde n'est plus long"], ["Congo", "4 700 km", "le plus puissant d'Afrique"], ["Niger", "4 200 km", "avec son affluent, la Bénoué"], ["Zambèze", "2 570 km", "barrage et lac de Kariba"]] } },
+    { titre: "Document 2 : deux agriculteurs de la région", texte: "Afi cultive, sur un petit champ, du maïs, du manioc et des haricots pour nourrir ses enfants ; elle travaille à la houe et laisse reposer sa terre plusieurs années. Son voisin, M. Komlan, possède une plantation de café et de cacao dont il vend toute la récolte. Lui-même reconnaît que ses rendements restent faibles." }],
+  prods: [{
+    intro: "Chers amis burkinabè, l'Afrique a de nombreux atouts naturels pour cultiver. Dans ce premier exposé, je vais vous présenter les conditions naturelles de l'agriculture africaine : le relief, les climats, les sols, la végétation et l'eau des fleuves et des lacs.",
+    adresse: "Chers amis,",
+    support: "La visite des élèves burkinabè ; le tableau des fleuves (Nil 6 650 km, Congo 4 700 km, Niger 4 200 km avec la Bénoué, Zambèze 2 570 km et Kariba) ; informations exploitées",
+    indConsigne: "Exposé 1 : relief, climats, sols, végétation ; hydrographie (fleuves du tableau et autres, grands lacs, lacs de barrage) ; usage de l'eau pour l'irrigation",
+    dev: ["D'abord, le relief africain est peu accidenté : il est fait surtout de vastes plaines et de plateaux faciles à cultiver, et les montagnes créent des climats locaux qui permettent d'autres cultures. Les climats sont variés, équatorial, tropical, désertique et méditerranéen, ce qui permet des productions très différentes d'une région à l'autre.",
+      "Ensuite, l'Afrique a de vastes terres cultivables, aux sols variés, ferralitiques, ferrugineux ou hydromorphes. Ses forêts et ses savanes enrichissent les sols et protègent le climat.",
+      "Enfin, comme le montre le tableau, de grands fleuves arrosent l'Afrique : le Nil, long d'environ 6 650 km, qu'aucun fleuve au monde ne dépasse ; le Congo, environ 4 700 km, le plus puissant d'Afrique ; le Niger, environ 4 200 km, avec la Bénoué ; le Zambèze, environ 2 570 km ; mais aussi le Sénégal, l'Orange, le Limpopo, la Volta, et le Chari, qui se jette dans le lac Tchad. Il y a aussi de grands lacs, Victoria, Tanganyika, Malawi, Tchad, Turkana, et des lacs de barrage, Volta, Nasser, Kariba. Fleuves et lacs permettent l'irrigation, surtout pour les cultures maraîchères et de contre-saison."],
+    concl: "En définitive, chers amis, avec son relief facile, ses climats variés, ses vastes terres et ses grands fleuves, l'Afrique a des conditions naturelles plutôt favorables à l'agriculture.",
+    justesse: ["Relief peu accidenté (plaines, plateaux ; montagnes et climats locaux) ; climats variés (équatorial, tropical, désertique, méditerranéen).",
+      "Sols : vastes terres cultivables, sols variés (ferralitiques, ferrugineux, hydromorphes) ; végétation (forêts, savanes) qui enrichit les sols.",
+      "Hydrographie : Nil (6 650 km), Congo (4 700 km), Niger (4 200 km, Bénoué), Zambèze (2 570 km), Sénégal, Orange, Limpopo, Volta, Chari ; lacs Victoria, Tanganyika, Malawi, Tchad, Turkana ; lacs de barrage (Volta, Nasser, Kariba) ; irrigation."],
+    concepts: "Relief, climat, sol, hydrographie, fleuve, lac de barrage, irrigation, culture de contre-saison."
+  }, {
+    intro: "Malgré ces atouts, notre agriculture produit peu. Dans ce second exposé, à partir de l'exemple d'Afi et de M. Komlan, je vais vous présenter les caractéristiques générales de l'agriculture africaine.",
+    adresse: "Chers amis,",
+    support: "Le portrait d'Afi (petit champ, maïs, manioc, haricots pour la famille, houe, terre laissée au repos) et de M. Komlan (plantation de café et de cacao vendus, rendements faibles) ; informations exploitées",
+    indConsigne: "Exposé 2 : outillage rudimentaire ; techniques traditionnelles (pluviale, extensive, brûlis, jachère, petites exploitations) ; faible productivité ; dualisme (vivrier / rente) ; plus de la moitié de la population active",
+    dev: ["D'abord, l'outillage est rudimentaire : comme Afi avec sa houe, la plupart des paysans utilisent la daba, le coupe-coupe, le bâton à fouir et la faucille ; quelques-uns pratiquent la culture attelée.",
+      "Ensuite, les techniques sont traditionnelles : l'agriculture est pluviale, car on attend la pluie, extensive, sur brûlis, avec jachère, comme Afi qui laisse reposer sa terre plusieurs années, et sur de petites exploitations. Il en résulte une faible productivité : les rendements sont bas, même chez M. Komlan.",
+      "Enfin, l'agriculture africaine est dualiste : à côté des cultures vivrières traditionnelles, qui servent à nourrir la famille, comme le maïs, le manioc et les haricots d'Afi, il y a des cultures de rente plus modernes, destinées à la vente, comme le café et le cacao de M. Komlan, ou le coton. Elle occupe plus de la moitié de la population active."],
+    concl: "En définitive, chers amis, notre agriculture fait vivre plus de la moitié des Africains, mais ses outils et ses techniques encore traditionnels la rendent peu productive.",
+    justesse: ["Outillage rudimentaire : daba (houe), coupe-coupe, bâton à fouir, faucille ; parfois culture attelée.",
+      "Techniques traditionnelles : pluviale, extensive, sur brûlis, jachère, petites exploitations ; faible productivité, rendements bas.",
+      "Dualisme : cultures vivrières (nourrir la famille) / cultures de rente (vente : café, cacao, coton) ; plus de la moitié de la population active."],
+    concepts: "Outillage rudimentaire, agriculture extensive, jachère, productivité, rendement, culture vivrière, culture de rente, dualisme."
+  }]
+});
+EPREUVES_4E.g4_5.sit.push({
+  texte: "Ta classe, partie de Kpalimé, a visité le barrage d'Akosombo, au Ghana (document). Sur le chemin du retour, une camarade dit : « L'Afrique n'aura jamais d'usines : elle n'a rien pour les faire marcher. » Le professeur demande à chaque élève un compte rendu de la visite qui réponde à cette remarque.",
+  consigne: "Rédige le compte rendu de la visite : à partir de la photo et de tes connaissances, montre que l'Afrique dispose de grandes potentialités pour développer son industrie.",
+  doc: { titre: "Document : le barrage d'Akosombo sur la Volta (Ghana)", image: "images/ep4_akosombo.jpg", credit: "Photo Kwasi Rex — CC0 (Wikimedia Commons)." },
+  titreProd: "Compte rendu de la visite du barrage d'Akosombo",
+  intro: "Notre classe a visité le barrage d'Akosombo, construit sur la Volta, au Ghana. Au retour, une camarade a affirmé que l'Afrique n'avait rien pour faire marcher des usines. Ce compte rendu montre au contraire les grandes potentialités de l'industrie africaine.",
+  support: "La visite du barrage d'Akosombo ; la photo (le barrage, le lac de la Volta, la centrale) ; la remarque de la camarade ; informations exploitées",
+  indConsigne: "Compte rendu : ressources minières, ressources énergétiques, matières premières agricoles ; main-d'œuvre et marché ; grands barrages hydroélectriques (Akosombo et autres)",
+  dev: ["D'abord, le barrage que nous avons vu retient l'eau de la Volta dans un immense lac et produit de l'électricité : c'est un des grands barrages hydroélectriques d'Afrique. Il y en a beaucoup d'autres : le grand barrage de la Renaissance, en Éthiopie, sur le Nil Bleu, le plus puissant d'Afrique ; Assouan, en Égypte, sur le Nil ; Gibe III en Éthiopie ; Inga, en RD Congo ; Kariba et Cahora Bassa sur le Zambèze ; Laúca en Angola ; Kainji au Nigeria ; Kossou en Côte d'Ivoire ; Manantali au Mali ; et Nangbéto, sur le Mono, entre le Togo et le Bénin. L'Afrique a donc l'énergie pour faire tourner des usines.",
+    "Ensuite, l'Afrique a aussi d'autres ressources énergétiques, le pétrole, le gaz naturel, le charbon, l'uranium, et un grand potentiel solaire. Ses ressources minières sont immenses : or, fer, cuivre, cobalt, bauxite, diamant, platine, uranium, phosphate, calcaire ; plus de 70 % du cobalt extrait dans le monde vient de RD Congo. Elle produit enfin de nombreuses matières premières agricoles à transformer : coton, café, cacao, canne à sucre, palmier à huile, hévéa, bois, thé, tabac, fruits.",
+    "Enfin, l'Afrique dispose d'une main-d'œuvre abondante et jeune, et d'un grand marché d'environ 1,5 milliard de consommateurs, à qui les usines peuvent vendre leurs produits."],
+  concl: "En définitive, la visite d'Akosombo le prouve : avec son énergie, ses ressources minières et agricoles, sa main-d'œuvre et son marché, l'Afrique a tout pour développer son industrie.",
+  justesse: ["Grands barrages : Renaissance (Éthiopie, le plus puissant), Assouan, Gibe III, Inga, Kariba, Cahora Bassa, Laúca, Akosombo (Ghana, Volta), Kainji, Kossou, Manantali, Nangbéto (Togo-Bénin, Mono).",
+    "Ressources énergétiques (pétrole, gaz, charbon, uranium, hydroélectricité, solaire) ; minières (or, fer, cuivre, cobalt : plus de 70 % du cobalt extrait vient de RD Congo, bauxite, diamant, phosphate…) ; matières premières agricoles (coton, café, cacao, palmier à huile, hévéa, bois…).",
+    "Main-d'œuvre abondante et jeune ; marché d'environ 1,5 milliard de consommateurs."],
+  concepts: "Potentialité, ressource minière, ressource énergétique, matière première, barrage hydroélectrique, main-d'œuvre, marché."
+});
+EPREUVES_4E.g4_5.sit.push({
+  texte: "Pendant la semaine « Consommons local » de ton collège, le club d'économie tient un stand. Une élève s'étonne : « Pourquoi nos phosphates partent-ils à l'étranger sans être transformés, et pourquoi tout ce qui est fabriqué ici coûte-t-il plus cher que ce qui vient d'ailleurs ? » Tu dois préparer deux fiches pour le stand, à partir des documents 1 et 2.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première fiche : présente le niveau d'industrialisation de l'Afrique et les types d'industries qu'on y trouve.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde fiche : explique les difficultés de l'industrie africaine et les efforts faits par les États pour s'industrialiser."],
+  docs: [{ titre: "Document 1 : quelques entreprises citées par les élèves du club", liste: ["La SNPT extrait les phosphates du Togo.", "La NIOTO fabrique de l'huile au Togo, la Brasserie BB des boissons.", "Fan Milk transforme le lait au Ghana.", "Sonatrach (Algérie), Sasol (Afrique du Sud) et les cimenteries Dangote (Nigeria) font partie des rares industries lourdes du continent."] },
+    { titre: "Document 2 : le témoignage d'une jeune chef d'entreprise", texte: "« J'ai voulu ouvrir une petite usine de jus de fruits. La banque m'a refusé un prêt, les impôts sont lourds et mes machines viennent de l'étranger. J'ai du mal à trouver des techniciens qualifiés. Résultat : mon jus coûte plus cher que le jus importé. Heureusement, la nouvelle zone industrielle d'Adétikopé offre des avantages aux entreprises qui s'y installent. »" }],
+  prods: [{
+    titreProd: "Fiche 1 : l'industrie africaine, une industrie encore jeune",
+    intro: "Pourquoi nos phosphates partent-ils sans être transformés ? Cette première fiche présente le niveau d'industrialisation de l'Afrique et les types d'industries qu'on y trouve.",
+    support: "La semaine « Consommons local » ; la question de l'élève sur les phosphates ; la liste des entreprises (SNPT, NIOTO, Brasserie BB, Fan Milk, Sonatrach, Sasol, Dangote) ; informations exploitées",
+    indConsigne: "Fiche 1 : niveau (récente, embryonnaire ; pays assez industrialisés) ; types (extraction, agroalimentaire et transformation, peu d'industries lourdes) avec les exemples du document",
+    dev: ["D'abord, l'industrialisation de l'Afrique est récente et encore faible : on dit qu'elle est embryonnaire. Seuls quelques pays sont assez industrialisés : l'Afrique du Sud, l'Égypte, le Nigeria, le Maroc et l'Algérie.",
+      "Ensuite, on trouve surtout des industries d'extraction, qui sortent du sol l'or ou les phosphates, comme la SNPT au Togo : c'est pourquoi nos phosphates sont souvent vendus bruts. Il y a aussi des industries agroalimentaires et de transformation, comme la NIOTO, qui fabrique de l'huile, la Brasserie BB au Togo ou Fan Milk au Ghana.",
+      "Enfin, les industries lourdes sont peu nombreuses : Sonatrach en Algérie, Sasol en Afrique du Sud et les cimenteries Dangote au Nigeria en sont des exemples rares."],
+    concl: "En définitive, l'industrie africaine est encore jeune : elle extrait beaucoup et transforme peu. Transformer nos matières premières sur place est l'un des grands défis du continent.",
+    justesse: ["Niveau : industrialisation récente, faible, embryonnaire ; pays assez industrialisés : Afrique du Sud, Égypte, Nigeria, Maroc, Algérie.",
+      "Types : surtout extraction (or ; phosphates de la SNPT) ; agroalimentaire et transformation (NIOTO, Brasserie BB, Fan Milk).",
+      "Peu d'industries lourdes : Sonatrach, Sasol, Dangote."],
+    concepts: "Industrialisation, industrie embryonnaire, industrie d'extraction, industrie agroalimentaire, industrie lourde."
+  }, {
+    titreProd: "Fiche 2 : pourquoi nos produits coûtent cher, et ce que font les États",
+    intro: "Pourquoi un jus fabriqué ici coûte-t-il plus cher qu'un jus importé ? Cette seconde fiche explique les difficultés de l'industrie africaine, puis les efforts faits par les États pour s'industrialiser.",
+    support: "Le témoignage de la jeune chef d'entreprise (prêt refusé, impôts lourds, machines importées, manque de techniciens, jus plus cher que le jus importé, avantages de la zone d'Adétikopé) ; informations exploitées",
+    indConsigne: "Fiche 2 : difficultés (main-d'œuvre peu qualifiée, produits peu compétitifs, investissements faibles, crédit difficile, impôts élevés, mauvaise gestion) ; efforts (politique, formation, unités industrielles dont la PIA, financement, gestion)",
+    dev: ["D'abord, l'industrie africaine manque de travailleurs qualifiés : ils sont moins nombreux que les non-qualifiés, et la jeune chef d'entreprise a du mal à trouver des techniciens. Ses produits finis sont souvent moins compétitifs que les produits étrangers, car les investissements sont faibles, le crédit est difficile à obtenir et les impôts sont élevés, comme le montre son témoignage. Beaucoup d'entreprises sont en outre mal gérées, avec des détournements et un manque de contrôle.",
+      "Ensuite, les États font des efforts : ils adoptent des plans d'industrialisation, offrent des avantages pour attirer les investisseurs et font la promotion des produits locaux, comme notre semaine « Consommons local ». Des écoles et des universités forment des ingénieurs et des techniciens.",
+      "Enfin, ils créent des unités industrielles, des petites et moyennes entreprises, des usines de transformation et des zones industrielles, comme la Plateforme industrielle d'Adétikopé (PIA), créée au Togo en 2021. Ils encouragent l'investissement privé, développent de nouvelles sources d'énergie, barrages et solaire, et de meilleures voies de communication, et prennent des mesures contre la mauvaise gestion."],
+    concl: "En définitive, nos produits coûtent cher parce que notre industrie manque de capitaux, de techniciens et de bonne gestion ; mais les efforts des États, comme la PIA, et notre choix de consommer local peuvent la faire grandir.",
+    justesse: ["Difficultés : travailleurs qualifiés moins nombreux ; produits peu compétitifs ; investissements faibles, crédit difficile, impôts élevés ; mauvaise gestion (détournements, manque de contrôle).",
+      "Efforts : politique (plans, avantages aux investisseurs, promotion des produits locaux) ; formation (ingénieurs, techniciens).",
+      "Unités industrielles (PME, usines, zones industrielles : PIA, 2021) ; financement (investissement privé, énergie, voies de communication) ; mesures contre la mauvaise gestion."],
+    concepts: "Compétitivité, investissement, crédit, main-d'œuvre qualifiée, zone industrielle, promotion des produits locaux."
+  }]
+});
+EPREUVES_4E.g4_6.sit.push({
+  texte: "Ton père est docker au port autonome de Lomé (document). Un soir, il raconte : « Les bateaux repartent chargés de sacs de café, de cacao et de coton, et nous déchargeons des voitures, des machines et des cartons de médicaments. Plus on vend de sacs, plus on a l'impression de s'appauvrir ! » Ta petite sœur ne comprend pas. Le club de journalisme t'a justement demandé une interview imaginaire d'un économiste sur le commerce africain.",
+  consigne: "Rédige l'interview : à partir de la photo, des propos de ton père et de tes connaissances, fais expliquer par l'économiste les échanges de l'Afrique avec les autres continents et les problèmes qu'ils posent.",
+  doc: { titre: "Document : le terminal à conteneurs du port autonome de Lomé", image: "images/ep4_port_lome.jpg", credit: "Photo Chado07 — CC0 (Wikimedia Commons)." },
+  titreProd: "« L'Afrique vend beaucoup, mais gagne peu » : interview d'un économiste",
+  intro: "Au port autonome de Lomé, les grues chargent et déchargent sans arrêt des conteneurs. Pourtant, mon père, docker, a l'impression que plus on vend, plus on s'appauvrit. Nous avons posé la question à un économiste : il nous explique les échanges de l'Afrique avec les autres continents et leurs problèmes.",
+  support: "La photo du terminal à conteneurs du port de Lomé ; les propos du père docker (exportations de café, cacao, coton ; importations de voitures, machines, médicaments ; impression de s'appauvrir) ; informations exploitées",
+  indConsigne: "Interview (questions et réponses) : définition du commerce ; exportations et importations ; partenaires ; balance déficitaire et part de 3 % ; détérioration des termes de l'échange, faible compétitivité, dépendance",
+  dev: ["D'abord, question : « Que vend et qu'achète l'Afrique ? » Réponse : « Le commerce, c'est acheter et vendre des biens et des services pour en tirer un profit. Avec les autres continents, l'Afrique exporte surtout des matières premières, minerais, pétrole, gaz et produits agricoles, comme le café, le cacao et le coton que charge votre père. Elle importe des produits fabriqués : machines, véhicules, médicaments. »",
+    "Ensuite, question : « Avec qui l'Afrique commerce-t-elle, et y gagne-t-elle ? » Réponse : « Ses principaux partenaires sont l'Union européenne, la Chine, les États-Unis, l'Inde et le Japon. Mais sa balance commerciale est souvent déficitaire : elle achète plus qu'elle ne vend. Et sa part du commerce mondial est très faible, environ 3 %. »",
+    "Enfin, question : « Pourquoi a-t-on l'impression de s'appauvrir ? » Réponse : « À cause de la détérioration des termes de l'échange : les prix des produits fabriqués montent, alors que ceux des matières premières stagnent ; il faut donc vendre toujours plus de sacs pour acheter la même machine. De plus, les produits africains sont peu compétitifs à l'exportation, et l'Afrique est dépendante : les prix de ses matières premières sont fixés hors d'Afrique, et les règles du commerce mondial, celles de l'OMC, lui sont souvent défavorables. »"],
+  concl: "En définitive, l'économiste conclut : « Tant que l'Afrique vendra surtout des matières premières brutes, elle gagnera peu ; il lui faut les transformer sur place et diversifier ses exportations. » Ma petite sœur a compris l'impression de mon père.",
+  justesse: ["Commerce : acheter et vendre des biens et des services pour un profit ; exportations de matières premières (minerais, pétrole, gaz, produits agricoles) ; importations de produits fabriqués (machines, véhicules, médicaments).",
+    "Partenaires : Union européenne, Chine, États-Unis, Inde, Japon ; balance commerciale souvent déficitaire ; environ 3 % du commerce mondial.",
+    "Problèmes : détérioration des termes de l'échange ; faible compétitivité ; dépendance (prix fixés hors d'Afrique, règles de l'OMC défavorables)."],
+  concepts: "Commerce, exportation, importation, balance commerciale, termes de l'échange, dépendance, compétitivité."
+});
+EPREUVES_4E.g4_6.sit.push({
+  texte: "Ta mère, revendeuse de tissus à Lomé, revient d'un voyage d'achat au Nigeria, épuisée (document 1). Ton oncle, qui dirige une petite coopérative de cacao, lui répond qu'il a trouvé, lui, une solution (document 2). Ton professeur de géographie te propose d'écrire, à partir de leurs deux récits, un article pour le journal de la classe.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première partie de l'article : décris les échanges entre pays africains et les problèmes qui les freinent.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie de l'article : présente les solutions qui peuvent améliorer le commerce africain."],
+  docs: [{ titre: "Document 1 : le récit de la revendeuse", texte: "« Pour aller à Lagos, j'ai passé deux frontières : à chaque poste, des contrôles et des taxes à payer. La route était pleine de trous et il n'y a pas de train. Au retour, mes clientes trouvaient mes tissus trop chers : elles n'ont pas beaucoup d'argent, et beaucoup préfèrent les produits venus d'Europe ou d'Asie. »" },
+    { titre: "Document 2 : la solution de l'oncle", texte: "« Avant, nous vendions nos fèves de cacao brutes, au prix fixé à l'étranger. Maintenant, notre coopérative fabrique aussi de la pâte de cacao et du beurre de cacao, et nous commençons à les vendre dans les pays voisins. Avec la ZLECAf, on nous promet moins de taxes aux frontières africaines. »" }],
+  prods: [{
+    titreProd: "Commercer entre Africains : un parcours d'obstacles",
+    intro: "Ma mère est revenue épuisée de son voyage d'achat au Nigeria. Son récit montre combien il est difficile de commercer entre pays africains. Cette première partie décrit ces échanges et les problèmes qui les freinent.",
+    support: "Le récit de la revendeuse (deux frontières, contrôles et taxes, route pleine de trous, pas de train, clientes sans argent, préférence pour les produits d'Europe ou d'Asie) ; informations exploitées",
+    indConsigne: "Article, partie 1 : faiblesse des échanges interafricains (environ 15 %, marché morcelé, ZLECAf 2021) ; problèmes de transport, d'accès aux marchés et de consommation",
+    dev: ["D'abord, le commerce entre pays africains est peu développé : il ne représente qu'environ 15 % de leurs échanges. Le marché africain est morcelé par les frontières et les barrières douanières, malgré la Zone de libre-échange continentale africaine (ZLECAf), créée en 2021.",
+      "Ensuite, les transports freinent ces échanges : les routes sont insuffisantes et en mauvais état, comme celle « pleine de trous » de Lagos, et il y a peu de voies ferrées entre pays. L'accès aux marchés est difficile : les marchés intérieurs sont étroits, et il y a des contrôles et des taxes aux frontières, comme ceux que ma mère a subis à chaque poste.",
+      "Enfin, la consommation est faible : les Africains ont un faible pouvoir d'achat, comme les clientes de ma mère, qui « n'ont pas beaucoup d'argent », et ils achètent peu les produits africains, en préférant ceux d'Europe ou d'Asie."],
+    concl: "En définitive, mauvaises routes, frontières coûteuses et faible pouvoir d'achat expliquent pourquoi les Africains commercent si peu entre eux.",
+    justesse: ["Échanges interafricains : environ 15 % des échanges ; marché morcelé par les frontières et les barrières douanières ; ZLECAf (2021).",
+      "Transports : routes insuffisantes et en mauvais état, peu de voies ferrées entre pays ; accès aux marchés : marchés étroits, contrôles et taxes aux frontières.",
+      "Consommation : faible pouvoir d'achat ; peu d'achats de produits africains."],
+    concepts: "Échanges interafricains, barrière douanière, marché, pouvoir d'achat, ZLECAf."
+  }, {
+    titreProd: "Des solutions pour un commerce africain plus fort",
+    intro: "Mon oncle, lui, a trouvé une solution pour mieux vendre son cacao. Cette seconde partie présente, à partir de son exemple, les solutions qui peuvent améliorer le commerce africain.",
+    support: "La solution de l'oncle (fèves vendues brutes au prix fixé à l'étranger, puis fabrication de pâte et de beurre de cacao, vente dans les pays voisins, ZLECAf et moins de taxes) ; informations exploitées",
+    indConsigne: "Article, partie 2 : appliquer la ZLECAf ; routes et voies ferrées entre pays ; transformer sur place ; diversifier les exportations ; consommer africain ; lien avec la dépendance et les termes de l'échange",
+    dev: ["D'abord, il faut transformer les matières premières sur place, comme la coopérative de mon oncle, qui fabrique désormais de la pâte et du beurre de cacao au lieu de vendre des fèves brutes dont le prix est fixé à l'étranger. On diversifie ainsi les exportations et l'on dépend moins des prix des matières premières.",
+      "Ensuite, il faut appliquer la ZLECAf, c'est-à-dire supprimer les barrières douanières entre pays africains, et construire des routes et des voies ferrées entre pays, pour que les marchandises circulent plus facilement.",
+      "Enfin, les Africains doivent consommer les produits africains : si les clientes achètent la pâte de cacao de mon oncle ou les tissus de la région, les échanges entre pays africains grandiront."],
+    concl: "En définitive, transformer sur place, ouvrir les frontières africaines grâce à la ZLECAf et consommer africain : ce sont les clés d'un commerce qui enrichisse enfin notre continent.",
+    justesse: ["Transformer les matières premières sur place ; diversifier les exportations (moins de dépendance).",
+      "Appliquer la ZLECAf (supprimer les barrières douanières) ; construire routes et voies ferrées entre pays.",
+      "Consommer les produits africains."],
+    concepts: "Transformation sur place, diversification, ZLECAf, libre-échange, consommation locale."
+  }]
+});
+EPREUVES_4E.g4_7.sit.push({
+  texte: "Le club informatique de ton collège organise une journée « Connectés ! ». Tu dois y faire un exposé sur les télécommunications en Afrique. Ton camarade Tchilabalo, qui passe ses vacances dans un village près de Bassar, t'a envoyé le message du document.",
+  consigne: "Rédige l'exposé : à partir du message de Tchilabalo et de tes connaissances, présente les caractéristiques des télécommunications en Afrique, puis les efforts faits pour les moderniser, en Afrique et au Togo.",
+  doc: { titre: "Document : le message de Tchilabalo", texte: "« Ici, au village, il faut monter sur la colline pour capter le réseau ! Tout le monde a un portable, mais on l'utilise avec des cartes prépayées, et internet est si lent que je n'arrive même pas à ouvrir une vidéo. En plus, le forfait coûte cher. À Lomé, chez mon cousin, ça marche beaucoup mieux, et il paie même ses achats avec son téléphone. »" },
+  intro: "Le message de Tchilabalo, en vacances près de Bassar, montre bien la situation des télécommunications en Afrique. Dans cet exposé, je vais présenter leurs caractéristiques, puis les efforts faits pour les moderniser.",
+  adresse: "Chers camarades,",
+  support: "La journée « Connectés ! » ; le message de Tchilabalo (réseau capté sur la colline, portable avec cartes prépayées, internet lent et cher, situation meilleure à Lomé, paiement par téléphone) ; informations exploitées",
+  indConsigne: "Exposé : définition des télécommunications ; appareils (portable, cartes prépayées) ; répartition (villes / campagnes) ; maillage (couverture faible, internet lent et cher) ; modernisation (haut débit, fibre, équipements, baisse des coûts ; 5G 2020, Equiano 2022, paiements, services en ligne)",
+  dev: ["D'abord, les télécommunications sont l'ensemble des moyens qui permettent de transmettre des informations à distance. En Afrique, l'appareil le plus utilisé est le téléphone portable, surtout avec des cartes prépayées, comme au village de Tchilabalo.",
+    "Ensuite, les villes sont bien mieux desservies que les campagnes : chez le cousin de Lomé, « ça marche beaucoup mieux », alors qu'au village il faut monter sur la colline pour capter. La couverture du réseau est faible, et les connexions internet sont lentes et coûtent cher : Tchilabalo n'arrive même pas à ouvrir une vidéo.",
+    "Enfin, des efforts de modernisation sont faits : le développement du haut débit et de la fibre optique, l'installation d'équipements modernes et la baisse des coûts. Au Togo, la 5G est arrivée à Lomé en 2020 et le câble sous-marin Equiano en 2022 ; on peut payer par téléphone, comme le cousin de Tchilabalo, et utiliser des services publics en ligne."],
+  concl: "En définitive, chers camarades, le portable a conquis l'Afrique, mais les campagnes restent mal connectées ; la fibre, la 5G et le câble Equiano doivent rapprocher le village de Tchilabalo de la ville.",
+  justesse: ["Télécommunications : moyens de transmettre des informations à distance ; le portable, surtout avec des cartes prépayées.",
+    "Répartition : villes bien mieux desservies que les campagnes ; maillage : couverture faible, internet lent et cher.",
+    "Modernisation : haut débit, fibre optique, équipements modernes, baisse des coûts ; au Togo : 5G à Lomé (2020), câble Equiano (2022), paiements par téléphone, services publics en ligne."],
+  concepts: "Télécommunications, réseau, couverture, haut débit, fibre optique, câble sous-marin."
+});
+EPREUVES_4E.g4_7.sit.push({
+  texte: "Ton camarade Essowè a fait en car le trajet de Lomé à Dapaong pour les vacances ; il a raconté son voyage sur le blog de la classe (document 1). Sous son récit, son oncle, installé au Maroc, a laissé un commentaire (document 2). Le professeur te demande d'écrire, pour le blog, un article en deux parties sur les transports en Afrique.",
+  consignes: ["À partir du document 1 et de tes connaissances, rédige la première partie de l'article : présente les caractéristiques générales des transports en Afrique.",
+    "À partir du document 2 et de tes connaissances, rédige la seconde partie de l'article : montre les efforts de modernisation des transports en Afrique et au Togo."],
+  docs: [{ titre: "Document 1 : le récit d'Essowè", texte: "« Nous sommes partis dans un vieux car surchargé. Sur la route, des nids-de-poule, des camions en panne, puis des pistes de terre dès qu'on quitte le grand axe. Pas de train : la vieille voie ferrée ne sert plus. J'ai remarqué que les grandes routes et les villes sont surtout près de la côte. »" },
+    { titre: "Document 2 : le commentaire de l'oncle d'Essowè", texte: "« Ici, au Maroc, j'ai pris le train à grande vitesse entre Tanger et Casablanca : c'est le premier d'Afrique ! Et au Nigeria, des amis voyagent maintenant en train entre Abuja et Kaduna. Le Togo avance aussi : la prochaine fois, regarde la nouvelle aérogare de Lomé et le port. »" }],
+  prods: [{
+    titreProd: "Voyager en Afrique : des réseaux encore insuffisants",
+    intro: "Le voyage d'Essowè de Lomé à Dapaong montre comment on se déplace en Afrique. Cette première partie présente les caractéristiques générales des transports sur notre continent.",
+    support: "Le récit d'Essowè (vieux car surchargé, nids-de-poule, camions en panne, pistes de terre, voie ferrée abandonnée, grandes routes et villes près de la côte) ; informations exploitées",
+    indConsigne: "Article, partie 1 : définition du transport ; types (route dominante, chiffres ; maritime, ferroviaire, aérien) ; état du réseau ; maillage peu dense et littoralisation",
+    dev: ["D'abord, le transport est l'ensemble des moyens qui permettent de déplacer des personnes ou des biens d'un lieu à un autre. En Afrique, la route domine : elle assure environ 80 % du transport des marchandises et 90 % de celui des voyageurs. On distingue les routes bitumées, les routes en terre et les pistes, comme celles qu'Essowè a empruntées dès qu'il a quitté le grand axe. Le transport maritime progresse, mais les ports africains sont moins performants que ceux du reste du monde ; le chemin de fer est en retard, et le transport aérien est en difficulté.",
+      "Ensuite, le réseau est en mauvais état : routes et voies ferrées abîmées, véhicules vieux et manque d'entretien, comme le montrent le vieux car surchargé, les nids-de-poule et la vieille voie ferrée qui ne sert plus.",
+      "Enfin, le maillage est peu dense, et le réseau se concentre près des côtes : c'est la littoralisation, qu'Essowè a remarquée en voyant que les grandes routes et les villes sont surtout près de la côte."],
+    concl: "En définitive, en Afrique, presque tout passe par la route, sur des réseaux peu denses, mal entretenus et concentrés près des côtes.",
+    justesse: ["Transport : moyens de déplacer personnes et biens ; route dominante (environ 80 % des marchandises, 90 % des voyageurs) ; routes bitumées, en terre, pistes.",
+      "Maritime en progrès mais ports moins performants ; chemin de fer en retard ; aérien en difficulté ; état du réseau : mauvais état, véhicules vieux, manque d'entretien.",
+      "Maillage peu dense, concentré près des côtes (littoralisation)."],
+    concepts: "Transport, réseau, piste, maillage, littoralisation."
+  }, {
+    titreProd: "Des transports qui se modernisent",
+    intro: "Le commentaire de l'oncle d'Essowè montre pourtant que les transports africains changent. Cette seconde partie présente les efforts de modernisation des transports en Afrique et au Togo.",
+    support: "Le commentaire de l'oncle (TGV Tanger-Casablanca, premier d'Afrique ; train Abuja-Kaduna ; nouvelle aérogare de Lomé ; port) ; informations exploitées",
+    indConsigne: "Article, partie 2 : en Afrique (routes transafricaines, corridors, Abuja-Kaduna 2016, TGV Tanger-Casablanca 2018) ; au Togo (port en eau profonde, corridor Lomé-Ouagadougou, aérogare 2016)",
+    dev: ["D'abord, l'Afrique construit des routes transafricaines, comme la route côtière Abidjan-Lagos, qui passe par Lomé, et des corridors qui désenclavent les pays sans accès à la mer.",
+      "Ensuite, elle modernise ses chemins de fer : au Nigeria, la nouvelle voie ferrée Abuja-Kaduna a été mise en service en 2016, et au Maroc, le premier train à grande vitesse d'Afrique relie Tanger à Casablanca depuis 2018, comme le raconte l'oncle d'Essowè.",
+      "Enfin, le Togo n'est pas en reste : le port autonome de Lomé, port en eau profonde, a été modernisé et sert les pays du Sahel ; le corridor Lomé-Ouagadougou est en cours de réhabilitation ; et la nouvelle aérogare de l'aéroport de Lomé a été inaugurée en 2016."],
+    concl: "En définitive, routes transafricaines, nouvelles voies ferrées, port et aérogare modernisés : les transports africains restent insuffisants, mais ils se modernisent peu à peu.",
+    justesse: ["Afrique : routes transafricaines (Abidjan-Lagos par Lomé), corridors de désenclavement.",
+      "Voie ferrée Abuja-Kaduna (2016) ; premier TGV d'Afrique, Tanger-Casablanca (2018).",
+      "Togo : port autonome de Lomé modernisé, en eau profonde, au service du Sahel ; corridor Lomé-Ouagadougou ; nouvelle aérogare de Lomé (2016)."],
+    concepts: "Modernisation, route transafricaine, corridor, désenclavement, port en eau profonde, train à grande vitesse."
+  }]
+});
