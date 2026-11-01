@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v47';
+const CACHE = 'fiches-hg-v48';
 const ASSETS = [
   './',
   './index.html',
