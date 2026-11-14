@@ -1,5 +1,5 @@
 // Changer ce numéro à chaque mise à jour importante force le rechargement de tous les fichiers.
-const CACHE = 'fiches-hg-v49';
+const CACHE = 'fiches-hg-v50';
 const ASSETS = [
   './',
   './index.html',
@@ -38,7 +38,7 @@ const ASSETS = [
   './images/ep3_train_cote.jpg',
   './images/ep4_afrique_satellite.jpg',
   './images/ep4_akosombo.jpg',
-  './images/ep4_barrage_renaissance.jpg',
+  './images/ep4_gerd_satellite.jpg',
   './images/ep4_cape_coast.jpg',
   './images/ep4_epe_ekpe.jpg',
   './images/ep4_erosion_cotiere.jpg',
